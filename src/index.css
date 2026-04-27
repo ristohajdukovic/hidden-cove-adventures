@@ -2,95 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Hidden Cove Ulcinj — Mediterranean Neo-Rustic design system.
+   All colors HSL. Tokens only — never use raw colors in components. */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Brand palette */
+    --adriatic: 196 83% 16%;        /* #073B4C deep adriatic blue */
+    --sea: 197 82% 38%;             /* #118AB2 */
+    --turquoise: 169 60% 61%;       /* #5DD9C1 */
+    --sand: 41 65% 87%;             /* #F4E6C8 warm sand */
+    --sand-deep: 38 47% 80%;        /* deeper warm sand */
+    --apricot: 27 87% 67%;          /* #F4A261 sunset apricot */
+    --olive: 75 36% 36%;            /* #6B7D3C */
+    --stone: 41 47% 96%;            /* #FAF7F0 stone white */
+    --ink: 0 0% 12%;                /* #1E1E1E charcoal */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Semantic shadcn tokens mapped to brand */
+    --background: var(--sand);
+    --foreground: var(--adriatic);
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --card: var(--stone);
+    --card-foreground: var(--adriatic);
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --popover: var(--stone);
+    --popover-foreground: var(--adriatic);
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --primary: var(--adriatic);
+    --primary-foreground: var(--stone);
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --secondary: var(--sand-deep);
+    --secondary-foreground: var(--adriatic);
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: var(--sand-deep);
+    --muted-foreground: 196 30% 28%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --accent: var(--apricot);
+    --accent-foreground: var(--adriatic);
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --destructive: 0 70% 45%;
+    --destructive-foreground: var(--stone);
 
-    --radius: 0.5rem;
+    --border: 196 30% 16% / 0.1;
+    --input: 196 30% 16% / 0.15;
+    --ring: var(--adriatic);
 
-    --sidebar-background: 0 0% 98%;
+    --radius: 1.25rem;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Gradients & shadows */
+    --gradient-sea: linear-gradient(135deg, hsl(var(--adriatic)), hsl(var(--sea)));
+    --gradient-sunset: linear-gradient(135deg, hsl(var(--apricot)), hsl(27 87% 78%));
+    --gradient-warm: linear-gradient(180deg, hsl(var(--sand)) 0%, hsl(var(--stone)) 100%);
 
-    --sidebar-primary: 240 5.9% 10%;
+    --shadow-soft: 0 4px 20px -8px hsl(var(--adriatic) / 0.12);
+    --shadow-card: 0 12px 40px -16px hsl(var(--adriatic) / 0.15);
+    --shadow-warm: 0 8px 28px -10px hsl(var(--apricot) / 0.35);
 
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: var(--adriatic);
+    --foreground: var(--stone);
+    --card: 196 60% 12%;
+    --card-foreground: var(--stone);
   }
 }
 
@@ -98,8 +73,63 @@ All colors MUST be HSL.
   * {
     @apply border-border;
   }
-
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-feature-settings: 'ss01', 'cv11';
   }
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Fraunces', Georgia, serif;
+    font-feature-settings: 'ss01';
+  }
+}
+
+@layer utilities {
+  .font-display { font-family: 'Fraunces', Georgia, serif; }
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
+  /* Subtle paper / canvas texture */
+  .texture-canvas {
+    background-image:
+      radial-gradient(hsl(var(--adriatic) / 0.04) 1px, transparent 1px),
+      radial-gradient(hsl(var(--adriatic) / 0.03) 1px, transparent 1px);
+    background-size: 24px 24px, 32px 32px;
+    background-position: 0 0, 12px 16px;
+  }
+
+  .texture-stone {
+    background-image:
+      radial-gradient(hsl(var(--ink) / 0.03) 1px, transparent 1.5px);
+    background-size: 18px 18px;
+  }
+
+  .photo-frame {
+    @apply bg-stone p-2.5 rounded-[2rem] border border-adriatic/10;
+    box-shadow: var(--shadow-card);
+  }
+  .photo-frame-inner {
+    @apply rounded-[1.5rem] overflow-hidden bg-sand-deep;
+    outline: 1px solid hsl(var(--ink) / 0.08);
+    outline-offset: -1px;
+  }
+
+  .anim-fade-up {
+    animation: fadeUp 0.8s var(--transition-smooth) both;
+  }
+  .anim-float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-12deg); }
+  50% { transform: translateY(-6px) rotate(-10deg); }
 }
