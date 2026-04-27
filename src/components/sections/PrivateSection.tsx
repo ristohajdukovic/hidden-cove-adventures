@@ -1,7 +1,7 @@
 import { useI18n } from "@/i18n/I18nProvider";
 import { waLink } from "@/lib/business";
 import privateImg from "@/assets/tour-private.jpg";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "@/components/icons/HandDrawn";
 
 export function PrivateSection() {
   const { t } = useI18n();

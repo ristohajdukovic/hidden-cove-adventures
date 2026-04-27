@@ -1,7 +1,7 @@
 import { useI18n } from "@/i18n/I18nProvider";
 import sunsetImg from "@/assets/tour-sunset-bbq.jpg";
 import moonImg from "@/assets/tour-moonlight.jpg";
-import { Sun, Moon } from "lucide-react";
+import { Sun, Moon } from "@/components/icons/HandDrawn";
 
 export function Evening() {
   const { t } = useI18n();

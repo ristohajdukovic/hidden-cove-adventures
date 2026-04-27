@@ -1,6 +1,6 @@
 import { useI18n, LANGS } from "@/i18n/I18nProvider";
 import { business, waLink, telLink } from "@/lib/business";
-import { Instagram, Facebook, MessageCircle, Phone, Mail, MapPin } from "lucide-react";
+import { Instagram, Facebook, MessageCircle, Phone, Mail, MapPin } from "@/components/icons/HandDrawn";
 
 export function Footer() {
   const { t, setLang, lang } = useI18n();

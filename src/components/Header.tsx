@@ -3,7 +3,7 @@ import { useI18n } from "@/i18n/I18nProvider";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { waLink } from "@/lib/business";
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import { Menu, X } from "@/components/icons/HandDrawn";
 
 export function Header() {
   const { t } = useI18n();
