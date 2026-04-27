@@ -1,5 +1,5 @@
 import { useI18n } from "@/i18n/I18nProvider";
-import { Anchor, Users, Heart, MessageCircle } from "lucide-react";
+import { Anchor, Users, Heart, MessageCircle } from "@/components/icons/HandDrawn";
 
 const ICONS = [Users, Anchor, Heart, MessageCircle];
 

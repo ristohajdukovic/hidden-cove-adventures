@@ -4,7 +4,7 @@ import hiddenImg from "@/assets/tour-hidden-beach.jpg";
 import sunsetImg from "@/assets/tour-sunset-bbq.jpg";
 import moonImg from "@/assets/tour-moonlight.jpg";
 import privateImg from "@/assets/tour-private.jpg";
-import { ArrowUpRight, Clock, Users } from "lucide-react";
+import { ArrowUpRight, Clock, Users } from "@/components/icons/HandDrawn";
 
 export function Tours() {
   const { t } = useI18n();

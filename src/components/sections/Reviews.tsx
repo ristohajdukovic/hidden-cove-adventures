@@ -1,5 +1,5 @@
 import { useI18n } from "@/i18n/I18nProvider";
-import { Star } from "lucide-react";
+import { Star } from "@/components/icons/HandDrawn";
 
 export function Reviews() {
   const { t } = useI18n();

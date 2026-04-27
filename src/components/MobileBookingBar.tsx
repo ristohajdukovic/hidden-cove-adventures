@@ -1,6 +1,6 @@
 import { useI18n } from "@/i18n/I18nProvider";
 import { waLink, telLink } from "@/lib/business";
-import { MessageCircle, Phone, Calendar } from "lucide-react";
+import { MessageCircle, Phone, Calendar } from "@/components/icons/HandDrawn";
 
 export function MobileBookingBar() {
   const { t } = useI18n();

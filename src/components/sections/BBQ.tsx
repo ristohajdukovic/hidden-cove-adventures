@@ -1,6 +1,6 @@
 import { useI18n } from "@/i18n/I18nProvider";
 import drinksImg from "@/assets/gallery-drinks.jpg";
-import { Check } from "lucide-react";
+import { Check } from "@/components/icons/HandDrawn";
 
 export function BBQ() {
   const { t } = useI18n();

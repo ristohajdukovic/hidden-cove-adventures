@@ -13,7 +13,7 @@ export default {
     extend: {
       fontFamily: {
         display: ['Fraunces', 'Georgia', 'serif'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['"General Sans"', '"Avenir Next"', 'Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

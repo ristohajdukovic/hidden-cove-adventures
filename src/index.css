@@ -78,8 +78,9 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', system-ui, sans-serif;
-    font-feature-settings: 'ss01', 'cv11';
+    font-family: 'General Sans', 'Avenir Next', 'Inter', system-ui, sans-serif;
+    font-feature-settings: 'ss01', 'ss02';
+    letter-spacing: -0.005em;
   }
   h1, h2, h3, h4, .font-display {
     font-family: 'Fraunces', Georgia, serif;

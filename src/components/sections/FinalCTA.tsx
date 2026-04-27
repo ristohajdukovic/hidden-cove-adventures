@@ -1,6 +1,6 @@
 import { useI18n } from "@/i18n/I18nProvider";
 import { waLink } from "@/lib/business";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "@/components/icons/HandDrawn";
 
 export function FinalCTA() {
   const { t } = useI18n();
