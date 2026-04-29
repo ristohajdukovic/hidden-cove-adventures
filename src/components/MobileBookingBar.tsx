@@ -1,11 +1,36 @@
+import { useEffect, useState } from "react";
 import { useI18n } from "@/i18n/I18nProvider";
 import { waLink, telLink } from "@/lib/business";
 import { MessageCircle, Phone, Calendar } from "@/components/icons/HandDrawn";
 
 export function MobileBookingBar() {
   const { t } = useI18n();
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    const compute = () => {
+      const hero = document.getElementById("hero");
+      const threshold = hero
+        ? hero.getBoundingClientRect().bottom + window.scrollY - 80
+        : window.innerHeight * 0.8;
+      setShow(window.scrollY > threshold);
+    };
+    compute();
+    window.addEventListener("scroll", compute, { passive: true });
+    window.addEventListener("resize", compute);
+    return () => {
+      window.removeEventListener("scroll", compute);
+      window.removeEventListener("resize", compute);
+    };
+  }, []);
+
   return (
-    <div className="md:hidden fixed bottom-0 inset-x-0 z-50 bg-stone/95 backdrop-blur-xl border-t border-adriatic/10 safe-bottom">
+    <div
+      className={`md:hidden fixed bottom-0 inset-x-0 z-50 bg-stone/95 backdrop-blur-xl border-t border-adriatic/10 safe-bottom transition-all duration-300 ${
+        show ? "translate-y-0 opacity-100" : "translate-y-full opacity-0 pointer-events-none"
+      }`}
+      aria-hidden={!show}
+    >
       <div className="grid grid-cols-3 gap-2 p-3">
         <a
           href={waLink()}

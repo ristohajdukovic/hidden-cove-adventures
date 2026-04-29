@@ -4,7 +4,10 @@ import iconBoat from "@/assets/icon-boat.png";
 import iconBbq from "@/assets/icon-bbq.png";
 import iconBonfire from "@/assets/icon-bonfire.png";
 
-const ICONS = [iconCove, iconBoat, iconBbq, iconBonfire];
+// Index aligns with translations.ts why.items order:
+// 0: Small groups → boat, 1: Coves locals know → cove,
+// 2: Simple honest hospitality → bbq, 3: Easy WhatsApp booking → bonfire (with chat bubble)
+const ICONS = [iconBoat, iconCove, iconBbq, iconBonfire];
 
 export function Why() {
   const { t } = useI18n();
@@ -22,15 +25,15 @@ export function Why() {
             const icon = ICONS[i] ?? ICONS[0];
             return (
               <div key={i} className="bg-sand rounded-[1.75rem] p-6 border border-adriatic/5 hover:border-adriatic/15 transition-colors">
-                <div className="size-20 -ml-2 mb-4 flex items-center justify-center">
-                  <img
-                    src={icon}
-                    alt=""
-                    aria-hidden="true"
-                    loading="lazy"
-                    className="w-full h-full object-contain mix-blend-multiply select-none"
-                    draggable={false}
-                  />
+              <div className="h-28 -mx-2 mb-4 flex items-end justify-start">
+                <img
+                  src={icon}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  className="h-full w-auto object-contain mix-blend-multiply select-none"
+                  draggable={false}
+                />
                 </div>
                 <h3 className="font-display text-xl text-adriatic mb-2">{item.title}</h3>
                 <p className="text-sm text-adriatic/70 leading-relaxed">{item.body}</p>
