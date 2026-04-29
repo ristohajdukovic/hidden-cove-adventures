@@ -93,19 +93,23 @@
   .text-balance { text-wrap: balance; }
   .text-pretty { text-wrap: pretty; }
 
-  /* Subtle paper / canvas texture */
+  /* Hand-drawn wavy sea texture — replaces dotted patterns */
   .texture-canvas {
-    background-image:
-      radial-gradient(hsl(var(--adriatic) / 0.04) 1px, transparent 1px),
-      radial-gradient(hsl(var(--adriatic) / 0.03) 1px, transparent 1px);
-    background-size: 24px 24px, 32px 32px;
-    background-position: 0 0, 12px 16px;
+    background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='80' viewBox='0 0 220 80'%3E%3Cg fill='none' stroke='%23073B4C' stroke-opacity='0.08' stroke-width='1.1' stroke-linecap='round'%3E%3Cpath d='M0 22 Q 27 8, 55 22 T 110 22 T 165 22 T 220 22'/%3E%3Cpath d='M0 46 Q 27 32, 55 46 T 110 46 T 165 46 T 220 46'/%3E%3Cpath d='M0 70 Q 27 56, 55 70 T 110 70 T 165 70 T 220 70'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 220px 80px;
+    background-repeat: repeat;
   }
 
   .texture-stone {
-    background-image:
-      radial-gradient(hsl(var(--ink) / 0.03) 1px, transparent 1.5px);
-    background-size: 18px 18px;
+    background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='60' viewBox='0 0 180 60'%3E%3Cg fill='none' stroke='%23073B4C' stroke-opacity='0.06' stroke-width='1' stroke-linecap='round'%3E%3Cpath d='M0 18 Q 22 6, 45 18 T 90 18 T 135 18 T 180 18'/%3E%3Cpath d='M0 42 Q 22 30, 45 42 T 90 42 T 135 42 T 180 42'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 180px 60px;
+    background-repeat: repeat;
+  }
+
+  .texture-waves {
+    background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='40' viewBox='0 0 240 40'%3E%3Cpath fill='none' stroke='%23073B4C' stroke-opacity='0.09' stroke-width='1.2' stroke-linecap='round' d='M0 24 Q 30 8, 60 24 T 120 24 T 180 24 T 240 24'/%3E%3C/svg%3E");
+    background-size: 240px 40px;
+    background-repeat: repeat;
   }
 
   .photo-frame {

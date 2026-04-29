@@ -7,8 +7,11 @@ export function FinalCTA() {
   return (
     <section className="container pb-20 md:pb-28">
       <div className="relative rounded-[2rem] overflow-hidden bg-gradient-sea text-stone p-10 md:p-16 lg:p-20 text-center">
-        <div className="absolute inset-0 opacity-[0.06] pointer-events-none"
-          style={{ backgroundImage: "radial-gradient(hsl(var(--stone)) 1px, transparent 1px)", backgroundSize: "20px 20px" }} />
+        <div className="absolute inset-0 opacity-[0.14] pointer-events-none"
+          style={{
+            backgroundImage: "url(\"data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='40' viewBox='0 0 240 40'%3E%3Cpath fill='none' stroke='%23F4E6C8' stroke-width='1.2' stroke-linecap='round' d='M0 24 Q 30 8, 60 24 T 120 24 T 180 24 T 240 24'/%3E%3C/svg%3E\")",
+            backgroundSize: "240px 40px",
+          }} />
         <div className="relative max-w-2xl mx-auto">
           <h2 className="font-display text-4xl md:text-6xl font-medium tracking-tight text-balance leading-[1.05] mb-5">
             {t.finalCta.title}

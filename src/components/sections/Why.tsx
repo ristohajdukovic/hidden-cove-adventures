@@ -1,7 +1,10 @@
 import { useI18n } from "@/i18n/I18nProvider";
-import { Anchor, Users, Heart, MessageCircle } from "@/components/icons/HandDrawn";
+import iconCove from "@/assets/icon-cove.png";
+import iconBoat from "@/assets/icon-boat.png";
+import iconBbq from "@/assets/icon-bbq.png";
+import iconBonfire from "@/assets/icon-bonfire.png";
 
-const ICONS = [Users, Anchor, Heart, MessageCircle];
+const ICONS = [iconCove, iconBoat, iconBbq, iconBonfire];
 
 export function Why() {
   const { t } = useI18n();
@@ -16,11 +19,18 @@ export function Why() {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {t.why.items.map((item, i) => {
-            const Icon = ICONS[i] ?? Users;
+            const icon = ICONS[i] ?? ICONS[0];
             return (
               <div key={i} className="bg-sand rounded-[1.75rem] p-6 border border-adriatic/5 hover:border-adriatic/15 transition-colors">
-                <div className="size-11 rounded-full bg-stone border border-adriatic/10 flex items-center justify-center mb-5 text-olive">
-                  <Icon className="size-5" />
+                <div className="size-20 -ml-2 mb-4 flex items-center justify-center">
+                  <img
+                    src={icon}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    className="w-full h-full object-contain mix-blend-multiply select-none"
+                    draggable={false}
+                  />
                 </div>
                 <h3 className="font-display text-xl text-adriatic mb-2">{item.title}</h3>
                 <p className="text-sm text-adriatic/70 leading-relaxed">{item.body}</p>

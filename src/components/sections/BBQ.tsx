@@ -6,8 +6,11 @@ export function BBQ() {
   const { t } = useI18n();
   return (
     <section className="bg-adriatic text-stone py-20 md:py-28 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
-        style={{ backgroundImage: "radial-gradient(hsl(var(--stone)) 1px, transparent 1px)", backgroundSize: "20px 20px" }} />
+      <div className="absolute inset-0 opacity-[0.12] pointer-events-none"
+        style={{
+          backgroundImage: "url(\"data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='40' viewBox='0 0 240 40'%3E%3Cpath fill='none' stroke='%23F4E6C8' stroke-width='1.2' stroke-linecap='round' d='M0 24 Q 30 8, 60 24 T 120 24 T 180 24 T 240 24'/%3E%3C/svg%3E\")",
+          backgroundSize: "240px 40px",
+        }} />
       <div className="container grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative">
         <div className="order-2 lg:order-1">
           <span className="text-[11px] font-semibold tracking-[0.2em] text-apricot uppercase">{t.bbq.eyebrow}</span>
