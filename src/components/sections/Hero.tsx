@@ -6,7 +6,7 @@ import { ArrowRight } from "@/components/icons/HandDrawn";
 export function Hero() {
   const { t } = useI18n();
   return (
-    <section className="relative pt-32 md:pt-40 pb-20 md:pb-32 overflow-hidden texture-canvas">
+    <section id="hero" className="relative pt-32 md:pt-40 pb-20 md:pb-32 overflow-hidden">
       <div className="container grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         <div className="lg:col-span-7 flex flex-col gap-7 anim-fade-up">
           <div className="flex items-center gap-4">
