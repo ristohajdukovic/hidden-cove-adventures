@@ -13,7 +13,7 @@ export type TranslationKeys = {
     sub: string;
   };
   toursSection: { eyebrow: string; title: string; sub: string };
-  tours: Record<TourKey, { name: string; tagline: string; desc: string; duration: string; group: string; price: string }>;
+  tours: Record<TourKey, { name: string; tagline: string; desc: string; duration: string; group: string; price: string; included: string[]; note?: string }>;
   why: {
     eyebrow: string; title: string;
     items: { title: string; body: string }[];
@@ -44,10 +44,69 @@ const en: TranslationKeys = {
   },
   toursSection: { eyebrow: "Curated journeys", title: "Choose your day on the water", sub: "Small groups. Local skipper. Real coves." },
   tours: {
-    hidden: { name: "Hidden Beach Day Escape", tagline: "Full day", desc: "Sail past the Old Town walls and drop anchor at a cove only reachable by sea. Swim, snorkel, and rest on quiet pebbles.", duration: "6–7 hours", group: "Up to 8", price: "from €45 / person" },
-    sunset: { name: "Sunset BBQ Cove Tour", tagline: "Late afternoon", desc: "Cruise toward Valdanos as the light turns gold. Anchor in a quiet bay, fresh grill on the beach, cold drinks in hand.", duration: "4 hours", group: "Up to 8", price: "from €55 / person" },
-    moonlight: { name: "Moonlight Bonfire Tour", tagline: "Evening", desc: "Sail under the stars to a private cove. A small driftwood bonfire, local wine, the sound of the tide.", duration: "3–4 hours", group: "Up to 8", price: "from €50 / person" },
-    private: { name: "Private Boat Tour", tagline: "Just your group", desc: "The boat is entirely yours. Pick the coves, the pace and the playlist. Perfect for couples, families and small groups.", duration: "Flexible", group: "Up to 8", price: "from €280 / boat" },
+    hidden: {
+      name: "Classic Tour",
+      tagline: "Day trip",
+      desc: "Enjoy a relaxing boat trip along the Ulcinj coast, followed by several hours at a private beach area.",
+      duration: "approx. 4 hours",
+      group: "Up to 8",
+      price: "€50 per person",
+      included: [
+        "Boat transfer from Valdanos to Old Ulcinj and the beach",
+        "Approximately 1 hour of boat cruising in total",
+        "Two drinks per person",
+        "Traditional Montenegrin sandwiches",
+        "Use of sun loungers",
+        "Kayaks",
+        "Stand-up paddleboards",
+        "Snorkelling masks",
+        "Water volleyball",
+      ],
+      note: "Additional drinks can be purchased during the tour.",
+    },
+    sunset: {
+      name: "BBQ Tour",
+      tagline: "Day trip",
+      desc: "The same coastal boat and beach experience as the Classic Tour, with a freshly prepared barbecue meal instead of sandwiches.",
+      duration: "approx. 4 hours",
+      group: "Up to 8",
+      price: "€60 per person",
+      included: [
+        "Boat transfer from Valdanos to Old Ulcinj and the beach",
+        "Approximately 1 hour of boat cruising in total",
+        "Two drinks per person",
+        "Barbecue meal",
+        "Use of sun loungers",
+        "Kayaks",
+        "Stand-up paddleboards",
+        "Snorkelling masks",
+        "Water volleyball",
+      ],
+      note: "Additional drinks can be purchased during the tour.",
+    },
+    moonlight: {
+      name: "Sunset Tour",
+      tagline: "Evening",
+      desc: "Enjoy an evening boat ride along the Ulcinj coast and watch the sunset from the sea.",
+      duration: "Evening",
+      group: "Up to 8",
+      price: "€25 per person",
+      included: [
+        "Boat trip from Valdanos towards Old Ulcinj and the nearby beach",
+        "Sunset views from the boat",
+        "Use of the beach facilities and available water equipment",
+      ],
+      note: "Food and barbecue are not included. Additional drinks can be purchased during the tour.",
+    },
+    private: {
+      name: "Moonlight Tour",
+      tagline: "Coming soon",
+      desc: "A late-evening boat experience under the moonlight, with more details to be announced.",
+      duration: "",
+      group: "Up to 8",
+      price: "Coming soon",
+      included: [],
+    },
   },
   why: {
     eyebrow: "Why this is different",
@@ -133,10 +192,10 @@ const de: TranslationKeys = {
   },
   toursSection: { eyebrow: "Unsere Touren", title: "Wähle deinen Tag auf dem Wasser", sub: "Kleine Gruppen. Lokaler Skipper. Echte Buchten." },
   tours: {
-    hidden: { name: "Versteckter Strand – Tagesausflug", tagline: "Ganzer Tag", desc: "Vorbei an der Altstadt, Anker werfen in einer Bucht, die nur vom Meer aus erreichbar ist. Schwimmen, schnorcheln, ausruhen.", duration: "6–7 Stunden", group: "Bis zu 8", price: "ab €45 / Person" },
-    sunset: { name: "Sonnenuntergang & BBQ", tagline: "Spätnachmittag", desc: "Richtung Valdanos im goldenen Licht. Anker in einer ruhigen Bucht, frischer Grill am Strand, kalte Getränke.", duration: "4 Stunden", group: "Bis zu 8", price: "ab €55 / Person" },
-    moonlight: { name: "Mondlicht-Lagerfeuer", tagline: "Abend", desc: "Unter den Sternen zu einer privaten Bucht. Ein kleines Treibholzfeuer, lokaler Wein, das Geräusch der Wellen.", duration: "3–4 Stunden", group: "Bis zu 8", price: "ab €50 / Person" },
-    private: { name: "Privater Bootsausflug", tagline: "Nur eure Gruppe", desc: "Das Boot gehört euch. Wählt die Buchten, das Tempo, die Musik. Perfekt für Paare und Familien.", duration: "Flexibel", group: "Bis zu 8", price: "ab €280 / Boot" },
+    hidden: { name: "Classic Tour", tagline: "Day trip", desc: "Enjoy a relaxing boat trip along the Ulcinj coast, followed by several hours at a private beach area.", duration: "approx. 4 hours", group: "Up to 8", price: "€50 per person", included: ["Boat transfer from Valdanos to Old Ulcinj and the beach","Approximately 1 hour of boat cruising in total","Two drinks per person","Traditional Montenegrin sandwiches","Use of sun loungers","Kayaks","Stand-up paddleboards","Snorkelling masks","Water volleyball"], note: "Additional drinks can be purchased during the tour." },
+    sunset: { name: "BBQ Tour", tagline: "Day trip", desc: "The same coastal boat and beach experience as the Classic Tour, with a freshly prepared barbecue meal instead of sandwiches.", duration: "approx. 4 hours", group: "Up to 8", price: "€60 per person", included: ["Boat transfer from Valdanos to Old Ulcinj and the beach","Approximately 1 hour of boat cruising in total","Two drinks per person","Barbecue meal","Use of sun loungers","Kayaks","Stand-up paddleboards","Snorkelling masks","Water volleyball"], note: "Additional drinks can be purchased during the tour." },
+    moonlight: { name: "Sunset Tour", tagline: "Evening", desc: "Enjoy an evening boat ride along the Ulcinj coast and watch the sunset from the sea.", duration: "Evening", group: "Up to 8", price: "€25 per person", included: ["Boat trip from Valdanos towards Old Ulcinj and the nearby beach","Sunset views from the boat","Use of the beach facilities and available water equipment"], note: "Food and barbecue are not included. Additional drinks can be purchased during the tour." },
+    private: { name: "Moonlight Tour", tagline: "Coming soon", desc: "A late-evening boat experience under the moonlight, with more details to be announced.", duration: "", group: "Up to 8", price: "Coming soon", included: [] },
   },
   why: {
     eyebrow: "Was uns anders macht",
@@ -222,10 +281,10 @@ const sr: TranslationKeys = {
   },
   toursSection: { eyebrow: "Naše ture", title: "Izaberi svoj dan na moru", sub: "Male grupe. Lokalni skiper. Prave uvale." },
   tours: {
-    hidden: { name: "Skrivena plaža – ceo dan", tagline: "Ceo dan", desc: "Plovimo pored zidina Starog Grada do uvale dostupne samo s mora. Kupanje, ronjenje, odmor.", duration: "6–7 sati", group: "Do 8 osoba", price: "od €45 / osoba" },
-    sunset: { name: "Zalazak & roštilj", tagline: "Popodne", desc: "Krećemo ka Valdanosu dok svetlo postaje zlatno. Sidro u tihoj uvali, svež roštilj na plaži.", duration: "4 sata", group: "Do 8 osoba", price: "od €55 / osoba" },
-    moonlight: { name: "Mesečina & vatra", tagline: "Veče", desc: "Plovidba pod zvezdama do privatne uvale. Mala vatra, lokalno vino, zvuk talasa.", duration: "3–4 sata", group: "Do 8 osoba", price: "od €50 / osoba" },
-    private: { name: "Privatni izlet brodom", tagline: "Samo vaša grupa", desc: "Brod je samo vaš. Birate uvale, tempo i muziku. Idealno za parove i porodice.", duration: "Fleksibilno", group: "Do 8 osoba", price: "od €280 / brod" },
+    hidden: { name: "Classic Tour", tagline: "Day trip", desc: "Enjoy a relaxing boat trip along the Ulcinj coast, followed by several hours at a private beach area.", duration: "approx. 4 hours", group: "Up to 8", price: "€50 per person", included: ["Boat transfer from Valdanos to Old Ulcinj and the beach","Approximately 1 hour of boat cruising in total","Two drinks per person","Traditional Montenegrin sandwiches","Use of sun loungers","Kayaks","Stand-up paddleboards","Snorkelling masks","Water volleyball"], note: "Additional drinks can be purchased during the tour." },
+    sunset: { name: "BBQ Tour", tagline: "Day trip", desc: "The same coastal boat and beach experience as the Classic Tour, with a freshly prepared barbecue meal instead of sandwiches.", duration: "approx. 4 hours", group: "Up to 8", price: "€60 per person", included: ["Boat transfer from Valdanos to Old Ulcinj and the beach","Approximately 1 hour of boat cruising in total","Two drinks per person","Barbecue meal","Use of sun loungers","Kayaks","Stand-up paddleboards","Snorkelling masks","Water volleyball"], note: "Additional drinks can be purchased during the tour." },
+    moonlight: { name: "Sunset Tour", tagline: "Evening", desc: "Enjoy an evening boat ride along the Ulcinj coast and watch the sunset from the sea.", duration: "Evening", group: "Up to 8", price: "€25 per person", included: ["Boat trip from Valdanos towards Old Ulcinj and the nearby beach","Sunset views from the boat","Use of the beach facilities and available water equipment"], note: "Food and barbecue are not included. Additional drinks can be purchased during the tour." },
+    private: { name: "Moonlight Tour", tagline: "Coming soon", desc: "A late-evening boat experience under the moonlight, with more details to be announced.", duration: "", group: "Up to 8", price: "Coming soon", included: [] },
   },
   why: {
     eyebrow: "Zašto je ovo drugačije",
@@ -311,10 +370,10 @@ const sq: TranslationKeys = {
   },
   toursSection: { eyebrow: "Turet tona", title: "Zgjidh ditën tënde në det", sub: "Grupe të vogla. Kapiten vendas. Gjire të vërtetë." },
   tours: {
-    hidden: { name: "Plazhi i fshehur – ditë e plotë", tagline: "Ditë e plotë", desc: "Lundrojmë pranë mureve të Qytetit të Vjetër deri në një gji të arritshëm vetëm nga deti.", duration: "6–7 orë", group: "Deri në 8", price: "nga €45 / person" },
-    sunset: { name: "Perëndim & BBQ", tagline: "Pasdite", desc: "Drejt Valdanosit ndërsa drita bëhet e artë. Spirancë në një gji të qetë, BBQ i freskët në breg.", duration: "4 orë", group: "Deri në 8", price: "nga €55 / person" },
-    moonlight: { name: "Hëna & zjarri", tagline: "Mbrëmje", desc: "Lundrim nën yje drejt një gjiri privat. Zjarr i vogël, verë vendase, zhurma e dallgëve.", duration: "3–4 orë", group: "Deri në 8", price: "nga €50 / person" },
-    private: { name: "Udhëtim privat me varkë", tagline: "Vetëm grupi juaj", desc: "Varka është e juaja. Zgjidhni gjiret, ritmin, muzikën. Ideale për çifte dhe familje.", duration: "Fleksibël", group: "Deri në 8", price: "nga €280 / varkë" },
+    hidden: { name: "Classic Tour", tagline: "Day trip", desc: "Enjoy a relaxing boat trip along the Ulcinj coast, followed by several hours at a private beach area.", duration: "approx. 4 hours", group: "Up to 8", price: "€50 per person", included: ["Boat transfer from Valdanos to Old Ulcinj and the beach","Approximately 1 hour of boat cruising in total","Two drinks per person","Traditional Montenegrin sandwiches","Use of sun loungers","Kayaks","Stand-up paddleboards","Snorkelling masks","Water volleyball"], note: "Additional drinks can be purchased during the tour." },
+    sunset: { name: "BBQ Tour", tagline: "Day trip", desc: "The same coastal boat and beach experience as the Classic Tour, with a freshly prepared barbecue meal instead of sandwiches.", duration: "approx. 4 hours", group: "Up to 8", price: "€60 per person", included: ["Boat transfer from Valdanos to Old Ulcinj and the beach","Approximately 1 hour of boat cruising in total","Two drinks per person","Barbecue meal","Use of sun loungers","Kayaks","Stand-up paddleboards","Snorkelling masks","Water volleyball"], note: "Additional drinks can be purchased during the tour." },
+    moonlight: { name: "Sunset Tour", tagline: "Evening", desc: "Enjoy an evening boat ride along the Ulcinj coast and watch the sunset from the sea.", duration: "Evening", group: "Up to 8", price: "€25 per person", included: ["Boat trip from Valdanos towards Old Ulcinj and the nearby beach","Sunset views from the boat","Use of the beach facilities and available water equipment"], note: "Food and barbecue are not included. Additional drinks can be purchased during the tour." },
+    private: { name: "Moonlight Tour", tagline: "Coming soon", desc: "A late-evening boat experience under the moonlight, with more details to be announced.", duration: "", group: "Up to 8", price: "Coming soon", included: [] },
   },
   why: {
     eyebrow: "Pse jemi të ndryshëm",
