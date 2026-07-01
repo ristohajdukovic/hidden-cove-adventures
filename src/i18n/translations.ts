@@ -13,7 +13,7 @@ export type TranslationKeys = {
     sub: string;
   };
   toursSection: { eyebrow: string; title: string; sub: string };
-  tours: Record<TourKey, { name: string; tagline: string; desc: string; duration: string; group: string; price: string }>;
+  tours: Record<TourKey, { name: string; tagline: string; desc: string; duration: string; group: string; price: string; included: string[]; note?: string }>;
   why: {
     eyebrow: string; title: string;
     items: { title: string; body: string }[];
