@@ -23,7 +23,7 @@ export function Tours() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-5 md:auto-rows-fr">
-        {/* Feature: Hidden Beach 2x2 */}
+        {/* Feature: Classic Tour 2x2 */}
         <a
           href={waLink(`Hi! I'd like to know more about: ${tours.hidden.name}`)}
           target="_blank"
@@ -45,11 +45,15 @@ export function Tours() {
               {tours.hidden.name}
             </h3>
             <p className="text-adriatic/70 leading-relaxed max-w-[52ch]">{tours.hidden.desc}</p>
+            <IncludedList items={tours.hidden.included} />
+            {tours.hidden.note && (
+              <p className="text-[11px] italic text-adriatic/50">{tours.hidden.note}</p>
+            )}
             <TourMeta duration={tours.hidden.duration} group={tours.hidden.group} price={tours.hidden.price} />
           </div>
         </a>
 
-        {/* Sunset BBQ — wide */}
+        {/* BBQ Tour — wide */}
         <a
           href={waLink(`Hi! I'd like to know more about: ${tours.sunset.name}`)}
           target="_blank"
@@ -64,11 +68,15 @@ export function Tours() {
             <span className="text-[11px] font-semibold tracking-[0.2em] text-apricot uppercase">{tours.sunset.tagline}</span>
             <h3 className="font-display text-2xl md:text-3xl font-medium text-adriatic">{tours.sunset.name}</h3>
             <p className="text-sm text-adriatic/70 leading-relaxed line-clamp-3">{tours.sunset.desc}</p>
+            <IncludedList items={tours.sunset.included} compact />
+            {tours.sunset.note && (
+              <p className="text-[11px] italic text-adriatic/50">{tours.sunset.note}</p>
+            )}
             <TourMeta duration={tours.sunset.duration} group={tours.sunset.group} price={tours.sunset.price} compact />
           </div>
         </a>
 
-        {/* Moonlight */}
+        {/* Sunset Tour */}
         <a
           href={waLink(`Hi! I'd like to know more about: ${tours.moonlight.name}`)}
           target="_blank"
@@ -83,20 +91,21 @@ export function Tours() {
             <span className="text-[11px] font-semibold tracking-[0.2em] text-sea uppercase">{tours.moonlight.tagline}</span>
             <h3 className="font-display text-xl font-medium text-adriatic">{tours.moonlight.name}</h3>
             <p className="text-xs text-adriatic/70 leading-relaxed line-clamp-2">{tours.moonlight.desc}</p>
+            <IncludedList items={tours.moonlight.included} compact />
+            {tours.moonlight.note && (
+              <p className="text-[11px] italic text-adriatic/50">{tours.moonlight.note}</p>
+            )}
             <div className="mt-auto pt-3 flex items-baseline justify-between border-t border-adriatic/10">
-              <span className="text-[10px] uppercase tracking-widest text-adriatic/40 font-semibold">{tours.moonlight.duration}</span>
-              <span className="text-sm font-semibold text-olive tabular-nums">{tours.moonlight.price}</span>
+              {tours.moonlight.duration && (
+                <span className="text-[10px] uppercase tracking-widest text-adriatic/40 font-semibold">{tours.moonlight.duration}</span>
+              )}
+              <span className="text-sm font-semibold text-olive tabular-nums ml-auto">{tours.moonlight.price}</span>
             </div>
           </div>
         </a>
 
-        {/* Private — textured warm card */}
-        <a
-          href={waLink(`Hi! I'd like to plan a private boat tour.`)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group relative rounded-[2rem] p-2.5 border border-adriatic/10 shadow-card overflow-hidden hover:-translate-y-1 transition-transform duration-500 bg-sand-deep"
-        >
+        {/* Moonlight Tour — Coming Soon */}
+        <div className="group relative rounded-[2rem] p-2.5 border border-adriatic/10 shadow-card overflow-hidden hover:-translate-y-1 transition-transform duration-500 bg-sand-deep">
           <div className="absolute inset-0 opacity-30 mix-blend-multiply pointer-events-none">
             <img src={privateImg} alt="" loading="lazy" className="w-full h-full object-cover" />
           </div>
@@ -107,16 +116,29 @@ export function Tours() {
             <span className="text-[11px] font-semibold tracking-[0.2em] text-olive uppercase mb-1">{tours.private.tagline}</span>
             <h3 className="font-display text-xl font-medium text-adriatic mb-2">{tours.private.name}</h3>
             <p className="text-xs text-adriatic/80 leading-relaxed mb-4 line-clamp-3">{tours.private.desc}</p>
-            <div className="mt-auto flex items-center justify-between">
-              <span className="text-sm font-semibold text-olive tabular-nums">{tours.private.price}</span>
-              <span className="size-8 rounded-full bg-adriatic text-stone flex items-center justify-center group-hover:bg-apricot group-hover:text-adriatic transition-colors">
-                <ArrowUpRight className="size-4" />
+            <div className="mt-auto">
+              <span className="inline-block text-xs font-semibold text-olive tabular-nums bg-stone/60 backdrop-blur px-3 py-1.5 rounded-full">
+                {tours.private.price}
               </span>
             </div>
           </div>
-        </a>
+        </div>
       </div>
     </section>
+  );
+}
+
+function IncludedList({ items, compact = false }: { items: string[]; compact?: boolean }) {
+  if (items.length === 0) return null;
+  return (
+    <ul className={`grid gap-1 mt-1 ${compact ? "grid-cols-1" : "grid-cols-1 sm:grid-cols-2"} gap-x-4`}>
+      {items.map((item, i) => (
+        <li key={i} className="flex items-start gap-1.5 text-xs text-adriatic/70">
+          <span className="mt-1.5 size-1 rounded-full bg-apricot shrink-0" />
+          <span className="leading-snug">{item}</span>
+        </li>
+      ))}
+    </ul>
   );
 }
 
