@@ -5,9 +5,11 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const distDir = path.join(rootDir, "dist");
 const ssrEntry = path.join(rootDir, "dist-ssr", "entry-server.js");
-const { localeEntries, getPageMetadata, translations } = await import(
-  pathToFileURL(ssrEntry).href
-);
+const {
+  localizedRouteEntries,
+  getPageMetadata,
+  translations,
+} = await import(pathToFileURL(ssrEntry).href);
 
 const errors = [];
 
@@ -35,74 +37,92 @@ function scriptJsonLdBlocks(html) {
   );
 }
 
-const sitemapPath = path.join(distDir, "sitemap.xml");
-const sitemap = await fs.readFile(sitemapPath, "utf8");
+function fileForRoute(routePath) {
+  const cleanPath = routePath.replace(/^\/+|\/+$/g, "");
 
-for (const locale of localeEntries) {
-  const localePath = path.join(distDir, locale.routeSlug, "index.html");
-  const html = await fs.readFile(localePath, "utf8");
-  const metadata = getPageMetadata(locale.key);
-  const h1Segments = [
-    translations[locale.key].hero.titleA,
-    translations[locale.key].hero.titleItalic,
-    translations[locale.key].hero.titleB,
-  ];
+  return cleanPath
+    ? path.join(distDir, cleanPath, "index.html")
+    : path.join(distDir, "index.html");
+}
+
+const sitemap = await fs.readFile(path.join(distDir, "sitemap.xml"), "utf8");
+
+for (const entry of localizedRouteEntries) {
+  const html = await fs.readFile(fileForRoute(entry.path), "utf8");
+  const metadata = getPageMetadata(entry.locale, entry.pageId);
 
   assert(
     new RegExp(`<html\\s+lang=["']${escapeRegExp(metadata.htmlLang)}["']`, "i").test(html),
-    `${locale.key}: missing html lang ${metadata.htmlLang}`,
+    `${entry.locale}:${entry.pageId}: missing html lang ${metadata.htmlLang}`,
   );
   assert(
     html.includes(`<title>${escapeHtml(metadata.title)}</title>`),
-    `${locale.key}: missing localized title`,
+    `${entry.locale}:${entry.pageId}: missing localized title`,
   );
   assert(
     html.includes(`content="${escapeHtml(metadata.description)}"`),
-    `${locale.key}: missing meta description`,
+    `${entry.locale}:${entry.pageId}: missing meta description`,
   );
-  assert(html.includes(`href="${metadata.canonicalUrl}"`), `${locale.key}: missing canonical`);
-  assert(!html.includes("localhost"), `${locale.key}: contains localhost`);
-  assert(!/lovable|preview/i.test(html), `${locale.key}: contains preview-domain text`);
-  assert(!/noindex/i.test(html), `${locale.key}: contains noindex`);
-  h1Segments.forEach((segment) => {
-    assert(
-      html.includes(escapeHtml(segment)),
-      `${locale.key}: localized H1 segment missing in raw HTML: ${segment}`,
-    );
-  });
-  assert(sitemap.includes(`<loc>${metadata.canonicalUrl}</loc>`), `${locale.key}: sitemap missing URL`);
+  assert(
+    html.includes(`href="${metadata.canonicalUrl}"`),
+    `${entry.locale}:${entry.pageId}: missing canonical`,
+  );
+  assert(!html.includes("localhost"), `${entry.locale}:${entry.pageId}: contains localhost`);
+  assert(!/lovable|preview/i.test(html), `${entry.locale}:${entry.pageId}: contains preview-domain text`);
+  assert(!/noindex/i.test(html), `${entry.locale}:${entry.pageId}: contains noindex`);
+  assert(
+    sitemap.includes(`<loc>${metadata.canonicalUrl}</loc>`),
+    `${entry.locale}:${entry.pageId}: sitemap missing URL`,
+  );
 
   metadata.alternates.forEach((alternate) => {
     assert(
       html.includes(`hreflang="${alternate.hreflang}"`) &&
         html.includes(`href="${alternate.href}"`),
-      `${locale.key}: missing alternate ${alternate.hreflang}`,
+      `${entry.locale}:${entry.pageId}: missing alternate ${alternate.hreflang}`,
     );
     assert(
       sitemap.includes(`hreflang="${alternate.hreflang}"`) &&
         sitemap.includes(`href="${alternate.href}"`),
-      `${locale.key}: sitemap missing alternate ${alternate.hreflang}`,
+      `${entry.locale}:${entry.pageId}: sitemap missing alternate ${alternate.hreflang}`,
     );
   });
 
   const jsonLdBlocks = scriptJsonLdBlocks(html);
 
-  assert(jsonLdBlocks.length > 0, `${locale.key}: JSON-LD missing`);
+  assert(jsonLdBlocks.length > 0, `${entry.locale}:${entry.pageId}: JSON-LD missing`);
 
   jsonLdBlocks.forEach((block, index) => {
     try {
       JSON.parse(block);
-    } catch (error) {
-      errors.push(`${locale.key}: JSON-LD block ${index + 1} is invalid JSON`);
+    } catch {
+      errors.push(`${entry.locale}:${entry.pageId}: JSON-LD block ${index + 1} is invalid JSON`);
     }
   });
 
-  assert(!/{{[^}]+}}/.test(html), `${locale.key}: contains unreplaced placeholder`);
+  assert(!/{{[^}]+}}/.test(html), `${entry.locale}:${entry.pageId}: contains unreplaced placeholder`);
+
+  if (entry.pageId === "home") {
+    [
+      translations[entry.locale].hero.titleA,
+      translations[entry.locale].hero.titleItalic,
+      translations[entry.locale].hero.titleB,
+    ].forEach((segment) => {
+      assert(
+        html.includes(escapeHtml(segment)),
+        `${entry.locale}: localized H1 segment missing in raw HTML: ${segment}`,
+      );
+    });
+  }
 }
+
+const legacyEnglish = await fs.readFile(path.join(distDir, "en", "index.html"), "utf8");
+assert(/noindex/i.test(legacyEnglish), "legacy /en/ redirect should be noindex");
+assert(!sitemap.includes("/en/"), "sitemap must not include legacy /en/ URLs");
 
 if (errors.length > 0) {
   console.error(errors.join("\n"));
   process.exit(1);
 }
 
-console.log(`SEO/i18n generated-output check passed for ${localeEntries.length} localized pages.`);
+console.log(`SEO/i18n generated-output check passed for ${localizedRouteEntries.length} localized pages.`);

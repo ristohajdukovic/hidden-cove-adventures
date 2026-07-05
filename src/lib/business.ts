@@ -1,6 +1,8 @@
 // Central business config - easy to edit.
+export const BRAND_NAME = "Hidden Cove Ulcinj";
+
 export const business = {
-  name: "Hidden Cove Adventures",
+  name: BRAND_NAME,
   // Optional public display phone number. WhatsApp is configured via VITE_WHATSAPP_NUMBER.
   phone: "",
   email: "hello@hiddencoveulcinj.com",
@@ -20,7 +22,7 @@ export const hasWhatsApp = Boolean(whatsappNumber);
 
 export const emailLink = (
   subject = "Boat tour enquiry",
-  body = "Hello, I'm interested in booking a boat trip with Hidden Cove Adventures. Preferred date: ____. Number of guests: ____."
+  body = "Hello, I'm interested in booking a boat trip with Hidden Cove Ulcinj. Preferred date: ____. Number of guests: ____.",
 ) =>
   `mailto:${business.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
@@ -43,7 +45,7 @@ export function formatWhatsAppMessage(
 }
 
 export const waLink = (
-  msg = "Hello, I'm interested in booking a boat trip with Hidden Cove Adventures. Preferred date: ____. Number of guests: ____."
+  msg = "Hello, I'm interested in booking a boat trip with Hidden Cove Ulcinj. Preferred date: ____. Number of guests: ____.",
 ) =>
   hasWhatsApp
     ? createWhatsAppUrl(msg)

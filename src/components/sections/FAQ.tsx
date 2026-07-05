@@ -1,4 +1,5 @@
 import { useI18n } from "@/i18n/I18nContext";
+import { useEffect, useMemo, useState } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { createFaqItems, type FaqItem } from "@/data/faq";
 import { waLink } from "@/lib/business";
@@ -25,7 +26,20 @@ function renderAnswer(item: FaqItem, highlightPhrase: string) {
 
 export function FAQ() {
   const { lang, t } = useI18n();
-  const faqItems = createFaqItems(t, waLink(t.whatsapp.general), lang);
+  const bookingHref = waLink(t.whatsapp.general);
+  const faqItems = useMemo(
+    () => createFaqItems(t, bookingHref, lang),
+    [bookingHref, lang, t],
+  );
+  const [openItem, setOpenItem] = useState<string | undefined>(() => faqItems[0]?.id);
+
+  useEffect(() => {
+    setOpenItem((current) =>
+      current && faqItems.some((item) => item.id === current)
+        ? current
+        : faqItems[0]?.id,
+    );
+  }, [faqItems]);
 
   return (
     <section id="faq" className="container py-20 md:py-28">
@@ -37,7 +51,13 @@ export function FAQ() {
           </h2>
         </div>
         <div className="lg:col-span-8">
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion
+            type="single"
+            collapsible
+            value={openItem}
+            onValueChange={(value) => setOpenItem(value || undefined)}
+            className="w-full"
+          >
             {faqItems.map((item) => (
               <AccordionItem key={item.id} value={item.id} className="border-b border-adriatic/15">
                 <AccordionTrigger

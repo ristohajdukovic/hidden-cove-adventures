@@ -194,10 +194,10 @@ const en: TranslationKeys = {
   },
   aria: {
     languageSelection: "Language selection",
-    home: "Hidden Cove Adventures home",
+    home: "Hidden Cove Ulcinj home",
     mainNavigation: "Main navigation",
     mobileNavigation: "Mobile navigation",
-    bookTrip: "Book a Hidden Cove Adventures trip",
+    bookTrip: "Book a Hidden Cove Ulcinj trip",
     openMenu: "Open navigation menu",
     closeMenu: "Close navigation menu",
   },
@@ -212,23 +212,23 @@ const en: TranslationKeys = {
   },
   whatsapp: {
     general:
-      "Hello, I'm interested in booking a boat trip with Hidden Cove Adventures. Preferred date: ____. Number of guests: ____.",
+      "Hello, I'm interested in booking a boat trip with Hidden Cove Ulcinj. Preferred date: ____. Number of guests: ____.",
     tourInfo:
-      "Hello, I'd like to know more about {{tourName}} with Hidden Cove Adventures. Preferred date: ____. Number of guests: ____.",
+      "Hello, I'd like to know more about {{tourName}} with Hidden Cove Ulcinj. Preferred date: ____. Number of guests: ____.",
     privateTour:
-      "Hello, I'd like to plan a private boat tour with Hidden Cove Adventures. Preferred date: ____. Number of guests: ____.",
+      "Hello, I'd like to enquire about a private boat tour with Hidden Cove Ulcinj. Preferred date: ____. Number of guests: ____.",
   },
   seo: {
-    title: "Boat Tours in Ulcinj & Valdanos | Hidden Cove Adventures",
+    title: "Boat Tours in Ulcinj & Valdanos | Hidden Cove Ulcinj",
     description:
       "Small-group boat tours from Valdanos near Ulcinj, with hidden coves, a secluded beach, sunset trips and an optional beach barbecue.",
-    ogTitle: "Boat Tours in Ulcinj & Valdanos | Hidden Cove Adventures",
+    ogTitle: "Boat Tours in Ulcinj & Valdanos | Hidden Cove Ulcinj",
     ogDescription:
       "Explore hidden coves near Ulcinj by boat, with small groups, local hospitality, sunset trips and a secluded beach stop.",
     serviceName: "Boat tours from Valdanos near Ulcinj",
     serviceType: "Boat tour",
     noscript:
-      "Hidden Cove Adventures route locations: 1 Valdanos Bay, 2 Vucja jazbina, 3 Our Hidden Beach.",
+      "Hidden Cove Ulcinj route locations: 1 Valdanos Bay, 2 Vucja jazbina, 3 Our Hidden Beach.",
   },
   hero: {
     eyebrow: "Ulcinj, Montenegro",
@@ -350,7 +350,7 @@ const en: TranslationKeys = {
       nextStop: "Next stop",
       routeLocations: "Route locations",
       mapLabel:
-        "MapTiler Aquarelle map showing the Hidden Cove Adventures coastal route from Valdanos Bay to Vucja jazbina and Our Hidden Beach",
+        "MapTiler Aquarelle map showing the Hidden Cove Ulcinj coastal route from Valdanos Bay to Vucja jazbina and Our Hidden Beach",
       fallbackTitle: "Map preview unavailable.",
       missingKey: "Add the public MapTiler API key to the local environment file.",
       webGlUnavailable: "WebGL is unavailable in this browser.",
@@ -427,7 +427,7 @@ const en: TranslationKeys = {
     eyebrow: "Private charter",
     title: "Make the day entirely yours.",
     body: "Couples, families, friends, small celebrations. Tell us what you are dreaming of and we will design the route around it.",
-    cta: "Plan a private tour",
+    cta: "Enquire about a private tour",
     imageAlt: "Private boat tour along the Ulcinj coast",
   },
   gallery: {
@@ -578,10 +578,10 @@ const de: TranslationKeys = {
   },
   aria: {
     languageSelection: "Sprachauswahl",
-    home: "Startseite von Hidden Cove Adventures",
+    home: "Startseite von Hidden Cove Ulcinj",
     mainNavigation: "Hauptnavigation",
     mobileNavigation: "Mobile Navigation",
-    bookTrip: "Eine Tour mit Hidden Cove Adventures buchen",
+    bookTrip: "Eine Tour mit Hidden Cove Ulcinj buchen",
     openMenu: "Navigationsmenü öffnen",
     closeMenu: "Navigationsmenü schließen",
   },
@@ -596,23 +596,23 @@ const de: TranslationKeys = {
   },
   whatsapp: {
     general:
-      "Hallo, ich interessiere mich für eine Bootstour mit Hidden Cove Adventures. Wunschtermin: ____. Anzahl der Gäste: ____.",
+      "Hallo, ich interessiere mich für eine Bootstour mit Hidden Cove Ulcinj. Wunschtermin: ____. Anzahl der Gäste: ____.",
     tourInfo:
-      "Hallo, ich möchte mehr über {{tourName}} von Hidden Cove Adventures erfahren. Wunschtermin: ____. Anzahl der Gäste: ____.",
+      "Hallo, ich möchte mehr über {{tourName}} von Hidden Cove Ulcinj erfahren. Wunschtermin: ____. Anzahl der Gäste: ____.",
     privateTour:
-      "Hallo, ich möchte eine private Bootstour mit Hidden Cove Adventures planen. Wunschtermin: ____. Anzahl der Gäste: ____.",
+      "Hallo, ich möchte eine private Bootstour mit Hidden Cove Ulcinj anfragen. Wunschtermin: ____. Anzahl der Gäste: ____.",
   },
   seo: {
-    title: "Bootstouren in Ulcinj & Valdanos | Hidden Cove Adventures",
+    title: "Bootstouren in Ulcinj & Valdanos | Hidden Cove Ulcinj",
     description:
       "Bootstouren in kleinen Gruppen ab Valdanos bei Ulcinj: versteckte Buchten, ein abgeschiedener Strand, Sonnenuntergangstouren und optionales Strand-BBQ.",
-    ogTitle: "Bootstouren in Ulcinj & Valdanos | Hidden Cove Adventures",
+    ogTitle: "Bootstouren in Ulcinj & Valdanos | Hidden Cove Ulcinj",
     ogDescription:
       "Entdecke versteckte Buchten bei Ulcinj per Boot, mit kleinen Gruppen, lokaler Gastfreundschaft, Sonnenuntergangstouren und einem Strandstopp.",
     serviceName: "Bootstouren ab Valdanos bei Ulcinj",
     serviceType: "Bootstour",
     noscript:
-      "Hidden Cove Adventures Routenpunkte: 1 Valdanos Bay, 2 Vucja jazbina, 3 Our Hidden Beach.",
+      "Hidden Cove Ulcinj Routenpunkte: 1 Valdanos Bay, 2 Vucja jazbina, 3 Our Hidden Beach.",
   },
   hero: {
     eyebrow: "Ulcinj, Montenegro",
@@ -734,7 +734,7 @@ const de: TranslationKeys = {
       nextStop: "Nächster Stopp",
       routeLocations: "Routenpunkte",
       mapLabel:
-        "MapTiler-Aquarelle-Karte der Hidden Cove Adventures Küstenroute von Valdanos Bay über Vucja jazbina zu Our Hidden Beach",
+        "MapTiler-Aquarelle-Karte der Hidden Cove Ulcinj Küstenroute von Valdanos Bay über Vucja jazbina zu Our Hidden Beach",
       fallbackTitle: "Kartenvorschau nicht verfügbar.",
       missingKey: "Füge den öffentlichen MapTiler API-Schlüssel zur lokalen Umgebungsdatei hinzu.",
       webGlUnavailable: "WebGL ist in diesem Browser nicht verfügbar.",
@@ -811,7 +811,7 @@ const de: TranslationKeys = {
     eyebrow: "Private Charter",
     title: "Macht den Tag ganz zu eurem.",
     body: "Paare, Familien, Freunde, kleine Feiern. Erzählt uns, wovon ihr träumt, und wir planen die Route passend dazu.",
-    cta: "Private Tour planen",
+    cta: "Private Tour anfragen",
     imageAlt: "Private Bootstour entlang der Küste von Ulcinj",
   },
   gallery: {
@@ -962,10 +962,10 @@ const sq: TranslationKeys = {
   },
   aria: {
     languageSelection: "Zgjedhja e gjuhës",
-    home: "Faqja kryesore e Hidden Cove Adventures",
+    home: "Faqja kryesore e Hidden Cove Ulcinj",
     mainNavigation: "Navigimi kryesor",
     mobileNavigation: "Navigimi në celular",
-    bookTrip: "Rezervo një udhëtim me Hidden Cove Adventures",
+    bookTrip: "Rezervo një udhëtim me Hidden Cove Ulcinj",
     openMenu: "Hap menynë e navigimit",
     closeMenu: "Mbyll menynë e navigimit",
   },
@@ -980,23 +980,23 @@ const sq: TranslationKeys = {
   },
   whatsapp: {
     general:
-      "Përshëndetje, jam i/e interesuar të rezervoj një udhëtim me varkë me Hidden Cove Adventures. Data e dëshiruar: ____. Numri i mysafirëve: ____.",
+      "Përshëndetje, jam i/e interesuar të rezervoj një udhëtim me varkë me Hidden Cove Ulcinj. Data e dëshiruar: ____. Numri i mysafirëve: ____.",
     tourInfo:
-      "Përshëndetje, dua të di më shumë për {{tourName}} me Hidden Cove Adventures. Data e dëshiruar: ____. Numri i mysafirëve: ____.",
+      "Përshëndetje, dua të di më shumë për {{tourName}} me Hidden Cove Ulcinj. Data e dëshiruar: ____. Numri i mysafirëve: ____.",
     privateTour:
-      "Përshëndetje, dua të planifikoj një tur privat me varkë me Hidden Cove Adventures. Data e dëshiruar: ____. Numri i mysafirëve: ____.",
+      "Përshëndetje, dua të pyes për një tur privat me varkë me Hidden Cove Ulcinj. Data e dëshiruar: ____. Numri i mysafirëve: ____.",
   },
   seo: {
-    title: "Ture me varkë në Ulqin & Valdanos | Hidden Cove Adventures",
+    title: "Ture me varkë në Ulqin & Valdanos | Hidden Cove Ulcinj",
     description:
       "Ture me varkë në grupe të vogla nga Valdanosi pranë Ulqinit, me gjire të fshehura, plazh të qetë, udhëtime në perëndim dielli dhe BBQ opsional në plazh.",
-    ogTitle: "Ture me varkë në Ulqin & Valdanos | Hidden Cove Adventures",
+    ogTitle: "Ture me varkë në Ulqin & Valdanos | Hidden Cove Ulcinj",
     ogDescription:
       "Zbulo gjire të fshehura pranë Ulqinit me varkë, në grupe të vogla, me mikpritje vendase, perëndim dielli dhe ndalesë në plazh.",
     serviceName: "Ture me varkë nga Valdanosi pranë Ulqinit",
     serviceType: "Tur me varkë",
     noscript:
-      "Pikat e itinerarit Hidden Cove Adventures: 1 Valdanos Bay, 2 Vucja jazbina, 3 Our Hidden Beach.",
+      "Pikat e itinerarit Hidden Cove Ulcinj: 1 Valdanos Bay, 2 Vucja jazbina, 3 Our Hidden Beach.",
   },
   hero: {
     eyebrow: "Ulqin, Mali i Zi",
@@ -1118,7 +1118,7 @@ const sq: TranslationKeys = {
       nextStop: "Ndalesa tjetër",
       routeLocations: "Pikat e itinerarit",
       mapLabel:
-        "Hartë MapTiler Aquarelle që tregon itinerarin bregdetar të Hidden Cove Adventures nga Valdanos Bay te Vucja jazbina dhe Our Hidden Beach",
+        "Hartë MapTiler Aquarelle që tregon itinerarin bregdetar të Hidden Cove Ulcinj nga Valdanos Bay te Vucja jazbina dhe Our Hidden Beach",
       fallbackTitle: "Pamja e hartës nuk është e disponueshme.",
       missingKey: "Shto çelësin publik MapTiler API në skedarin lokal të mjedisit.",
       webGlUnavailable: "WebGL nuk është i disponueshëm në këtë shfletues.",
@@ -1195,7 +1195,7 @@ const sq: TranslationKeys = {
     eyebrow: "Qira private",
     title: "Bëje ditën krejtësisht tënden.",
     body: "Çifte, familje, miq, festa të vogla. Na trego çfarë ëndërron dhe ne e ndërtojmë itinerarin rreth saj.",
-    cta: "Planifiko një tur privat",
+    cta: "Pyet për tur privat",
     imageAlt: "Tur privat me varkë përgjatë bregut të Ulqinit",
   },
   gallery: {
@@ -1346,10 +1346,10 @@ const me: TranslationKeys = {
   },
   aria: {
     languageSelection: "Izbor jezika",
-    home: "Početna stranica Hidden Cove Adventures",
+    home: "Početna stranica Hidden Cove Ulcinj",
     mainNavigation: "Glavna navigacija",
     mobileNavigation: "Mobilna navigacija",
-    bookTrip: "Rezerviši turu sa Hidden Cove Adventures",
+    bookTrip: "Rezerviši turu sa Hidden Cove Ulcinj",
     openMenu: "Otvori navigacioni meni",
     closeMenu: "Zatvori navigacioni meni",
   },
@@ -1364,23 +1364,23 @@ const me: TranslationKeys = {
   },
   whatsapp: {
     general:
-      "Zdravo, zainteresovan/a sam za rezervaciju vožnje brodom sa Hidden Cove Adventures. Željeni datum: ____. Broj gostiju: ____.",
+      "Zdravo, zainteresovan/a sam za rezervaciju vožnje brodom sa Hidden Cove Ulcinj. Željeni datum: ____. Broj gostiju: ____.",
     tourInfo:
-      "Zdravo, želim više informacija o turi {{tourName}} sa Hidden Cove Adventures. Željeni datum: ____. Broj gostiju: ____.",
+      "Zdravo, želim više informacija o turi {{tourName}} sa Hidden Cove Ulcinj. Željeni datum: ____. Broj gostiju: ____.",
     privateTour:
-      "Zdravo, želim da isplaniram privatnu turu brodom sa Hidden Cove Adventures. Željeni datum: ____. Broj gostiju: ____.",
+      "Zdravo, želim da pitam za privatnu turu brodom sa Hidden Cove Ulcinj. Željeni datum: ____. Broj gostiju: ____.",
   },
   seo: {
-    title: "Ture brodom u Ulcinju i Valdanosu | Hidden Cove Adventures",
+    title: "Ture brodom u Ulcinju i Valdanosu | Hidden Cove Ulcinj",
     description:
       "Ture brodom u malim grupama iz Valdanosa kod Ulcinja, sa skrivenim uvalama, mirnom plažom, turama za zalazak sunca i opcionim roštiljem na plaži.",
-    ogTitle: "Ture brodom u Ulcinju i Valdanosu | Hidden Cove Adventures",
+    ogTitle: "Ture brodom u Ulcinju i Valdanosu | Hidden Cove Ulcinj",
     ogDescription:
       "Istraži skrivene uvale kod Ulcinja brodom, u maloj grupi, uz lokalno gostoprimstvo, zalazak sunca i zaustavljanje na plaži.",
     serviceName: "Ture brodom iz Valdanosa kod Ulcinja",
     serviceType: "Tura brodom",
     noscript:
-      "Lokacije rute Hidden Cove Adventures: 1 Valdanos Bay, 2 Vucja jazbina, 3 Our Hidden Beach.",
+      "Lokacije rute Hidden Cove Ulcinj: 1 Valdanos Bay, 2 Vucja jazbina, 3 Our Hidden Beach.",
   },
   hero: {
     eyebrow: "Ulcinj, Crna Gora",
@@ -1502,7 +1502,7 @@ const me: TranslationKeys = {
       nextStop: "Sljedeća stanica",
       routeLocations: "Lokacije rute",
       mapLabel:
-        "MapTiler Aquarelle mapa koja prikazuje obalnu rutu Hidden Cove Adventures od Valdanos Bay do Vucja jazbina i Our Hidden Beach",
+        "MapTiler Aquarelle mapa koja prikazuje obalnu rutu Hidden Cove Ulcinj od Valdanos Bay do Vucja jazbina i Our Hidden Beach",
       fallbackTitle: "Pregled mape nije dostupan.",
       missingKey: "Dodaj javni MapTiler API ključ u lokalni environment fajl.",
       webGlUnavailable: "WebGL nije dostupan u ovom browseru.",
@@ -1579,7 +1579,7 @@ const me: TranslationKeys = {
     eyebrow: "Privatni čarter",
     title: "Neka dan bude potpuno tvoj.",
     body: "Parovi, porodice, prijatelji, male proslave. Reci nam šta zamišljaš i napravićemo rutu oko toga.",
-    cta: "Isplaniraj privatnu turu",
+    cta: "Pitaj za privatnu turu",
     imageAlt: "Privatna tura brodom duž ulcinjske obale",
   },
   gallery: {

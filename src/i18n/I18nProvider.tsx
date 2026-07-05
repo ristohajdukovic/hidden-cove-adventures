@@ -6,15 +6,18 @@ import {
   supportedLocales,
   type Lang,
 } from "./locales";
+import type { PageId } from "./routes";
 
 const LANG_KEY = "hco-lang";
 
 export function I18nProvider({
   children,
   locale = DEFAULT_LOCALE,
+  pageId = "home",
 }: {
   children: ReactNode;
   locale?: Lang;
+  pageId?: PageId;
 }) {
   const lang = locale;
 
@@ -28,7 +31,7 @@ export function I18nProvider({
   }, [lang]);
 
   return (
-    <I18nContext.Provider value={{ lang, t: translations[lang] }}>
+    <I18nContext.Provider value={{ lang, pageId, t: translations[lang] }}>
       {children}
     </I18nContext.Provider>
   );

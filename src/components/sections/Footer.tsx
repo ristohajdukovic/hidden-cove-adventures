@@ -1,18 +1,19 @@
-import { business, hasPhone, hasWhatsApp, telLink, waLink } from "@/lib/business";
+import { BRAND_NAME, business, hasPhone, hasWhatsApp, telLink, waLink } from "@/lib/business";
 import { useI18n } from "@/i18n/I18nContext";
-import { localizedPath } from "@/i18n/locales";
+import type { Lang } from "@/i18n/locales";
+import { getHomeSectionHref, getLocalizedHref } from "@/i18n/routes";
 
 type FooterLink = {
   label: "tours" | "included" | "route" | "gallery" | "faq";
-  href: string;
+  href: (lang: Lang) => string;
 };
 
 const footerNavigation: FooterLink[] = [
-  { label: "tours", href: "#tours" },
-  { label: "included", href: "#included" },
-  { label: "route", href: "#route" },
-  { label: "gallery", href: "#gallery" },
-  { label: "faq", href: "#faq" },
+  { label: "tours", href: (lang) => getLocalizedHref("tours", lang) },
+  { label: "included", href: (lang) => getHomeSectionHref(lang, "#included") },
+  { label: "route", href: (lang) => getHomeSectionHref(lang, "#route") },
+  { label: "gallery", href: (lang) => getHomeSectionHref(lang, "#gallery") },
+  { label: "faq", href: (lang) => getHomeSectionHref(lang, "#faq") },
 ];
 
 export function Footer() {
@@ -61,7 +62,7 @@ export function Footer() {
           <span className="footer-label">{t.footer.explore}</span>
 
           {footerNavigation.map((item) => (
-            <a key={item.href} href={localizedPath(lang, item.href)}>
+            <a key={item.label} href={item.href(lang)}>
               {footerLabelByKey[item.label]}
             </a>
           ))}
@@ -69,11 +70,11 @@ export function Footer() {
       </div>
 
       <div className="site-footer__wordmark" aria-hidden="true">
-        Hidden Cove Adventures
+        {BRAND_NAME}
       </div>
 
       <div className="site-footer__bottom">
-        <span>&copy; {currentYear} Hidden Cove Adventures</span>
+        <span>&copy; {currentYear} {BRAND_NAME}</span>
         <span>{t.footer.bottomTagline}</span>
         <span>{t.footer.bottomPlaces}</span>
       </div>

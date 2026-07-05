@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useI18n } from "@/i18n/I18nContext";
 import { LANGS } from "@/i18n/languages";
-import { localizedPath } from "@/i18n/locales";
+import { getLocalizedHref } from "@/i18n/routes";
 import { cn } from "@/lib/utils";
 
 export function LanguageSwitcher({
@@ -9,7 +9,7 @@ export function LanguageSwitcher({
 }: {
   className?: string;
 }) {
-  const { lang, t } = useI18n();
+  const { lang, pageId, t } = useI18n();
   const [hash, setHash] = useState("");
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export function LanguageSwitcher({
       {LANGS.map((l, i) => (
         <div key={l.code} className="flex items-center gap-1.5">
           <a
-            href={localizedPath(l.code, hash)}
+            href={getLocalizedHref(pageId, l.code, pageId === "home" ? hash : "")}
             hrefLang={l.hreflang}
             lang={l.htmlLang}
             title={l.label}

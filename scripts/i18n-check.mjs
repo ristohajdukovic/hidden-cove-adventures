@@ -3,14 +3,14 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const ssrEntry = path.join(rootDir, "dist-ssr", "entry-server.js");
-const { DEFAULT_LOCALE, supportedLocales, translations } = await import(
+const { DEFAULT_LOCALE, supportedLocales, translations, pageContent } = await import(
   pathToFileURL(ssrEntry).href
 );
 
 const localeKeys = Object.keys(supportedLocales);
 const allowedEmptyPaths = new Set(["tours.private.duration"]);
 const identicalWhitelist = [
-  /^Hidden Cove Adventures$/,
+  /^Hidden Cove Ulcinj$/,
   /^Valdanos$/,
   /^Valdanos Bay$/,
   /^Ulcinj$/,
@@ -23,6 +23,7 @@ const identicalWhitelist = [
   /^BBQ Tour$/,
   /^Sunset Tour$/,
   /^Moonlight Tour$/,
+  /^Moonlight Tour \| Hidden Cove Ulcinj$/,
   /^WhatsApp$/,
   /^SUP$/,
   /^MapTiler/,
@@ -145,19 +146,24 @@ function collectStrings(value, currentPath = "", output = []) {
   return output;
 }
 
-const reference = translations[DEFAULT_LOCALE];
 const errors = [];
 const suspicious = [];
 
-localeKeys.forEach((locale) => {
-  errors.push(...compareShape(reference, translations[locale], locale));
+function checkLocalizedObject(name, localizedObject) {
+  const reference = localizedObject[DEFAULT_LOCALE];
 
-  if (locale !== DEFAULT_LOCALE) {
+  localeKeys.forEach((locale) => {
+    errors.push(...compareShape(reference, localizedObject[locale], `${locale}:${name}`));
+
+    if (locale === DEFAULT_LOCALE) {
+      return;
+    }
+
     const englishStrings = new Map(
       collectStrings(reference).map((entry) => [entry.path, entry.value]),
     );
 
-    collectStrings(translations[locale]).forEach((entry) => {
+    collectStrings(localizedObject[locale]).forEach((entry) => {
       const english = englishStrings.get(entry.path);
 
       if (
@@ -167,11 +173,14 @@ localeKeys.forEach((locale) => {
         !ignoredIdenticalPathPatterns.some((pattern) => pattern.test(entry.path)) &&
         !identicalWhitelist.some((pattern) => pattern.test(entry.value))
       ) {
-        suspicious.push(`${locale}:${entry.path} matches English: "${entry.value}"`);
+        suspicious.push(`${locale}:${name}.${entry.path} matches English: "${entry.value}"`);
       }
     });
-  }
-});
+  });
+}
+
+checkLocalizedObject("translations", translations);
+checkLocalizedObject("pageContent", pageContent);
 
 if (errors.length > 0) {
   console.error(errors.join("\n"));
@@ -183,5 +192,5 @@ if (suspicious.length > 0) {
 }
 
 console.log(
-  `i18n parity check passed for ${localeKeys.length} locales with ${collectStrings(reference).length} string leaves.`,
+  `i18n parity check passed for ${localeKeys.length} locales with ${collectStrings(translations[DEFAULT_LOCALE]).length} translation leaves and ${collectStrings(pageContent[DEFAULT_LOCALE]).length} page-content leaves.`,
 );

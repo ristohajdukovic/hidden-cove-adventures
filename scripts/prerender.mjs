@@ -8,8 +8,8 @@ const ssrEntry = path.join(rootDir, "dist-ssr", "entry-server.js");
 
 const {
   DEFAULT_LOCALE,
-  localeEntries,
-  render,
+  localizedRouteEntries,
+  renderPage,
   getPageMetadata,
   translations,
 } = await import(pathToFileURL(ssrEntry).href);
@@ -68,8 +68,8 @@ function upsertCanonicalAndAlternates(html, metadata) {
   return nextHtml;
 }
 
-function applyHead(template, locale) {
-  const metadata = getPageMetadata(locale);
+function applyHead(template, locale, pageId) {
+  const metadata = getPageMetadata(locale, pageId);
   const translation = translations[locale];
   let html = template.replace(/<html lang="[^"]*">/i, `<html lang="${metadata.htmlLang}">`);
 
@@ -101,9 +101,19 @@ function applyHead(template, locale) {
   return html;
 }
 
-function createRootRedirect() {
-  const metadata = getPageMetadata(DEFAULT_LOCALE);
-  const targetPath = `./${localeEntries.find((locale) => locale.key === DEFAULT_LOCALE).routeSlug}/`;
+function outputFileForRoute(routePath) {
+  const cleanPath = routePath.replace(/^\/+|\/+$/g, "");
+
+  if (!cleanPath) {
+    return path.join(distDir, "index.html");
+  }
+
+  return path.join(distDir, cleanPath, "index.html");
+}
+
+function createLegacyEnglishRedirect() {
+  const metadata = getPageMetadata(DEFAULT_LOCALE, "home");
+  const targetPath = "../";
 
   return `<!doctype html>
 <html lang="${metadata.htmlLang}">
@@ -123,16 +133,16 @@ ${metadata.alternates
   .join("\n")}
   </head>
   <body>
-    <p><a href="${targetPath}">Continue to Hidden Cove Adventures</a></p>
+    <p><a href="${targetPath}">Continue to Hidden Cove Ulcinj</a></p>
   </body>
 </html>
 `;
 }
 
 function createSitemap() {
-  const urls = localeEntries
-    .map((locale) => {
-      const metadata = getPageMetadata(locale.key);
+  const urls = localizedRouteEntries
+    .map((entry) => {
+      const metadata = getPageMetadata(entry.locale, entry.pageId);
       const alternates = metadata.alternates
         .map(
           (alternate) =>
@@ -157,22 +167,24 @@ ${urls}
 const template = await fs.readFile(path.join(distDir, "index.html"), "utf8");
 
 await Promise.all(
-  localeEntries.map(async (locale) => {
-    const appHtml = render(locale.key);
+  localizedRouteEntries.map(async (entry) => {
+    const appHtml = renderPage(entry.locale, entry.pageId);
     const localizedHtml = applyHead(
       template.replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`),
-      locale.key,
+      entry.locale,
+      entry.pageId,
     );
-    const localeDir = path.join(distDir, locale.routeSlug);
+    const outputFile = outputFileForRoute(entry.path);
 
-    await fs.mkdir(localeDir, { recursive: true });
-    await fs.writeFile(path.join(localeDir, "index.html"), localizedHtml);
+    await fs.mkdir(path.dirname(outputFile), { recursive: true });
+    await fs.writeFile(outputFile, localizedHtml);
   }),
 );
 
-await fs.writeFile(path.join(distDir, "index.html"), createRootRedirect());
+await fs.mkdir(path.join(distDir, "en"), { recursive: true });
+await fs.writeFile(path.join(distDir, "en", "index.html"), createLegacyEnglishRedirect());
 await fs.writeFile(path.join(distDir, "sitemap.xml"), createSitemap());
 await fs.writeFile(
   path.join(distDir, "robots.txt"),
-  `User-agent: *\nAllow: /\n\nSitemap: ${getPageMetadata(DEFAULT_LOCALE).canonicalUrl.replace(/\/en\/$/, "/sitemap.xml")}\n`,
+  `User-agent: *\nAllow: /\n\nSitemap: ${getPageMetadata(DEFAULT_LOCALE, "home").canonicalUrl.replace(/\/$/, "/sitemap.xml")}\n`,
 );

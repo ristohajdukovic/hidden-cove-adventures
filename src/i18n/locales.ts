@@ -3,7 +3,7 @@ export const DEFAULT_LOCALE = "en";
 export const supportedLocales = {
   en: {
     key: "en",
-    routeSlug: "en",
+    routeSlug: "",
     htmlLang: "en",
     hreflang: "en",
     nativeName: "English",
@@ -65,17 +65,26 @@ export function isSupportedLocale(value: string | undefined): value is Lang {
 export function getLocaleFromRouteSlug(
   routeSlug: string | undefined,
 ): SupportedLocale | null {
-  if (!routeSlug) {
-    return null;
-  }
+  const normalizedRouteSlug = routeSlug?.replace(/^\/+|\/+$/g, "") ?? "";
 
-  const match = localeEntries.find((locale) => locale.routeSlug === routeSlug);
+  const match = localeEntries.find(
+    (locale) => locale.routeSlug === normalizedRouteSlug,
+  );
 
   return match ?? null;
 }
 
 export function getLocaleFromPath(pathname: string): SupportedLocale | null {
-  const [, firstSegment] = pathname.split("/");
+  const basePath = normalizeAppBasePath(appBasePath);
+  const withoutBase =
+    basePath !== "/" && pathname.startsWith(basePath)
+      ? pathname.slice(basePath.length - 1)
+      : pathname;
+  const firstSegment = withoutBase.split("/").filter(Boolean)[0];
+
+  if (!firstSegment) {
+    return supportedLocales[DEFAULT_LOCALE];
+  }
 
   return getLocaleFromRouteSlug(firstSegment);
 }
@@ -85,7 +94,8 @@ export function localizedPath(
   hashOrPath = "",
 ): string {
   const basePath = normalizeAppBasePath(appBasePath);
-  const localePath = `${basePath}${supportedLocales[locale].routeSlug}/`;
+  const routeSlug = supportedLocales[locale].routeSlug;
+  const localePath = routeSlug ? `${basePath}${routeSlug}/` : basePath;
 
   if (!hashOrPath) {
     return localePath;

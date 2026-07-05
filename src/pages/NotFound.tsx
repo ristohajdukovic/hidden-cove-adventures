@@ -1,11 +1,11 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import { DEFAULT_LOCALE, getLocaleFromPath, localizedPath } from "@/i18n/locales";
+import { getLocaleFromPathname, getLocalizedHref } from "@/i18n/routes";
 import { translations } from "@/i18n/translations";
 
 const NotFound = () => {
   const location = useLocation();
-  const locale = getLocaleFromPath(location.pathname)?.key ?? DEFAULT_LOCALE;
+  const locale = getLocaleFromPathname(location.pathname);
   const t = translations[locale].notFound;
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const NotFound = () => {
         <h1 className="mb-4 text-4xl font-bold">404</h1>
         <p className="mb-4 text-xl text-muted-foreground">{t.title}</p>
         <p className="mb-6 text-muted-foreground">{t.body}</p>
-        <a href={localizedPath(DEFAULT_LOCALE)} className="text-primary underline hover:text-primary/90">
+        <a href={getLocalizedHref("home", locale)} className="text-primary underline hover:text-primary/90">
           {t.home}
         </a>
       </div>

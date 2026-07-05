@@ -1,9 +1,11 @@
 import { createContext, useContext } from "react";
 import type { Lang } from "./locales";
+import type { PageId } from "./routes";
 import type { TranslationKeys } from "./translations";
 
 export type I18nContextType = {
   lang: Lang;
+  pageId: PageId;
   t: TranslationKeys;
 };
 

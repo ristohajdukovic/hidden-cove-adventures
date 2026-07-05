@@ -1,4 +1,5 @@
-import { localizedPath, type Lang } from "@/i18n/locales";
+import { getHomeSectionHref, getLocalizedHref } from "@/i18n/routes";
+import type { Lang } from "@/i18n/locales";
 import type { FaqLinkTarget, TranslationKeys } from "@/i18n/translations";
 
 export type FaqLink = {
@@ -19,7 +20,9 @@ function getLinkHref(target: FaqLinkTarget, locale: Lang, bookingHref: string): 
     return bookingHref;
   }
 
-  return localizedPath(locale, target === "route" ? "#route" : "#tours");
+  return target === "route"
+    ? getHomeSectionHref(locale, "#route")
+    : getLocalizedHref("tours", locale);
 }
 
 export function createFaqItems(

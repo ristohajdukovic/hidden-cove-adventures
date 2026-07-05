@@ -1,12 +1,12 @@
-# Hidden Cove Adventures
+# Hidden Cove Ulcinj
 
 A responsive website for small-group boat tours from Valdanos near Ulcinj, Montenegro. The site presents available coastal experiences, an interactive route map, practical tour information, multilingual content, and WhatsApp booking.
 
 ## Overview
 
-Hidden Cove Adventures operates boat experiences around Valdanos and the Ulcinj coast. The website presents active tours, a coming-soon Moonlight Tour, a coastal route map, FAQs, gallery content, and contact paths for booking through WhatsApp.
+Hidden Cove Ulcinj operates boat experiences around Valdanos and the Ulcinj coast. The website presents active tours, a coming-soon Moonlight Tour, a coastal route map, FAQs, gallery content, and contact paths for booking through WhatsApp.
 
-The application is built as a Vite React site with localized routes and prerendered output for the supported languages.
+The application is built as a Vite React site with localized routes, English at the root URL, and prerendered output for the supported languages.
 
 ## Features
 
@@ -23,7 +23,7 @@ The application is built as a Vite React site with localized routes and prerende
 
 ## Tours
 
-Tour details are maintained in `src/i18n/translations.ts` and rendered from the current locale data.
+Tour facts are maintained in `src/i18n/translations.ts`; localized page-level route and detail copy lives in `src/i18n/pageContent.ts`.
 
 - **Classic Tour**: approximately 4 hours, up to 8 guests, €50 per person.
 - **BBQ Tour**: approximately 4 hours, up to 8 guests, €60 per person.
@@ -86,7 +86,7 @@ npm run build
 npm run preview
 ```
 
-The build creates a Vite client bundle, an SSR bundle, localized prerendered pages, `sitemap.xml`, and `robots.txt` inside `dist/`.
+The build creates a Vite client bundle, an SSR bundle, localized prerendered pages, a noindex legacy `/en/` redirect, `sitemap.xml`, and `robots.txt` inside `dist/`.
 
 ## Available Scripts
 
@@ -130,12 +130,12 @@ Verified route stops and sea waypoints live in `src/data/boatRoute.ts`. The disp
 
 The site supports:
 
-- English: `/en/`
+- English: `/`
 - German: `/de/`
 - Albanian: `/sq/`
 - Montenegrin Latin: `/me/`
 
-The root route redirects to the default English route. Locale definitions live in `src/i18n/locales.ts`, while translated content is maintained in `src/i18n/translations.ts`. The production build prerenders localized pages and generates canonical and alternate links for each locale.
+The old `/en/` URL is retained only as a noindex redirect to the English root. Locale definitions live in `src/i18n/locales.ts`, public paths live in `src/i18n/routes.ts`, translated homepage content is maintained in `src/i18n/translations.ts`, and localized page copy is maintained in `src/i18n/pageContent.ts`. The production build prerenders localized pages and generates canonical and alternate links for each locale.
 
 ## Booking
 
@@ -145,12 +145,12 @@ Do not publish the configured phone number or any local environment values in do
 
 ## Deployment
 
-No provider-specific deployment settings are required beyond a static host that can serve the Vite `dist/` output. The repository includes a `_redirects` file for static hosting that redirects `/` to `/en/`.
+No provider-specific deployment settings are required beyond a static host that can serve the Vite `dist/` output. The repository includes a `_redirects` file for static hosting that redirects legacy `/en/` paths to the English root.
 
 The hosting provider should:
 
 - serve the generated Vite build from `dist/`
-- support direct requests to localized routes such as `/en/` and `/de/`
+- support direct requests to localized routes such as `/`, `/tours/`, `/de/`, and `/de/bootstouren/`
 - define the required Vite environment variables during build
 - allow the production domain in the MapTiler key settings
 
@@ -171,7 +171,7 @@ There is currently no formatter script in `package.json`.
 
 ## Content and Asset Notes
 
-- Tour information should stay synchronized across `src/i18n/translations.ts` and the rendered tour cards.
+- Tour information should stay synchronized across `src/i18n/translations.ts`, `src/i18n/pageContent.ts`, `src/i18n/routes.ts`, and the rendered tour cards.
 - Image assets are stored locally under `src/assets/`.
 - The Mediterranean feature icons are stored under `src/assets/icons/mediterranean/`.
 - MapTiler and map-data attribution must remain visible.

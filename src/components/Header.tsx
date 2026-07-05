@@ -2,12 +2,13 @@ import { useEffect, useRef, useState } from "react";
 import type { MouseEvent } from "react";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { useI18n } from "@/i18n/I18nContext";
-import { localizedPath } from "@/i18n/locales";
-import { hasWhatsApp, waLink } from "@/lib/business";
+import { getHomeSectionHref, getLocalizedHref } from "@/i18n/routes";
+import { BRAND_NAME, hasWhatsApp, waLink } from "@/lib/business";
 
 type NavigationItem = {
   label: string;
-  hash: string;
+  href: string;
+  hash?: string;
 };
 
 export function Header() {
@@ -18,11 +19,11 @@ export function Header() {
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const bookingHref = waLink(t.whatsapp.general);
   const navigationItems: NavigationItem[] = [
-    { label: t.nav.tours, hash: "#tours" },
-    { label: t.nav.included, hash: "#included" },
-    { label: t.nav.route, hash: "#route" },
-    { label: t.nav.gallery, hash: "#gallery" },
-    { label: t.nav.faq, hash: "#faq" },
+    { label: t.nav.tours, href: getLocalizedHref("tours", lang) },
+    { label: t.nav.included, href: getHomeSectionHref(lang, "#included"), hash: "#included" },
+    { label: t.nav.route, href: getHomeSectionHref(lang, "#route"), hash: "#route" },
+    { label: t.nav.gallery, href: getHomeSectionHref(lang, "#gallery"), hash: "#gallery" },
+    { label: t.nav.faq, href: getHomeSectionHref(lang, "#faq"), hash: "#faq" },
   ];
 
   useEffect(() => {
@@ -60,7 +61,23 @@ export function Header() {
     };
   }, [menuOpen]);
 
-  const handleAnchorClick = (event: MouseEvent<HTMLAnchorElement>, hash: string) => {
+  const handleAnchorClick = (
+    event: MouseEvent<HTMLAnchorElement>,
+    href: string,
+    hash?: string,
+  ) => {
+    if (!hash) {
+      setMenuOpen(false);
+      return;
+    }
+
+    const linkUrl = new URL(href, window.location.href);
+
+    if (linkUrl.pathname !== window.location.pathname) {
+      setMenuOpen(false);
+      return;
+    }
+
     const target = document.querySelector(hash);
 
     if (!target) {
@@ -90,20 +107,20 @@ export function Header() {
         <div className="header-pill">
           <a
             className="header-brand"
-            href={localizedPath(lang, "#top")}
+            href={getHomeSectionHref(lang, "#top")}
             aria-label={t.aria.home}
-            onClick={(event) => handleAnchorClick(event, "#top")}
+            onClick={(event) => handleAnchorClick(event, getHomeSectionHref(lang, "#top"), "#top")}
           >
             <img src="/favicon.ico" alt="" width={40} height={40} />
-            <span>Hidden Cove Adventures</span>
+            <span>{BRAND_NAME}</span>
           </a>
 
           <nav className="desktop-navigation" aria-label={t.aria.mainNavigation}>
             {navigationItems.map((item) => (
               <a
-                key={item.hash}
-                href={localizedPath(lang, item.hash)}
-                onClick={(event) => handleAnchorClick(event, item.hash)}
+                key={item.href}
+                href={item.href}
+                onClick={(event) => handleAnchorClick(event, item.href, item.hash)}
               >
                 {item.label}
               </a>
@@ -155,10 +172,10 @@ export function Header() {
         <nav aria-label={t.aria.mobileNavigation}>
           {navigationItems.map((item) => (
             <a
-              key={item.hash}
-              href={localizedPath(lang, item.hash)}
+              key={item.href}
+              href={item.href}
               tabIndex={menuOpen ? 0 : -1}
-              onClick={(event) => handleAnchorClick(event, item.hash)}
+              onClick={(event) => handleAnchorClick(event, item.href, item.hash)}
             >
               {item.label}
             </a>

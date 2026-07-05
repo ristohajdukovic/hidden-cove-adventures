@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import { useI18n } from "@/i18n/I18nContext";
-import { formatWhatsAppMessage, hasWhatsApp, waLink } from "@/lib/business";
+import { pageContent } from "@/i18n/pageContent";
+import { getLocalizedHref } from "@/i18n/routes";
 import hiddenImg from "@/assets/tour-hidden-beach.jpg";
 import sunsetImg from "@/assets/tour-sunset-bbq.jpg";
 import sunsetTourImg from "@/assets/gallery-oldtown.jpg";
@@ -8,10 +9,9 @@ import moonImg from "@/assets/tour-moonlight.jpg";
 import { ArrowUpRight, Clock, Users } from "@/components/icons/HandDrawn";
 
 export function Tours() {
-  const { t } = useI18n();
+  const { lang, t } = useI18n();
   const tours = t.tours;
-  const tourHref = (tourName: string) =>
-    waLink(formatWhatsAppMessage(t.whatsapp.tourInfo, { tourName }));
+  const linkLabel = pageContent[lang].common.viewDetails;
 
   return (
     <section id="tours" className="container py-20 md:py-28">
@@ -28,9 +28,7 @@ export function Tours() {
       <div className="tours-grid grid grid-cols-1 gap-5">
         {/* Classic Tour */}
         <a
-          href={tourHref(tours.hidden.name)}
-          target={hasWhatsApp ? "_blank" : undefined}
-          rel={hasWhatsApp ? "noopener noreferrer" : undefined}
+          href={getLocalizedHref("classicTour", lang)}
           className="tour-card tour-card--classic group photo-frame flex flex-col hover:-translate-y-1 transition-transform duration-500"
         >
           <div className="tour-card__media photo-frame-inner relative aspect-[4/3] w-full mb-5">
@@ -53,14 +51,13 @@ export function Tours() {
               <p className="text-sm italic leading-relaxed text-adriatic/65">{tours.hidden.note}</p>
             )}
             <TourMeta duration={tours.hidden.duration} group={tours.hidden.group} price={tours.hidden.price} />
+            <span className="tour-card__text-link">{linkLabel}</span>
           </div>
         </a>
 
         {/* BBQ Tour — wide */}
         <a
-          href={tourHref(tours.sunset.name)}
-          target={hasWhatsApp ? "_blank" : undefined}
-          rel={hasWhatsApp ? "noopener noreferrer" : undefined}
+          href={getLocalizedHref("barbecueTour", lang)}
           className="tour-card tour-card--bbq group photo-frame flex flex-col gap-5 hover:-translate-y-1 transition-transform duration-500"
         >
           <div className="tour-card__media tour-card__media--bbq photo-frame-inner aspect-[4/3] shrink-0">
@@ -76,14 +73,13 @@ export function Tours() {
               <p className="text-sm italic leading-relaxed text-adriatic/65">{tours.sunset.note}</p>
             )}
             <TourMeta duration={tours.sunset.duration} group={tours.sunset.group} price={tours.sunset.price} compact />
+            <span className="tour-card__text-link">{linkLabel}</span>
           </div>
         </a>
 
         {/* Sunset Tour */}
         <a
-          href={tourHref(tours.moonlight.name)}
-          target={hasWhatsApp ? "_blank" : undefined}
-          rel={hasWhatsApp ? "noopener noreferrer" : undefined}
+          href={getLocalizedHref("sunsetTour", lang)}
           className="tour-card tour-card--sunset group photo-frame flex flex-col hover:-translate-y-1 transition-transform duration-500"
         >
           <div className="tour-card__media photo-frame-inner aspect-[4/3] w-full mb-4">
@@ -104,11 +100,13 @@ export function Tours() {
               )}
               <span className="text-sm font-semibold text-olive tabular-nums ml-auto">{tours.moonlight.price}</span>
             </div>
+            <span className="tour-card__text-link">{linkLabel}</span>
           </div>
         </a>
 
         {/* Moonlight Tour — Coming Soon */}
-        <div
+        <a
+          href={getLocalizedHref("moonlightTour", lang)}
           className="tour-card tour-card--moonlight moonlight-tour-card group relative rounded-[2rem] border border-stone/15 p-2.5 shadow-card transition-transform duration-500 hover:-translate-y-1"
           style={{ "--moonlight-image": `url(${moonImg})` } as CSSProperties}
         >
@@ -123,9 +121,10 @@ export function Tours() {
               <span className="inline-block rounded-full border border-apricot/35 bg-adriatic/55 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-stone backdrop-blur">
                 {tours.private.tagline}
               </span>
+              <span className="tour-card__text-link tour-card__text-link--light">{linkLabel}</span>
             </div>
           </div>
-        </div>
+        </a>
       </div>
     </section>
   );

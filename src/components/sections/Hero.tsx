@@ -1,5 +1,5 @@
 import { useI18n } from "@/i18n/I18nContext";
-import { localizedPath } from "@/i18n/locales";
+import { getLocalizedHref } from "@/i18n/routes";
 import { hasWhatsApp, waLink } from "@/lib/business";
 import heroImg from "@/assets/hero-cove.jpg";
 import { ArrowRight } from "@/components/icons/HandDrawn";
@@ -34,7 +34,7 @@ export function Hero() {
               <ArrowRight className="size-4" />
             </a>
             <a
-              href={localizedPath(lang, "#tours")}
+              href={getLocalizedHref("tours", lang)}
               className="inline-flex items-center gap-2 px-7 py-4 rounded-full font-semibold text-sm text-adriatic bg-stone/80 border border-adriatic/10 hover:bg-stone hover:border-adriatic/30 transition-all"
             >
               {t.cta.viewTours}

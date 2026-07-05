@@ -1,5 +1,5 @@
 import { useI18n } from "@/i18n/I18nContext";
-import { hasWhatsApp, waLink } from "@/lib/business";
+import { createWhatsAppUrl, hasWhatsApp } from "@/lib/business";
 import privateImg from "@/assets/tour-private.jpg";
 import { ArrowRight } from "@/components/icons/HandDrawn";
 
@@ -19,7 +19,7 @@ export function PrivateSection() {
             </h2>
             <p className="text-adriatic/70 text-lg leading-relaxed mb-8 max-w-[48ch]">{t.privateSec.body}</p>
             <a
-              href={waLink(t.whatsapp.privateTour)}
+              href={createWhatsAppUrl(t.whatsapp.privateTour)}
               target={hasWhatsApp ? "_blank" : undefined}
               rel={hasWhatsApp ? "noopener noreferrer" : undefined}
               className="self-start inline-flex items-center gap-2 bg-adriatic text-stone px-7 py-4 rounded-full font-semibold text-sm hover:bg-olive transition-colors"

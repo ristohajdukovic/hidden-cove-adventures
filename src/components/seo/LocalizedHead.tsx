@@ -29,10 +29,10 @@ function setLink(
 }
 
 export function LocalizedHead() {
-  const { lang } = useI18n();
+  const { lang, pageId } = useI18n();
 
   useEffect(() => {
-    const metadata = getPageMetadata(lang);
+    const metadata = getPageMetadata(lang, pageId);
 
     document.title = metadata.title;
     document.documentElement.lang = metadata.htmlLang;
@@ -122,7 +122,7 @@ export function LocalizedHead() {
       link.dataset.hreflangManaged = "true";
       document.head.append(link);
     });
-  }, [lang]);
+  }, [lang, pageId]);
 
   return null;
 }

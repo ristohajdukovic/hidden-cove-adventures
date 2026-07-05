@@ -24,7 +24,7 @@ type IndexProps = {
 
 const Index = ({ initialLocale = "en" }: IndexProps) => {
   return (
-    <I18nProvider locale={initialLocale}>
+    <I18nProvider locale={initialLocale} pageId="home">
       <div id="top" className="min-h-screen bg-sand text-adriatic">
         <LocalizedHead />
         <HomeStructuredData />
