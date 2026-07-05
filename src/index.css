@@ -669,14 +669,14 @@
   }
 
   .header-pill {
-    width: min(1100px, 100%);
+    width: min(1320px, 100%);
     min-height: 58px;
     margin-inline: auto;
-    padding: 8px 10px 8px 16px;
-    display: flex;
+    padding: 8px 12px 8px clamp(16px, 2vw, 22px);
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
     align-items: center;
-    justify-content: space-between;
-    gap: 18px;
+    column-gap: clamp(28px, 3vw, 40px);
     color: hsl(var(--adriatic));
     background: hsl(var(--stone) / 0.84);
     border: 1.5px solid hsl(var(--adriatic));
@@ -720,7 +720,7 @@
 
   .header-brand__wordmark {
     font-family: var(--font-display);
-    font-size: clamp(21px, 1.75vw, 29px);
+    font-size: clamp(22px, 1.35vw, 29px);
     font-weight: 620;
     line-height: 1;
     letter-spacing: -0.025em;
@@ -728,9 +728,13 @@
   }
 
   .desktop-navigation {
+    min-width: 0;
     display: flex;
     align-items: center;
-    gap: clamp(16px, 2vw, 28px);
+    justify-content: center;
+    justify-self: center;
+    gap: clamp(18px, 1.6vw, 26px);
+    white-space: nowrap;
   }
 
   .desktop-navigation a {
@@ -767,9 +771,11 @@
   }
 
   .header-actions {
+    min-width: 0;
     display: flex;
     align-items: center;
-    gap: 12px;
+    justify-self: end;
+    gap: clamp(12px, 1.2vw, 16px);
     flex: none;
   }
 
@@ -778,6 +784,11 @@
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+
+  .header-language-switcher > div {
+    flex: none;
   }
 
   .header-language-switcher a,
@@ -1743,6 +1754,7 @@
 @media (min-width: 1100px) {
   .home-tours-grid {
     grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: stretch;
     gap: clamp(20px, 2vw, 28px);
   }
 
@@ -1772,15 +1784,17 @@
 
   .home-tour-card--sunset {
     grid-column: span 8;
-    height: clamp(380px, 31vw, 440px);
+    height: auto;
     min-height: 0;
     display: grid;
-    grid-template-columns: minmax(0, 1.55fr) minmax(260px, 1fr);
+    grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.85fr);
+    align-items: stretch;
   }
 
   .home-tour-card--moonlight {
     grid-column: span 4;
-    height: clamp(380px, 31vw, 440px);
+    align-self: stretch;
+    height: 100%;
     min-height: 0;
     display: flex;
     flex-direction: column;
@@ -1789,10 +1803,11 @@
   }
 
   .home-tour-card--sunset .tour-card__media {
-    min-height: 0;
+    min-height: clamp(320px, 26vw, 430px);
     height: 100%;
     margin-bottom: 0;
     aspect-ratio: auto;
+    overflow: hidden;
   }
 
   .home-tour-card--sunset .tour-card__media img {
@@ -1802,11 +1817,14 @@
   }
 
   .home-tour-card--sunset .tour-card__content {
-    height: 100%;
+    height: auto;
     min-height: 0;
+    min-width: 0;
     display: flex;
     flex-direction: column;
-    padding: clamp(24px, 2.5vw, 36px);
+    gap: clamp(10px, 1vw, 14px);
+    overflow: visible;
+    padding: clamp(22px, 2.2vw, 34px);
   }
 
   .home-tour-card--sunset .tour-card__content h3 {
@@ -1815,15 +1833,23 @@
   }
 
   .home-tour-card--sunset .tour-card__content p {
-    line-clamp: 2;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    display: block;
+    overflow: visible;
+  }
+
+  .home-tour-card--sunset .tour-facts--compact {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .home-tour-card--sunset .tour-fact-card {
+    min-height: 66px;
+    padding: 12px 14px;
   }
 
   .home-tour-card--sunset .tour-card__text-link {
-    margin-top: 12px;
+    margin-top: auto;
+    padding-top: 8px;
   }
 
   .home-tour-card--moonlight > div {
@@ -1866,7 +1892,20 @@
   }
 }
 
-@media (max-width: 1099px) {
+@media (max-width: 1320px) {
+  .header-brand__wordmark {
+    font-size: clamp(20px, 1.65vw, 24px);
+  }
+}
+
+@media (max-width: 1239px) {
+  .header-pill {
+    width: min(720px, 100%);
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 12px;
+    padding-right: 8px;
+  }
+
   .desktop-navigation,
   .header-booking-button,
   .header-language-switcher {
@@ -1876,37 +1915,15 @@
   .mobile-menu-button {
     display: flex;
   }
-}
 
-@media (max-width: 1180px) {
   .header-brand__wordmark {
-    font-size: clamp(18px, 2vw, 23px);
+    font-size: clamp(17px, 2.2vw, 22px);
   }
 }
 
 @media (max-width: 960px) {
   .container {
     padding-inline: var(--mobile-gutter);
-  }
-
-  .desktop-navigation,
-  .header-booking-button,
-  .header-language-switcher {
-    display: none;
-  }
-
-  .mobile-menu-button {
-    display: flex;
-  }
-
-  .header-pill {
-    padding-right: 7px;
-  }
-
-  .header-brand__wordmark {
-    max-width: 180px;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   .site-footer {
@@ -2051,12 +2068,9 @@
   }
 
   .header-brand__wordmark {
-    max-width: 170px;
-    white-space: normal;
-    font-size: 17px;
-    line-height: 0.95;
-    overflow: visible;
-    text-overflow: clip;
+    white-space: nowrap;
+    font-size: clamp(15px, 4.7vw, 17px);
+    line-height: 1;
   }
 }
 

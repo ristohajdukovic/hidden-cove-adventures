@@ -155,6 +155,48 @@ function isValidCoordinate(coordinates: LngLat): boolean {
   );
 }
 
+function sanitizeMapTilerDiagnostic(message: string): string {
+  return message.replace(
+    /([?&](?:key|apiKey|api_key)=)[^&\s]+/gi,
+    "$1[redacted]",
+  );
+}
+
+function getMapTilerDiagnostic(value: unknown): string {
+  if (value instanceof Error) {
+    return `${value.name}: ${sanitizeMapTilerDiagnostic(value.message)}`;
+  }
+
+  if (typeof value === "object" && value !== null && "error" in value) {
+    return getMapTilerDiagnostic(
+      (value as { error?: unknown }).error,
+    );
+  }
+
+  if (typeof value === "object" && value !== null && "message" in value) {
+    const message = (value as { message?: unknown }).message;
+
+    if (typeof message === "string") {
+      return sanitizeMapTilerDiagnostic(message);
+    }
+  }
+
+  return typeof value;
+}
+
+function logMapTilerDevelopmentDiagnostic(
+  context: string,
+  detail: unknown,
+): void {
+  if (!import.meta.env.DEV) {
+    return;
+  }
+
+  console.warn(
+    `MapTiler ${context}: ${getMapTilerDiagnostic(detail)}`,
+  );
+}
+
 function coordinatesEqual(first: LngLat, second: LngLat): boolean {
   return first[0] === second[0] && first[1] === second[1];
 }
@@ -1000,6 +1042,14 @@ export function AquarelleRouteMap({
   }, [playJourneyIfAllowed, prefersReducedMotion]);
 
   React.useEffect(() => {
+    if (!hasMapTilerApiKey && import.meta.env.DEV) {
+      console.warn(
+        "MapTiler configuration: VITE_MAPTILER_API_KEY is not configured.",
+      );
+    }
+  }, []);
+
+  React.useEffect(() => {
     const container = mapContainerRef.current;
     const shell = mapShellRef.current;
 
@@ -1010,6 +1060,7 @@ export function AquarelleRouteMap({
     const webGlError = getWebGLSupportError();
 
     if (webGlError) {
+      logMapTilerDevelopmentDiagnostic("WebGL support check failed", webGlError);
       setMapError(routeCopyRef.current.controls.webGlUnavailable);
       return undefined;
     }
@@ -1019,6 +1070,10 @@ export function AquarelleRouteMap({
     );
 
     if (validStops.length !== 3) {
+      logMapTilerDevelopmentDiagnostic(
+        "route configuration is invalid",
+        "expected three valid route stops",
+      );
       setMapError(routeCopyRef.current.controls.noValidCoordinates);
       return undefined;
     }
@@ -1028,6 +1083,10 @@ export function AquarelleRouteMap({
     );
 
     if (!hiddenBeachStop) {
+      logMapTilerDevelopmentDiagnostic(
+        "route configuration is invalid",
+        "hidden beach stop is missing",
+      );
       setMapError(routeCopyRef.current.controls.noValidCoordinates);
       return undefined;
     }
@@ -1319,7 +1378,8 @@ export function AquarelleRouteMap({
       addRouteLineMarkersAndBoat();
     });
 
-    map.once("error", () => {
+    map.once("error", (event) => {
+      logMapTilerDevelopmentDiagnostic("map request failed", event);
       if (!map.loaded()) {
         setMapError(routeCopyRef.current.controls.mapUnavailable);
       }

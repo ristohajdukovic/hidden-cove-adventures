@@ -110,7 +110,7 @@ export function Tours() {
           <div className="tour-card__content px-4 pb-4 flex flex-col flex-1 gap-2">
             <span className="text-[11px] font-semibold tracking-[0.2em] text-sea uppercase">{tours.moonlight.tagline}</span>
             <h3 className="font-display text-xl font-medium text-adriatic">{tours.moonlight.name}</h3>
-            <p className="line-clamp-2 text-sm leading-relaxed text-adriatic/75">{tours.moonlight.desc}</p>
+            <p className="text-sm leading-relaxed text-adriatic/75">{tours.moonlight.desc}</p>
             <IncludedList items={tours.moonlight.included} compact />
             {tours.moonlight.note && (
               <p className="text-sm italic leading-relaxed text-adriatic/65">{tours.moonlight.note}</p>
