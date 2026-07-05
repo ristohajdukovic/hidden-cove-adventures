@@ -1,10 +1,10 @@
-# Hidden Cove Ulcinj
+# Hidden Cove Boat Tours
 
 A responsive website for small-group boat tours from Valdanos near Ulcinj, Montenegro. The site presents available coastal experiences, an interactive route map, practical tour information, multilingual content, and WhatsApp booking.
 
 ## Overview
 
-Hidden Cove Ulcinj operates boat experiences around Valdanos and the Ulcinj coast. The website presents active tours, a coming-soon Moonlight Tour, a coastal route map, FAQs, gallery content, and contact paths for booking through WhatsApp.
+Hidden Cove Boat Tours operates boat experiences around Valdanos and the Ulcinj coast. The website presents active tours, a coming-soon Moonlight Tour, a coastal route map, FAQs, gallery content, and contact paths for booking through WhatsApp.
 
 The application is built as a Vite React site with localized routes, English at the root URL, and prerendered output for the supported languages.
 

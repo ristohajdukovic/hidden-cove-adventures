@@ -1,5 +1,8 @@
+import type { Lang } from "@/i18n/locales";
+import { translations } from "@/i18n/translations";
+
 // Central business config - easy to edit.
-export const BRAND_NAME = "Hidden Cove Ulcinj";
+export const BRAND_NAME = "Hidden Cove Boat Tours";
 
 export const business = {
   name: BRAND_NAME,
@@ -22,19 +25,27 @@ export const hasWhatsApp = Boolean(whatsappNumber);
 
 export const emailLink = (
   subject = "Boat tour enquiry",
-  body = "Hello, I'm interested in booking a boat trip with Hidden Cove Ulcinj. Preferred date: ____. Number of guests: ____.",
+  body = "Hello, I'm interested in booking a boat trip with Hidden Cove Boat Tours. Preferred date: ____. Number of guests: ____.",
 ) =>
   `mailto:${business.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-export function createWhatsAppUrl(message: string): string {
-  if (!whatsappNumber) {
-    return "#";
-  }
+export type WhatsAppMessageKey =
+  | "generalBooking"
+  | "contact"
+  | "classicTour"
+  | "bbqTour"
+  | "sunsetTour"
+  | "moonlightTour"
+  | "privateTour";
 
-  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-}
+export type WhatsAppUrlOptions = {
+  locale: Lang;
+  messageKey: WhatsAppMessageKey;
+  variables?: Record<string, string>;
+  phoneNumber?: string;
+};
 
-export function formatWhatsAppMessage(
+export function interpolateMessage(
   template: string,
   variables: Record<string, string>,
 ): string {
@@ -44,11 +55,41 @@ export function formatWhatsAppMessage(
   );
 }
 
-export const waLink = (
-  msg = "Hello, I'm interested in booking a boat trip with Hidden Cove Ulcinj. Preferred date: ____. Number of guests: ____.",
-) =>
-  hasWhatsApp
-    ? createWhatsAppUrl(msg)
-    : emailLink("Boat tour enquiry", msg);
+export function createWhatsAppMessage({
+  locale,
+  messageKey,
+  variables = {},
+}: Omit<WhatsAppUrlOptions, "phoneNumber">): string {
+  const template = translations[locale].whatsapp[messageKey];
+
+  return interpolateMessage(template, variables);
+}
+
+export function createWhatsAppUrl(options: WhatsAppUrlOptions | string): string {
+  const configuredNumber =
+    typeof options === "string" ? whatsappNumber : options.phoneNumber ?? whatsappNumber;
+
+  if (!configuredNumber) {
+    return "#";
+  }
+
+  const message =
+    typeof options === "string"
+      ? options
+      : createWhatsAppMessage({
+          locale: options.locale,
+          messageKey: options.messageKey,
+          variables: options.variables,
+        });
+
+  return `https://wa.me/${configuredNumber.replace(/\D/g, "")}?text=${encodeURIComponent(message)}`;
+}
+
+export function formatWhatsAppMessage(
+  template: string,
+  variables: Record<string, string>,
+): string {
+  return interpolateMessage(template, variables);
+}
 
 export const telLink = () => (hasPhone ? `tel:${business.phone}` : "");

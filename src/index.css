@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Hidden Cove Ulcinj — Mediterranean Neo-Rustic design system.
+/* Hidden Cove Boat Tours — Mediterranean Neo-Rustic design system.
    All colors HSL. Tokens only — never use raw colors in components. */
 
 @layer base {
@@ -345,23 +345,94 @@
     overflow-wrap: anywhere;
   }
 
-  .tour-overview-card__meta {
-    display: flex;
-    flex-wrap: wrap;
+  .tour-facts {
+    container-type: inline-size;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 178px), 1fr));
+    gap: 12px;
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .tour-facts--compact {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
     gap: 10px;
   }
 
-  .tour-overview-card__meta b {
-    min-height: 34px;
-    display: inline-flex;
+  .tour-facts--detail {
+    margin-top: 18px;
+  }
+
+  .tour-fact-card {
+    min-width: 0;
+    min-height: 72px;
+    padding: 15px 16px;
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr);
     align-items: center;
-    border: 1px solid hsl(var(--adriatic) / 0.12);
-    border-radius: 999px;
-    padding: 7px 12px;
-    color: hsl(var(--adriatic) / 0.72);
-    font-size: 13px;
+    gap: 12px;
+    color: hsl(var(--adriatic));
+    background: hsl(var(--paper) / 0.18);
+    border: 1px solid hsl(var(--adriatic) / 0.22);
+    border-radius: 16px;
+  }
+
+  .tour-fact-card__icon {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    color: hsl(var(--adriatic));
+    border: 1px solid hsl(var(--adriatic) / 0.22);
+    border-radius: 12px;
+  }
+
+  .tour-fact-card__icon svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .tour-fact-card__copy {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .tour-fact-card__label {
+    color: hsl(var(--adriatic) / 0.66);
+    font-family: var(--font-body);
+    font-size: 11px;
     font-weight: 700;
-    white-space: normal;
+    line-height: 1.1;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .tour-fact-card__value {
+    color: hsl(var(--adriatic));
+    font-family: var(--font-body);
+    font-size: clamp(14px, 1.05vw, 17px);
+    font-weight: 650;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+
+  .tour-fact-card--price {
+    border-color: hsl(var(--apricot) / 0.46);
+  }
+
+  .tour-fact-card--price .tour-fact-card__icon {
+    color: hsl(var(--hull-deep));
+    border-color: hsl(var(--apricot) / 0.46);
+  }
+
+  .tour-fact-card--price .tour-fact-card__value {
+    color: hsl(var(--hull-deep));
+  }
+
+  .tour-fact-card--status {
+    border-color: hsl(var(--olive) / 0.34);
   }
 
   .tour-overview-card__actions {
@@ -488,34 +559,6 @@
     color: hsl(var(--adriatic) / 0.74);
     font-size: 15px;
     line-height: 1.6;
-  }
-
-  .tour-detail-meta {
-    margin-top: 18px;
-    display: grid;
-    gap: 12px;
-  }
-
-  .tour-detail-meta__item {
-    min-width: 0;
-    padding: 16px;
-    border: 1px solid hsl(var(--adriatic) / 0.12);
-    border-radius: 18px;
-  }
-
-  .tour-detail-meta__item span {
-    display: block;
-    margin-bottom: 6px;
-    color: hsl(var(--olive));
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  .tour-detail-meta__item strong {
-    font-size: 16px;
-    line-height: 1.35;
   }
 
   .tour-detail-included li {
@@ -671,23 +714,16 @@
   .header-brand {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
     min-width: 0;
     color: inherit;
   }
 
-  .header-brand img {
-    width: 36px;
-    height: 36px;
-    object-fit: contain;
-    flex: none;
-  }
-
-  .header-brand span {
+  .header-brand__wordmark {
     font-family: var(--font-display);
-    font-size: 18px;
-    font-weight: 640;
-    letter-spacing: 0;
+    font-size: clamp(21px, 1.75vw, 29px);
+    font-weight: 620;
+    line-height: 1;
+    letter-spacing: -0.025em;
     white-space: nowrap;
   }
 
@@ -1647,10 +1683,6 @@
     grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   }
 
-  .tour-detail-meta {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
   .tour-detail-related {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -1846,6 +1878,12 @@
   }
 }
 
+@media (max-width: 1180px) {
+  .header-brand__wordmark {
+    font-size: clamp(18px, 2vw, 23px);
+  }
+}
+
 @media (max-width: 960px) {
   .container {
     padding-inline: var(--mobile-gutter);
@@ -1865,7 +1903,7 @@
     padding-right: 7px;
   }
 
-  .header-brand span {
+  .header-brand__wordmark {
     max-width: 180px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -2007,18 +2045,18 @@
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 430px) {
   .tour-page-hero h1 {
     font-size: clamp(40px, 11vw, 48px);
   }
 
-  .header-brand span {
-    font-size: 16px;
-  }
-
-  .header-brand img {
-    width: 32px;
-    height: 32px;
+  .header-brand__wordmark {
+    max-width: 170px;
+    white-space: normal;
+    font-size: 17px;
+    line-height: 0.95;
+    overflow: visible;
+    text-overflow: clip;
   }
 }
 

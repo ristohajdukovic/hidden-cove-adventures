@@ -10,36 +10,15 @@ import { pageContent } from "@/i18n/pageContent";
 import { getLocalizedHref, tourPageIds, type TourPageId } from "@/i18n/routes";
 import type { Lang } from "@/i18n/locales";
 import { tourDefinitionsByPageId } from "@/data/tourPages";
-import {
-  createWhatsAppUrl,
-  formatWhatsAppMessage,
-  hasWhatsApp,
-} from "@/lib/business";
+import { createWhatsAppUrl } from "@/lib/business";
+import { TourFactCards } from "@/components/tours/TourFactCards";
+import { createTourFacts } from "@/components/tours/tourFacts";
 import { ArrowRight, Clock, Users } from "@/components/icons/HandDrawn";
 
 type TourDetailProps = {
   initialLocale?: Lang;
   pageId: TourPageId;
 };
-
-function DetailMeta({
-  label,
-  value,
-}: {
-  label: string;
-  value: string;
-}) {
-  if (!value) {
-    return null;
-  }
-
-  return (
-    <div className="tour-detail-meta__item">
-      <span>{label}</span>
-      <strong>{value}</strong>
-    </div>
-  );
-}
 
 function TourDetailContent({ pageId }: { pageId: TourPageId }) {
   const { lang, t } = useI18n();
@@ -48,9 +27,19 @@ function TourDetailContent({ pageId }: { pageId: TourPageId }) {
   const tour = t.tours[definition.tourKey];
   const detail = copy.tourDetails[pageId];
   const isComingSoon = definition.status === "coming-soon";
-  const whatsappHref = createWhatsAppUrl(
-    formatWhatsAppMessage(t.whatsapp.tourInfo, { tourName: tour.name }),
-  );
+  const facts = createTourFacts({
+    tour,
+    labels: copy.common,
+    pageId,
+    status: definition.status,
+  });
+  const whatsappHref = createWhatsAppUrl({
+    locale: lang,
+    messageKey: definition.whatsappMessageKey,
+    variables: {
+      price: tour.price,
+    },
+  });
 
   return (
     <main>
@@ -78,8 +67,9 @@ function TourDetailContent({ pageId }: { pageId: TourPageId }) {
             <div className="tour-detail-actions">
               <a
                 href={whatsappHref}
-                target={hasWhatsApp ? "_blank" : undefined}
-                rel={hasWhatsApp ? "noopener noreferrer" : undefined}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={detail.bookingLabel}
                 className="inline-flex min-h-[52px] items-center gap-2 rounded-full bg-adriatic px-7 py-4 text-sm font-semibold text-stone transition-colors hover:bg-olive"
               >
                 {detail.bookingLabel}
@@ -123,11 +113,7 @@ function TourDetailContent({ pageId }: { pageId: TourPageId }) {
 
           <div>
             <h2>{detail.practicalTitle}</h2>
-            <div className="tour-detail-meta">
-              <DetailMeta label={copy.common.duration} value={tour.duration} />
-              <DetailMeta label={copy.common.groupSize} value={tour.group} />
-              <DetailMeta label={copy.common.price} value={tour.price} />
-            </div>
+            <TourFactCards facts={facts} className="tour-facts--detail" />
 
             <h3>{copy.common.included}</h3>
             <ul className="tour-detail-included">
@@ -151,8 +137,9 @@ function TourDetailContent({ pageId }: { pageId: TourPageId }) {
           </div>
           <a
             href={whatsappHref}
-            target={hasWhatsApp ? "_blank" : undefined}
-            rel={hasWhatsApp ? "noopener noreferrer" : undefined}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={detail.bookingLabel}
           >
             {detail.bookingLabel}
             <Users className="size-4" />

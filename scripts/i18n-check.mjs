@@ -10,7 +10,7 @@ const { DEFAULT_LOCALE, supportedLocales, translations, pageContent } = await im
 const localeKeys = Object.keys(supportedLocales);
 const allowedEmptyPaths = new Set(["tours.private.duration"]);
 const identicalWhitelist = [
-  /^Hidden Cove Ulcinj$/,
+  /^Hidden Cove Boat Tours$/,
   /^Valdanos$/,
   /^Valdanos Bay$/,
   /^Ulcinj$/,
@@ -23,7 +23,7 @@ const identicalWhitelist = [
   /^BBQ Tour$/,
   /^Sunset Tour$/,
   /^Moonlight Tour$/,
-  /^Moonlight Tour \| Hidden Cove Ulcinj$/,
+  /^Moonlight Tour \| Hidden Cove Boat Tours$/,
   /^WhatsApp$/,
   /^SUP$/,
   /^MapTiler/,

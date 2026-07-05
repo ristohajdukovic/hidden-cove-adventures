@@ -32,6 +32,8 @@ export type PageContent = {
     duration: string;
     groupSize: string;
     price: string;
+    time: string;
+    status: string;
     comingSoon: string;
     available: string;
     relatedTours: string;
@@ -68,58 +70,60 @@ export const pageContent: Record<Lang, PageContent> = {
       duration: "Duration",
       groupSize: "Group size",
       price: "Price",
+      time: "Time",
+      status: "Status",
       comingSoon: "Coming soon",
       available: "Available",
       relatedTours: "More ways to see the coast",
     },
     seo: {
       home: {
-        title: "Boat Tours in Ulcinj & Valdanos | Hidden Cove Ulcinj",
+        title: "Boat Tours in Ulcinj & Valdanos | Hidden Cove Boat Tours",
         description:
           "Small-group boat tours from Valdanos near Ulcinj, with hidden coves, a secluded beach, sunset trips and an optional beach barbecue.",
-        ogTitle: "Boat Tours in Ulcinj & Valdanos | Hidden Cove Ulcinj",
+        ogTitle: "Boat Tours in Ulcinj & Valdanos | Hidden Cove Boat Tours",
         ogDescription:
           "Explore hidden coves near Ulcinj by boat, with small groups, local hospitality, sunset trips and a secluded beach stop.",
       },
       tours: {
-        title: "Boat Tours from Valdanos | Hidden Cove Ulcinj",
+        title: "Boat Tours from Valdanos | Hidden Cove Boat Tours",
         description:
           "Compare Classic, Beach BBQ, Sunset and coming-soon Moonlight boat tours along the Ulcinj and Valdanos coast.",
-        ogTitle: "Boat Tours from Valdanos | Hidden Cove Ulcinj",
+        ogTitle: "Boat Tours from Valdanos | Hidden Cove Boat Tours",
         ogDescription:
-          "Choose the Hidden Cove Ulcinj boat tour that fits your day on the Adriatic.",
+          "Choose the boat tour that fits your day on the Adriatic.",
       },
       classicTour: {
-        title: "Classic Boat Tour | Hidden Cove Ulcinj",
+        title: "Classic Boat Tour | Hidden Cove Boat Tours",
         description:
           "A relaxed four-hour boat trip from Valdanos with coastal cruising, drinks, sandwiches, sun loungers and a secluded beach stop.",
-        ogTitle: "Classic Boat Tour | Hidden Cove Ulcinj",
+        ogTitle: "Classic Boat Tour | Hidden Cove Boat Tours",
         ogDescription:
-          "The essential Hidden Cove Ulcinj day trip for swimming, coastal views and easy time at the beach.",
+          "The essential day trip for swimming, coastal views and easy time at the beach.",
       },
       barbecueTour: {
-        title: "Beach BBQ Boat Tour | Hidden Cove Ulcinj",
+        title: "Beach BBQ Boat Tour | Hidden Cove Boat Tours",
         description:
-          "A four-hour coastal boat tour with a beach barbecue, relaxed sea time and the Hidden Cove Ulcinj beach setting.",
-        ogTitle: "Beach BBQ Boat Tour | Hidden Cove Ulcinj",
+          "A four-hour coastal boat tour with a beach barbecue, relaxed sea time and a quiet beach setting.",
+        ogTitle: "Beach BBQ Boat Tour | Hidden Cove Boat Tours",
         ogDescription:
-          "Add a simple Mediterranean beach barbecue to the Hidden Cove Ulcinj coastal boat route.",
+          "Add a simple Mediterranean beach barbecue to the coastal boat route.",
       },
       sunsetTour: {
-        title: "Sunset Boat Tour | Hidden Cove Ulcinj",
+        title: "Sunset Boat Tour | Hidden Cove Boat Tours",
         description:
           "An evening boat ride along the Ulcinj coast with sunset views from the Adriatic Sea.",
-        ogTitle: "Sunset Boat Tour | Hidden Cove Ulcinj",
+        ogTitle: "Sunset Boat Tour | Hidden Cove Boat Tours",
         ogDescription:
           "See the Ulcinj coast from the water during the quieter evening light.",
       },
       moonlightTour: {
-        title: "Moonlight Tour | Hidden Cove Ulcinj",
+        title: "Moonlight Tour | Hidden Cove Boat Tours",
         description:
-          "A coming-soon night boat experience for moonlit sea views and quiet time on the Hidden Cove Ulcinj coast.",
-        ogTitle: "Moonlight Tour | Hidden Cove Ulcinj",
+          "A coming-soon night boat experience for moonlit sea views and quiet time on the Ulcinj coast.",
+        ogTitle: "Moonlight Tour | Hidden Cove Boat Tours",
         ogDescription:
-          "The upcoming Hidden Cove Ulcinj night tour, planned for a softer evening at sea.",
+          "The upcoming night tour, planned for a softer evening at sea.",
       },
     },
     toursOverview: {
@@ -160,7 +164,7 @@ export const pageContent: Record<Lang, PageContent> = {
         ctaTitle: "Ask about the Classic Tour",
         ctaBody:
           "Send your preferred date and guest count and we will confirm current availability by WhatsApp.",
-        bookingLabel: "Enquire on WhatsApp",
+        bookingLabel: "Book this tour",
       },
       barbecueTour: {
         eyebrow: "Beach barbecue",
@@ -176,7 +180,7 @@ export const pageContent: Record<Lang, PageContent> = {
         ctaTitle: "Ask about the BBQ Tour",
         ctaBody:
           "Tell us your date and guest count so we can confirm barbecue availability and timing.",
-        bookingLabel: "Enquire on WhatsApp",
+        bookingLabel: "Book this tour",
       },
       sunsetTour: {
         eyebrow: "Evening light",
@@ -192,7 +196,7 @@ export const pageContent: Record<Lang, PageContent> = {
         ctaTitle: "Ask about the Sunset Tour",
         ctaBody:
           "Send your preferred evening and guest count and we will reply with current sunset timing.",
-        bookingLabel: "Enquire on WhatsApp",
+        bookingLabel: "Book this tour",
       },
       moonlightTour: {
         eyebrow: "Night experience",
@@ -208,7 +212,7 @@ export const pageContent: Record<Lang, PageContent> = {
         ctaTitle: "Ask about Moonlight plans",
         ctaBody:
           "We can share updates when the Moonlight Tour becomes available.",
-        bookingLabel: "Ask for updates",
+        bookingLabel: "Ask about this tour",
         statusLabel: "Coming soon",
       },
     },
@@ -225,58 +229,60 @@ export const pageContent: Record<Lang, PageContent> = {
       duration: "Dauer",
       groupSize: "Gruppengroesse",
       price: "Preis",
+      time: "Zeit",
+      status: "Status",
       comingSoon: "Demnaechst",
       available: "Verfuegbar",
       relatedTours: "Weitere Wege an die Kueste",
     },
     seo: {
       home: {
-        title: "Bootstouren in Ulcinj & Valdanos | Hidden Cove Ulcinj",
+        title: "Bootstouren in Ulcinj & Valdanos | Hidden Cove Boat Tours",
         description:
           "Bootstouren in kleinen Gruppen ab Valdanos bei Ulcinj: versteckte Buchten, ein abgeschiedener Strand, Sonnenuntergangstouren und optionales Strand-BBQ.",
-        ogTitle: "Bootstouren in Ulcinj & Valdanos | Hidden Cove Ulcinj",
+        ogTitle: "Bootstouren in Ulcinj & Valdanos | Hidden Cove Boat Tours",
         ogDescription:
           "Entdecke versteckte Buchten bei Ulcinj per Boot, mit kleinen Gruppen, lokaler Gastfreundschaft, Sonnenuntergangstouren und einem Strandstopp.",
       },
       tours: {
-        title: "Bootstouren ab Valdanos | Hidden Cove Ulcinj",
+        title: "Bootstouren ab Valdanos | Hidden Cove Boat Tours",
         description:
           "Vergleiche Classic Tour, Strand-BBQ, Sunset Tour und die geplante Moonlight Tour entlang der Kueste von Ulcinj und Valdanos.",
-        ogTitle: "Bootstouren ab Valdanos | Hidden Cove Ulcinj",
+        ogTitle: "Bootstouren ab Valdanos | Hidden Cove Boat Tours",
         ogDescription:
-          "Waehle die Hidden Cove Ulcinj Bootstour, die zu deinem Tag an der Adria passt.",
+          "Waehle die Bootstour, die zu deinem Tag an der Adria passt.",
       },
       classicTour: {
-        title: "Classic Bootstour | Hidden Cove Ulcinj",
+        title: "Classic Bootstour | Hidden Cove Boat Tours",
         description:
           "Eine entspannte vierstuendige Bootstour ab Valdanos mit Kuestenfahrt, Getraenken, Sandwiches, Liegen und Strandstopp.",
-        ogTitle: "Classic Bootstour | Hidden Cove Ulcinj",
+        ogTitle: "Classic Bootstour | Hidden Cove Boat Tours",
         ogDescription:
-          "Der einfache Hidden Cove Ulcinj Tagesausflug zum Schwimmen, fuer Kuestenblicke und Zeit am Strand.",
+          "Der einfache Tagesausflug zum Schwimmen, fuer Kuestenblicke und Zeit am Strand.",
       },
       barbecueTour: {
-        title: "Strand-BBQ Bootstour | Hidden Cove Ulcinj",
+        title: "Strand-BBQ Bootstour | Hidden Cove Boat Tours",
         description:
-          "Eine vierstuendige Kuestentour mit Strand-BBQ, entspannter Zeit am Meer und dem Hidden Cove Ulcinj Strandbereich.",
-        ogTitle: "Strand-BBQ Bootstour | Hidden Cove Ulcinj",
+          "Eine vierstuendige Kuestentour mit Strand-BBQ, entspannter Zeit am Meer und dem Hidden Cove Boat Tours Strandbereich.",
+        ogTitle: "Strand-BBQ Bootstour | Hidden Cove Boat Tours",
         ogDescription:
-          "Ergaenze die Hidden Cove Ulcinj Kuestentour um ein einfaches mediterranes Strand-BBQ.",
+          "Ergaenze die Kuestentour um ein einfaches mediterranes Strand-BBQ.",
       },
       sunsetTour: {
-        title: "Sunset Bootstour | Hidden Cove Ulcinj",
+        title: "Sunset Bootstour | Hidden Cove Boat Tours",
         description:
           "Eine abendliche Bootsfahrt entlang der Kueste von Ulcinj mit Sonnenuntergang vom Meer.",
-        ogTitle: "Sunset Bootstour | Hidden Cove Ulcinj",
+        ogTitle: "Sunset Bootstour | Hidden Cove Boat Tours",
         ogDescription:
           "Erlebe die Kueste von Ulcinj vom Wasser aus im ruhigeren Abendlicht.",
       },
       moonlightTour: {
-        title: "Moonlight Tour | Hidden Cove Ulcinj",
+        title: "Moonlight Tour | Hidden Cove Boat Tours",
         description:
-          "Eine geplante Nacht-Bootstour fuer Mondlicht, ruhige Meeresblicke und die Hidden Cove Ulcinj Kueste.",
-        ogTitle: "Moonlight Tour | Hidden Cove Ulcinj",
+          "Eine geplante Nacht-Bootstour fuer Mondlicht, ruhige Meeresblicke und die Kueste von Ulcinj.",
+        ogTitle: "Moonlight Tour | Hidden Cove Boat Tours",
         ogDescription:
-          "Die kommende Hidden Cove Ulcinj Nachtour fuer einen sanfteren Abend auf dem Meer.",
+          "Die kommende Hidden Cove Boat Tours Nachtour fuer einen sanfteren Abend auf dem Meer.",
       },
     },
     toursOverview: {
@@ -317,7 +323,7 @@ export const pageContent: Record<Lang, PageContent> = {
         ctaTitle: "Zur Classic Tour anfragen",
         ctaBody:
           "Sende dein Wunschdatum und die Anzahl der Gaeste, dann bestaetigen wir die aktuelle Verfuegbarkeit per WhatsApp.",
-        bookingLabel: "Auf WhatsApp anfragen",
+        bookingLabel: "Diese Tour buchen",
       },
       barbecueTour: {
         eyebrow: "Strand-BBQ",
@@ -333,7 +339,7 @@ export const pageContent: Record<Lang, PageContent> = {
         ctaTitle: "Zur BBQ Tour anfragen",
         ctaBody:
           "Nenne Datum und Gaestezahl, damit wir Verfuegbarkeit und Timing fuer das Barbecue bestaetigen koennen.",
-        bookingLabel: "Auf WhatsApp anfragen",
+        bookingLabel: "Diese Tour buchen",
       },
       sunsetTour: {
         eyebrow: "Abendlicht",
@@ -349,7 +355,7 @@ export const pageContent: Record<Lang, PageContent> = {
         ctaTitle: "Zur Sunset Tour anfragen",
         ctaBody:
           "Sende deinen Wunschtermin am Abend und die Gaestezahl, dann antworten wir mit der aktuellen Sonnenuntergangszeit.",
-        bookingLabel: "Auf WhatsApp anfragen",
+        bookingLabel: "Diese Tour buchen",
       },
       moonlightTour: {
         eyebrow: "Nachterlebnis",
@@ -365,7 +371,7 @@ export const pageContent: Record<Lang, PageContent> = {
         ctaTitle: "Nach Moonlight Plaenen fragen",
         ctaBody:
           "Wir koennen Updates teilen, sobald die Moonlight Tour verfuegbar wird.",
-        bookingLabel: "Updates anfragen",
+        bookingLabel: "Zu dieser Tour fragen",
         statusLabel: "Demnaechst",
       },
     },
@@ -382,58 +388,60 @@ export const pageContent: Record<Lang, PageContent> = {
       duration: "Kohezgjatja",
       groupSize: "Madhesia e grupit",
       price: "Cmimi",
+      time: "Koha",
+      status: "Statusi",
       comingSoon: "Se shpejti",
       available: "I disponueshem",
       relatedTours: "Menyra te tjera per te pare bregdetin",
     },
     seo: {
       home: {
-        title: "Ture me varke ne Ulqin & Valdanos | Hidden Cove Ulcinj",
+        title: "Ture me varke ne Ulqin & Valdanos | Hidden Cove Boat Tours",
         description:
           "Ture me varke ne grupe te vogla nga Valdanosi afer Ulqinit, me gjire te fshehura, plazh te qete, perendim dielli dhe BBQ ne plazh.",
-        ogTitle: "Ture me varke ne Ulqin & Valdanos | Hidden Cove Ulcinj",
+        ogTitle: "Ture me varke ne Ulqin & Valdanos | Hidden Cove Boat Tours",
         ogDescription:
           "Eksploro gjire te fshehura afer Ulqinit me varke, ne grupe te vogla, me mikpritje lokale dhe ndalese ne plazh.",
       },
       tours: {
-        title: "Ture me varke nga Valdanosi | Hidden Cove Ulcinj",
+        title: "Ture me varke nga Valdanosi | Hidden Cove Boat Tours",
         description:
           "Krahaso Classic Tour, Beach BBQ, Sunset Tour dhe Moonlight Tour qe vjen se shpejti pergjate bregdetit te Ulqinit dhe Valdanosit.",
-        ogTitle: "Ture me varke nga Valdanosi | Hidden Cove Ulcinj",
+        ogTitle: "Ture me varke nga Valdanosi | Hidden Cove Boat Tours",
         ogDescription:
-          "Zgjidh turin Hidden Cove Ulcinj qe i pershtatet dites tende ne Adriatik.",
+          "Zgjidh turin Hidden Cove Boat Tours qe i pershtatet dites tende ne Adriatik.",
       },
       classicTour: {
-        title: "Classic Tour me varke | Hidden Cove Ulcinj",
+        title: "Classic Tour me varke | Hidden Cove Boat Tours",
         description:
           "Tur i qete kater-oreshe nga Valdanosi me lundrim bregdetar, pije, sanduice, shezllone dhe ndalese ne plazh.",
-        ogTitle: "Classic Tour me varke | Hidden Cove Ulcinj",
+        ogTitle: "Classic Tour me varke | Hidden Cove Boat Tours",
         ogDescription:
-          "Udhetimi i thjeshte ditor Hidden Cove Ulcinj per not, pamje bregdetare dhe kohe ne plazh.",
+          "Udhetimi i thjeshte ditor Hidden Cove Boat Tours per not, pamje bregdetare dhe kohe ne plazh.",
       },
       barbecueTour: {
-        title: "Beach BBQ Tour | Hidden Cove Ulcinj",
+        title: "Beach BBQ Tour | Hidden Cove Boat Tours",
         description:
-          "Tur kater-oreshe me varke, BBQ ne plazh, kohe te qete prane detit dhe ambientin e plazhit Hidden Cove Ulcinj.",
-        ogTitle: "Beach BBQ Tour | Hidden Cove Ulcinj",
+          "Tur kater-oreshe me varke, BBQ ne plazh, kohe te qete prane detit dhe ambientin e plazhit Hidden Cove Boat Tours.",
+        ogTitle: "Beach BBQ Tour | Hidden Cove Boat Tours",
         ogDescription:
-          "Shto nje BBQ te thjeshte mesdhetare ne turin bregdetar Hidden Cove Ulcinj.",
+          "Shto nje BBQ te thjeshte mesdhetare ne turin bregdetar Hidden Cove Boat Tours.",
       },
       sunsetTour: {
-        title: "Sunset Tour me varke | Hidden Cove Ulcinj",
+        title: "Sunset Tour me varke | Hidden Cove Boat Tours",
         description:
           "Lundrim mbremjeje pergjate bregdetit te Ulqinit me pamje te perendimit nga deti Adriatik.",
-        ogTitle: "Sunset Tour me varke | Hidden Cove Ulcinj",
+        ogTitle: "Sunset Tour me varke | Hidden Cove Boat Tours",
         ogDescription:
           "Shiko bregdetin e Ulqinit nga uji ne driten me te qete te mbremjes.",
       },
       moonlightTour: {
-        title: "Moonlight Tour | Hidden Cove Ulcinj",
+        title: "Moonlight Tour | Hidden Cove Boat Tours",
         description:
-          "Eksperience nate qe vjen se shpejti per pamje deti nen hene dhe qetesi ne bregdetin Hidden Cove Ulcinj.",
-        ogTitle: "Moonlight Tour | Hidden Cove Ulcinj",
+          "Eksperience nate qe vjen se shpejti per pamje deti nen hene dhe qetesi ne bregdetin Hidden Cove Boat Tours.",
+        ogTitle: "Moonlight Tour | Hidden Cove Boat Tours",
         ogDescription:
-          "Turi i ardhshem i nates Hidden Cove Ulcinj, i planifikuar per nje mbremje me te bute ne det.",
+          "Turi i ardhshem i nates Hidden Cove Boat Tours, i planifikuar per nje mbremje me te bute ne det.",
       },
     },
     toursOverview: {
@@ -474,7 +482,7 @@ export const pageContent: Record<Lang, PageContent> = {
         ctaTitle: "Pyet per Classic Tour",
         ctaBody:
           "Dergo daten e deshiruar dhe numrin e mysafireve, dhe ne do te konfirmojme disponueshmerine ne WhatsApp.",
-        bookingLabel: "Pyet ne WhatsApp",
+        bookingLabel: "Rezervo kete tur",
       },
       barbecueTour: {
         eyebrow: "BBQ ne plazh",
@@ -490,7 +498,7 @@ export const pageContent: Record<Lang, PageContent> = {
         ctaTitle: "Pyet per BBQ Tour",
         ctaBody:
           "Na trego daten dhe numrin e mysafireve qe te konfirmojme disponueshmerine dhe orarin e BBQ-se.",
-        bookingLabel: "Pyet ne WhatsApp",
+        bookingLabel: "Rezervo kete tur",
       },
       sunsetTour: {
         eyebrow: "Drita e mbremjes",
@@ -506,7 +514,7 @@ export const pageContent: Record<Lang, PageContent> = {
         ctaTitle: "Pyet per Sunset Tour",
         ctaBody:
           "Dergo mbremjen e deshiruar dhe numrin e mysafireve, dhe ne do te pergjigjemi me orarin aktual te perendimit.",
-        bookingLabel: "Pyet ne WhatsApp",
+        bookingLabel: "Rezervo kete tur",
       },
       moonlightTour: {
         eyebrow: "Eksperience nate",
@@ -522,7 +530,7 @@ export const pageContent: Record<Lang, PageContent> = {
         ctaTitle: "Pyet per planet Moonlight",
         ctaBody:
           "Mund te ndajme perditesime kur Moonlight Tour te behet i disponueshem.",
-        bookingLabel: "Pyet per perditesime",
+        bookingLabel: "Pyet per kete tur",
         statusLabel: "Se shpejti",
       },
     },
@@ -539,58 +547,60 @@ export const pageContent: Record<Lang, PageContent> = {
       duration: "Trajanje",
       groupSize: "Velicina grupe",
       price: "Cijena",
+      time: "Vrijeme",
+      status: "Status",
       comingSoon: "Uskoro",
       available: "Dostupno",
       relatedTours: "Jos nacina da vidis obalu",
     },
     seo: {
       home: {
-        title: "Ture brodom u Ulcinju i Valdanosu | Hidden Cove Ulcinj",
+        title: "Ture brodom u Ulcinju i Valdanosu | Hidden Cove Boat Tours",
         description:
           "Ture brodom u malim grupama iz Valdanosa kod Ulcinja, sa skrivenim uvalama, mirnom plazom, turama za zalazak sunca i opcionim rostiljem na plazi.",
-        ogTitle: "Ture brodom u Ulcinju i Valdanosu | Hidden Cove Ulcinj",
+        ogTitle: "Ture brodom u Ulcinju i Valdanosu | Hidden Cove Boat Tours",
         ogDescription:
           "Istrazite skrivene uvale kod Ulcinja brodom, u maloj grupi, uz lokalno gostoprimstvo i zaustavljanje na plazi.",
       },
       tours: {
-        title: "Ture brodom iz Valdanosa | Hidden Cove Ulcinj",
+        title: "Ture brodom iz Valdanosa | Hidden Cove Boat Tours",
         description:
           "Uporedi Classic Tour, Beach BBQ, Sunset Tour i Moonlight Tour koja dolazi uskoro duz obale Ulcinja i Valdanosa.",
-        ogTitle: "Ture brodom iz Valdanosa | Hidden Cove Ulcinj",
+        ogTitle: "Ture brodom iz Valdanosa | Hidden Cove Boat Tours",
         ogDescription:
-          "Izaberi Hidden Cove Ulcinj turu brodom koja odgovara tvom danu na Jadranu.",
+          "Izaberi turu brodom koja odgovara tvom danu na Jadranu.",
       },
       classicTour: {
-        title: "Classic Tour brodom | Hidden Cove Ulcinj",
+        title: "Classic Tour brodom | Hidden Cove Boat Tours",
         description:
           "Opustena cetvorosatna voznja brodom iz Valdanosa sa obalnom rutom, picem, sendvicima, lezaljkama i zaustavljanjem na plazi.",
-        ogTitle: "Classic Tour brodom | Hidden Cove Ulcinj",
+        ogTitle: "Classic Tour brodom | Hidden Cove Boat Tours",
         ogDescription:
-          "Osnovni Hidden Cove Ulcinj dnevni izlet za kupanje, pogled na obalu i vrijeme na plazi.",
+          "Osnovni Hidden Cove Boat Tours dnevni izlet za kupanje, pogled na obalu i vrijeme na plazi.",
       },
       barbecueTour: {
-        title: "Beach BBQ Tour | Hidden Cove Ulcinj",
+        title: "Beach BBQ Tour | Hidden Cove Boat Tours",
         description:
-          "Cetvorosatna obalna tura brodom sa rostiljem na plazi, opustenim vremenom uz more i Hidden Cove Ulcinj ambijentom.",
-        ogTitle: "Beach BBQ Tour | Hidden Cove Ulcinj",
+          "Cetvorosatna obalna tura brodom sa rostiljem na plazi, opustenim vremenom uz more i Hidden Cove Boat Tours ambijentom.",
+        ogTitle: "Beach BBQ Tour | Hidden Cove Boat Tours",
         ogDescription:
-          "Dodaj jednostavan mediteranski rostilj na plazi Hidden Cove Ulcinj obalnoj turi.",
+          "Dodaj jednostavan mediteranski rostilj na plazi obalnoj turi.",
       },
       sunsetTour: {
-        title: "Sunset Tour brodom | Hidden Cove Ulcinj",
+        title: "Sunset Tour brodom | Hidden Cove Boat Tours",
         description:
           "Vecernja voznja brodom duz obale Ulcinja sa pogledom na zalazak sunca sa Jadranskog mora.",
-        ogTitle: "Sunset Tour brodom | Hidden Cove Ulcinj",
+        ogTitle: "Sunset Tour brodom | Hidden Cove Boat Tours",
         ogDescription:
           "Pogledaj obalu Ulcinja sa vode u mirnijem vecernjem svjetlu.",
       },
       moonlightTour: {
-        title: "Moonlight Tour | Hidden Cove Ulcinj",
+        title: "Moonlight Tour | Hidden Cove Boat Tours",
         description:
-          "Nocna tura koja dolazi uskoro, za pogled na more pod mjesecom i mirnu Hidden Cove Ulcinj obalu.",
-        ogTitle: "Moonlight Tour | Hidden Cove Ulcinj",
+          "Nocna tura koja dolazi uskoro, za pogled na more pod mjesecom i mirnu Hidden Cove Boat Tours obalu.",
+        ogTitle: "Moonlight Tour | Hidden Cove Boat Tours",
         ogDescription:
-          "Nadolazeca Hidden Cove Ulcinj nocna tura, planirana za mirnije vece na moru.",
+          "Nadolazeca nocna tura, planirana za mirnije vece na moru.",
       },
     },
     toursOverview: {
@@ -631,7 +641,7 @@ export const pageContent: Record<Lang, PageContent> = {
         ctaTitle: "Pitaj za Classic Tour",
         ctaBody:
           "Posalji zeljeni datum i broj gostiju, a mi cemo potvrditi dostupnost preko WhatsApp-a.",
-        bookingLabel: "Pitaj na WhatsApp",
+        bookingLabel: "Rezervisi ovu turu",
       },
       barbecueTour: {
         eyebrow: "Rostilj na plazi",
@@ -647,7 +657,7 @@ export const pageContent: Record<Lang, PageContent> = {
         ctaTitle: "Pitaj za BBQ Tour",
         ctaBody:
           "Reci nam datum i broj gostiju da potvrdimo dostupnost i vrijeme rostilja.",
-        bookingLabel: "Pitaj na WhatsApp",
+        bookingLabel: "Rezervisi ovu turu",
       },
       sunsetTour: {
         eyebrow: "Vecernje svjetlo",
@@ -663,7 +673,7 @@ export const pageContent: Record<Lang, PageContent> = {
         ctaTitle: "Pitaj za Sunset Tour",
         ctaBody:
           "Posalji zeljeno vece i broj gostiju, a mi cemo odgovoriti sa aktuelnim vremenom zalaska.",
-        bookingLabel: "Pitaj na WhatsApp",
+        bookingLabel: "Rezervisi ovu turu",
       },
       moonlightTour: {
         eyebrow: "Nocno iskustvo",
@@ -679,7 +689,7 @@ export const pageContent: Record<Lang, PageContent> = {
         ctaTitle: "Pitaj za Moonlight planove",
         ctaBody:
           "Mozemo podijeliti novosti kada Moonlight Tour postane dostupna.",
-        bookingLabel: "Pitaj za novosti",
+        bookingLabel: "Pitaj za ovu turu",
         statusLabel: "Uskoro",
       },
     },

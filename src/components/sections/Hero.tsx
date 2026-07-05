@@ -1,11 +1,16 @@
 import { useI18n } from "@/i18n/I18nContext";
 import { getLocalizedHref } from "@/i18n/routes";
-import { hasWhatsApp, waLink } from "@/lib/business";
+import { createWhatsAppUrl, hasWhatsApp } from "@/lib/business";
 import heroImg from "@/assets/hero-cove.jpg";
 import { ArrowRight } from "@/components/icons/HandDrawn";
 
 export function Hero() {
   const { lang, t } = useI18n();
+  const bookingHref = createWhatsAppUrl({
+    locale: lang,
+    messageKey: hasWhatsApp ? "generalBooking" : "contact",
+  });
+
   return (
     <section
       id="hero"
@@ -25,9 +30,10 @@ export function Hero() {
 
           <div className="flex flex-wrap items-center gap-3 pt-2">
             <a
-              href={waLink(t.whatsapp.general)}
-              target={hasWhatsApp ? "_blank" : undefined}
-              rel={hasWhatsApp ? "noopener noreferrer" : undefined}
+              href={bookingHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={hasWhatsApp ? t.aria.bookTrip : t.cta.contact}
               className="inline-flex items-center gap-2 bg-apricot text-adriatic px-7 py-4 rounded-full font-semibold text-sm shadow-warm hover:shadow-card hover:-translate-y-0.5 transition-all"
             >
               {hasWhatsApp ? t.cta.whatsapp : t.cta.contact}

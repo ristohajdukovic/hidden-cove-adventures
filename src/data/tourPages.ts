@@ -4,6 +4,7 @@ import sunsetTourImg from "@/assets/gallery-oldtown.jpg";
 import moonImg from "@/assets/tour-moonlight.jpg";
 import type { TourKey } from "@/i18n/translations";
 import type { TourPageId } from "@/i18n/routes";
+import type { WhatsAppMessageKey } from "@/lib/business";
 
 export type TourDefinition = {
   pageId: TourPageId;
@@ -11,6 +12,7 @@ export type TourDefinition = {
   image: string;
   cardClassName: string;
   status: "available" | "coming-soon";
+  whatsappMessageKey: WhatsAppMessageKey;
 };
 
 export const tourDefinitions = [
@@ -20,6 +22,7 @@ export const tourDefinitions = [
     image: hiddenImg,
     cardClassName: "tour-card--classic",
     status: "available",
+    whatsappMessageKey: "classicTour",
   },
   {
     pageId: "barbecueTour",
@@ -27,6 +30,7 @@ export const tourDefinitions = [
     image: sunsetImg,
     cardClassName: "tour-card--bbq",
     status: "available",
+    whatsappMessageKey: "bbqTour",
   },
   {
     pageId: "sunsetTour",
@@ -34,6 +38,7 @@ export const tourDefinitions = [
     image: sunsetTourImg,
     cardClassName: "tour-card--sunset",
     status: "available",
+    whatsappMessageKey: "sunsetTour",
   },
   {
     pageId: "moonlightTour",
@@ -41,6 +46,7 @@ export const tourDefinitions = [
     image: moonImg,
     cardClassName: "tour-card--moonlight",
     status: "coming-soon",
+    whatsappMessageKey: "moonlightTour",
   },
 ] as const satisfies readonly TourDefinition[];
 

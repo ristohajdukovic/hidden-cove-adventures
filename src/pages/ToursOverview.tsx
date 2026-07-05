@@ -11,6 +11,8 @@ import { getLocalizedHref } from "@/i18n/routes";
 import type { Lang } from "@/i18n/locales";
 import { tourDefinitions } from "@/data/tourPages";
 import { ArrowUpRight } from "@/components/icons/HandDrawn";
+import { TourFactCards } from "@/components/tours/TourFactCards";
+import { createTourFacts } from "@/components/tours/tourFacts";
 
 type ToursOverviewProps = {
   initialLocale?: Lang;
@@ -55,9 +57,12 @@ function ToursOverviewContent() {
             const tour = t.tours[definition.tourKey];
             const href = getLocalizedHref(definition.pageId, lang);
             const isComingSoon = definition.status === "coming-soon";
-            const facts = isComingSoon
-              ? [copy.common.comingSoon]
-              : [tour.duration, tour.group, tour.price].filter(Boolean);
+            const facts = createTourFacts({
+              tour,
+              labels: copy.common,
+              pageId: definition.pageId,
+              status: definition.status,
+            });
 
             return (
               <a
@@ -85,11 +90,7 @@ function ToursOverviewContent() {
                   <span>{isComingSoon ? copy.common.comingSoon : tour.tagline}</span>
                   <h3>{tour.name}</h3>
                   <p>{tour.desc}</p>
-                  <div className="tour-overview-card__meta">
-                    {facts.map((fact) => (
-                      <b key={fact}>{fact}</b>
-                    ))}
-                  </div>
+                  <TourFactCards facts={facts} className="tour-facts--overview" />
                   <div className="tour-overview-card__actions">
                     <strong className="tour-overview-card__link">
                       {copy.common.viewDetails}

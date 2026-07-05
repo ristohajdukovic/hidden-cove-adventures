@@ -133,7 +133,7 @@ ${metadata.alternates
   .join("\n")}
   </head>
   <body>
-    <p><a href="${targetPath}">Continue to Hidden Cove Ulcinj</a></p>
+    <p><a href="${targetPath}">Continue to Hidden Cove Boat Tours</a></p>
   </body>
 </html>
 `;

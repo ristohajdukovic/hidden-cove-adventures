@@ -2,7 +2,7 @@ import { useI18n } from "@/i18n/I18nContext";
 import { useEffect, useMemo, useState } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { createFaqItems, type FaqItem } from "@/data/faq";
-import { waLink } from "@/lib/business";
+import { createWhatsAppUrl } from "@/lib/business";
 
 function renderAnswer(item: FaqItem, highlightPhrase: string) {
   if (item.id !== "bbq-food") {
@@ -26,7 +26,10 @@ function renderAnswer(item: FaqItem, highlightPhrase: string) {
 
 export function FAQ() {
   const { lang, t } = useI18n();
-  const bookingHref = waLink(t.whatsapp.general);
+  const bookingHref = createWhatsAppUrl({
+    locale: lang,
+    messageKey: "generalBooking",
+  });
   const faqItems = useMemo(
     () => createFaqItems(t, bookingHref, lang),
     [bookingHref, lang, t],

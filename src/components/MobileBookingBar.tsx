@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import { useI18n } from "@/i18n/I18nContext";
-import { hasWhatsApp, waLink } from "@/lib/business";
+import { createWhatsAppUrl } from "@/lib/business";
 import { Calendar } from "@/components/icons/HandDrawn";
 
 export function MobileBookingBar() {
-  const { t } = useI18n();
+  const { lang, t } = useI18n();
   const [show, setShow] = useState(false);
+  const bookingHref = createWhatsAppUrl({
+    locale: lang,
+    messageKey: "generalBooking",
+  });
 
   useEffect(() => {
     const compute = () => {
@@ -33,9 +37,10 @@ export function MobileBookingBar() {
     >
       <div className="p-3">
         <a
-          href={waLink(t.whatsapp.general)}
-          target={hasWhatsApp ? "_blank" : undefined}
-          rel={hasWhatsApp ? "noopener noreferrer" : undefined}
+          href={bookingHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={t.aria.bookTrip}
           className="flex min-h-[52px] w-full items-center justify-center gap-2 rounded-2xl bg-adriatic px-5 py-3 text-sm font-semibold tracking-wide text-stone"
         >
           <Calendar className="size-5" />

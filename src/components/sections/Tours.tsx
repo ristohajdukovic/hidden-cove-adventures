@@ -6,12 +6,33 @@ import hiddenImg from "@/assets/tour-hidden-beach.jpg";
 import sunsetImg from "@/assets/tour-sunset-bbq.jpg";
 import sunsetTourImg from "@/assets/gallery-oldtown.jpg";
 import moonImg from "@/assets/tour-moonlight.jpg";
-import { ArrowUpRight, Clock, Users } from "@/components/icons/HandDrawn";
+import { TourFactCards } from "@/components/tours/TourFactCards";
+import { createTourFacts } from "@/components/tours/tourFacts";
+import { ArrowUpRight } from "@/components/icons/HandDrawn";
 
 export function Tours() {
   const { lang, t } = useI18n();
+  const copy = pageContent[lang];
   const tours = t.tours;
-  const linkLabel = pageContent[lang].common.viewDetails;
+  const linkLabel = copy.common.viewDetails;
+  const classicFacts = createTourFacts({
+    tour: tours.hidden,
+    labels: copy.common,
+    pageId: "classicTour",
+    status: "available",
+  });
+  const barbecueFacts = createTourFacts({
+    tour: tours.sunset,
+    labels: copy.common,
+    pageId: "barbecueTour",
+    status: "available",
+  });
+  const sunsetFacts = createTourFacts({
+    tour: tours.moonlight,
+    labels: copy.common,
+    pageId: "sunsetTour",
+    status: "available",
+  });
 
   return (
     <section id="tours" className="container py-20 md:py-28">
@@ -50,7 +71,7 @@ export function Tours() {
             {tours.hidden.note && (
               <p className="text-sm italic leading-relaxed text-adriatic/65">{tours.hidden.note}</p>
             )}
-            <TourMeta duration={tours.hidden.duration} group={tours.hidden.group} price={tours.hidden.price} />
+            <TourFactCards facts={classicFacts} />
             <span className="tour-card__text-link">{linkLabel}</span>
           </div>
         </a>
@@ -72,7 +93,7 @@ export function Tours() {
             {tours.sunset.note && (
               <p className="text-sm italic leading-relaxed text-adriatic/65">{tours.sunset.note}</p>
             )}
-            <TourMeta duration={tours.sunset.duration} group={tours.sunset.group} price={tours.sunset.price} compact />
+            <TourFactCards facts={barbecueFacts} className="tour-facts--compact" />
             <span className="tour-card__text-link">{linkLabel}</span>
           </div>
         </a>
@@ -94,12 +115,7 @@ export function Tours() {
             {tours.moonlight.note && (
               <p className="text-sm italic leading-relaxed text-adriatic/65">{tours.moonlight.note}</p>
             )}
-            <div className="mt-auto pt-3 flex items-baseline justify-between border-t border-adriatic/10">
-              {tours.moonlight.duration && (
-                <span className="text-sm uppercase tracking-widest text-adriatic/65 font-semibold">{tours.moonlight.duration}</span>
-              )}
-              <span className="text-sm font-semibold text-olive tabular-nums ml-auto">{tours.moonlight.price}</span>
-            </div>
+            <TourFactCards facts={sunsetFacts} className="tour-facts--compact" />
             <span className="tour-card__text-link">{linkLabel}</span>
           </div>
         </a>
@@ -129,7 +145,6 @@ export function Tours() {
     </section>
   );
 }
-
 function IncludedList({ items, compact = false }: { items: string[]; compact?: boolean }) {
   if (items.length === 0) return null;
   return (
@@ -141,23 +156,5 @@ function IncludedList({ items, compact = false }: { items: string[]; compact?: b
         </li>
       ))}
     </ul>
-  );
-}
-
-function TourMeta({ duration, group, price, compact = false }: { duration: string; group: string; price: string; compact?: boolean }) {
-  return (
-    <div className={`flex items-center gap-5 ${compact ? "mt-2" : "mt-4 border-t border-adriatic/10 pt-4"}`}>
-      <div className="flex items-center gap-1.5 text-adriatic/70">
-        <Clock className="size-3.5" />
-        <span className="text-sm font-medium tabular-nums">{duration}</span>
-      </div>
-      <div className="flex items-center gap-1.5 text-adriatic/70">
-        <Users className="size-3.5" />
-        <span className="text-sm font-medium tabular-nums">{group}</span>
-      </div>
-      <div className="ml-auto text-right">
-        <span className="text-sm md:text-base font-semibold text-olive tabular-nums">{price}</span>
-      </div>
-    </div>
   );
 }

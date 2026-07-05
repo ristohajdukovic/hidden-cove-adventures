@@ -3,7 +3,7 @@ import type { MouseEvent } from "react";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { useI18n } from "@/i18n/I18nContext";
 import { getHomeSectionHref, getLocalizedHref } from "@/i18n/routes";
-import { BRAND_NAME, hasWhatsApp, waLink } from "@/lib/business";
+import { BRAND_NAME, createWhatsAppUrl } from "@/lib/business";
 
 type NavigationItem = {
   label: string;
@@ -17,7 +17,10 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
-  const bookingHref = waLink(t.whatsapp.general);
+  const bookingHref = createWhatsAppUrl({
+    locale: lang,
+    messageKey: "generalBooking",
+  });
   const navigationItems: NavigationItem[] = [
     { label: t.nav.tours, href: getLocalizedHref("tours", lang) },
     { label: t.nav.included, href: getHomeSectionHref(lang, "#included"), hash: "#included" },
@@ -111,8 +114,7 @@ export function Header() {
             aria-label={t.aria.home}
             onClick={(event) => handleAnchorClick(event, getHomeSectionHref(lang, "#top"), "#top")}
           >
-            <img src="/favicon.ico" alt="" width={40} height={40} />
-            <span>{BRAND_NAME}</span>
+            <span className="header-brand__wordmark">{BRAND_NAME}</span>
           </a>
 
           <nav className="desktop-navigation" aria-label={t.aria.mainNavigation}>
@@ -132,11 +134,9 @@ export function Header() {
             <a
               className="header-booking-button"
               href={bookingHref}
-              target={hasWhatsApp ? "_blank" : undefined}
-              rel={hasWhatsApp ? "noopener noreferrer" : undefined}
-              aria-label={
-                hasWhatsApp ? `${t.aria.bookTrip} ${t.cta.whatsapp}` : t.aria.bookTrip
-              }
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t.aria.bookTrip}
             >
               <span className="sliding-label">
                 <span>{t.cta.bookTrip}</span>
@@ -184,9 +184,10 @@ export function Header() {
           <a
             className="mobile-navigation__book"
             href={bookingHref}
-            target={hasWhatsApp ? "_blank" : undefined}
-            rel={hasWhatsApp ? "noopener noreferrer" : undefined}
+            target="_blank"
+            rel="noopener noreferrer"
             tabIndex={menuOpen ? 0 : -1}
+            aria-label={t.aria.bookTrip}
           >
             {t.cta.book}
           </a>
