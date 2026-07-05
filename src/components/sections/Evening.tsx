@@ -1,4 +1,4 @@
-import { useI18n } from "@/i18n/I18nProvider";
+import { useI18n } from "@/i18n/I18nContext";
 import sunsetImg from "@/assets/tour-sunset-bbq.jpg";
 import moonImg from "@/assets/tour-moonlight.jpg";
 import { Sun, Moon } from "@/components/icons/HandDrawn";
@@ -17,7 +17,7 @@ export function Evening() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div className="photo-frame flex flex-col">
           <div className="photo-frame-inner aspect-[5/4] mb-5">
-            <img src={sunsetImg} alt="Sunset cove" loading="lazy" width={1024} height={1024} className="w-full h-full object-cover" />
+            <img src={sunsetImg} alt={t.evening.sunsetAlt} loading="lazy" width={1024} height={1024} className="w-full h-full object-cover" />
           </div>
           <div className="px-5 pb-5 flex items-start gap-4">
             <div className="size-10 rounded-full bg-apricot/20 text-apricot flex items-center justify-center shrink-0">
@@ -28,7 +28,7 @@ export function Evening() {
         </div>
         <div className="photo-frame flex flex-col">
           <div className="photo-frame-inner aspect-[5/4] mb-5">
-            <img src={moonImg} alt="Moonlight bonfire" loading="lazy" width={1024} height={768} className="w-full h-full object-cover" />
+            <img src={moonImg} alt={t.evening.moonAlt} loading="lazy" width={1024} height={768} className="w-full h-full object-cover" />
           </div>
           <div className="px-5 pb-5 flex items-start gap-4">
             <div className="size-10 rounded-full bg-sea/15 text-sea flex items-center justify-center shrink-0">

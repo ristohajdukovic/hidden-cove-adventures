@@ -1,5 +1,5 @@
-import { useI18n } from "@/i18n/I18nProvider";
-import { waLink } from "@/lib/business";
+import { useI18n } from "@/i18n/I18nContext";
+import { hasWhatsApp, waLink } from "@/lib/business";
 import { ArrowRight } from "@/components/icons/HandDrawn";
 
 export function FinalCTA() {
@@ -18,12 +18,12 @@ export function FinalCTA() {
           </h2>
           <p className="text-stone/80 text-lg mb-8">{t.finalCta.sub}</p>
           <a
-            href={waLink()}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={waLink(t.whatsapp.general)}
+            target={hasWhatsApp ? "_blank" : undefined}
+            rel={hasWhatsApp ? "noopener noreferrer" : undefined}
             className="inline-flex items-center gap-2 bg-apricot text-adriatic px-8 py-4 rounded-full font-semibold text-sm shadow-warm hover:-translate-y-0.5 transition-transform"
           >
-            {t.cta.whatsapp}
+            {hasWhatsApp ? t.cta.whatsapp : t.cta.contact}
             <ArrowRight className="size-4" />
           </a>
         </div>

@@ -12,18 +12,33 @@ import { Gallery } from "@/components/sections/Gallery";
 import { Reviews } from "@/components/sections/Reviews";
 import { FAQ } from "@/components/sections/FAQ";
 import { FinalCTA } from "@/components/sections/FinalCTA";
+import { WaveDivider } from "@/components/sections/WaveDivider";
 import { Footer } from "@/components/sections/Footer";
+import { LocalizedHead } from "@/components/seo/LocalizedHead";
+import { HomeStructuredData } from "@/components/seo/HomeStructuredData";
+import type { Lang } from "@/i18n/locales";
 
-const Index = () => {
+type IndexProps = {
+  initialLocale?: Lang;
+};
+
+const Index = ({ initialLocale = "en" }: IndexProps) => {
   return (
-    <I18nProvider>
-      <div className="min-h-screen bg-sand text-adriatic">
+    <I18nProvider locale={initialLocale}>
+      <div id="top" className="min-h-screen bg-sand text-adriatic">
+        <LocalizedHead />
+        <HomeStructuredData />
         <Header />
         <main>
           <Hero />
           <Tours />
           <Why />
           <Route />
+          <WaveDivider
+            backgroundColor="hsl(var(--sand))"
+            backColor="hsl(var(--sea))"
+            frontColor="hsl(var(--adriatic))"
+          />
           <BBQ />
           <Evening />
           <PrivateSection />
@@ -32,6 +47,11 @@ const Index = () => {
           <FAQ />
           <FinalCTA />
         </main>
+        <WaveDivider
+          backgroundColor="hsl(var(--sand))"
+          backColor="hsl(var(--sea))"
+          frontColor="hsl(var(--adriatic))"
+        />
         <Footer />
         <MobileBookingBar />
       </div>

@@ -1,18 +1,26 @@
-import { useI18n } from "@/i18n/I18nProvider";
-import iconCove from "@/assets/icon-cove.png";
-import iconBoat from "@/assets/icon-boat.png";
-import iconBbq from "@/assets/icon-bbq.png";
-import iconBonfire from "@/assets/icon-bonfire.png";
+import { useI18n } from "@/i18n/I18nContext";
+import smallBoatIcon from "@/assets/icons/mediterranean/01-small-boat-transparent.png";
+import hiddenCoveIcon from "@/assets/icons/mediterranean/02-hidden-cove-transparent.png";
+import mediterraneanHospitalityIcon from "@/assets/icons/mediterranean/03-mediterranean-hospitality-transparent.png";
+import easyBookingIcon from "@/assets/icons/mediterranean/04-easy-boat-tour-booking-transparent.png";
 
 // Index aligns with translations.ts why.items order:
-// 0: Small groups → boat, 1: Coves locals know → cove,
-// 2: Simple honest hospitality → bbq, 3: Easy WhatsApp booking → bonfire (with chat bubble)
-const ICONS = [iconBoat, iconCove, iconBbq, iconBonfire];
+// 0: Small groups, 1: Coves locals know,
+// 2: Simple honest hospitality, 3: Easy WhatsApp booking.
+const ICONS = [
+  { src: smallBoatIcon, className: "feature-card__icon--boat" },
+  { src: hiddenCoveIcon, className: "feature-card__icon--cove" },
+  {
+    src: mediterraneanHospitalityIcon,
+    className: "feature-card__icon--hospitality",
+  },
+  { src: easyBookingIcon, className: "feature-card__icon--booking" },
+];
 
 export function Why() {
   const { t } = useI18n();
   return (
-    <section className="bg-stone py-20 md:py-28 texture-stone">
+    <section id="included" className="bg-stone py-20 md:py-28 texture-stone">
       <div className="container">
         <div className="flex flex-col gap-3 mb-12 max-w-2xl">
           <span className="text-[11px] font-semibold tracking-[0.2em] text-olive uppercase">{t.why.eyebrow}</span>
@@ -25,18 +33,23 @@ export function Why() {
             const icon = ICONS[i] ?? ICONS[0];
             return (
               <div key={i} className="bg-sand rounded-[1.75rem] p-6 border border-adriatic/5 hover:border-adriatic/15 transition-colors">
-              <div className="h-28 -mx-2 mb-4 flex items-end justify-start">
-                <img
-                  src={icon}
-                  alt=""
+                <div
+                  className={`feature-card__icon ${icon.className}`}
                   aria-hidden="true"
-                  loading="lazy"
-                  className="h-full w-auto object-contain mix-blend-multiply select-none"
-                  draggable={false}
-                />
+                >
+                  <img
+                    src={icon.src}
+                    alt=""
+                    aria-hidden="true"
+                    width={1254}
+                    height={1254}
+                    loading="lazy"
+                    decoding="async"
+                    draggable={false}
+                  />
                 </div>
                 <h3 className="font-display text-xl text-adriatic mb-2">{item.title}</h3>
-                <p className="text-sm text-adriatic/70 leading-relaxed">{item.body}</p>
+                <p className="text-[15px] leading-relaxed text-adriatic/75">{item.body}</p>
               </div>
             );
           })}

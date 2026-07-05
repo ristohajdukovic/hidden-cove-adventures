@@ -1,19 +1,52 @@
-// Central business config — easy to edit.
+// Central business config - easy to edit.
 export const business = {
-  name: "Hidden Cove Ulcinj",
-  // E.164 number for tel: and wa.me links. Replace with real number.
-  phone: "+38269000000",
-  whatsapp: "38269000000", // wa.me format (no +)
+  name: "Hidden Cove Adventures",
+  // Optional public display phone number. WhatsApp is configured via VITE_WHATSAPP_NUMBER.
+  phone: "",
   email: "hello@hiddencoveulcinj.com",
   city: "Ulcinj, Montenegro",
-  instagram: "https://instagram.com/",
+  instagram: "",
   social: {
-    instagram: "https://instagram.com/",
-    facebook: "https://facebook.com/",
+    instagram: "",
+    facebook: "",
   },
 };
 
-export const waLink = (msg = "Hi! I'd like to ask about a boat tour.") =>
-  `https://wa.me/${business.whatsapp}?text=${encodeURIComponent(msg)}`;
+const rawWhatsAppNumber = import.meta.env.VITE_WHATSAPP_NUMBER ?? "";
 
-export const telLink = () => `tel:${business.phone}`;
+export const whatsappNumber = rawWhatsAppNumber.replace(/\D/g, "");
+export const hasPhone = Boolean(business.phone);
+export const hasWhatsApp = Boolean(whatsappNumber);
+
+export const emailLink = (
+  subject = "Boat tour enquiry",
+  body = "Hello, I'm interested in booking a boat trip with Hidden Cove Adventures. Preferred date: ____. Number of guests: ____."
+) =>
+  `mailto:${business.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+export function createWhatsAppUrl(message: string): string {
+  if (!whatsappNumber) {
+    return "#";
+  }
+
+  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+}
+
+export function formatWhatsAppMessage(
+  template: string,
+  variables: Record<string, string>,
+): string {
+  return Object.entries(variables).reduce(
+    (message, [key, value]) => message.replaceAll(`{{${key}}}`, value),
+    template,
+  );
+}
+
+export const waLink = (
+  msg = "Hello, I'm interested in booking a boat trip with Hidden Cove Adventures. Preferred date: ____. Number of guests: ____."
+) =>
+  hasWhatsApp
+    ? createWhatsAppUrl(msg)
+    : emailLink("Boat tour enquiry", msg);
+
+export const telLink = () => (hasPhone ? `tel:${business.phone}` : "");

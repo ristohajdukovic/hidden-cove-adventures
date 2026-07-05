@@ -1,11 +1,11 @@
-import { useI18n } from "@/i18n/I18nProvider";
+import { useI18n } from "@/i18n/I18nContext";
 import drinksImg from "@/assets/gallery-drinks.jpg";
 import { Check } from "@/components/icons/HandDrawn";
 
 export function BBQ() {
   const { t } = useI18n();
   return (
-    <section className="bg-adriatic text-stone py-20 md:py-28 relative overflow-hidden">
+    <section id="barbecue" className="bg-adriatic text-stone py-20 md:py-28 relative overflow-hidden">
       <div className="absolute inset-0 opacity-[0.12] pointer-events-none"
         style={{
           backgroundImage: "url(\"data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='40' viewBox='0 0 240 40'%3E%3Cpath fill='none' stroke='%23F4E6C8' stroke-width='1.2' stroke-linecap='round' d='M0 24 Q 30 8, 60 24 T 120 24 T 180 24 T 240 24'/%3E%3C/svg%3E\")",
@@ -32,7 +32,7 @@ export function BBQ() {
         <div className="order-1 lg:order-2 relative">
           <div className="bg-stone/5 p-2.5 rounded-[2rem] border border-stone/10 -rotate-[1.5deg] hover:rotate-0 transition-transform duration-700">
             <div className="rounded-[1.5rem] overflow-hidden aspect-[4/5]">
-              <img src={drinksImg} alt="Cold local drinks served on board" loading="lazy" width={1024} height={1024}
+              <img src={drinksImg} alt={t.bbq.imageAlt} loading="lazy" width={1024} height={1024}
                 className="w-full h-full object-cover" />
             </div>
           </div>

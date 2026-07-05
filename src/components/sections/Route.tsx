@@ -1,32 +1,113 @@
-import { useI18n } from "@/i18n/I18nProvider";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
+import { useI18n } from "@/i18n/I18nContext";
+import type { TranslationKeys } from "@/i18n/translations";
+
+const AquarelleRouteMap = lazy(() =>
+  import("@/components/route/AquarelleRouteMap").then((module) => ({
+    default: module.AquarelleRouteMap,
+  })),
+);
+
+function RouteMapSkeleton({ routeCopy }: { routeCopy: TranslationKeys["route"] }) {
+  return (
+    <div
+      className="aquarelle-route-map route-map-skeleton"
+      role="region"
+      aria-label={routeCopy.controls.mapLabel}
+    >
+      <div className="route-map-skeleton__wash" />
+    </div>
+  );
+}
+
+function DeferredRouteMap({ routeCopy }: { routeCopy: TranslationKeys["route"] }) {
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
+  const [shouldLoadMap, setShouldLoadMap] = useState(false);
+
+  useEffect(() => {
+    const wrapper = wrapperRef.current;
+
+    if (!wrapper || shouldLoadMap) {
+      return undefined;
+    }
+
+    if (!("IntersectionObserver" in window)) {
+      setShouldLoadMap(true);
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoadMap(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "420px 0px" },
+    );
+
+    observer.observe(wrapper);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [shouldLoadMap]);
+
+  return (
+    <div ref={wrapperRef}>
+      {shouldLoadMap ? (
+        <Suspense fallback={<RouteMapSkeleton routeCopy={routeCopy} />}>
+          <AquarelleRouteMap />
+        </Suspense>
+      ) : (
+        <RouteMapSkeleton routeCopy={routeCopy} />
+      )}
+    </div>
+  );
+}
+
+function RouteLocationSummary({
+  routeCopy,
+}: {
+  routeCopy: TranslationKeys["route"];
+}) {
+  return (
+    <ol className="route-location-summary" aria-label={routeCopy.controls.routeLocations}>
+      {routeCopy.stops.map((stop) => (
+        <li key={stop.id}>
+          <b>{stop.number}</b>
+          <span>
+            <strong>{stop.title}</strong>
+            <small>{stop.subtitle}</small>
+          </span>
+        </li>
+      ))}
+    </ol>
+  );
+}
 
 export function Route() {
   const { t } = useI18n();
+
   return (
     <section id="route" className="container py-20 md:py-28">
-      <div className="flex flex-col gap-3 mb-14 max-w-3xl">
-        <span className="text-[11px] font-semibold tracking-[0.2em] text-olive uppercase">{t.route.eyebrow}</span>
-        <h2 className="font-display text-3xl md:text-5xl font-medium tracking-tight text-adriatic text-balance leading-[1.1]">
+      <div className="mb-14 flex max-w-3xl flex-col gap-3">
+        <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-olive">
+          {t.route.eyebrow}
+        </span>
+        <h2 className="font-display text-3xl font-medium leading-[1.1] tracking-tight text-adriatic text-balance md:text-5xl">
           {t.route.title}
         </h2>
-        <p className="text-adriatic/70 text-lg">{t.route.sub}</p>
+        <p className="text-[15px] leading-relaxed text-adriatic/75 md:text-lg">
+          {t.route.sub}
+        </p>
+        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-olive/85">
+          {t.route.instruction}
+        </p>
       </div>
 
-      <div className="relative">
-        {/* Dashed line */}
-        <div className="hidden md:block absolute top-7 left-[10%] right-[10%] h-px border-t border-dashed border-olive/40" />
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6 relative">
-          {t.route.stops.map((s, i) => (
-            <div key={i} className="flex flex-col items-start md:items-center md:text-center">
-              <div className="size-14 rounded-full bg-stone border border-adriatic/10 flex items-center justify-center mb-5 shadow-soft relative z-10">
-                <span className="font-display italic text-olive text-lg">{i + 1}</span>
-              </div>
-              <h3 className="font-display text-xl text-adriatic mb-2">{s.title}</h3>
-              <p className="text-sm text-adriatic/70 leading-relaxed max-w-[28ch]">{s.body}</p>
-            </div>
-          ))}
-        </div>
-      </div>
+      <DeferredRouteMap routeCopy={t.route} />
+      <RouteLocationSummary routeCopy={t.route} />
     </section>
   );
 }

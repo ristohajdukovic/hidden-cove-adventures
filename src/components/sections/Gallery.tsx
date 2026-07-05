@@ -1,4 +1,4 @@
-import { useI18n } from "@/i18n/I18nProvider";
+import { useI18n } from "@/i18n/I18nContext";
 import oldtown from "@/assets/gallery-oldtown.jpg";
 import valdanos from "@/assets/gallery-valdanos.jpg";
 import swim from "@/assets/gallery-swim.jpg";
@@ -9,12 +9,12 @@ import sunset from "@/assets/tour-sunset-bbq.jpg";
 export function Gallery() {
   const { t } = useI18n();
   const items = [
-    { src: oldtown, alt: "Ulcinj Old Town walls", w: 1024, h: 768, span: "md:col-span-2 md:row-span-2 aspect-square md:aspect-auto" },
-    { src: swim, alt: "Underwater Adriatic", w: 1024, h: 768, span: "aspect-square" },
-    { src: valdanos, alt: "Valdanos bay", w: 1024, h: 1024, span: "aspect-square" },
-    { src: hidden, alt: "Hidden beach", w: 1024, h: 768, span: "md:col-span-2 aspect-[2/1]" },
-    { src: sunset, alt: "Sunset BBQ on the beach", w: 1024, h: 1024, span: "aspect-square" },
-    { src: drinks, alt: "Cold drinks on board", w: 1024, h: 1024, span: "aspect-square" },
+    { src: oldtown, alt: t.gallery.items[0].alt, w: 1024, h: 768, span: "md:col-span-2 md:row-span-2 aspect-square md:aspect-auto" },
+    { src: swim, alt: t.gallery.items[1].alt, w: 1024, h: 768, span: "aspect-square" },
+    { src: valdanos, alt: t.gallery.items[2].alt, w: 1024, h: 1024, span: "aspect-square" },
+    { src: hidden, alt: t.gallery.items[3].alt, w: 1024, h: 768, span: "md:col-span-2 aspect-[2/1]" },
+    { src: sunset, alt: t.gallery.items[4].alt, w: 1024, h: 1024, span: "aspect-square" },
+    { src: drinks, alt: t.gallery.items[5].alt, w: 1024, h: 1024, span: "aspect-square" },
   ];
   return (
     <section id="gallery" className="container py-20 md:py-28">

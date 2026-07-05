@@ -5,8 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run build:client && npm run build:ssr && npm run prerender",
+    "build:client": "vite build",
+    "build:ssr": "vite build --ssr src/entry-server.tsx --outDir dist-ssr",
     "build:dev": "vite build --mode development",
+    "prerender": "node scripts/prerender.mjs",
+    "i18n:check": "npm run build:ssr -- --emptyOutDir=false && node scripts/i18n-check.mjs",
+    "seo:i18n:check": "node scripts/seo-i18n-check.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
@@ -14,6 +19,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
+    "@maptiler/sdk": "^4.0.2",
     "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-alert-dialog": "^1.1.14",
     "@radix-ui/react-aspect-ratio": "^1.1.7",

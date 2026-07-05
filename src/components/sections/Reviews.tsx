@@ -1,4 +1,4 @@
-import { useI18n } from "@/i18n/I18nProvider";
+import { useI18n } from "@/i18n/I18nContext";
 import { Star } from "@/components/icons/HandDrawn";
 
 export function Reviews() {
@@ -17,8 +17,9 @@ export function Reviews() {
             <article key={i} className="bg-stone rounded-[1.75rem] p-7 md:p-8 border border-adriatic/5 shadow-soft">
               <div className="flex gap-0.5 mb-4 text-apricot">
                 {Array.from({ length: 5 }).map((_, j) => (
-                  <Star key={j} className="size-4 fill-current" />
+                  <Star key={j} className="size-4 fill-current" aria-hidden="true" />
                 ))}
+                <span className="sr-only">{t.reviews.ratingLabel}</span>
               </div>
               <p className="font-display text-lg md:text-xl text-adriatic leading-snug mb-6 text-pretty">
                 "{r.text}"
