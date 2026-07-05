@@ -48,6 +48,15 @@ export type SupportedLocale = (typeof supportedLocales)[Lang];
 
 export const localeEntries = Object.values(supportedLocales);
 export const supportedLocaleKeys = Object.keys(supportedLocales) as Lang[];
+const appBasePath = import.meta.env.BASE_URL ?? "/";
+
+function normalizeAppBasePath(pathname: string): string {
+  if (!pathname || pathname === "/") {
+    return "/";
+  }
+
+  return `/${pathname.replace(/^\/+|\/+$/g, "")}/`;
+}
 
 export function isSupportedLocale(value: string | undefined): value is Lang {
   return Boolean(value && value in supportedLocales);
@@ -75,7 +84,8 @@ export function localizedPath(
   locale: Lang,
   hashOrPath = "",
 ): string {
-  const localePath = `/${supportedLocales[locale].routeSlug}/`;
+  const basePath = normalizeAppBasePath(appBasePath);
+  const localePath = `${basePath}${supportedLocales[locale].routeSlug}/`;
 
   if (!hashOrPath) {
     return localePath;

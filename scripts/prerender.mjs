@@ -103,7 +103,7 @@ function applyHead(template, locale) {
 
 function createRootRedirect() {
   const metadata = getPageMetadata(DEFAULT_LOCALE);
-  const targetPath = `/${localeEntries.find((locale) => locale.key === DEFAULT_LOCALE).routeSlug}/`;
+  const targetPath = `./${localeEntries.find((locale) => locale.key === DEFAULT_LOCALE).routeSlug}/`;
 
   return `<!doctype html>
 <html lang="${metadata.htmlLang}">
