@@ -54,7 +54,7 @@ export function FAQ() {
           <Accordion
             type="single"
             collapsible
-            value={openItem}
+            value={openItem ?? ""}
             onValueChange={(value) => setOpenItem(value || undefined)}
             className="w-full"
           >
@@ -68,7 +68,6 @@ export function FAQ() {
                   {item.question}
                 </AccordionTrigger>
                 <AccordionContent
-                  forceMount
                   id={`faq-answer-${item.id}`}
                   aria-labelledby={`faq-question-${item.id}`}
                   className="pb-6 text-[clamp(15px,3.8vw,17px)] leading-[1.65] text-adriatic/75"

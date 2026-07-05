@@ -44,6 +44,14 @@ export type PageContent = {
     introTitle: string;
     intro: string;
   };
+  experienceTeasers: {
+    title: string;
+    items: readonly {
+      title: string;
+      body: string;
+      badge: string;
+    }[];
+  };
   tourDetails: Record<TourPageId, TourDetailCopy>;
 };
 
@@ -121,6 +129,21 @@ export const pageContent: Record<Lang, PageContent> = {
       introTitle: "Small-group coastal tours from Valdanos",
       intro:
         "All tours are built around the same local rhythm: a skipper who knows the coastline, time to swim, and a secluded beach stop reached from the sea.",
+    },
+    experienceTeasers: {
+      title: "More about the experience",
+      items: [
+        {
+          title: "Meet the skippers",
+          body: "We are preparing a closer introduction to the local people behind each trip. More stories and photographs will be added soon.",
+          badge: "Coming soon",
+        },
+        {
+          title: "Our boat",
+          body: "A dedicated overview of the boat, its layout and what to expect on board will be added soon.",
+          badge: "Coming soon",
+        },
+      ],
     },
     tourDetails: {
       classicTour: {
@@ -264,6 +287,21 @@ export const pageContent: Record<Lang, PageContent> = {
       intro:
         "Alle Touren folgen demselben lokalen Rhythmus: ein Skipper mit Kuestenkenntnis, Zeit zum Schwimmen und ein Strandstopp, der vom Meer aus erreicht wird.",
     },
+    experienceTeasers: {
+      title: "Mehr ueber das Erlebnis",
+      items: [
+        {
+          title: "Lernt die Skipper kennen",
+          body: "Wir bereiten eine naehere Vorstellung der lokalen Menschen hinter jeder Tour vor. Weitere Geschichten und Fotos werden bald ergaenzt.",
+          badge: "Demnaechst",
+        },
+        {
+          title: "Unser Boot",
+          body: "Eine eigene Uebersicht zum Boot, seinem Layout und dazu, was euch an Bord erwartet, wird bald ergaenzt.",
+          badge: "Demnaechst",
+        },
+      ],
+    },
     tourDetails: {
       classicTour: {
         eyebrow: "Klassischer Tagesausflug",
@@ -406,6 +444,21 @@ export const pageContent: Record<Lang, PageContent> = {
       intro:
         "Te gjitha turet ndjekin te njejtin ritmin lokal: kapiten qe njeh bregdetin, kohe per not dhe ndalese ne nje plazh qe arrihet nga deti.",
     },
+    experienceTeasers: {
+      title: "Me shume rreth pervojes",
+      items: [
+        {
+          title: "Njihuni me kapitenet",
+          body: "Po pergatisim nje prezantim me te afert te njerezve vendas pas cdo udhetimi. Me shume histori dhe fotografi do te shtohen se shpejti.",
+          badge: "Se shpejti",
+        },
+        {
+          title: "Varka jone",
+          body: "Nje permbledhje e vecante per varken, planin e saj dhe cfare te presesh ne bord do te shtohet se shpejti.",
+          badge: "Se shpejti",
+        },
+      ],
+    },
     tourDetails: {
       classicTour: {
         eyebrow: "Udhetim klasik ditor",
@@ -547,6 +600,21 @@ export const pageContent: Record<Lang, PageContent> = {
       introTitle: "Male obalne ture iz Valdanosa",
       intro:
         "Sve ture imaju isti lokalni ritam: skiper koji poznaje obalu, vrijeme za kupanje i zaustavljanje na plazi do koje se dolazi sa mora.",
+    },
+    experienceTeasers: {
+      title: "Vise o iskustvu",
+      items: [
+        {
+          title: "Upoznaj skipere",
+          body: "Pripremamo blize predstavljanje lokalnih ljudi iza svake ture. Jos prica i fotografija bice dodato uskoro.",
+          badge: "Uskoro",
+        },
+        {
+          title: "Nas brod",
+          body: "Poseban pregled broda, njegovog rasporeda i onoga sto mozes ocekivati na brodu bice dodat uskoro.",
+          badge: "Uskoro",
+        },
+      ],
     },
     tourDetails: {
       classicTour: {

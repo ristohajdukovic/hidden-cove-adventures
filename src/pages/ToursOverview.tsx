@@ -50,11 +50,14 @@ function ToursOverviewContent() {
           </p>
         </div>
 
-        <div className="tour-overview-grid">
+        <div className="tours-overview-grid">
           {tourDefinitions.map((definition) => {
             const tour = t.tours[definition.tourKey];
             const href = getLocalizedHref(definition.pageId, lang);
             const isComingSoon = definition.status === "coming-soon";
+            const facts = isComingSoon
+              ? [copy.common.comingSoon]
+              : [tour.duration, tour.group, tour.price].filter(Boolean);
 
             return (
               <a
@@ -78,23 +81,39 @@ function ToursOverviewContent() {
                     decoding="async"
                   />
                 </div>
-                <div className="tour-overview-card__body">
+                <div className="tour-overview-card__content">
                   <span>{isComingSoon ? copy.common.comingSoon : tour.tagline}</span>
                   <h3>{tour.name}</h3>
                   <p>{tour.desc}</p>
                   <div className="tour-overview-card__meta">
-                    {tour.duration ? <b>{tour.duration}</b> : null}
-                    {tour.price ? <b>{tour.price}</b> : null}
+                    {facts.map((fact) => (
+                      <b key={fact}>{fact}</b>
+                    ))}
                   </div>
-                  <strong className="tour-overview-card__link">
-                    {copy.common.viewDetails}
-                    <ArrowUpRight className="size-4" />
-                  </strong>
+                  <div className="tour-overview-card__actions">
+                    <strong className="tour-overview-card__link">
+                      {copy.common.viewDetails}
+                      <ArrowUpRight className="size-4" />
+                    </strong>
+                  </div>
                 </div>
               </a>
             );
           })}
         </div>
+
+        <section className="experience-teaser-section" aria-labelledby="experience-teasers-title">
+          <h2 id="experience-teasers-title">{copy.experienceTeasers.title}</h2>
+          <div className="experience-teasers">
+            {copy.experienceTeasers.items.map((item) => (
+              <article key={item.title} className="experience-teaser-card">
+                <span>{item.badge}</span>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
       </section>
     </main>
   );

@@ -25,11 +25,11 @@ export function Tours() {
         <p className="text-[15px] leading-relaxed text-adriatic/70 md:text-lg">{t.toursSection.sub}</p>
       </div>
 
-      <div className="tours-grid grid grid-cols-1 gap-5">
+      <div className="home-tours-grid tours-grid grid grid-cols-1 gap-5">
         {/* Classic Tour */}
         <a
           href={getLocalizedHref("classicTour", lang)}
-          className="tour-card tour-card--classic group photo-frame flex flex-col hover:-translate-y-1 transition-transform duration-500"
+          className="home-tour-card home-tour-card--classic tour-card tour-card--classic group photo-frame flex flex-col hover:-translate-y-1 transition-transform duration-500"
         >
           <div className="tour-card__media photo-frame-inner relative aspect-[4/3] w-full mb-5">
             <img src={hiddenImg} alt={tours.hidden.imageAlt} loading="lazy" width={1024} height={768}
@@ -58,7 +58,7 @@ export function Tours() {
         {/* BBQ Tour — wide */}
         <a
           href={getLocalizedHref("barbecueTour", lang)}
-          className="tour-card tour-card--bbq group photo-frame flex flex-col gap-5 hover:-translate-y-1 transition-transform duration-500"
+          className="home-tour-card home-tour-card--bbq tour-card tour-card--bbq group photo-frame flex flex-col gap-5 hover:-translate-y-1 transition-transform duration-500"
         >
           <div className="tour-card__media tour-card__media--bbq photo-frame-inner aspect-[4/3] shrink-0">
             <img src={sunsetImg} alt={tours.sunset.imageAlt} loading="lazy" width={1024} height={1024}
@@ -80,7 +80,7 @@ export function Tours() {
         {/* Sunset Tour */}
         <a
           href={getLocalizedHref("sunsetTour", lang)}
-          className="tour-card tour-card--sunset group photo-frame flex flex-col hover:-translate-y-1 transition-transform duration-500"
+          className="home-tour-card home-tour-card--sunset tour-card tour-card--sunset group photo-frame flex flex-col hover:-translate-y-1 transition-transform duration-500"
         >
           <div className="tour-card__media photo-frame-inner aspect-[4/3] w-full mb-4">
             <img src={sunsetTourImg} alt={tours.moonlight.imageAlt} loading="lazy" width={1024} height={768}
@@ -107,7 +107,7 @@ export function Tours() {
         {/* Moonlight Tour — Coming Soon */}
         <a
           href={getLocalizedHref("moonlightTour", lang)}
-          className="tour-card tour-card--moonlight moonlight-tour-card group relative rounded-[2rem] border border-stone/15 p-2.5 shadow-card transition-transform duration-500 hover:-translate-y-1"
+          className="home-tour-card home-tour-card--moonlight tour-card tour-card--moonlight moonlight-tour-card group relative rounded-[2rem] border border-stone/15 p-2.5 shadow-card transition-transform duration-500 hover:-translate-y-1"
           style={{ "--moonlight-image": `url(${moonImg})` } as CSSProperties}
         >
           <div className="relative z-10 flex h-full flex-col rounded-[1.5rem] p-4 outline outline-1 -outline-offset-1 outline-stone/20 md:p-5">
