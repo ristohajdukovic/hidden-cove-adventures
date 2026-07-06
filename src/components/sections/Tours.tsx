@@ -1,157 +1,251 @@
 import type { CSSProperties } from "react";
+import { WhatsAppLink } from "@/components/actions/WhatsAppLink";
+import { ArrowUpRight } from "@/components/icons/HandDrawn";
+import { TourFactCards } from "@/components/tours/TourFactCards";
+import { createTourFacts } from "@/components/tours/tourFacts";
+import { tourDefinitions, type TourDefinition } from "@/data/tourPages";
 import { useI18n } from "@/i18n/I18nContext";
 import { pageContent } from "@/i18n/pageContent";
 import { getLocalizedHref } from "@/i18n/routes";
-import hiddenImg from "@/assets/tour-hidden-beach.jpg";
-import sunsetImg from "@/assets/tour-sunset-bbq.jpg";
-import sunsetTourImg from "@/assets/gallery-oldtown.jpg";
-import moonImg from "@/assets/tour-moonlight.jpg";
-import { TourFactCards } from "@/components/tours/TourFactCards";
-import { createTourFacts } from "@/components/tours/tourFacts";
-import { ArrowUpRight } from "@/components/icons/HandDrawn";
+import type { TranslationKeys } from "@/i18n/translations";
+import { getWhatsAppIntentForTourDefinition } from "@/lib/whatsappIntent";
+
+function getBookingLabel(definition: TourDefinition, t: TranslationKeys): string {
+  if (definition.pageId === "classicTour") {
+    return t.cta.bookClassicTour;
+  }
+
+  if (definition.pageId === "barbecueTour") {
+    return t.cta.bookBbqTour;
+  }
+
+  if (definition.pageId === "sunsetTour") {
+    return t.cta.bookSunsetTour;
+  }
+
+  return t.cta.askAboutMoonlight;
+}
 
 export function Tours() {
   const { lang, t } = useI18n();
   const copy = pageContent[lang];
-  const tours = t.tours;
-  const linkLabel = copy.common.viewDetails;
-  const classicFacts = createTourFacts({
-    tour: tours.hidden,
-    labels: copy.common,
-    pageId: "classicTour",
-    status: "available",
-  });
-  const barbecueFacts = createTourFacts({
-    tour: tours.sunset,
-    labels: copy.common,
-    pageId: "barbecueTour",
-    status: "available",
-  });
-  const sunsetFacts = createTourFacts({
-    tour: tours.moonlight,
-    labels: copy.common,
-    pageId: "sunsetTour",
-    status: "available",
-  });
 
   return (
     <section id="tours" className="container py-20 md:py-28">
-      <div className="flex flex-col gap-3 mb-12 max-w-2xl">
-        <span className="text-[11px] font-semibold tracking-[0.2em] text-olive uppercase">
+      <div className="mb-12 flex max-w-2xl flex-col gap-3">
+        <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-olive">
           {t.toursSection.eyebrow}
         </span>
-        <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-adriatic text-balance">
+        <h2 className="font-display text-4xl font-medium tracking-tight text-adriatic text-balance md:text-5xl lg:text-6xl">
           {t.toursSection.title}
         </h2>
-        <p className="text-[15px] leading-relaxed text-adriatic/70 md:text-lg">{t.toursSection.sub}</p>
+        <p className="text-[15px] leading-relaxed text-adriatic/70 md:text-lg">
+          {t.toursSection.sub}
+        </p>
       </div>
 
       <div className="home-tours-grid tours-grid grid grid-cols-1 gap-5">
-        {/* Classic Tour */}
-        <a
-          href={getLocalizedHref("classicTour", lang)}
-          className="home-tour-card home-tour-card--classic tour-card tour-card--classic group photo-frame flex flex-col hover:-translate-y-1 transition-transform duration-500"
-        >
-          <div className="tour-card__media photo-frame-inner relative aspect-[4/3] w-full mb-5">
-            <img src={hiddenImg} alt={tours.hidden.imageAlt} loading="lazy" width={1024} height={768}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-            <div className="absolute top-4 left-4 bg-stone/90 backdrop-blur px-3.5 py-1.5 rounded-full text-[11px] font-semibold tracking-wide text-adriatic">
-              {tours.hidden.tagline}
-            </div>
-            <div className="absolute top-4 right-4 size-10 rounded-full bg-stone/90 backdrop-blur flex items-center justify-center text-adriatic group-hover:bg-apricot transition-colors">
-              <ArrowUpRight className="size-4" />
-            </div>
-          </div>
-          <div className="tour-card__content px-5 pb-5 flex flex-col gap-3 flex-1">
-            <h3 className="font-display text-3xl md:text-4xl font-medium text-adriatic text-balance">
-              {tours.hidden.name}
-            </h3>
-            <p className="max-w-[52ch] text-[15px] leading-relaxed text-adriatic/70 md:text-base">{tours.hidden.desc}</p>
-            <IncludedList items={tours.hidden.included} />
-            {tours.hidden.note && (
-              <p className="text-sm italic leading-relaxed text-adriatic/65">{tours.hidden.note}</p>
-            )}
-            <TourFactCards facts={classicFacts} />
-            <span className="tour-card__text-link">{linkLabel}</span>
-          </div>
-        </a>
+        {tourDefinitions.map((definition) => {
+          const tour = t.tours[definition.tourKey];
+          const href = getLocalizedHref(definition.pageId, lang);
+          const isMoonlight = definition.pageId === "moonlightTour";
+          const isBarbecue = definition.pageId === "barbecueTour";
+          const isSunset = definition.pageId === "sunsetTour";
+          const intent = getWhatsAppIntentForTourDefinition(definition, t);
+          const facts = createTourFacts({
+            tour,
+            labels: copy.common,
+            pageId: definition.pageId,
+            status: definition.status,
+          });
+          const articleClassName = [
+            "home-tour-card",
+            `home-tour-card--${definition.pageId === "barbecueTour" ? "bbq" : definition.pageId.replace("Tour", "").replace("classic", "classic").replace("moonlight", "moonlight").replace("sunset", "sunset")}`,
+            "tour-card",
+            definition.cardClassName,
+            "group",
+            isMoonlight
+              ? "moonlight-tour-card relative rounded-[2rem] border border-stone/15 p-2.5 shadow-card transition-transform duration-500 hover:-translate-y-1"
+              : "photo-frame flex flex-col transition-transform duration-500 hover:-translate-y-1",
+            isBarbecue ? "gap-5" : "",
+          ]
+            .filter(Boolean)
+            .join(" ");
 
-        {/* BBQ Tour — wide */}
-        <a
-          href={getLocalizedHref("barbecueTour", lang)}
-          className="home-tour-card home-tour-card--bbq tour-card tour-card--bbq group photo-frame flex flex-col gap-5 hover:-translate-y-1 transition-transform duration-500"
-        >
-          <div className="tour-card__media tour-card__media--bbq photo-frame-inner aspect-[4/3] shrink-0">
-            <img src={sunsetImg} alt={tours.sunset.imageAlt} loading="lazy" width={1024} height={1024}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-          </div>
-          <div className="tour-card__content min-w-0 flex-1 px-5 pb-5 lg:py-6 lg:pr-6 flex flex-col gap-3 justify-center">
-            <span className="text-[11px] font-semibold tracking-[0.2em] text-apricot uppercase">{tours.sunset.tagline}</span>
-            <h3 className="font-display text-2xl md:text-3xl font-medium text-adriatic">{tours.sunset.name}</h3>
-            <p className="line-clamp-3 text-sm leading-relaxed text-adriatic/75">{tours.sunset.desc}</p>
-            <IncludedList items={tours.sunset.included} compact />
-            {tours.sunset.note && (
-              <p className="text-sm italic leading-relaxed text-adriatic/65">{tours.sunset.note}</p>
-            )}
-            <TourFactCards facts={barbecueFacts} className="tour-facts--compact" />
-            <span className="tour-card__text-link">{linkLabel}</span>
-          </div>
-        </a>
+          if (isMoonlight) {
+            return (
+              <article
+                key={definition.pageId}
+                className={articleClassName}
+                style={{ "--moonlight-image": `url(${definition.image})` } as CSSProperties}
+              >
+                <div className="relative z-10 flex h-full flex-col rounded-[1.5rem] p-4 outline outline-1 -outline-offset-1 outline-stone/20 md:p-5">
+                  <div className="mb-3 flex size-9 items-center justify-center rounded-full border border-apricot/35 bg-adriatic/55 shadow-soft backdrop-blur">
+                    <div className="size-3 rounded-full border-2 border-apricot bg-apricot/25" />
+                  </div>
+                  <span className="mb-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-apricot">
+                    {tour.tagline}
+                  </span>
+                  <h3 className="mb-2 font-display text-[23px] font-medium leading-tight text-stone">
+                    {tour.name}
+                  </h3>
+                  <p className="mb-4 max-w-[30ch] text-sm leading-relaxed text-stone/85">
+                    {tour.desc}
+                  </p>
+                  <div className="mt-auto">
+                    <span className="inline-block rounded-full border border-apricot/35 bg-adriatic/55 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-stone backdrop-blur">
+                      {tour.tagline}
+                    </span>
+                    <div className="tour-card__actions tour-card__actions--light">
+                      <WhatsAppLink
+                        locale={lang}
+                        messageKey={intent.messageKey}
+                        variables={intent.variables}
+                        ariaLabel={getBookingLabel(definition, t)}
+                        className="tour-card__action tour-card__action--primary tour-card__action--light-primary"
+                      >
+                        {getBookingLabel(definition, t)}
+                      </WhatsAppLink>
+                      <a
+                        href={href}
+                        className="tour-card__action tour-card__action--secondary tour-card__action--light-secondary"
+                      >
+                        {t.cta.viewDetails}
+                        <ArrowUpRight className="size-4" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            );
+          }
 
-        {/* Sunset Tour */}
-        <a
-          href={getLocalizedHref("sunsetTour", lang)}
-          className="home-tour-card home-tour-card--sunset tour-card tour-card--sunset group photo-frame flex flex-col hover:-translate-y-1 transition-transform duration-500"
-        >
-          <div className="tour-card__media photo-frame-inner aspect-[4/3] w-full mb-4">
-            <img src={sunsetTourImg} alt={tours.moonlight.imageAlt} loading="lazy" width={1024} height={768}
-              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
-          </div>
-          <div className="tour-card__content px-4 pb-4 flex flex-col flex-1 gap-2">
-            <span className="text-[11px] font-semibold tracking-[0.2em] text-sea uppercase">{tours.moonlight.tagline}</span>
-            <h3 className="font-display text-xl font-medium text-adriatic">{tours.moonlight.name}</h3>
-            <p className="text-sm leading-relaxed text-adriatic/75">{tours.moonlight.desc}</p>
-            <IncludedList items={tours.moonlight.included} compact />
-            {tours.moonlight.note && (
-              <p className="text-sm italic leading-relaxed text-adriatic/65">{tours.moonlight.note}</p>
-            )}
-            <TourFactCards facts={sunsetFacts} className="tour-facts--compact" />
-            <span className="tour-card__text-link">{linkLabel}</span>
-          </div>
-        </a>
+          return (
+            <article key={definition.pageId} className={articleClassName}>
+              <div
+                className={[
+                  "tour-card__media",
+                  isBarbecue ? "tour-card__media--bbq" : "",
+                  "photo-frame-inner",
+                  "relative",
+                  isSunset ? "aspect-[4/3] w-full mb-4" : "aspect-[4/3]",
+                  isBarbecue ? "shrink-0" : "w-full mb-5",
+                ]
+                  .filter(Boolean)
+                  .join(" ")}
+              >
+                <img
+                  src={definition.image}
+                  alt={tour.imageAlt}
+                  loading="lazy"
+                  width={1024}
+                  height={isBarbecue ? 1024 : 768}
+                  className={[
+                    "h-full w-full object-cover transition-transform duration-700 group-hover:scale-105",
+                    isSunset ? "object-center" : "",
+                  ]
+                    .filter(Boolean)
+                    .join(" ")}
+                />
+                {definition.pageId === "classicTour" ? (
+                  <>
+                    <div className="absolute left-4 top-4 rounded-full bg-stone/90 px-3.5 py-1.5 text-[11px] font-semibold tracking-wide text-adriatic backdrop-blur">
+                      {tour.tagline}
+                    </div>
+                    <div className="absolute right-4 top-4 flex size-10 items-center justify-center rounded-full bg-stone/90 text-adriatic backdrop-blur transition-colors group-hover:bg-apricot">
+                      <ArrowUpRight className="size-4" />
+                    </div>
+                  </>
+                ) : null}
+              </div>
 
-        {/* Moonlight Tour — Coming Soon */}
-        <a
-          href={getLocalizedHref("moonlightTour", lang)}
-          className="home-tour-card home-tour-card--moonlight tour-card tour-card--moonlight moonlight-tour-card group relative rounded-[2rem] border border-stone/15 p-2.5 shadow-card transition-transform duration-500 hover:-translate-y-1"
-          style={{ "--moonlight-image": `url(${moonImg})` } as CSSProperties}
-        >
-          <div className="relative z-10 flex h-full flex-col rounded-[1.5rem] p-4 outline outline-1 -outline-offset-1 outline-stone/20 md:p-5">
-            <div className="mb-3 flex size-9 items-center justify-center rounded-full border border-apricot/35 bg-adriatic/55 shadow-soft backdrop-blur">
-              <div className="size-3 rounded-full border-2 border-apricot bg-apricot/25" />
-            </div>
-            <span className="mb-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-apricot">{tours.private.tagline}</span>
-            <h3 className="mb-2 font-display text-[23px] font-medium leading-tight text-stone">{tours.private.name}</h3>
-            <p className="mb-4 max-w-[30ch] text-sm leading-relaxed text-stone/85">{tours.private.desc}</p>
-            <div className="mt-auto">
-              <span className="inline-block rounded-full border border-apricot/35 bg-adriatic/55 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-stone backdrop-blur">
-                {tours.private.tagline}
-              </span>
-              <span className="tour-card__text-link tour-card__text-link--light">{linkLabel}</span>
-            </div>
-          </div>
-        </a>
+              <div
+                className={[
+                  "tour-card__content flex flex-1 flex-col",
+                  isBarbecue
+                    ? "min-w-0 gap-3 px-5 pb-5 lg:py-6 lg:pr-6"
+                    : isSunset
+                      ? "gap-2 px-4 pb-4"
+                      : "gap-3 px-5 pb-5",
+                ].join(" ")}
+              >
+                {isBarbecue || isSunset ? (
+                  <span
+                    className={[
+                      "text-[11px] font-semibold uppercase tracking-[0.2em]",
+                      isBarbecue ? "text-apricot" : "text-sea",
+                    ].join(" ")}
+                  >
+                    {tour.tagline}
+                  </span>
+                ) : null}
+                <h3
+                  className={[
+                    "font-display font-medium text-adriatic",
+                    isBarbecue
+                      ? "text-2xl md:text-3xl"
+                      : isSunset
+                        ? "text-xl"
+                        : "text-3xl text-balance md:text-4xl",
+                  ].join(" ")}
+                >
+                  {tour.name}
+                </h3>
+                <p
+                  className={[
+                    "leading-relaxed text-adriatic/75",
+                    isBarbecue ? "text-sm" : isSunset ? "text-sm" : "max-w-[52ch] text-[15px] md:text-base",
+                  ].join(" ")}
+                >
+                  {tour.desc}
+                </p>
+                <IncludedList items={tour.included} compact={isBarbecue || isSunset} />
+                {tour.note ? (
+                  <p className="text-sm italic leading-relaxed text-adriatic/65">
+                    {tour.note}
+                  </p>
+                ) : null}
+                <TourFactCards
+                  facts={facts}
+                  className={isBarbecue || isSunset ? "tour-facts--compact" : undefined}
+                />
+                <div className="tour-card__actions">
+                  <WhatsAppLink
+                    locale={lang}
+                    messageKey={intent.messageKey}
+                    variables={intent.variables}
+                    ariaLabel={getBookingLabel(definition, t)}
+                    className="tour-card__action tour-card__action--primary"
+                  >
+                    {t.cta.bookOnWhatsApp}
+                  </WhatsAppLink>
+                  <a href={href} className="tour-card__action tour-card__action--secondary">
+                    {t.cta.viewDetails}
+                    <ArrowUpRight className="size-4" />
+                  </a>
+                </div>
+              </div>
+            </article>
+          );
+        })}
       </div>
     </section>
   );
 }
-function IncludedList({ items, compact = false }: { items: string[]; compact?: boolean }) {
+
+function IncludedList({
+  items,
+  compact = false,
+}: {
+  items: string[];
+  compact?: boolean;
+}) {
   if (items.length === 0) return null;
   return (
-    <ul className={`grid gap-1 mt-1 ${compact ? "grid-cols-1" : "grid-cols-1 sm:grid-cols-2"} gap-x-4`}>
-      {items.map((item, i) => (
-        <li key={i} className="flex items-start gap-1.5 text-sm text-adriatic/75">
-          <span className="mt-1.5 size-1 rounded-full bg-apricot shrink-0" />
+    <ul className={`mt-1 grid gap-1 ${compact ? "grid-cols-1" : "grid-cols-1 gap-x-4 sm:grid-cols-2"}`}>
+      {items.map((item) => (
+        <li key={item} className="flex items-start gap-1.5 text-sm text-adriatic/75">
+          <span className="mt-1.5 size-1 shrink-0 rounded-full bg-apricot" />
           <span className="leading-[1.45]">{item}</span>
         </li>
       ))}

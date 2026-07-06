@@ -1,4 +1,5 @@
-import { BRAND_NAME, business, createWhatsAppUrl, hasPhone, hasWhatsApp, telLink } from "@/lib/business";
+import { WhatsAppLink } from "@/components/actions/WhatsAppLink";
+import { BRAND_NAME, business, hasPhone, telLink } from "@/lib/business";
 import { useI18n } from "@/i18n/I18nContext";
 import type { Lang } from "@/i18n/locales";
 import { getHomeSectionHref, getLocalizedHref } from "@/i18n/routes";
@@ -19,10 +20,6 @@ const footerNavigation: FooterLink[] = [
 export function Footer() {
   const { lang, t } = useI18n();
   const currentYear = new Date().getFullYear();
-  const bookingHref = createWhatsAppUrl({
-    locale: lang,
-    messageKey: "generalBooking",
-  });
   const phoneHref = hasPhone ? telLink() : "";
   const footerLabelByKey = {
     tours: t.nav.tours,
@@ -52,14 +49,13 @@ export function Footer() {
 
           {phoneHref ? <a href={phoneHref}>{business.phone}</a> : null}
 
-          <a
-            href={bookingHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={t.aria.bookTrip}
+          <WhatsAppLink
+            locale={lang}
+            messageKey="generalBooking"
+            ariaLabel={t.aria.bookTrip}
           >
-            {hasWhatsApp ? t.cta.whatsapp : t.footer.bookFallback}
-          </a>
+            {t.cta.whatsapp}
+          </WhatsAppLink>
         </div>
 
         <div className="site-footer__column">

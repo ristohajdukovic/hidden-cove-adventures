@@ -1,15 +1,11 @@
 import { useI18n } from "@/i18n/I18nContext";
 import { getLocalizedHref } from "@/i18n/routes";
-import { createWhatsAppUrl, hasWhatsApp } from "@/lib/business";
+import { WhatsAppLink } from "@/components/actions/WhatsAppLink";
 import heroImg from "@/assets/hero-cove.jpg";
 import { ArrowRight } from "@/components/icons/HandDrawn";
 
 export function Hero() {
   const { lang, t } = useI18n();
-  const bookingHref = createWhatsAppUrl({
-    locale: lang,
-    messageKey: hasWhatsApp ? "generalBooking" : "contact",
-  });
 
   return (
     <section
@@ -29,16 +25,15 @@ export function Hero() {
           </p>
 
           <div className="flex flex-wrap items-center gap-3 pt-2">
-            <a
-              href={bookingHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={hasWhatsApp ? t.aria.bookTrip : t.cta.contact}
+            <WhatsAppLink
+              locale={lang}
+              messageKey="generalBooking"
+              ariaLabel={t.aria.bookTrip}
               className="inline-flex items-center gap-2 bg-apricot text-adriatic px-7 py-4 rounded-full font-semibold text-sm shadow-warm hover:shadow-card hover:-translate-y-0.5 transition-all"
             >
-              {hasWhatsApp ? t.cta.whatsapp : t.cta.contact}
+              {t.cta.whatsapp}
               <ArrowRight className="size-4" />
-            </a>
+            </WhatsAppLink>
             <a
               href={getLocalizedHref("tours", lang)}
               className="inline-flex items-center gap-2 px-7 py-4 rounded-full font-semibold text-sm text-adriatic bg-stone/80 border border-adriatic/10 hover:bg-stone hover:border-adriatic/30 transition-all"

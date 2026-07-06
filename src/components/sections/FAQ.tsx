@@ -2,7 +2,7 @@ import { useI18n } from "@/i18n/I18nContext";
 import { useEffect, useMemo, useState } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { createFaqItems, type FaqItem } from "@/data/faq";
-import { createWhatsAppUrl } from "@/lib/business";
+import { WhatsAppLink } from "@/components/actions/WhatsAppLink";
 
 function renderAnswer(item: FaqItem, highlightPhrase: string) {
   if (item.id !== "bbq-food") {
@@ -26,13 +26,9 @@ function renderAnswer(item: FaqItem, highlightPhrase: string) {
 
 export function FAQ() {
   const { lang, t } = useI18n();
-  const bookingHref = createWhatsAppUrl({
-    locale: lang,
-    messageKey: "generalBooking",
-  });
   const faqItems = useMemo(
-    () => createFaqItems(t, bookingHref, lang),
-    [bookingHref, lang, t],
+    () => createFaqItems(t, lang),
+    [lang, t],
   );
   const [openItem, setOpenItem] = useState<string | undefined>(() => faqItems[0]?.id);
 
@@ -79,23 +75,44 @@ export function FAQ() {
 
                   {item.links?.length ? (
                     <div className="mt-4 flex flex-wrap gap-3">
-                      {item.links.map((link) => (
-                        <a
-                          key={`${item.id}-${link.label}`}
-                          href={link.href}
-                          target={link.external ? "_blank" : undefined}
-                          rel={link.external ? "noopener noreferrer" : undefined}
-                          className="inline-flex min-h-11 items-center rounded-full border border-adriatic/20 px-4 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-adriatic transition-colors hover:border-adriatic/45 hover:bg-adriatic/5"
-                        >
-                          {link.label}
-                        </a>
-                      ))}
+                      {item.links.map((link) =>
+                        link.target === "booking" || link.target === "private" ? (
+                          <WhatsAppLink
+                            key={`${item.id}-${link.label}`}
+                            locale={lang}
+                            messageKey={link.target === "private" ? "privateTour" : "generalBooking"}
+                            ariaLabel={link.label}
+                            className="inline-flex min-h-11 items-center rounded-full border border-adriatic/20 px-4 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-adriatic transition-colors hover:border-adriatic/45 hover:bg-adriatic/5"
+                          >
+                            {link.label}
+                          </WhatsAppLink>
+                        ) : (
+                          <a
+                            key={`${item.id}-${link.label}`}
+                            href={link.href}
+                            className="inline-flex min-h-11 items-center rounded-full border border-adriatic/20 px-4 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-adriatic transition-colors hover:border-adriatic/45 hover:bg-adriatic/5"
+                          >
+                            {link.label}
+                          </a>
+                        ),
+                      )}
                     </div>
                   ) : null}
                 </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
+          <div className="faq-contact-cta">
+            <h3>{t.cta.stillHaveQuestion}</h3>
+            <WhatsAppLink
+              locale={lang}
+              messageKey="contact"
+              ariaLabel={t.cta.askUsOnWhatsApp}
+              className="tour-card__action tour-card__action--primary"
+            >
+              {t.cta.askUsOnWhatsApp}
+            </WhatsAppLink>
+          </div>
         </div>
       </div>
     </section>

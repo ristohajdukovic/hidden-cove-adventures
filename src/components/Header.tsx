@@ -3,7 +3,9 @@ import type { MouseEvent } from "react";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { useI18n } from "@/i18n/I18nContext";
 import { getHomeSectionHref, getLocalizedHref } from "@/i18n/routes";
-import { BRAND_NAME, createWhatsAppUrl } from "@/lib/business";
+import { WhatsAppLink } from "@/components/actions/WhatsAppLink";
+import { BRAND_NAME } from "@/lib/business";
+import { getWhatsAppIntentForPage } from "@/lib/whatsappIntent";
 
 type NavigationItem = {
   label: string;
@@ -12,15 +14,12 @@ type NavigationItem = {
 };
 
 export function Header() {
-  const { lang, t } = useI18n();
+  const { lang, pageId, t } = useI18n();
   const [visible, setVisible] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
-  const bookingHref = createWhatsAppUrl({
-    locale: lang,
-    messageKey: "generalBooking",
-  });
+  const bookingIntent = getWhatsAppIntentForPage(pageId, t);
   const navigationItems: NavigationItem[] = [
     { label: t.nav.tours, href: getLocalizedHref("tours", lang) },
     { label: t.nav.included, href: getHomeSectionHref(lang, "#included"), hash: "#included" },
@@ -131,12 +130,12 @@ export function Header() {
 
           <div className="header-actions">
             <LanguageSwitcher className="header-language-switcher" />
-            <a
+            <WhatsAppLink
               className="header-booking-button"
-              href={bookingHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={t.aria.bookTrip}
+              locale={lang}
+              messageKey={bookingIntent.messageKey}
+              variables={bookingIntent.variables}
+              ariaLabel={t.aria.bookTrip}
             >
               <span className="sliding-label">
                 <span>{t.cta.bookTrip}</span>
@@ -146,7 +145,7 @@ export function Header() {
               <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
                 <path d="M1 11 11 1M4 1h7v7" stroke="currentColor" strokeWidth="1.6" />
               </svg>
-            </a>
+            </WhatsAppLink>
 
             <button
               ref={menuButtonRef}
@@ -181,16 +180,16 @@ export function Header() {
             </a>
           ))}
 
-          <a
+          <WhatsAppLink
             className="mobile-navigation__book"
-            href={bookingHref}
-            target="_blank"
-            rel="noopener noreferrer"
+            locale={lang}
+            messageKey={bookingIntent.messageKey}
+            variables={bookingIntent.variables}
             tabIndex={menuOpen ? 0 : -1}
-            aria-label={t.aria.bookTrip}
+            ariaLabel={t.aria.bookTrip}
           >
             {t.cta.book}
-          </a>
+          </WhatsAppLink>
 
           <LanguageSwitcher className="mobile-language-switcher" />
         </nav>

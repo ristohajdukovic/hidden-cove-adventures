@@ -24,7 +24,7 @@ export function HomeStructuredData() {
   const { lang, t } = useI18n();
   const canonicalUrl = getCanonicalUrl(lang, "home");
   const inLanguage = supportedLocales[lang].htmlLang;
-  const faqItems = createFaqItems(t, "", lang);
+  const faqItems = createFaqItems(t, lang);
   const structuredData = removeUndefined({
     "@context": "https://schema.org",
     "@graph": [

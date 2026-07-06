@@ -1,9 +1,10 @@
+import { WhatsAppLink } from "@/components/actions/WhatsAppLink";
 import { useI18n } from "@/i18n/I18nContext";
 import drinksImg from "@/assets/gallery-drinks.jpg";
-import { Check } from "@/components/icons/HandDrawn";
+import { ArrowRight, Check } from "@/components/icons/HandDrawn";
 
 export function BBQ() {
-  const { t } = useI18n();
+  const { lang, t } = useI18n();
   return (
     <section id="barbecue" className="bg-adriatic text-stone py-20 md:py-28 relative overflow-hidden">
       <div className="absolute inset-0 opacity-[0.12] pointer-events-none"
@@ -28,6 +29,18 @@ export function BBQ() {
               </li>
             ))}
           </ul>
+          <div className="mt-8">
+            <WhatsAppLink
+              locale={lang}
+              messageKey="bbqTour"
+              variables={{ price: t.tours.sunset.price }}
+              ariaLabel={t.cta.bookBbqTour}
+              className="inline-flex min-h-[52px] items-center gap-2 rounded-full bg-apricot px-7 py-4 text-sm font-semibold text-adriatic shadow-warm transition-transform hover:-translate-y-0.5"
+            >
+              {t.cta.bookBbqTour}
+              <ArrowRight className="size-4" />
+            </WhatsAppLink>
+          </div>
         </div>
         <div className="order-1 lg:order-2 relative">
           <div className="bg-stone/5 p-2.5 rounded-[2rem] border border-stone/10 -rotate-[1.5deg] hover:rotate-0 transition-transform duration-700">

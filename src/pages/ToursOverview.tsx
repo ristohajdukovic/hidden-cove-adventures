@@ -9,14 +9,26 @@ import { useI18n } from "@/i18n/I18nContext";
 import { pageContent } from "@/i18n/pageContent";
 import { getLocalizedHref } from "@/i18n/routes";
 import type { Lang } from "@/i18n/locales";
-import { tourDefinitions } from "@/data/tourPages";
+import { tourDefinitions, type TourDefinition } from "@/data/tourPages";
 import { ArrowUpRight } from "@/components/icons/HandDrawn";
 import { TourFactCards } from "@/components/tours/TourFactCards";
 import { createTourFacts } from "@/components/tours/tourFacts";
+import { WhatsAppLink } from "@/components/actions/WhatsAppLink";
+import { getWhatsAppIntentForTourDefinition } from "@/lib/whatsappIntent";
+import type { TranslationKeys } from "@/i18n/translations";
 
 type ToursOverviewProps = {
   initialLocale?: Lang;
 };
+
+function getOverviewBookingLabel(
+  definition: TourDefinition,
+  t: TranslationKeys,
+): string {
+  return definition.status === "coming-soon"
+    ? t.cta.askAboutMoonlight
+    : t.cta.bookOnWhatsApp;
+}
 
 function ToursOverviewContent() {
   const { lang, t } = useI18n();
@@ -65,9 +77,8 @@ function ToursOverviewContent() {
             });
 
             return (
-              <a
+              <article
                 key={definition.pageId}
-                href={href}
                 className={[
                   "tour-overview-card",
                   definition.cardClassName,
@@ -92,13 +103,21 @@ function ToursOverviewContent() {
                   <p>{tour.desc}</p>
                   <TourFactCards facts={facts} className="tour-facts--overview" />
                   <div className="tour-overview-card__actions">
-                    <strong className="tour-overview-card__link">
-                      {copy.common.viewDetails}
+                    <WhatsAppLink
+                      locale={lang}
+                      {...getWhatsAppIntentForTourDefinition(definition, t)}
+                      ariaLabel={getOverviewBookingLabel(definition, t)}
+                      className="tour-card__action tour-card__action--primary"
+                    >
+                      {getOverviewBookingLabel(definition, t)}
+                    </WhatsAppLink>
+                    <a href={href} className="tour-card__action tour-card__action--secondary">
+                      {t.cta.viewDetails}
                       <ArrowUpRight className="size-4" />
-                    </strong>
+                    </a>
                   </div>
                 </div>
-              </a>
+              </article>
             );
           })}
         </div>

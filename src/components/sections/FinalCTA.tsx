@@ -1,13 +1,9 @@
 import { useI18n } from "@/i18n/I18nContext";
-import { createWhatsAppUrl, hasWhatsApp } from "@/lib/business";
+import { WhatsAppLink } from "@/components/actions/WhatsAppLink";
 import { ArrowRight } from "@/components/icons/HandDrawn";
 
 export function FinalCTA() {
   const { lang, t } = useI18n();
-  const bookingHref = createWhatsAppUrl({
-    locale: lang,
-    messageKey: hasWhatsApp ? "generalBooking" : "contact",
-  });
 
   return (
     <section className="container pb-20 md:pb-28">
@@ -22,16 +18,15 @@ export function FinalCTA() {
             {t.finalCta.title}
           </h2>
           <p className="text-stone/80 text-lg mb-8">{t.finalCta.sub}</p>
-          <a
-            href={bookingHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={hasWhatsApp ? t.aria.bookTrip : t.cta.contact}
+          <WhatsAppLink
+            locale={lang}
+            messageKey="generalBooking"
+            ariaLabel={t.aria.bookTrip}
             className="inline-flex items-center gap-2 bg-apricot text-adriatic px-8 py-4 rounded-full font-semibold text-sm shadow-warm hover:-translate-y-0.5 transition-transform"
           >
-            {hasWhatsApp ? t.cta.whatsapp : t.cta.contact}
+            {t.cta.whatsapp}
             <ArrowRight className="size-4" />
-          </a>
+          </WhatsAppLink>
         </div>
       </div>
     </section>

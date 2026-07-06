@@ -1,14 +1,10 @@
 import { useI18n } from "@/i18n/I18nContext";
-import { createWhatsAppUrl } from "@/lib/business";
+import { WhatsAppLink } from "@/components/actions/WhatsAppLink";
 import privateImg from "@/assets/tour-private.jpg";
 import { ArrowRight } from "@/components/icons/HandDrawn";
 
 export function PrivateSection() {
   const { lang, t } = useI18n();
-  const bookingHref = createWhatsAppUrl({
-    locale: lang,
-    messageKey: "privateTour",
-  });
 
   return (
     <section className="bg-stone py-20 md:py-28">
@@ -23,16 +19,15 @@ export function PrivateSection() {
               {t.privateSec.title}
             </h2>
             <p className="text-adriatic/70 text-lg leading-relaxed mb-8 max-w-[48ch]">{t.privateSec.body}</p>
-            <a
-              href={bookingHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={t.privateSec.cta}
+            <WhatsAppLink
+              locale={lang}
+              messageKey="privateTour"
+              ariaLabel={t.privateSec.cta}
               className="self-start inline-flex items-center gap-2 bg-adriatic text-stone px-7 py-4 rounded-full font-semibold text-sm hover:bg-olive transition-colors"
             >
               {t.privateSec.cta}
               <ArrowRight className="size-4" />
-            </a>
+            </WhatsAppLink>
           </div>
         </div>
       </div>

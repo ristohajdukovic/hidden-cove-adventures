@@ -40,6 +40,18 @@ export type TranslationKeys = {
     book: string;
     bookTrip: string;
     bookNow: string;
+    bookOnWhatsApp: string;
+    bookClassicTour: string;
+    bookBbqTour: string;
+    bookSunsetTour: string;
+    bookThisTour: string;
+    checkAvailability: string;
+    checkAvailabilityOnWhatsApp: string;
+    askAboutMoonlight: string;
+    askAboutThisTour: string;
+    askUsOnWhatsApp: string;
+    stillHaveQuestion: string;
+    viewDetails: string;
   };
   whatsapp: {
     generalBooking: string;
@@ -213,6 +225,18 @@ const en: TranslationKeys = {
     book: "Book",
     bookTrip: "Book a trip",
     bookNow: "Book now",
+    bookOnWhatsApp: "Book on WhatsApp",
+    bookClassicTour: "Book the Classic Tour",
+    bookBbqTour: "Book the BBQ Tour",
+    bookSunsetTour: "Book the Sunset Tour",
+    bookThisTour: "Book this tour",
+    checkAvailability: "Check availability",
+    checkAvailabilityOnWhatsApp: "Check availability on WhatsApp",
+    askAboutMoonlight: "Ask about Moonlight",
+    askAboutThisTour: "Ask about this tour",
+    askUsOnWhatsApp: "Ask us on WhatsApp",
+    stillHaveQuestion: "Still have a question?",
+    viewDetails: "View details",
   },
   whatsapp: {
     generalBooking:
@@ -604,6 +628,18 @@ const de: TranslationKeys = {
     book: "Buchen",
     bookTrip: "Tour buchen",
     bookNow: "Jetzt buchen",
+    bookOnWhatsApp: "Auf WhatsApp buchen",
+    bookClassicTour: "Classic Tour buchen",
+    bookBbqTour: "BBQ Tour buchen",
+    bookSunsetTour: "Sunset Tour buchen",
+    bookThisTour: "Diese Tour buchen",
+    checkAvailability: "Verfuegbarkeit pruefen",
+    checkAvailabilityOnWhatsApp: "Verfuegbarkeit auf WhatsApp pruefen",
+    askAboutMoonlight: "Nach Moonlight fragen",
+    askAboutThisTour: "Zu dieser Tour fragen",
+    askUsOnWhatsApp: "Frag uns auf WhatsApp",
+    stillHaveQuestion: "Noch eine Frage?",
+    viewDetails: "Details ansehen",
   },
   whatsapp: {
     generalBooking:
@@ -995,6 +1031,18 @@ const sq: TranslationKeys = {
     book: "Rezervo",
     bookTrip: "Rezervo turin",
     bookNow: "Rezervo tani",
+    bookOnWhatsApp: "Rezervo ne WhatsApp",
+    bookClassicTour: "Rezervo Classic Tour",
+    bookBbqTour: "Rezervo BBQ Tour",
+    bookSunsetTour: "Rezervo Sunset Tour",
+    bookThisTour: "Rezervo kete tur",
+    checkAvailability: "Kontrollo disponueshmerine",
+    checkAvailabilityOnWhatsApp: "Kontrollo disponueshmerine ne WhatsApp",
+    askAboutMoonlight: "Pyet per Moonlight",
+    askAboutThisTour: "Pyet per kete tur",
+    askUsOnWhatsApp: "Na pyet ne WhatsApp",
+    stillHaveQuestion: "Ke ende pyetje?",
+    viewDetails: "Shiko detajet",
   },
   whatsapp: {
     generalBooking:
@@ -1386,6 +1434,18 @@ const me: TranslationKeys = {
     book: "Rezerviši",
     bookTrip: "Rezerviši turu",
     bookNow: "Rezerviši odmah",
+    bookOnWhatsApp: "Rezerviši na WhatsApp",
+    bookClassicTour: "Rezerviši Classic Tour",
+    bookBbqTour: "Rezerviši BBQ Tour",
+    bookSunsetTour: "Rezerviši Sunset Tour",
+    bookThisTour: "Rezerviši ovu turu",
+    checkAvailability: "Provjeri dostupnost",
+    checkAvailabilityOnWhatsApp: "Provjeri dostupnost na WhatsApp",
+    askAboutMoonlight: "Pitaj za Moonlight",
+    askAboutThisTour: "Pitaj za ovu turu",
+    askUsOnWhatsApp: "Pitaj nas na WhatsApp",
+    stillHaveQuestion: "Imaš još pitanje?",
+    viewDetails: "Pogledaj detalje",
   },
   whatsapp: {
     generalBooking:

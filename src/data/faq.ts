@@ -5,6 +5,7 @@ import type { FaqLinkTarget, TranslationKeys } from "@/i18n/translations";
 export type FaqLink = {
   label: string;
   href: string;
+  target: FaqLinkTarget;
   external?: boolean;
 };
 
@@ -15,9 +16,9 @@ export type FaqItem = {
   links?: FaqLink[];
 };
 
-function getLinkHref(target: FaqLinkTarget, locale: Lang, bookingHref: string): string {
+function getLinkHref(target: FaqLinkTarget, locale: Lang): string {
   if (target === "booking" || target === "private") {
-    return bookingHref;
+    return "";
   }
 
   return target === "route"
@@ -27,7 +28,6 @@ function getLinkHref(target: FaqLinkTarget, locale: Lang, bookingHref: string): 
 
 export function createFaqItems(
   t: TranslationKeys,
-  bookingHref: string,
   locale: Lang,
 ): FaqItem[] {
   return t.faq.items.map((item) => ({
@@ -35,10 +35,11 @@ export function createFaqItems(
     question: item.question,
     answer: item.answer,
     links: item.links?.map((link) => {
-      const href = getLinkHref(link.target, locale, bookingHref);
+      const href = getLinkHref(link.target, locale);
 
       return {
         label: link.label,
+        target: link.target,
         href,
         external: href.startsWith("http"),
       };

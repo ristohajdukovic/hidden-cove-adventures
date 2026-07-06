@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
+import { WhatsAppLink } from "@/components/actions/WhatsAppLink";
 import { useI18n } from "@/i18n/I18nContext";
 import type { TranslationKeys } from "@/i18n/translations";
 
@@ -87,7 +88,7 @@ function RouteLocationSummary({
 }
 
 export function Route() {
-  const { t } = useI18n();
+  const { lang, t } = useI18n();
 
   return (
     <section id="route" className="container py-20 md:py-28">
@@ -108,6 +109,16 @@ export function Route() {
 
       <DeferredRouteMap routeCopy={t.route} />
       <RouteLocationSummary routeCopy={t.route} />
+      <div className="section-cta section-cta--route">
+        <WhatsAppLink
+          locale={lang}
+          messageKey="generalBooking"
+          ariaLabel={t.cta.checkAvailabilityOnWhatsApp}
+          className="section-cta__primary"
+        >
+          {t.cta.checkAvailabilityOnWhatsApp}
+        </WhatsAppLink>
+      </div>
     </section>
   );
 }

@@ -10,7 +10,8 @@ import { pageContent } from "@/i18n/pageContent";
 import { getLocalizedHref, tourPageIds, type TourPageId } from "@/i18n/routes";
 import type { Lang } from "@/i18n/locales";
 import { tourDefinitionsByPageId } from "@/data/tourPages";
-import { createWhatsAppUrl } from "@/lib/business";
+import { WhatsAppLink } from "@/components/actions/WhatsAppLink";
+import { getWhatsAppIntentForPage } from "@/lib/whatsappIntent";
 import { TourFactCards } from "@/components/tours/TourFactCards";
 import { createTourFacts } from "@/components/tours/tourFacts";
 import { ArrowRight, Clock, Users } from "@/components/icons/HandDrawn";
@@ -33,13 +34,7 @@ function TourDetailContent({ pageId }: { pageId: TourPageId }) {
     pageId,
     status: definition.status,
   });
-  const whatsappHref = createWhatsAppUrl({
-    locale: lang,
-    messageKey: definition.whatsappMessageKey,
-    variables: {
-      price: tour.price,
-    },
-  });
+  const whatsappIntent = getWhatsAppIntentForPage(pageId, t);
 
   return (
     <main>
@@ -65,16 +60,16 @@ function TourDetailContent({ pageId }: { pageId: TourPageId }) {
             </p>
 
             <div className="tour-detail-actions">
-              <a
-                href={whatsappHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={detail.bookingLabel}
+              <WhatsAppLink
+                locale={lang}
+                messageKey={whatsappIntent.messageKey}
+                variables={whatsappIntent.variables}
+                ariaLabel={detail.bookingLabel}
                 className="inline-flex min-h-[52px] items-center gap-2 rounded-full bg-adriatic px-7 py-4 text-sm font-semibold text-stone transition-colors hover:bg-olive"
               >
                 {detail.bookingLabel}
                 <ArrowRight className="size-4" />
-              </a>
+              </WhatsAppLink>
               <a
                 href={getLocalizedHref("tours", lang)}
                 className="inline-flex min-h-[52px] items-center rounded-full border border-adriatic/15 bg-stone/80 px-7 py-4 text-sm font-semibold text-adriatic transition-colors hover:border-adriatic/35 hover:bg-stone"
@@ -135,15 +130,15 @@ function TourDetailContent({ pageId }: { pageId: TourPageId }) {
             <h2>{detail.ctaTitle}</h2>
             <p>{detail.ctaBody}</p>
           </div>
-          <a
-            href={whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={detail.bookingLabel}
+          <WhatsAppLink
+            locale={lang}
+            messageKey={whatsappIntent.messageKey}
+            variables={whatsappIntent.variables}
+            ariaLabel={detail.bookingLabel}
           >
             {detail.bookingLabel}
             <Users className="size-4" />
-          </a>
+          </WhatsAppLink>
         </div>
       </section>
 

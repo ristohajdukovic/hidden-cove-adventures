@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
 import { useI18n } from "@/i18n/I18nContext";
-import { createWhatsAppUrl } from "@/lib/business";
+import { WhatsAppLink } from "@/components/actions/WhatsAppLink";
+import {
+  getMobileBookingLabelForPage,
+  getWhatsAppIntentForPage,
+} from "@/lib/whatsappIntent";
 import { Calendar } from "@/components/icons/HandDrawn";
 
 export function MobileBookingBar() {
-  const { lang, t } = useI18n();
+  const { lang, pageId, t } = useI18n();
   const [show, setShow] = useState(false);
-  const bookingHref = createWhatsAppUrl({
-    locale: lang,
-    messageKey: "generalBooking",
-  });
+  const bookingIntent = getWhatsAppIntentForPage(pageId, t);
+  const label = getMobileBookingLabelForPage(pageId, t);
 
   useEffect(() => {
     const compute = () => {
@@ -36,16 +38,16 @@ export function MobileBookingBar() {
       aria-hidden={!show}
     >
       <div className="p-3">
-        <a
-          href={bookingHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={t.aria.bookTrip}
+        <WhatsAppLink
+          locale={lang}
+          messageKey={bookingIntent.messageKey}
+          variables={bookingIntent.variables}
+          ariaLabel={t.aria.bookTrip}
           className="flex min-h-[52px] w-full items-center justify-center gap-2 rounded-2xl bg-adriatic px-5 py-3 text-sm font-semibold tracking-wide text-stone"
         >
           <Calendar className="size-5" />
-          {t.cta.book}
-        </a>
+          {label}
+        </WhatsAppLink>
       </div>
     </div>
   );
