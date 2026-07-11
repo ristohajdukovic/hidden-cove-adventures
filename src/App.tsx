@@ -3,6 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { Loader } from "@/components/Loader";
 import {
   localizedRouteEntries,
   type LocalizedRouteEntry,
@@ -56,6 +57,7 @@ function routePathVariants(pathname: string): string[] {
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      <Loader />
       <Toaster />
       <Sonner />
       <BrowserRouter basename={import.meta.env.BASE_URL}>

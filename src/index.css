@@ -8,15 +8,15 @@
 @layer base {
   :root {
     /* Brand palette */
-    --adriatic: 196 83% 16%;        /* #073B4C deep adriatic blue */
-    --sea: 197 82% 38%;             /* #118AB2 */
-    --turquoise: 169 60% 61%;       /* #5DD9C1 */
-    --sand: 41 65% 87%;             /* #F4E6C8 warm sand */
-    --sand-deep: 38 47% 80%;        /* deeper warm sand */
-    --apricot: 27 87% 67%;          /* #F4A261 sunset apricot */
-    --olive: 75 36% 36%;            /* #6B7D3C */
-    --stone: 41 47% 96%;            /* #FAF7F0 stone white */
-    --ink: 0 0% 12%;                /* #1E1E1E charcoal */
+    --adriatic: 196 83% 16%; /* #073B4C deep adriatic blue */
+    --sea: 197 82% 38%; /* #118AB2 */
+    --turquoise: 169 60% 61%; /* #5DD9C1 */
+    --sand: 41 65% 87%; /* #F4E6C8 warm sand */
+    --sand-deep: 38 47% 80%; /* deeper warm sand */
+    --apricot: 27 87% 67%; /* #F4A261 sunset apricot */
+    --olive: 75 36% 36%; /* #6B7D3C */
+    --stone: 41 47% 96%; /* #FAF7F0 stone white */
+    --ink: 0 0% 12%; /* #1E1E1E charcoal */
 
     /* Reference role aliases mapped to the existing brand palette */
     --ink-soft: 196 30% 28%;
@@ -26,10 +26,10 @@
     --hull: var(--apricot);
     --hull-deep: 27 68% 50%;
 
-    --font-display: 'Fraunces', Georgia, serif;
-    --font-body: 'General Sans', 'Avenir Next', 'Inter', system-ui, sans-serif;
-    --font-mono: 'Space Mono', ui-monospace, monospace;
-    --ease-expo: cubic-bezier(.16, 1, .3, 1);
+    --font-display: "Fraunces", Georgia, serif;
+    --font-body: "General Sans", "Avenir Next", "Inter", system-ui, sans-serif;
+    --font-mono: "Space Mono", ui-monospace, monospace;
+    --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
     --site-gutter: clamp(20px, 4vw, 64px);
     --mobile-gutter: clamp(18px, 5vw, 24px);
 
@@ -65,9 +65,21 @@
     --radius: 1.25rem;
 
     /* Gradients & shadows */
-    --gradient-sea: linear-gradient(135deg, hsl(var(--adriatic)), hsl(var(--sea)));
-    --gradient-sunset: linear-gradient(135deg, hsl(var(--apricot)), hsl(27 87% 78%));
-    --gradient-warm: linear-gradient(180deg, hsl(var(--sand)) 0%, hsl(var(--stone)) 100%);
+    --gradient-sea: linear-gradient(
+      135deg,
+      hsl(var(--adriatic)),
+      hsl(var(--sea))
+    );
+    --gradient-sunset: linear-gradient(
+      135deg,
+      hsl(var(--apricot)),
+      hsl(27 87% 78%)
+    );
+    --gradient-warm: linear-gradient(
+      180deg,
+      hsl(var(--sand)) 0%,
+      hsl(var(--stone)) 100%
+    );
 
     --shadow-soft: 0 4px 20px -8px hsl(var(--adriatic) / 0.12);
     --shadow-card: 0 12px 40px -16px hsl(var(--adriatic) / 0.15);
@@ -100,20 +112,30 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'General Sans', 'Avenir Next', 'Inter', system-ui, sans-serif;
-    font-feature-settings: 'ss01', 'ss02';
+    font-family: "General Sans", "Avenir Next", "Inter", system-ui, sans-serif;
+    font-feature-settings: "ss01", "ss02";
     letter-spacing: -0.005em;
   }
-  h1, h2, h3, h4, .font-display {
-    font-family: 'Fraunces', Georgia, serif;
-    font-feature-settings: 'ss01';
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-display {
+    font-family: "Fraunces", Georgia, serif;
+    font-feature-settings: "ss01";
   }
 }
 
 @layer utilities {
-  .font-display { font-family: 'Fraunces', Georgia, serif; }
-  .text-balance { text-wrap: balance; }
-  .text-pretty { text-wrap: pretty; }
+  .font-display {
+    font-family: "Fraunces", Georgia, serif;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
 
   /* Hand-drawn wavy sea texture — replaces dotted patterns */
   .texture-canvas {
@@ -1121,9 +1143,7 @@
     width: 100%;
     max-width: 100vw;
     min-height: 100dvh;
-    padding:
-      max(96px, env(safe-area-inset-top))
-      clamp(20px, 6vw, 32px)
+    padding: max(96px, env(safe-area-inset-top)) clamp(20px, 6vw, 32px)
       max(28px, env(safe-area-inset-bottom));
     display: flex;
     align-items: flex-start;
@@ -1372,16 +1392,75 @@
     animation: hidden-cove-wave-roll 34s linear -12s infinite;
   }
 
+  .loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    overflow: hidden;
+    clip-path: polygon(
+      0% 0%, 100% 0%, 100% 97%,
+      91.7% 98.5%, 83.3% 100%, 75% 98.5%, 66.7% 100%,
+      58.3% 98.5%, 50% 100%, 41.7% 98.5%, 33.3% 100%,
+      25% 98.5%, 16.7% 100%, 8.3% 98.5%, 0% 100%
+    );
+    background: hsl(var(--sand));
+  }
+
+  .loader__logo {
+    position: relative;
+    width: clamp(56px, 9vw, 96px);
+    height: clamp(56px, 9vw, 96px);
+    border-radius: 9999px;
+    animation: loader-logo-pulse 1.6s ease-in-out infinite;
+    filter: drop-shadow(0 8px 24px hsl(var(--adriatic) / 0.25));
+  }
+
+  .loader__brand {
+    position: relative;
+    display: grid;
+    place-items: center;
+  }
+
+  .loader__wordmark,
+  .loader__wordmark-fill {
+    grid-area: 1 / 1;
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 6vw, 3.5rem);
+    font-weight: 650;
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+    line-height: 0.72;
+  }
+
+  .loader__wordmark {
+    color: hsl(var(--adriatic) / 0.08);
+    text-shadow: 1px 1px 0 hsl(var(--stone) / 0.5);
+  }
+
+  .loader__wordmark-fill {
+    color: hsl(var(--sea));
+    will-change: clip-path;
+  }
+
+  .loader--exiting {
+    pointer-events: none;
+  }
+
+  .loader--receding {
+    animation: loader-tide-recede 0.7s cubic-bezier(0.55, 0, 0.85, 0.35) forwards;
+  }
+
   .moonlight-tour-card {
     isolation: isolate;
     overflow: hidden;
     color: hsl(var(--paper));
     background:
-      linear-gradient(
-        180deg,
-        rgb(4 19 36 / 38%),
-        rgb(4 17 32 / 88%)
-      ),
+      linear-gradient(180deg, rgb(4 19 36 / 38%), rgb(4 17 32 / 88%)),
       var(--moonlight-image) center / cover no-repeat,
       hsl(var(--adriatic));
   }
@@ -1397,11 +1476,7 @@
         rgb(221 113 48 / 32%),
         transparent 34%
       ),
-      linear-gradient(
-        180deg,
-        rgb(5 21 42 / 20%),
-        rgb(5 18 35 / 84%)
-      );
+      linear-gradient(180deg, rgb(5 21 42 / 20%), rgb(5 18 35 / 84%));
   }
 
   .tour-card--moonlight {
@@ -1738,10 +1813,22 @@
   .route-map-skeleton__wash {
     min-height: inherit;
     background:
-      linear-gradient(110deg, transparent 0 34%, hsl(var(--paper) / 0.62) 46%, transparent 58%),
-      radial-gradient(circle at 70% 35%, hsl(var(--sea) / 0.1), transparent 36%),
+      linear-gradient(
+        110deg,
+        transparent 0 34%,
+        hsl(var(--paper) / 0.62) 46%,
+        transparent 58%
+      ),
+      radial-gradient(
+        circle at 70% 35%,
+        hsl(var(--sea) / 0.1),
+        transparent 36%
+      ),
       #e8edce;
-    background-size: 240% 100%, auto, auto;
+    background-size:
+      240% 100%,
+      auto,
+      auto;
     animation: route-map-skeleton-wash 1.4s ease-in-out infinite;
   }
 
@@ -1754,7 +1841,11 @@
     gap: 18px;
     color: hsl(var(--adriatic));
     background:
-      radial-gradient(circle at 74% 28%, hsl(var(--sea) / 0.12), transparent 32%),
+      radial-gradient(
+        circle at 74% 28%,
+        hsl(var(--sea) / 0.12),
+        transparent 32%
+      ),
       linear-gradient(135deg, #e8edce, hsl(var(--paper)));
   }
 
@@ -1933,12 +2024,23 @@
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 @keyframes float {
-  0%, 100% { transform: translateY(0) rotate(-12deg); }
-  50% { transform: translateY(-6px) rotate(-10deg); }
+  0%,
+  100% {
+    transform: translateY(0) rotate(-12deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(-10deg);
+  }
 }
 
 @keyframes hidden-cove-wave-roll {
@@ -1947,12 +2049,34 @@
   }
 }
 
+@keyframes loader-logo-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes loader-tide-recede {
+  to {
+    transform: translateY(-110%);
+  }
+}
+
 @keyframes route-map-skeleton-wash {
   0% {
-    background-position: 120% 0, center, center;
+    background-position:
+      120% 0,
+      center,
+      center;
   }
   100% {
-    background-position: -80% 0, center, center;
+    background-position:
+      -80% 0,
+      center,
+      center;
   }
 }
 
