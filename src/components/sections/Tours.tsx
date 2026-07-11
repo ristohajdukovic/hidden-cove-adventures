@@ -15,8 +15,12 @@ function getBookingLabel(definition: TourDefinition, t: TranslationKeys): string
     return t.cta.bookClassicTour;
   }
 
-  if (definition.pageId === "barbecueTour") {
-    return t.cta.bookBbqTour;
+  if (
+    definition.pageId === "valdanosTour" ||
+    definition.pageId === "oldTownTour" ||
+    definition.pageId === "customTour"
+  ) {
+    return t.cta.bookThisTour;
   }
 
   if (definition.pageId === "sunsetTour") {
@@ -49,7 +53,6 @@ export function Tours() {
           const tour = t.tours[definition.tourKey];
           const href = getLocalizedHref(definition.pageId, lang);
           const isMoonlight = definition.pageId === "moonlightTour";
-          const isBarbecue = definition.pageId === "barbecueTour";
           const isSunset = definition.pageId === "sunsetTour";
           const intent = getWhatsAppIntentForTourDefinition(definition, t);
           const facts = createTourFacts({
@@ -60,14 +63,13 @@ export function Tours() {
           });
           const articleClassName = [
             "home-tour-card",
-            `home-tour-card--${definition.pageId === "barbecueTour" ? "bbq" : definition.pageId.replace("Tour", "").replace("classic", "classic").replace("moonlight", "moonlight").replace("sunset", "sunset")}`,
+            `home-tour-card--${definition.pageId.replace("Tour", "")}`,
             "tour-card",
             definition.cardClassName,
             "group",
             isMoonlight
               ? "moonlight-tour-card relative rounded-[2rem] border border-stone/15 p-2.5 shadow-card transition-transform duration-500 hover:-translate-y-1"
               : "photo-frame flex flex-col transition-transform duration-500 hover:-translate-y-1",
-            isBarbecue ? "gap-5" : "",
           ]
             .filter(Boolean)
             .join(" ");
@@ -125,11 +127,9 @@ export function Tours() {
               <div
                 className={[
                   "tour-card__media",
-                  isBarbecue ? "tour-card__media--bbq" : "",
                   "photo-frame-inner",
                   "relative",
-                  isSunset ? "aspect-[4/3] w-full mb-4" : "aspect-[4/3]",
-                  isBarbecue ? "shrink-0" : "w-full mb-5",
+                  isSunset ? "aspect-[4/3] w-full mb-4" : "aspect-[4/3] w-full mb-5",
                 ]
                   .filter(Boolean)
                   .join(" ")}
@@ -139,7 +139,7 @@ export function Tours() {
                   alt={tour.imageAlt}
                   loading="lazy"
                   width={1024}
-                  height={isBarbecue ? 1024 : 768}
+                  height={768}
                   className={[
                     "h-full w-full object-cover transition-transform duration-700 group-hover:scale-105",
                     isSunset ? "object-center" : "",
@@ -162,31 +162,18 @@ export function Tours() {
               <div
                 className={[
                   "tour-card__content flex flex-1 flex-col",
-                  isBarbecue
-                    ? "min-w-0 gap-3 px-5 pb-5 lg:py-6 lg:pr-6"
-                    : isSunset
-                      ? "gap-2 px-4 pb-4"
-                      : "gap-3 px-5 pb-5",
+                  isSunset ? "gap-2 px-4 pb-4" : "gap-3 px-5 pb-5",
                 ].join(" ")}
               >
-                {isBarbecue || isSunset ? (
-                  <span
-                    className={[
-                      "text-[11px] font-semibold uppercase tracking-[0.2em]",
-                      isBarbecue ? "text-apricot" : "text-sea",
-                    ].join(" ")}
-                  >
+                {isSunset ? (
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-sea">
                     {tour.tagline}
                   </span>
                 ) : null}
                 <h3
                   className={[
                     "font-display font-medium text-adriatic",
-                    isBarbecue
-                      ? "text-2xl md:text-3xl"
-                      : isSunset
-                        ? "text-xl"
-                        : "text-3xl text-balance md:text-4xl",
+                    isSunset ? "text-xl" : "text-3xl text-balance md:text-4xl",
                   ].join(" ")}
                 >
                   {tour.name}
@@ -194,12 +181,12 @@ export function Tours() {
                 <p
                   className={[
                     "leading-relaxed text-adriatic/75",
-                    isBarbecue ? "text-sm" : isSunset ? "text-sm" : "max-w-[52ch] text-[15px] md:text-base",
+                    isSunset ? "text-sm" : "max-w-[52ch] text-[15px] md:text-base",
                   ].join(" ")}
                 >
                   {tour.desc}
                 </p>
-                <IncludedList items={tour.included} compact={isBarbecue || isSunset} />
+                <IncludedList items={tour.included} compact={isSunset} />
                 {tour.note ? (
                   <p className="text-sm italic leading-relaxed text-adriatic/65">
                     {tour.note}
@@ -207,7 +194,7 @@ export function Tours() {
                 ) : null}
                 <TourFactCards
                   facts={facts}
-                  className={isBarbecue || isSunset ? "tour-facts--compact" : undefined}
+                  className={isSunset ? "tour-facts--compact" : undefined}
                 />
                 <div className="tour-card__actions">
                   <WhatsAppLink

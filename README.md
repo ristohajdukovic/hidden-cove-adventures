@@ -25,9 +25,9 @@ The application is built as a Vite React site with localized routes, English at 
 
 Tour facts are maintained in `src/i18n/translations.ts`; localized page-level route and detail copy lives in `src/i18n/pageContent.ts`.
 
-- **Classic Tour**: approximately 4 hours, up to 8 guests, €50 per person.
-- **BBQ Tour**: approximately 4 hours, up to 8 guests, €60 per person.
-- **Sunset Tour**: evening trip, up to 8 guests, €25 per person.
+- **Classic Tour**: approximately 4 hours, Up to 6 guests, €50 per person.
+- **BBQ Tour**: approximately 4 hours, Up to 6 guests, €60 per person.
+- **Sunset Tour**: evening trip, Up to 6 guests, €25 per person.
 - **Moonlight Tour**: coming soon and not rendered as an active booking option.
 
 ## Technology

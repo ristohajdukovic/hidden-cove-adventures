@@ -3,6 +3,7 @@ import { Header } from "@/components/Header";
 import { MobileBookingBar } from "@/components/MobileBookingBar";
 import { Hero } from "@/components/sections/Hero";
 import { Tours } from "@/components/sections/Tours";
+import { PartnerTours } from "@/components/sections/PartnerTours";
 import { Why } from "@/components/sections/Why";
 import { Route } from "@/components/sections/Route";
 import { BBQ } from "@/components/sections/BBQ";
@@ -32,6 +33,7 @@ const Index = ({ initialLocale = "en" }: IndexProps) => {
         <main>
           <Hero />
           <Tours />
+          <PartnerTours />
           <Why />
           <Route />
           <WaveDivider

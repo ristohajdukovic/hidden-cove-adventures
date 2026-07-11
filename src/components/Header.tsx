@@ -6,6 +6,7 @@ import { getHomeSectionHref, getLocalizedHref } from "@/i18n/routes";
 import { WhatsAppLink } from "@/components/actions/WhatsAppLink";
 import { BRAND_NAME } from "@/lib/business";
 import { getWhatsAppIntentForPage } from "@/lib/whatsappIntent";
+import logo from "@/assets/logo/logo.png";
 
 type NavigationItem = {
   label: string;
@@ -113,6 +114,7 @@ export function Header() {
             aria-label={t.aria.home}
             onClick={(event) => handleAnchorClick(event, getHomeSectionHref(lang, "#top"), "#top")}
           >
+            <img className="header-brand__logo" src={logo} alt="" width={36} height={36} />
             <span className="header-brand__wordmark">{BRAND_NAME}</span>
           </a>
 

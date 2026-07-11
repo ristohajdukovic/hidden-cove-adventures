@@ -22,7 +22,7 @@ describe("TourFactCards", () => {
     expect(screen.getByText("Duration")).toBeInTheDocument();
     expect(screen.getByText("approx. 4 hours")).toBeInTheDocument();
     expect(screen.getByText("Group size")).toBeInTheDocument();
-    expect(screen.getByText("Up to 8 guests")).toBeInTheDocument();
+    expect(screen.getByText("Up to 6 guests")).toBeInTheDocument();
     expect(screen.getByText("Price")).toBeInTheDocument();
     expect(screen.getByText("€50 per person")).toBeInTheDocument();
   });
@@ -65,8 +65,12 @@ describe("TourFactCards", () => {
       status: "available",
     });
 
-    const { container, rerender } = render(<TourFactCards facts={classicFacts} />);
-    expect(container.querySelectorAll("svg[aria-hidden='true']")).toHaveLength(3);
+    const { container, rerender } = render(
+      <TourFactCards facts={classicFacts} />,
+    );
+    expect(container.querySelectorAll("svg[aria-hidden='true']")).toHaveLength(
+      3,
+    );
 
     rerender(<TourFactCards facts={classicFacts.slice(0, 2)} />);
     expect(screen.getAllByRole("listitem")).toHaveLength(2);

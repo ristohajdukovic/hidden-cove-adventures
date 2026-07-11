@@ -1,6 +1,15 @@
 import type { Lang } from "./locales";
 
-export type TourKey = "hidden" | "sunset" | "moonlight" | "private";
+export type TourKey =
+  | "hidden"
+  | "valdanos"
+  | "oldtown"
+  | "custom"
+  | "sunset"
+  | "moonlight"
+  | "private";
+
+export type PartnerTripKey = "boat2h" | "adaBojana" | "redRock" | "crystalBeach";
 
 export type FaqLinkTarget = "route" | "tours" | "booking" | "private";
 
@@ -57,10 +66,17 @@ export type TranslationKeys = {
     generalBooking: string;
     contact: string;
     classicTour: string;
+    valdanosTour: string;
+    oldTownTour: string;
+    customTour: string;
     bbqTour: string;
     sunsetTour: string;
     moonlightTour: string;
     privateTour: string;
+    partnerBoat2h: string;
+    partnerAdaBojana: string;
+    partnerRedRock: string;
+    partnerCrystalBeach: string;
   };
   seo: {
     title: string;
@@ -92,6 +108,19 @@ export type TranslationKeys = {
       price: string;
       included: string[];
       note?: string;
+      imageAlt: string;
+    }
+  >;
+  partnerSection: { eyebrow: string; title: string; sub: string; badge: string };
+  partnerTours: Record<
+    PartnerTripKey,
+    {
+      name: string;
+      desc: string;
+      duration: string;
+      group: string;
+      price: string;
+      included: string[];
       imageAlt: string;
     }
   >;
@@ -244,6 +273,12 @@ const en: TranslationKeys = {
     contact: "Hello, I have a question about Hidden Cove Boat Tours.",
     classicTour:
       "Hello, I'm interested in the Classic Tour for {{price}}. Preferred date: ____. Number of guests: ____.",
+    valdanosTour:
+      "Hello, I'm interested in the Valdanos to Ulcinj Tour for {{price}}. Preferred date: ____. Number of guests: ____.",
+    oldTownTour:
+      "Hello, I'm interested in the Old Town Swim Tour for {{price}}. Preferred date: ____. Number of guests: ____.",
+    customTour:
+      "Hello, I'm interested in the Custom Tour for {{price}}. Preferred date: ____. Number of guests: ____.",
     bbqTour:
       "Hello, I'm interested in the BBQ Tour for {{price}}. Preferred date: ____. Number of guests: ____.",
     sunsetTour:
@@ -252,6 +287,14 @@ const en: TranslationKeys = {
       "Hello, I would like more information about the upcoming Moonlight Tour.",
     privateTour:
       "Hello, I would like to inquire about a private boat tour. Preferred date: ____. Number of guests: ____. Please let me know what options are available.",
+    partnerBoat2h:
+      "Hello, I'm interested in the Valdanos Boat Trip Swim & Drink Trip for {{price}}. Preferred date: ____. Number of guests: ____.",
+    partnerAdaBojana:
+      "Hello, I'm interested in the Valdanos Boat Trip Ada Bojana River Trip for {{price}}. Preferred date: ____. Number of guests: ____.",
+    partnerRedRock:
+      "Hello, I'm interested in the Valdanos Boat Trip Red Rock Beach Trip for {{price}}. Preferred date: ____. Number of guests: ____.",
+    partnerCrystalBeach:
+      "Hello, I'm interested in the Valdanos Boat Trip Crystal Beach Trip for {{price}}. Preferred date: ____. Number of guests: ____.",
   },
   seo: {
     title: "Boat Tours in Ulcinj & Valdanos | Hidden Cove Boat Tours",
@@ -285,7 +328,7 @@ const en: TranslationKeys = {
       tagline: "Day trip",
       desc: "Enjoy a relaxing boat trip along the Ulcinj coast, followed by several hours at a private beach area.",
       duration: "approx. 4 hours",
-      group: "Up to 8 guests",
+      group: "Up to 6 guests",
       price: "€50 per person",
       included: [
         "Boat transfer from Valdanos to Old Ulcinj and the beach",
@@ -301,12 +344,76 @@ const en: TranslationKeys = {
       note: "Additional drinks can be purchased during the tour.",
       imageAlt: "Classic Tour beach stop on the Ulcinj coast",
     },
+    valdanos: {
+      name: "Valdanos to Ulcinj Tour",
+      tagline: "Day trip",
+      desc: "A one-hour boat trip from Valdanos to Old Ulcinj along the coast, with the same relaxed on-board experience as our Classic Tour.",
+      duration: "1 hour",
+      group: "Up to 6 guests",
+      price: "€50 total",
+      included: [
+        "Boat transfer from Valdanos to Old Ulcinj and the beach",
+        "Approximately 1 hour of boat cruising in total",
+        "Two drinks per person",
+        "Traditional Montenegrin sandwiches",
+        "Use of sun loungers",
+        "Kayaks",
+        "Dërrasa SUP",
+        "Snorkelling masks",
+        "Water volleyball",
+      ],
+      note: "Additional drinks can be purchased during the tour.",
+      imageAlt: "Boat crossing from Valdanos to Old Ulcinj",
+    },
+    oldtown: {
+      name: "Old Town Swim Tour",
+      tagline: "Day trip",
+      desc: "A one-hour boat trip from Valdanos to Old Ulcinj with time to swim in the sea, plus the same relaxed on-board experience as our Classic Tour.",
+      duration: "1 hour",
+      group: "Up to 6 guests",
+      price: "€40 total",
+      included: [
+        "Boat transfer from Valdanos to Old Ulcinj and the beach",
+        "Approximately 1 hour of boat cruising in total",
+        "Time to swim in the sea",
+        "Two drinks per person",
+        "Traditional Montenegrin sandwiches",
+        "Use of sun loungers",
+        "Kayaks",
+        "Dërrasa SUP",
+        "Snorkelling masks",
+        "Water volleyball",
+      ],
+      note: "Additional drinks can be purchased during the tour.",
+      imageAlt: "Swimming in the sea near Old Ulcinj",
+    },
+    custom: {
+      name: "Custom Tour",
+      tagline: "Tailored to you",
+      desc: "A flexible one-hour boat trip built around your plans, with the same relaxed on-board experience as our Classic Tour.",
+      duration: "1 hour",
+      group: "Up to 6 guests",
+      price: "€60 per hour",
+      included: [
+        "Boat transfer from Valdanos to Old Ulcinj and the beach",
+        "Approximately 1 hour of boat cruising in total",
+        "Two drinks per person",
+        "Traditional Montenegrin sandwiches",
+        "Use of sun loungers",
+        "Kayaks",
+        "Dërrasa SUP",
+        "Snorkelling masks",
+        "Water volleyball",
+      ],
+      note: "Additional drinks can be purchased during the tour.",
+      imageAlt: "Custom boat tour along the Ulcinj coast",
+    },
     sunset: {
       name: "BBQ Tour",
       tagline: "Day trip",
       desc: "The same coastal boat and beach experience as the Classic Tour, with a freshly prepared barbecue meal instead of sandwiches.",
       duration: "approx. 4 hours",
-      group: "Up to 8 guests",
+      group: "Up to 6 guests",
       price: "€60 per person",
       included: [
         "Boat transfer from Valdanos to Old Ulcinj and the beach",
@@ -327,7 +434,7 @@ const en: TranslationKeys = {
       tagline: "Evening",
       desc: "Enjoy an evening boat ride along the Ulcinj coast and watch the sunset from the sea.",
       duration: "Evening",
-      group: "Up to 8 guests",
+      group: "Up to 6 guests",
       price: "€25 per person",
       included: [
         "Boat trip from Valdanos towards Old Ulcinj and the nearby beach",
@@ -342,10 +449,54 @@ const en: TranslationKeys = {
       tagline: "Coming soon",
       desc: "A late-evening boat experience under the moonlight, with more details to be announced.",
       duration: "",
-      group: "Up to 8 guests",
+      group: "Up to 6 guests",
       price: "Coming soon",
       included: [],
       imageAlt: "Moonlit beach fire near the sea",
+    },
+  },
+  partnerSection: {
+    eyebrow: "In partnership with Valdanos Boat Trip",
+    title: "More boat trips at Valdanos",
+    sub: "Extra trips run by our partner Valdanos Boat Trip. Book directly with us on WhatsApp.",
+    badge: "Valdanos Boat Trip",
+  },
+  partnerTours: {
+    boat2h: {
+      name: "Swim & Drink Trip",
+      desc: "A relaxing 2-hour boat ride with time to swim in open water and one drink included.",
+      duration: "2 hours",
+      group: "Up to 8 guests",
+      price: "€150 per boat",
+      included: ["Swimming stop", "One drink per person"],
+      imageAlt: "Boat trip near Valdanos with guests swimming",
+    },
+    adaBojana: {
+      name: "Ada Bojana River Trip",
+      desc: "A longer 4-hour trip out to the Bojana River and Ada Bojana island, with a swim stop and one drink included.",
+      duration: "4 hours",
+      group: "Up to 8 guests",
+      price: "€300 per boat",
+      included: ["Swimming stop", "One drink per person"],
+      imageAlt: "Boat trip towards the Ada Bojana river island",
+    },
+    redRock: {
+      name: "Red Rock Beach Trip",
+      desc: "A 2-hour boat ride to Red Rock beach (Stena), with a swim stop beneath the cliffs and one drink included.",
+      duration: "2 hours",
+      group: "Up to 8 guests",
+      price: "€200 per boat",
+      included: ["Swimming stop", "One drink per person"],
+      imageAlt: "Boat trip to Red Rock beach near Ulcinj",
+    },
+    crystalBeach: {
+      name: "Crystal Beach Trip",
+      desc: "A 2-hour boat ride to Crystal Beach for a swim in some of the clearest water on the coast, with one drink included.",
+      duration: "2 hours",
+      group: "Up to 8 guests",
+      price: "€150 per boat",
+      included: ["Swimming stop", "One drink per person"],
+      imageAlt: "Boat trip to Crystal Beach near Ulcinj",
     },
   },
   why: {
@@ -374,7 +525,8 @@ const en: TranslationKeys = {
     eyebrow: "Our route",
     title: "Three hidden points along the coast.",
     sub: "From the sheltered bay of Valdanos, the route follows the rocky coast to the Wolf's Cave and then to our secluded beach - a shore best approached from the sea.",
-    instruction: "The route moves slowly. Select a number to explore its story.",
+    instruction:
+      "The route moves slowly. Select a number to explore its story.",
     controls: {
       exploreMap: "Explore map",
       lockMap: "Lock map",
@@ -387,7 +539,8 @@ const en: TranslationKeys = {
       mapLabel:
         "MapTiler Aquarelle map showing the Hidden Cove Boat Tours coastal route from Valdanos Bay to Vucja jazbina and Our Hidden Beach",
       fallbackTitle: "Map preview unavailable.",
-      missingKey: "Add the public MapTiler API key to the local environment file.",
+      missingKey:
+        "Add the public MapTiler API key to the local environment file.",
       webGlUnavailable: "WebGL is unavailable in this browser.",
       mapUnavailable: "MapTiler could not load the map preview.",
       noValidCoordinates: "No valid route coordinates are configured.",
@@ -572,7 +725,8 @@ const en: TranslationKeys = {
       },
       {
         id: "weather",
-        question: "What happens if the weather or sea conditions are unsuitable?",
+        question:
+          "What happens if the weather or sea conditions are unsuitable?",
         answer:
           "Safety comes first. If sea or weather conditions are unsuitable, we will contact you to discuss rescheduling or the options that apply to your booking. The website does not currently publish a separate automatic refund or cancellation policy.",
       },
@@ -647,6 +801,12 @@ const de: TranslationKeys = {
     contact: "Hallo, ich habe eine Frage zu Hidden Cove Boat Tours.",
     classicTour:
       "Hallo, ich interessiere mich fuer die Classic Tour fuer {{price}}. Wunschtermin: ____. Anzahl der Gaeste: ____.",
+    valdanosTour:
+      "Hallo, ich interessiere mich fuer die Valdanos-Ulcinj Tour fuer {{price}}. Wunschtermin: ____. Anzahl der Gaeste: ____.",
+    oldTownTour:
+      "Hallo, ich interessiere mich fuer die Old Town Swim Tour fuer {{price}}. Wunschtermin: ____. Anzahl der Gaeste: ____.",
+    customTour:
+      "Hallo, ich interessiere mich fuer die Custom Tour fuer {{price}}. Wunschtermin: ____. Anzahl der Gaeste: ____.",
     bbqTour:
       "Hallo, ich interessiere mich fuer die BBQ Tour fuer {{price}}. Wunschtermin: ____. Anzahl der Gaeste: ____.",
     sunsetTour:
@@ -655,6 +815,14 @@ const de: TranslationKeys = {
       "Hallo, ich moechte mehr Informationen zur kommenden Moonlight Tour.",
     privateTour:
       "Hallo, ich moechte eine private Bootstour anfragen. Wunschtermin: ____. Anzahl der Gaeste: ____. Bitte sagt mir, welche Optionen verfuegbar sind.",
+    partnerBoat2h:
+      "Hallo, ich interessiere mich fuer die Valdanos Boat Trip Schwimm- & Getraenke-Tour fuer {{price}}. Wunschtermin: ____. Anzahl der Gaeste: ____.",
+    partnerAdaBojana:
+      "Hallo, ich interessiere mich fuer die Valdanos Boat Trip Ada-Bojana-Flusstour fuer {{price}}. Wunschtermin: ____. Anzahl der Gaeste: ____.",
+    partnerRedRock:
+      "Hallo, ich interessiere mich fuer die Valdanos Boat Trip Red-Rock-Strandtour fuer {{price}}. Wunschtermin: ____. Anzahl der Gaeste: ____.",
+    partnerCrystalBeach:
+      "Hallo, ich interessiere mich fuer die Valdanos Boat Trip Crystal-Beach-Tour fuer {{price}}. Wunschtermin: ____. Anzahl der Gaeste: ____.",
   },
   seo: {
     title: "Bootstouren in Ulcinj & Valdanos | Hidden Cove Boat Tours",
@@ -688,7 +856,7 @@ const de: TranslationKeys = {
       tagline: "Tagestour",
       desc: "Genieße eine entspannte Bootsfahrt entlang der Küste von Ulcinj und danach mehrere Stunden in einem privaten Strandbereich.",
       duration: "ca. 4 Stunden",
-      group: "Bis zu 8 Gaeste",
+      group: "Bis zu 6 Gaeste",
       price: "50 € pro Person",
       included: [
         "Bootstransfer von Valdanos nach Alt-Ulcinj und zum Strand",
@@ -704,12 +872,76 @@ const de: TranslationKeys = {
       note: "Zusätzliche Getränke können während der Tour gekauft werden.",
       imageAlt: "Strandstopp der Classic Tour an der Küste von Ulcinj",
     },
+    valdanos: {
+      name: "Valdanos-Ulcinj Tour",
+      tagline: "Tagestour",
+      desc: "Eine einstündige Bootsfahrt von Valdanos nach Alt-Ulcinj entlang der Küste, mit dem gleichen entspannten Erlebnis an Bord wie bei unserer Classic Tour.",
+      duration: "1 Stunde",
+      group: "Bis zu 6 Gaeste",
+      price: "50 € total",
+      included: [
+        "Bootstransfer von Valdanos nach Alt-Ulcinj und zum Strand",
+        "Insgesamt etwa 1 Stunde Bootsfahrt",
+        "Zwei Getränke pro Person",
+        "Traditionelle montenegrinische Sandwiches",
+        "Nutzung der Sonnenliegen",
+        "Kajaks",
+        "Stand-up-Paddleboards",
+        "Schnorchelmasken",
+        "Wasservolleyball",
+      ],
+      note: "Zusätzliche Getränke können während der Tour gekauft werden.",
+      imageAlt: "Bootsfahrt von Valdanos nach Alt-Ulcinj",
+    },
+    oldtown: {
+      name: "Old Town Swim Tour",
+      tagline: "Tagestour",
+      desc: "Eine einstündige Bootsfahrt von Valdanos nach Alt-Ulcinj mit Zeit zum Schwimmen im Meer, dazu das gleiche entspannte Erlebnis an Bord wie bei unserer Classic Tour.",
+      duration: "1 Stunde",
+      group: "Bis zu 6 Gaeste",
+      price: "40 € total",
+      included: [
+        "Bootstransfer von Valdanos nach Alt-Ulcinj und zum Strand",
+        "Insgesamt etwa 1 Stunde Bootsfahrt",
+        "Zeit zum Schwimmen im Meer",
+        "Zwei Getränke pro Person",
+        "Traditionelle montenegrinische Sandwiches",
+        "Nutzung der Sonnenliegen",
+        "Kajaks",
+        "Stand-up-Paddleboards",
+        "Schnorchelmasken",
+        "Wasservolleyball",
+      ],
+      note: "Zusätzliche Getränke können während der Tour gekauft werden.",
+      imageAlt: "Schwimmen im Meer bei Alt-Ulcinj",
+    },
+    custom: {
+      name: "Custom Tour",
+      tagline: "Individuell",
+      desc: "Eine flexible einstündige Bootsfahrt, die sich nach deinen Plänen richtet, mit dem gleichen entspannten Erlebnis an Bord wie bei unserer Classic Tour.",
+      duration: "1 Stunde",
+      group: "Bis zu 6 Gaeste",
+      price: "60 € pro Stunde",
+      included: [
+        "Bootstransfer von Valdanos nach Alt-Ulcinj und zum Strand",
+        "Insgesamt etwa 1 Stunde Bootsfahrt",
+        "Zwei Getränke pro Person",
+        "Traditionelle montenegrinische Sandwiches",
+        "Nutzung der Sonnenliegen",
+        "Kajaks",
+        "Stand-up-Paddleboards",
+        "Schnorchelmasken",
+        "Wasservolleyball",
+      ],
+      note: "Zusätzliche Getränke können während der Tour gekauft werden.",
+      imageAlt: "Individuelle Bootstour entlang der Kueste von Ulcinj",
+    },
     sunset: {
       name: "BBQ Tour",
       tagline: "Tagestour",
       desc: "Das gleiche Boot- und Stranderlebnis wie bei der Classic Tour, mit frisch zubereitetem Grillessen statt Sandwiches.",
       duration: "ca. 4 Stunden",
-      group: "Bis zu 8 Gaeste",
+      group: "Bis zu 6 Gaeste",
       price: "60 € pro Person",
       included: [
         "Bootstransfer von Valdanos nach Alt-Ulcinj und zum Strand",
@@ -730,7 +962,7 @@ const de: TranslationKeys = {
       tagline: "Abend",
       desc: "Genieße eine abendliche Bootsfahrt entlang der Küste von Ulcinj und sieh den Sonnenuntergang vom Meer aus.",
       duration: "Abends",
-      group: "Bis zu 8 Gaeste",
+      group: "Bis zu 6 Gaeste",
       price: "25 € pro Person",
       included: [
         "Bootsfahrt von Valdanos in Richtung Alt-Ulcinj und nahegelegener Strand",
@@ -745,10 +977,54 @@ const de: TranslationKeys = {
       tagline: "Demnächst",
       desc: "Ein spätes Bootserlebnis im Mondlicht. Weitere Details werden noch bekannt gegeben.",
       duration: "",
-      group: "Bis zu 8 Gaeste",
+      group: "Bis zu 6 Gaeste",
       price: "Demnächst",
       included: [],
       imageAlt: "Kleines Strandfeuer bei Nacht am Meer",
+    },
+  },
+  partnerSection: {
+    eyebrow: "In Partnerschaft mit Valdanos Boat Trip",
+    title: "Weitere Bootstouren in Valdanos",
+    sub: "Zusätzliche Touren unseres Partners Valdanos Boat Trip. Buche direkt bei uns über WhatsApp.",
+    badge: "Valdanos Boat Trip",
+  },
+  partnerTours: {
+    boat2h: {
+      name: "Schwimm- & Getränke-Tour",
+      desc: "Eine entspannte 2-stündige Bootsfahrt mit Zeit zum Schwimmen im offenen Wasser, inklusive einem Getränk.",
+      duration: "2 Stunden",
+      group: "Bis zu 8 Gaeste",
+      price: "150 € pro Boot",
+      included: ["Schwimmstopp", "Ein Getränk pro Person"],
+      imageAlt: "Bootsfahrt vor Valdanos mit schwimmenden Gästen",
+    },
+    adaBojana: {
+      name: "Ada-Bojana-Flusstour",
+      desc: "Eine längere 4-stündige Fahrt zum Fluss Bojana und der Insel Ada Bojana, mit Schwimmstopp und einem Getränk.",
+      duration: "4 Stunden",
+      group: "Bis zu 8 Gaeste",
+      price: "300 € pro Boot",
+      included: ["Schwimmstopp", "Ein Getränk pro Person"],
+      imageAlt: "Bootsfahrt zur Flussinsel Ada Bojana",
+    },
+    redRock: {
+      name: "Red-Rock-Strandtour",
+      desc: "Eine 2-stündige Bootsfahrt zum Red-Rock-Strand (Stena), mit Schwimmstopp unter den Klippen und einem Getränk.",
+      duration: "2 Stunden",
+      group: "Bis zu 8 Gaeste",
+      price: "200 € pro Boot",
+      included: ["Schwimmstopp", "Ein Getränk pro Person"],
+      imageAlt: "Bootsfahrt zum Red-Rock-Strand bei Ulcinj",
+    },
+    crystalBeach: {
+      name: "Crystal-Beach-Tour",
+      desc: "Eine 2-stündige Bootsfahrt zum Crystal Beach zum Schwimmen im klarsten Wasser der Küste, inklusive einem Getränk.",
+      duration: "2 Stunden",
+      group: "Bis zu 8 Gaeste",
+      price: "150 € pro Boot",
+      included: ["Schwimmstopp", "Ein Getränk pro Person"],
+      imageAlt: "Bootsfahrt zum Crystal Beach bei Ulcinj",
     },
   },
   why: {
@@ -777,7 +1053,8 @@ const de: TranslationKeys = {
     eyebrow: "Unsere Route",
     title: "Drei versteckte Punkte entlang der Küste.",
     sub: "Von der geschützten Bucht Valdanos folgt die Route der felsigen Küste zur Wolfshöhle und weiter zu unserem abgeschiedenen Strand - einem Ufer, das man am besten vom Meer aus erreicht.",
-    instruction: "Die Route bewegt sich langsam. Wähle eine Nummer, um die Geschichte zu öffnen.",
+    instruction:
+      "Die Route bewegt sich langsam. Wähle eine Nummer, um die Geschichte zu öffnen.",
     controls: {
       exploreMap: "Karte erkunden",
       lockMap: "Karte sperren",
@@ -790,10 +1067,12 @@ const de: TranslationKeys = {
       mapLabel:
         "MapTiler-Aquarelle-Karte der Hidden Cove Boat Tours Küstenroute von Valdanos Bay über Vucja jazbina zu Our Hidden Beach",
       fallbackTitle: "Kartenvorschau nicht verfügbar.",
-      missingKey: "Füge den öffentlichen MapTiler API-Schlüssel zur lokalen Umgebungsdatei hinzu.",
+      missingKey:
+        "Füge den öffentlichen MapTiler API-Schlüssel zur lokalen Umgebungsdatei hinzu.",
       webGlUnavailable: "WebGL ist in diesem Browser nicht verfügbar.",
       mapUnavailable: "MapTiler konnte die Kartenvorschau nicht laden.",
-      noValidCoordinates: "Es sind keine gültigen Routenkoordinaten konfiguriert.",
+      noValidCoordinates:
+        "Es sind keine gültigen Routenkoordinaten konfiguriert.",
       stopLabel: "Stopp",
       stopOfLabel: "von",
       clearDraftConfirm: "Entwurf der Seeroute löschen?",
@@ -1050,6 +1329,12 @@ const sq: TranslationKeys = {
     contact: "Pershendetje, kam nje pyetje per Hidden Cove Boat Tours.",
     classicTour:
       "Pershendetje, jam i/e interesuar per Classic Tour per {{price}}. Data e deshiruar: ____. Numri i mysafireve: ____.",
+    valdanosTour:
+      "Pershendetje, jam i/e interesuar per turin Valdanos-Ulqin per {{price}}. Data e deshiruar: ____. Numri i mysafireve: ____.",
+    oldTownTour:
+      "Pershendetje, jam i/e interesuar per Old Town Swim Tour per {{price}}. Data e deshiruar: ____. Numri i mysafireve: ____.",
+    customTour:
+      "Pershendetje, jam i/e interesuar per Custom Tour per {{price}}. Data e deshiruar: ____. Numri i mysafireve: ____.",
     bbqTour:
       "Pershendetje, jam i/e interesuar per BBQ Tour per {{price}}. Data e deshiruar: ____. Numri i mysafireve: ____.",
     sunsetTour:
@@ -1058,6 +1343,14 @@ const sq: TranslationKeys = {
       "Pershendetje, dua me shume informacion per Moonlight Tour qe vjen se shpejti.",
     privateTour:
       "Pershendetje, dua te pyes per nje tur privat me varke. Data e deshiruar: ____. Numri i mysafireve: ____. Ju lutem me tregoni cilat opsione jane te disponueshme.",
+    partnerBoat2h:
+      "Pershendetje, jam i/e interesuar per Tur Notimi & Pije nga Valdanos Boat Trip per {{price}}. Data e deshiruar: ____. Numri i mysafireve: ____.",
+    partnerAdaBojana:
+      "Pershendetje, jam i/e interesuar per Tur Lumi Ada Bojana nga Valdanos Boat Trip per {{price}}. Data e deshiruar: ____. Numri i mysafireve: ____.",
+    partnerRedRock:
+      "Pershendetje, jam i/e interesuar per Tur Plazhi Red Rock nga Valdanos Boat Trip per {{price}}. Data e deshiruar: ____. Numri i mysafireve: ____.",
+    partnerCrystalBeach:
+      "Pershendetje, jam i/e interesuar per Tur Crystal Beach nga Valdanos Boat Trip per {{price}}. Data e deshiruar: ____. Numri i mysafireve: ____.",
   },
   seo: {
     title: "Ture me varkë në Ulqin & Valdanos | Hidden Cove Boat Tours",
@@ -1077,7 +1370,8 @@ const sq: TranslationKeys = {
     titleItalic: "gjireve të fshehura",
     titleB: " dhe Valdanosit.",
     sub: "Not në një plazh të fshehur, pije të ftohta, BBQ i thjeshtë në breg, perëndime dielli dhe net me hënë pranë detit.",
-    imageAlt: "Gji i fshehur i Adriatikut pranë Ulqinit me një varkë druri të ankoruar",
+    imageAlt:
+      "Gji i fshehur i Adriatikut pranë Ulqinit me një varkë druri të ankoruar",
     established: "Që nga 2018",
   },
   toursSection: {
@@ -1091,7 +1385,7 @@ const sq: TranslationKeys = {
       tagline: "Tur ditor",
       desc: "Shijo një udhëtim të qetë me varkë përgjatë bregut të Ulqinit, pastaj disa orë në një zonë private plazhi.",
       duration: "rreth 4 orë",
-      group: "Deri në 8 mysafirë",
+      group: "Deri në 6 mysafirë",
       price: "50 € për person",
       included: [
         "Transfer me varkë nga Valdanosi drejt Ulqinit të Vjetër dhe plazhit",
@@ -1107,12 +1401,76 @@ const sq: TranslationKeys = {
       note: "Pije shtesë mund të blihen gjatë turit.",
       imageAlt: "Ndalesë në plazh gjatë Classic Tour në bregun e Ulqinit",
     },
+    valdanos: {
+      name: "Tur Valdanos-Ulqin",
+      tagline: "Tur ditor",
+      desc: "Një udhëtim një-orësh me varkë nga Valdanosi drejt Ulqinit të Vjetër përgjatë bregut, me të njëjtën përvojë të qetë në bord si Classic Tour.",
+      duration: "1 orë",
+      group: "Deri në 6 mysafirë",
+      price: "50 € total",
+      included: [
+        "Transfer me varkë nga Valdanosi drejt Ulqinit të Vjetër dhe plazhit",
+        "Rreth 1 orë lundrim gjithsej",
+        "Dy pije për person",
+        "Sanduiçe tradicionale malazeze",
+        "Përdorimi i shezlongëve",
+        "Kajakë",
+        "Stand-up paddleboards",
+        "Maska për snorkelling",
+        "Volejboll në ujë",
+      ],
+      note: "Pije shtesë mund të blihen gjatë turit.",
+      imageAlt: "Udhëtim me varkë nga Valdanosi drejt Ulqinit të Vjetër",
+    },
+    oldtown: {
+      name: "Old Town Swim Tour",
+      tagline: "Tur ditor",
+      desc: "Një udhëtim një-orësh me varkë nga Valdanosi drejt Ulqinit të Vjetër me kohë për të notuar në det, plus të njëjtën përvojë të qetë në bord si Classic Tour.",
+      duration: "1 orë",
+      group: "Deri në 6 mysafirë",
+      price: "40 € total",
+      included: [
+        "Transfer me varkë nga Valdanosi drejt Ulqinit të Vjetër dhe plazhit",
+        "Rreth 1 orë lundrim gjithsej",
+        "Kohë për të notuar në det",
+        "Dy pije për person",
+        "Sanduiçe tradicionale malazeze",
+        "Përdorimi i shezlongëve",
+        "Kajakë",
+        "Stand-up paddleboards",
+        "Maska për snorkelling",
+        "Volejboll në ujë",
+      ],
+      note: "Pije shtesë mund të blihen gjatë turit.",
+      imageAlt: "Not në det pranë Ulqinit të Vjetër",
+    },
+    custom: {
+      name: "Custom Tour",
+      tagline: "E personalizuar",
+      desc: "Një udhëtim fleksibël një-orësh me varkë, i ndërtuar sipas planeve tuaja, me të njëjtën përvojë të qetë në bord si Classic Tour.",
+      duration: "1 orë",
+      group: "Deri në 6 mysafirë",
+      price: "60 € në orë",
+      included: [
+        "Transfer me varkë nga Valdanosi drejt Ulqinit të Vjetër dhe plazhit",
+        "Rreth 1 orë lundrim gjithsej",
+        "Dy pije për person",
+        "Sanduiçe tradicionale malazeze",
+        "Përdorimi i shezlongëve",
+        "Kajakë",
+        "Stand-up paddleboards",
+        "Maska për snorkelling",
+        "Volejboll në ujë",
+      ],
+      note: "Pije shtesë mund të blihen gjatë turit.",
+      imageAlt: "Tur me varkë i personalizuar përgjatë bregut të Ulqinit",
+    },
     sunset: {
       name: "BBQ Tour",
       tagline: "Tur ditor",
       desc: "E njëjta përvojë me varkë dhe plazh si Classic Tour, me një vakt BBQ të përgatitur në vend në vend të sanduiçeve.",
       duration: "rreth 4 orë",
-      group: "Deri në 8 mysafirë",
+      group: "Deri në 6 mysafirë",
       price: "60 € për person",
       included: [
         "Transfer me varkë nga Valdanosi drejt Ulqinit të Vjetër dhe plazhit",
@@ -1133,7 +1491,7 @@ const sq: TranslationKeys = {
       tagline: "Mbrëmje",
       desc: "Shijo një udhëtim mbrëmjeje me varkë përgjatë bregut të Ulqinit dhe shiko perëndimin e diellit nga deti.",
       duration: "Mbrëmje",
-      group: "Deri në 8 mysafirë",
+      group: "Deri në 6 mysafirë",
       price: "25 € për person",
       included: [
         "Udhëtim me varkë nga Valdanosi drejt Ulqinit të Vjetër dhe plazhit afër",
@@ -1148,10 +1506,54 @@ const sq: TranslationKeys = {
       tagline: "Së shpejti",
       desc: "Një përvojë e vonë në mbrëmje me varkë nën dritën e hënës; detajet do të publikohen më vonë.",
       duration: "",
-      group: "Deri në 8 mysafirë",
+      group: "Deri në 6 mysafirë",
       price: "Së shpejti",
       included: [],
       imageAlt: "Zjarr i vogël në plazh natën pranë detit",
+    },
+  },
+  partnerSection: {
+    eyebrow: "Në partneritet me Valdanos Boat Trip",
+    title: "Më shumë ture me varkë në Valdanos",
+    sub: "Ture shtesë të organizuara nga partneri ynë Valdanos Boat Trip. Rezervo drejtpërdrejt me ne në WhatsApp.",
+    badge: "Valdanos Boat Trip",
+  },
+  partnerTours: {
+    boat2h: {
+      name: "Tur Notimi & Pije",
+      desc: "Një udhëtim i qetë 2-orësh me varkë, me kohë për të notuar në ujëra të hapura dhe një pije të përfshirë.",
+      duration: "2 orë",
+      group: "Deri në 8 mysafirë",
+      price: "150 € për varkë",
+      included: ["Ndalesë notimi", "Një pije për person"],
+      imageAlt: "Udhëtim me varkë pranë Valdanosit me mysafirë duke notuar",
+    },
+    adaBojana: {
+      name: "Tur Lumi Ada Bojana",
+      desc: "Një udhëtim më i gjatë 4-orësh drejt lumit Bojana dhe ishullit Ada Bojana, me ndalesë notimi dhe një pije të përfshirë.",
+      duration: "4 orë",
+      group: "Deri në 8 mysafirë",
+      price: "300 € për varkë",
+      included: ["Ndalesë notimi", "Një pije për person"],
+      imageAlt: "Udhëtim me varkë drejt ishullit të lumit Ada Bojana",
+    },
+    redRock: {
+      name: "Tur Plazhi Red Rock",
+      desc: "Një udhëtim 2-orësh me varkë drejt plazhit Red Rock (Stena), me ndalesë notimi nën shkëmbinj dhe një pije të përfshirë.",
+      duration: "2 orë",
+      group: "Deri në 8 mysafirë",
+      price: "200 € për varkë",
+      included: ["Ndalesë notimi", "Një pije për person"],
+      imageAlt: "Udhëtim me varkë drejt plazhit Red Rock pranë Ulqinit",
+    },
+    crystalBeach: {
+      name: "Tur Crystal Beach",
+      desc: "Një udhëtim 2-orësh me varkë drejt Crystal Beach për të notuar në një nga ujërat më të kthjellët të bregut, me një pije të përfshirë.",
+      duration: "2 orë",
+      group: "Deri në 8 mysafirë",
+      price: "150 € për varkë",
+      included: ["Ndalesë notimi", "Një pije për person"],
+      imageAlt: "Udhëtim me varkë drejt Crystal Beach pranë Ulqinit",
     },
   },
   why: {
@@ -1180,7 +1582,8 @@ const sq: TranslationKeys = {
     eyebrow: "Itinerari ynë",
     title: "Tre pika të fshehura përgjatë bregut.",
     sub: "Nga gjiri i mbrojtur i Valdanosit, itinerari ndjek bregun shkëmbor drejt Shpellës së Ujkut dhe më pas te plazhi ynë i qetë - një breg që afrohet më natyrshëm nga deti.",
-    instruction: "Itinerari lëviz ngadalë. Zgjidh një numër për të hapur historinë.",
+    instruction:
+      "Itinerari lëviz ngadalë. Zgjidh një numër për të hapur historinë.",
     controls: {
       exploreMap: "Eksploro hartën",
       lockMap: "Blloko hartën",
@@ -1193,10 +1596,12 @@ const sq: TranslationKeys = {
       mapLabel:
         "Hartë MapTiler Aquarelle që tregon itinerarin bregdetar të Hidden Cove Boat Tours nga Valdanos Bay te Vucja jazbina dhe Our Hidden Beach",
       fallbackTitle: "Pamja e hartës nuk është e disponueshme.",
-      missingKey: "Shto çelësin publik MapTiler API në skedarin lokal të mjedisit.",
+      missingKey:
+        "Shto çelësin publik MapTiler API në skedarin lokal të mjedisit.",
       webGlUnavailable: "WebGL nuk është i disponueshëm në këtë shfletues.",
       mapUnavailable: "MapTiler nuk mundi të ngarkojë pamjen e hartës.",
-      noValidCoordinates: "Nuk janë konfiguruar koordinata të vlefshme të itinerarit.",
+      noValidCoordinates:
+        "Nuk janë konfiguruar koordinata të vlefshme të itinerarit.",
       stopLabel: "Ndalesa",
       stopOfLabel: "nga",
       clearDraftConfirm: "Të fshihet skica e itinerarit detar?",
@@ -1453,6 +1858,12 @@ const me: TranslationKeys = {
     contact: "Zdravo, imam pitanje za Hidden Cove Boat Tours.",
     classicTour:
       "Zdravo, zainteresovan/a sam za Classic Tour po cijeni {{price}}. Zeljeni datum: ____. Broj gostiju: ____.",
+    valdanosTour:
+      "Zdravo, zainteresovan/a sam za turu Valdanos-Ulcinj po cijeni {{price}}. Zeljeni datum: ____. Broj gostiju: ____.",
+    oldTownTour:
+      "Zdravo, zainteresovan/a sam za Old Town Swim Tour po cijeni {{price}}. Zeljeni datum: ____. Broj gostiju: ____.",
+    customTour:
+      "Zdravo, zainteresovan/a sam za Custom Tour po cijeni {{price}}. Zeljeni datum: ____. Broj gostiju: ____.",
     bbqTour:
       "Zdravo, zainteresovan/a sam za BBQ Tour po cijeni {{price}}. Zeljeni datum: ____. Broj gostiju: ____.",
     sunsetTour:
@@ -1461,6 +1872,14 @@ const me: TranslationKeys = {
       "Zdravo, zelim vise informacija o predstojecoj Moonlight Tour.",
     privateTour:
       "Zdravo, zelim da pitam za privatnu turu brodom. Zeljeni datum: ____. Broj gostiju: ____. Javite mi koje su opcije dostupne.",
+    partnerBoat2h:
+      "Zdravo, zainteresovan/a sam za Turu kupanja i pica od Valdanos Boat Trip po cijeni {{price}}. Zeljeni datum: ____. Broj gostiju: ____.",
+    partnerAdaBojana:
+      "Zdravo, zainteresovan/a sam za Turu rijeke Ada Bojana od Valdanos Boat Trip po cijeni {{price}}. Zeljeni datum: ____. Broj gostiju: ____.",
+    partnerRedRock:
+      "Zdravo, zainteresovan/a sam za Turu plaze Crvena stijena od Valdanos Boat Trip po cijeni {{price}}. Zeljeni datum: ____. Broj gostiju: ____.",
+    partnerCrystalBeach:
+      "Zdravo, zainteresovan/a sam za Turu Kristalne plaze od Valdanos Boat Trip po cijeni {{price}}. Zeljeni datum: ____. Broj gostiju: ____.",
   },
   seo: {
     title: "Ture brodom u Ulcinju i Valdanosu | Hidden Cove Boat Tours",
@@ -1480,7 +1899,8 @@ const me: TranslationKeys = {
     titleItalic: "skrivenih uvala",
     titleB: " i Valdanosa.",
     sub: "Kupanje na skrivenoj plaži, hladna pića, jednostavan roštilj na plaži, zalasci sunca i noći uz mjesečinu pored mora.",
-    imageAlt: "Skrivena jadranska uvala kod Ulcinja sa usidrenim drvenim brodom",
+    imageAlt:
+      "Skrivena jadranska uvala kod Ulcinja sa usidrenim drvenim brodom",
     established: "Od 2018",
   },
   toursSection: {
@@ -1494,7 +1914,7 @@ const me: TranslationKeys = {
       tagline: "Dnevna tura",
       desc: "Uživaj u opuštenoj vožnji brodom duž ulcinjske obale, zatim nekoliko sati u privatnom dijelu plaže.",
       duration: "oko 4 sata",
-      group: "Do 8 gostiju",
+      group: "Do 6 gostiju",
       price: "50 € po osobi",
       included: [
         "Transfer brodom iz Valdanosa do Starog Ulcinja i plaže",
@@ -1510,12 +1930,76 @@ const me: TranslationKeys = {
       note: "Dodatna pića mogu se kupiti tokom ture.",
       imageAlt: "Zaustavljanje na plaži tokom Classic Tour na ulcinjskoj obali",
     },
+    valdanos: {
+      name: "Tura Valdanos-Ulcinj",
+      tagline: "Dnevna tura",
+      desc: "Jednosatna vožnja brodom od Valdanosa do Starog Ulcinja duž obale, sa istim opuštenim iskustvom na brodu kao na Classic Tour.",
+      duration: "1 sat",
+      group: "Do 6 gostiju",
+      price: "50 € total",
+      included: [
+        "Transfer brodom iz Valdanosa do Starog Ulcinja i plaže",
+        "Ukupno oko 1 sat vožnje brodom",
+        "Dva pića po osobi",
+        "Tradicionalni crnogorski sendviči",
+        "Korišćenje ležaljki",
+        "Kajaci",
+        "SUP daske",
+        "Maske za ronjenje",
+        "Odbojka u vodi",
+      ],
+      note: "Dodatna pića mogu se kupiti tokom ture.",
+      imageAlt: "Vožnja brodom od Valdanosa do Starog Ulcinja",
+    },
+    oldtown: {
+      name: "Old Town Swim Tour",
+      tagline: "Dnevna tura",
+      desc: "Jednosatna vožnja brodom od Valdanosa do Starog Ulcinja sa vremenom za kupanje u moru, uz isto opušteno iskustvo na brodu kao na Classic Tour.",
+      duration: "1 sat",
+      group: "Do 6 gostiju",
+      price: "40 € total",
+      included: [
+        "Transfer brodom iz Valdanosa do Starog Ulcinja i plaže",
+        "Ukupno oko 1 sat vožnje brodom",
+        "Vrijeme za kupanje u moru",
+        "Dva pića po osobi",
+        "Tradicionalni crnogorski sendviči",
+        "Korišćenje ležaljki",
+        "Kajaci",
+        "SUP daske",
+        "Maske za ronjenje",
+        "Odbojka u vodi",
+      ],
+      note: "Dodatna pića mogu se kupiti tokom ture.",
+      imageAlt: "Kupanje u moru kod Starog Ulcinja",
+    },
+    custom: {
+      name: "Custom Tour",
+      tagline: "Prilagođeno vama",
+      desc: "Fleksibilna jednosatna vožnja brodom prilagođena vašim planovima, sa istim opuštenim iskustvom na brodu kao na Classic Tour.",
+      duration: "1 sat",
+      group: "Do 6 gostiju",
+      price: "60 € po satu",
+      included: [
+        "Transfer brodom iz Valdanosa do Starog Ulcinja i plaže",
+        "Ukupno oko 1 sat vožnje brodom",
+        "Dva pića po osobi",
+        "Tradicionalni crnogorski sendviči",
+        "Korišćenje ležaljki",
+        "Kajaci",
+        "SUP daske",
+        "Maske za ronjenje",
+        "Odbojka u vodi",
+      ],
+      note: "Dodatna pića mogu se kupiti tokom ture.",
+      imageAlt: "Prilagođena tura brodom duž ulcinjske obale",
+    },
     sunset: {
       name: "BBQ Tour",
       tagline: "Dnevna tura",
       desc: "Isto iskustvo broda i plaže kao Classic Tour, uz svježe pripremljen roštilj umjesto sendviča.",
       duration: "oko 4 sata",
-      group: "Do 8 gostiju",
+      group: "Do 6 gostiju",
       price: "60 € po osobi",
       included: [
         "Transfer brodom iz Valdanosa do Starog Ulcinja i plaže",
@@ -1536,7 +2020,7 @@ const me: TranslationKeys = {
       tagline: "Veče",
       desc: "Uživaj u večernjoj vožnji brodom duž ulcinjske obale i gledaj zalazak sunca sa mora.",
       duration: "Veče",
-      group: "Do 8 gostiju",
+      group: "Do 6 gostiju",
       price: "25 € po osobi",
       included: [
         "Vožnja brodom iz Valdanosa prema Starom Ulcinju i obližnjoj plaži",
@@ -1551,10 +2035,54 @@ const me: TranslationKeys = {
       tagline: "Uskoro",
       desc: "Kasnovečernje iskustvo brodom pod mjesečinom, sa detaljima koji će biti objavljeni naknadno.",
       duration: "",
-      group: "Do 8 gostiju",
+      group: "Do 6 gostiju",
       price: "Uskoro",
       included: [],
       imageAlt: "Mala vatra na plaži noću pored mora",
+    },
+  },
+  partnerSection: {
+    eyebrow: "U partnerstvu sa Valdanos Boat Trip",
+    title: "Još tura brodom u Valdanosu",
+    sub: "Dodatne ture koje organizuje naš partner Valdanos Boat Trip. Rezerviši direktno kod nas na WhatsApp-u.",
+    badge: "Valdanos Boat Trip",
+  },
+  partnerTours: {
+    boat2h: {
+      name: "Tura kupanja i pića",
+      desc: "Opuštena dvosatna vožnja brodom sa vremenom za kupanje na otvorenom moru i jednim pićem uključenim.",
+      duration: "2 sata",
+      group: "Do 8 gostiju",
+      price: "150 € po brodu",
+      included: ["Zaustavljanje za kupanje", "Jedno piće po osobi"],
+      imageAlt: "Vožnja brodom kod Valdanosa sa gostima koji se kupaju",
+    },
+    adaBojana: {
+      name: "Tura rijeke Ada Bojana",
+      desc: "Duža, četvorosatna vožnja do rijeke Bojane i ostrva Ada Bojana, sa zaustavljanjem za kupanje i jednim pićem uključenim.",
+      duration: "4 sata",
+      group: "Do 8 gostiju",
+      price: "300 € po brodu",
+      included: ["Zaustavljanje za kupanje", "Jedno piće po osobi"],
+      imageAlt: "Vožnja brodom prema ostrvu Ada Bojana",
+    },
+    redRock: {
+      name: "Tura plaže Crvena stijena",
+      desc: "Dvosatna vožnja brodom do plaže Crvena stijena (Stena), sa zaustavljanjem za kupanje ispod litica i jednim pićem uključenim.",
+      duration: "2 sata",
+      group: "Do 8 gostiju",
+      price: "200 € po brodu",
+      included: ["Zaustavljanje za kupanje", "Jedno piće po osobi"],
+      imageAlt: "Vožnja brodom do plaže Crvena stijena kod Ulcinja",
+    },
+    crystalBeach: {
+      name: "Tura Kristalne plaže",
+      desc: "Dvosatna vožnja brodom do Kristalne plaže za kupanje u jednoj od najbistrijih voda na obali, sa jednim pićem uključenim.",
+      duration: "2 sata",
+      group: "Do 8 gostiju",
+      price: "150 € po brodu",
+      included: ["Zaustavljanje za kupanje", "Jedno piće po osobi"],
+      imageAlt: "Vožnja brodom do Kristalne plaže kod Ulcinja",
     },
   },
   why: {

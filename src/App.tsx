@@ -17,7 +17,12 @@ const queryClient = new QueryClient();
 
 function PageForRoute({ entry }: { entry: LocalizedRouteEntry }) {
   if (entry.pageId === "home") {
-    return <Index key={`${entry.locale}-${entry.pageId}`} initialLocale={entry.locale} />;
+    return (
+      <Index
+        key={`${entry.locale}-${entry.pageId}`}
+        initialLocale={entry.locale}
+      />
+    );
   }
 
   if (entry.pageId === "tours") {

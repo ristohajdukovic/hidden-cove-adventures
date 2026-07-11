@@ -101,13 +101,29 @@ export const pageContent: Record<Lang, PageContent> = {
         ogDescription:
           "The essential day trip for swimming, coastal views and easy time at the beach.",
       },
-      barbecueTour: {
-        title: "Beach BBQ Boat Tour | Hidden Cove Boat Tours",
+      valdanosTour: {
+        title: "Valdanos to Ulcinj Boat Tour | Hidden Cove Boat Tours",
         description:
-          "A four-hour coastal boat tour with a beach barbecue, relaxed sea time and a quiet beach setting.",
-        ogTitle: "Beach BBQ Boat Tour | Hidden Cove Boat Tours",
+          "A one-hour boat trip from Valdanos to Old Ulcinj along the Adriatic coast, with drinks, sandwiches and sun loungers included.",
+        ogTitle: "Valdanos to Ulcinj Boat Tour | Hidden Cove Boat Tours",
         ogDescription:
-          "Add a simple Mediterranean beach barbecue to the coastal boat route.",
+          "A quick coastal crossing from Valdanos to Ulcinj with the same relaxed Hidden Cove experience.",
+      },
+      oldTownTour: {
+        title: "Old Town Swim Boat Tour | Hidden Cove Boat Tours",
+        description:
+          "A one-hour boat trip from Valdanos to Old Ulcinj with time to swim in the sea, plus drinks, sandwiches and sun loungers.",
+        ogTitle: "Old Town Swim Boat Tour | Hidden Cove Boat Tours",
+        ogDescription:
+          "A short coastal trip from Valdanos to Old Ulcinj with a swim stop in the Adriatic.",
+      },
+      customTour: {
+        title: "Custom Boat Tour | Hidden Cove Boat Tours",
+        description:
+          "A flexible per-hour boat tour built around your plans, with the same relaxed Hidden Cove experience as our Classic Tour.",
+        ogTitle: "Custom Boat Tour | Hidden Cove Boat Tours",
+        ogDescription:
+          "Build your own boat trip along the Ulcinj coast, priced per hour.",
       },
       sunsetTour: {
         title: "Sunset Boat Tour | Hidden Cove Boat Tours",
@@ -166,20 +182,52 @@ export const pageContent: Record<Lang, PageContent> = {
           "Send your preferred date and guest count and we will confirm current availability by WhatsApp.",
         bookingLabel: "Book this tour",
       },
-      barbecueTour: {
-        eyebrow: "Beach barbecue",
+      valdanosTour: {
+        eyebrow: "Coastal crossing",
         intro:
-          "The BBQ Tour keeps the coastal route and beach stop, then adds a simple Mediterranean barbecue served in the beach setting.",
+          "The Valdanos to Ulcinj Tour is a shorter version of our Classic route: a relaxed one-hour boat ride from Valdanos to Old Ulcinj, with the same drinks, sandwiches and beach essentials included.",
         highlightsTitle: "Why choose it",
         highlights: [
-          "A fuller beach day with food included.",
-          "Good for groups who want more time to settle in.",
-          "Combines the boat transfer, swim stop, and relaxed lunch rhythm.",
+          "Best for a quick coastal crossing with the full Classic experience.",
+          "Includes drinks, sandwiches, and use of sun loungers.",
+          "Same boat, same crew, shorter time on the water.",
         ],
         practicalTitle: "Tour details",
-        ctaTitle: "Ask about the BBQ Tour",
+        ctaTitle: "Ask about the Valdanos to Ulcinj Tour",
         ctaBody:
-          "Tell us your date and guest count so we can confirm barbecue availability and timing.",
+          "Send your preferred date and guest count and we will confirm current availability by WhatsApp.",
+        bookingLabel: "Book this tour",
+      },
+      oldTownTour: {
+        eyebrow: "Swim stop",
+        intro:
+          "The Old Town Swim Tour is a short boat trip from Valdanos to Old Ulcinj with time to swim in the sea, along with the same drinks, sandwiches and beach essentials as our Classic Tour.",
+        highlightsTitle: "Why choose it",
+        highlights: [
+          "Best for a quick trip with a swim stop in the sea.",
+          "Includes drinks, sandwiches, and use of sun loungers.",
+          "Same boat, same crew, a shorter and more affordable option.",
+        ],
+        practicalTitle: "Tour details",
+        ctaTitle: "Ask about the Old Town Swim Tour",
+        ctaBody:
+          "Send your preferred date and guest count and we will confirm current availability by WhatsApp.",
+        bookingLabel: "Book this tour",
+      },
+      customTour: {
+        eyebrow: "Tailored to you",
+        intro:
+          "The Custom Tour is a flexible boat trip priced per hour, built around your plans, with the same drinks, sandwiches and beach essentials as our Classic Tour.",
+        highlightsTitle: "Why choose it",
+        highlights: [
+          "Best for a trip shaped around your own schedule.",
+          "Includes drinks, sandwiches, and use of sun loungers.",
+          "Same boat, same crew, priced by the hour.",
+        ],
+        practicalTitle: "Tour details",
+        ctaTitle: "Ask about the Custom Tour",
+        ctaBody:
+          "Send your preferred date, duration and guest count and we will confirm current availability by WhatsApp.",
         bookingLabel: "Book this tour",
       },
       sunsetTour: {
@@ -260,13 +308,29 @@ export const pageContent: Record<Lang, PageContent> = {
         ogDescription:
           "Der einfache Tagesausflug zum Schwimmen, fuer Kuestenblicke und Zeit am Strand.",
       },
-      barbecueTour: {
-        title: "Strand-BBQ Bootstour | Hidden Cove Boat Tours",
+      valdanosTour: {
+        title: "Valdanos-Ulcinj Bootstour | Hidden Cove Boat Tours",
         description:
-          "Eine vierstuendige Kuestentour mit Strand-BBQ, entspannter Zeit am Meer und dem Hidden Cove Boat Tours Strandbereich.",
-        ogTitle: "Strand-BBQ Bootstour | Hidden Cove Boat Tours",
+          "Eine einstuendige Bootsfahrt von Valdanos nach Alt-Ulcinj entlang der Adriakueste, inklusive Getraenken, Sandwiches und Sonnenliegen.",
+        ogTitle: "Valdanos-Ulcinj Bootstour | Hidden Cove Boat Tours",
         ogDescription:
-          "Ergaenze die Kuestentour um ein einfaches mediterranes Strand-BBQ.",
+          "Eine kurze Kuestenfahrt von Valdanos nach Ulcinj mit dem gleichen entspannten Hidden Cove Erlebnis.",
+      },
+      oldTownTour: {
+        title: "Old Town Swim Tour | Hidden Cove Boat Tours",
+        description:
+          "Eine einstuendige Bootsfahrt von Valdanos nach Alt-Ulcinj mit Zeit zum Schwimmen im Meer, inklusive Getraenken, Sandwiches und Sonnenliegen.",
+        ogTitle: "Old Town Swim Tour | Hidden Cove Boat Tours",
+        ogDescription:
+          "Eine kurze Kuestenfahrt von Valdanos nach Alt-Ulcinj mit einem Schwimmstopp in der Adria.",
+      },
+      customTour: {
+        title: "Custom Tour | Hidden Cove Boat Tours",
+        description:
+          "Eine flexible Bootstour pro Stunde, ganz nach deinen Plaenen, mit dem gleichen entspannten Hidden Cove Erlebnis wie bei unserer Classic Tour.",
+        ogTitle: "Custom Tour | Hidden Cove Boat Tours",
+        ogDescription:
+          "Gestalte deine eigene Bootstour entlang der Kueste von Ulcinj, abgerechnet pro Stunde.",
       },
       sunsetTour: {
         title: "Sunset Bootstour | Hidden Cove Boat Tours",
@@ -325,20 +389,52 @@ export const pageContent: Record<Lang, PageContent> = {
           "Sende dein Wunschdatum und die Anzahl der Gaeste, dann bestaetigen wir die aktuelle Verfuegbarkeit per WhatsApp.",
         bookingLabel: "Diese Tour buchen",
       },
-      barbecueTour: {
-        eyebrow: "Strand-BBQ",
+      valdanosTour: {
+        eyebrow: "Kuestenueberfahrt",
         intro:
-          "Die BBQ Tour kombiniert Kuestenroute und Strandstopp mit einem einfachen mediterranen Barbecue im Strandbereich.",
+          "Die Valdanos-Ulcinj Tour ist eine kuerzere Version unserer Classic Route: eine entspannte einstuendige Bootsfahrt von Valdanos nach Alt-Ulcinj, mit den gleichen Getraenken, Sandwiches und Strand-Extras.",
         highlightsTitle: "Warum diese Tour",
         highlights: [
-          "Ein vollerer Strandtag mit Essen inklusive.",
-          "Gut fuer Gruppen, die mehr Zeit vor Ort moechten.",
-          "Bootstransfer, Schwimmstopp und entspannter Lunch-Rhythmus.",
+          "Ideal fuer eine kurze Kuestenueberfahrt mit dem vollen Classic-Erlebnis.",
+          "Getraenke, Sandwiches und Liegen sind inklusive.",
+          "Gleiches Boot, gleiche Crew, kuerzere Zeit auf dem Wasser.",
         ],
         practicalTitle: "Tourdetails",
-        ctaTitle: "Zur BBQ Tour anfragen",
+        ctaTitle: "Zur Valdanos-Ulcinj Tour anfragen",
         ctaBody:
-          "Nenne Datum und Gaestezahl, damit wir Verfuegbarkeit und Timing fuer das Barbecue bestaetigen koennen.",
+          "Sende dein Wunschdatum und die Anzahl der Gaeste, dann bestaetigen wir die aktuelle Verfuegbarkeit per WhatsApp.",
+        bookingLabel: "Diese Tour buchen",
+      },
+      oldTownTour: {
+        eyebrow: "Schwimmstopp",
+        intro:
+          "Die Old Town Swim Tour ist eine kurze Bootsfahrt von Valdanos nach Alt-Ulcinj mit Zeit zum Schwimmen im Meer, dazu die gleichen Getraenke, Sandwiches und Strand-Extras wie bei unserer Classic Tour.",
+        highlightsTitle: "Warum diese Tour",
+        highlights: [
+          "Ideal fuer eine kurze Fahrt mit einem Schwimmstopp im Meer.",
+          "Getraenke, Sandwiches und Liegen sind inklusive.",
+          "Gleiches Boot, gleiche Crew, kuerzere und guenstigere Option.",
+        ],
+        practicalTitle: "Tourdetails",
+        ctaTitle: "Zur Old Town Swim Tour anfragen",
+        ctaBody:
+          "Sende dein Wunschdatum und die Anzahl der Gaeste, dann bestaetigen wir die aktuelle Verfuegbarkeit per WhatsApp.",
+        bookingLabel: "Diese Tour buchen",
+      },
+      customTour: {
+        eyebrow: "Individuell",
+        intro:
+          "Die Custom Tour ist eine flexible Bootsfahrt pro Stunde, ganz nach deinen Plaenen, mit den gleichen Getraenken, Sandwiches und Strand-Extras wie bei unserer Classic Tour.",
+        highlightsTitle: "Warum diese Tour",
+        highlights: [
+          "Ideal fuer eine Fahrt nach deinem eigenen Zeitplan.",
+          "Getraenke, Sandwiches und Liegen sind inklusive.",
+          "Gleiches Boot, gleiche Crew, abgerechnet pro Stunde.",
+        ],
+        practicalTitle: "Tourdetails",
+        ctaTitle: "Zur Custom Tour anfragen",
+        ctaBody:
+          "Sende dein Wunschdatum, die gewuenschte Dauer und die Anzahl der Gaeste, dann bestaetigen wir die aktuelle Verfuegbarkeit per WhatsApp.",
         bookingLabel: "Diese Tour buchen",
       },
       sunsetTour: {
@@ -419,13 +515,29 @@ export const pageContent: Record<Lang, PageContent> = {
         ogDescription:
           "Udhetimi i thjeshte ditor Hidden Cove Boat Tours per not, pamje bregdetare dhe kohe ne plazh.",
       },
-      barbecueTour: {
-        title: "Beach BBQ Tour | Hidden Cove Boat Tours",
+      valdanosTour: {
+        title: "Tur Valdanos-Ulqin me varke | Hidden Cove Boat Tours",
         description:
-          "Tur kater-oreshe me varke, BBQ ne plazh, kohe te qete prane detit dhe ambientin e plazhit Hidden Cove Boat Tours.",
-        ogTitle: "Beach BBQ Tour | Hidden Cove Boat Tours",
+          "Nje udhetim nje-oresh me varke nga Valdanosi drejt Ulqinit te Vjeter pergjate bregdetit, me pije, sanduice dhe shezllone te perfshira.",
+        ogTitle: "Tur Valdanos-Ulqin me varke | Hidden Cove Boat Tours",
         ogDescription:
-          "Shto nje BBQ te thjeshte mesdhetare ne turin bregdetar Hidden Cove Boat Tours.",
+          "Nje kalim i shpejte bregdetar nga Valdanosi drejt Ulqinit me te njejten pervoje te qete Hidden Cove.",
+      },
+      oldTownTour: {
+        title: "Old Town Swim Tour me varke | Hidden Cove Boat Tours",
+        description:
+          "Nje udhetim nje-oresh me varke nga Valdanosi drejt Ulqinit te Vjeter me kohe per te notuar ne det, plus pije, sanduice dhe shezllone te perfshira.",
+        ogTitle: "Old Town Swim Tour me varke | Hidden Cove Boat Tours",
+        ogDescription:
+          "Nje udhetim i shkurter bregdetar nga Valdanosi drejt Ulqinit te Vjeter me nje ndalese notimi ne Adriatik.",
+      },
+      customTour: {
+        title: "Custom Tour me varke | Hidden Cove Boat Tours",
+        description:
+          "Nje tur fleksibel me varke, i faturuar per ore, i ndertuar sipas planeve tuaja, me te njejten pervoje te qete Hidden Cove si Classic Tour.",
+        ogTitle: "Custom Tour me varke | Hidden Cove Boat Tours",
+        ogDescription:
+          "Ndertoni turin tuaj me varke pergjate bregdetit te Ulqinit, me cmim per ore.",
       },
       sunsetTour: {
         title: "Sunset Tour me varke | Hidden Cove Boat Tours",
@@ -484,20 +596,52 @@ export const pageContent: Record<Lang, PageContent> = {
           "Dergo daten e deshiruar dhe numrin e mysafireve, dhe ne do te konfirmojme disponueshmerine ne WhatsApp.",
         bookingLabel: "Rezervo kete tur",
       },
-      barbecueTour: {
-        eyebrow: "BBQ ne plazh",
+      valdanosTour: {
+        eyebrow: "Kalim bregdetar",
         intro:
-          "BBQ Tour mban itinerarin bregdetar dhe ndalesen ne plazh, pastaj shton nje BBQ te thjeshte mesdhetare ne ambientin e plazhit.",
+          "Tur Valdanos-Ulqin eshte nje version me i shkurter i itinerarit tone Classic: nje udhetim i qete nje-oresh me varke nga Valdanosi drejt Ulqinit te Vjeter, me te njejtat pije, sanduice dhe gjera te domosdoshme per plazh.",
         highlightsTitle: "Pse ta zgjedhesh",
         highlights: [
-          "Dite me e plote ne plazh me ushqim te perfshire.",
-          "E pershtatshme per grupe qe duan me shume kohe ne vend.",
-          "Kombinon transferimin me varke, notin dhe ritmin e qete te drekes.",
+          "E pershtatshme per nje kalim te shpejte bregdetar me te gjithe pervojen Classic.",
+          "Perfshin pije, sanduice dhe perdorim te shezlloneve.",
+          "E njejta varke, i njejti ekuip, me pak kohe ne uje.",
         ],
         practicalTitle: "Detajet e turit",
-        ctaTitle: "Pyet per BBQ Tour",
+        ctaTitle: "Pyet per turin Valdanos-Ulqin",
         ctaBody:
-          "Na trego daten dhe numrin e mysafireve qe te konfirmojme disponueshmerine dhe orarin e BBQ-se.",
+          "Dergo daten e deshiruar dhe numrin e mysafireve, dhe ne do te konfirmojme disponueshmerine ne WhatsApp.",
+        bookingLabel: "Rezervo kete tur",
+      },
+      oldTownTour: {
+        eyebrow: "Ndalese notimi",
+        intro:
+          "Old Town Swim Tour eshte nje udhetim i shkurter me varke nga Valdanosi drejt Ulqinit te Vjeter me kohe per te notuar ne det, bashke me te njejtat pije, sanduice dhe gjera te domosdoshme per plazh si Classic Tour.",
+        highlightsTitle: "Pse ta zgjedhesh",
+        highlights: [
+          "E pershtatshme per nje udhetim te shkurter me nje ndalese notimi ne det.",
+          "Perfshin pije, sanduice dhe perdorim te shezlloneve.",
+          "E njejta varke, i njejti ekuip, opsion me i shkurter dhe me ekonomik.",
+        ],
+        practicalTitle: "Detajet e turit",
+        ctaTitle: "Pyet per Old Town Swim Tour",
+        ctaBody:
+          "Dergo daten e deshiruar dhe numrin e mysafireve, dhe ne do te konfirmojme disponueshmerine ne WhatsApp.",
+        bookingLabel: "Rezervo kete tur",
+      },
+      customTour: {
+        eyebrow: "E personalizuar",
+        intro:
+          "Custom Tour eshte nje udhetim fleksibel me varke, i faturuar per ore, i ndertuar sipas planeve tuaja, me te njejtat pije, sanduice dhe gjera te domosdoshme per plazh si Classic Tour.",
+        highlightsTitle: "Pse ta zgjedhesh",
+        highlights: [
+          "E pershtatshme per nje udhetim sipas orarit tuaj.",
+          "Perfshin pije, sanduice dhe perdorim te shezlloneve.",
+          "E njejta varke, i njejti ekuip, me cmim per ore.",
+        ],
+        practicalTitle: "Detajet e turit",
+        ctaTitle: "Pyet per Custom Tour",
+        ctaBody:
+          "Dergo daten e deshiruar, kohezgjatjen dhe numrin e mysafireve, dhe ne do te konfirmojme disponueshmerine ne WhatsApp.",
         bookingLabel: "Rezervo kete tur",
       },
       sunsetTour: {
@@ -578,13 +722,29 @@ export const pageContent: Record<Lang, PageContent> = {
         ogDescription:
           "Osnovni Hidden Cove Boat Tours dnevni izlet za kupanje, pogled na obalu i vrijeme na plazi.",
       },
-      barbecueTour: {
-        title: "Beach BBQ Tour | Hidden Cove Boat Tours",
+      valdanosTour: {
+        title: "Tura Valdanos-Ulcinj brodom | Hidden Cove Boat Tours",
         description:
-          "Cetvorosatna obalna tura brodom sa rostiljem na plazi, opustenim vremenom uz more i Hidden Cove Boat Tours ambijentom.",
-        ogTitle: "Beach BBQ Tour | Hidden Cove Boat Tours",
+          "Jednosatna voznja brodom od Valdanosa do Starog Ulcinja duz jadranske obale, sa picem, sendvicima i lezaljkama ukljucenim.",
+        ogTitle: "Tura Valdanos-Ulcinj brodom | Hidden Cove Boat Tours",
         ogDescription:
-          "Dodaj jednostavan mediteranski rostilj na plazi obalnoj turi.",
+          "Brz obalni prelaz od Valdanosa do Ulcinja sa istim opustenim Hidden Cove iskustvom.",
+      },
+      oldTownTour: {
+        title: "Old Town Swim Tour brodom | Hidden Cove Boat Tours",
+        description:
+          "Jednosatna voznja brodom od Valdanosa do Starog Ulcinja sa vremenom za kupanje u moru, uz pice, sendvice i lezaljke.",
+        ogTitle: "Old Town Swim Tour brodom | Hidden Cove Boat Tours",
+        ogDescription:
+          "Kratak obalni izlet od Valdanosa do Starog Ulcinja sa zaustavljanjem za kupanje u Jadranu.",
+      },
+      customTour: {
+        title: "Custom Tour brodom | Hidden Cove Boat Tours",
+        description:
+          "Fleksibilna tura brodom po satu, prilagođena vašim planovima, sa istim opuštenim Hidden Cove iskustvom kao na Classic Tour.",
+        ogTitle: "Custom Tour brodom | Hidden Cove Boat Tours",
+        ogDescription:
+          "Kreirajte svoju turu brodom duž ulcinjske obale, po cijeni na sat.",
       },
       sunsetTour: {
         title: "Sunset Tour brodom | Hidden Cove Boat Tours",
@@ -643,20 +803,52 @@ export const pageContent: Record<Lang, PageContent> = {
           "Posalji zeljeni datum i broj gostiju, a mi cemo potvrditi dostupnost preko WhatsApp-a.",
         bookingLabel: "Rezervisi ovu turu",
       },
-      barbecueTour: {
-        eyebrow: "Rostilj na plazi",
+      valdanosTour: {
+        eyebrow: "Obalni prelaz",
         intro:
-          "BBQ Tour zadrzava obalnu rutu i zaustavljanje na plazi, zatim dodaje jednostavan mediteranski rostilj u plaznom ambijentu.",
+          "Tura Valdanos-Ulcinj je kraca verzija nase Classic rute: opustena jednosatna voznja brodom od Valdanosa do Starog Ulcinja, sa istim picem, sendvicima i plaznim sadrzajima ukljucenim.",
         highlightsTitle: "Zasto izabrati",
         highlights: [
-          "Puniji dan na plazi sa hranom ukljucenom.",
-          "Dobro za grupe koje zele vise vremena na lokaciji.",
-          "Kombinuje transfer brodom, kupanje i opusten ritam rucka.",
+          "Najbolje za brz obalni prelaz sa punim Classic iskustvom.",
+          "Ukljucuje pice, sendvice i koriscenje lezaljki.",
+          "Isti brod, ista posada, krace vrijeme na vodi.",
         ],
         practicalTitle: "Detalji ture",
-        ctaTitle: "Pitaj za BBQ Tour",
+        ctaTitle: "Pitaj za turu Valdanos-Ulcinj",
         ctaBody:
-          "Reci nam datum i broj gostiju da potvrdimo dostupnost i vrijeme rostilja.",
+          "Posalji zeljeni datum i broj gostiju, a mi cemo potvrditi dostupnost preko WhatsApp-a.",
+        bookingLabel: "Rezervisi ovu turu",
+      },
+      oldTownTour: {
+        eyebrow: "Zaustavljanje za kupanje",
+        intro:
+          "Old Town Swim Tour je kratka voznja brodom od Valdanosa do Starog Ulcinja sa vremenom za kupanje u moru, uz isto pice, sendvice i plazne sadrzaje kao na Classic Tour.",
+        highlightsTitle: "Zasto izabrati",
+        highlights: [
+          "Najbolje za brz izlet sa zaustavljanjem za kupanje u moru.",
+          "Ukljucuje pice, sendvice i koriscenje lezaljki.",
+          "Isti brod, ista posada, kraca i pristupacnija opcija.",
+        ],
+        practicalTitle: "Detalji ture",
+        ctaTitle: "Pitaj za Old Town Swim Tour",
+        ctaBody:
+          "Posalji zeljeni datum i broj gostiju, a mi cemo potvrditi dostupnost preko WhatsApp-a.",
+        bookingLabel: "Rezervisi ovu turu",
+      },
+      customTour: {
+        eyebrow: "Prilagođeno vama",
+        intro:
+          "Custom Tour je fleksibilna tura brodom po satu, prilagođena vašim planovima, sa istim picem, sendvicima i plaznim sadrzajima kao na Classic Tour.",
+        highlightsTitle: "Zasto izabrati",
+        highlights: [
+          "Najbolje za izlet prilagođen vasem sopstvenom rasporedu.",
+          "Ukljucuje pice, sendvice i koriscenje lezaljki.",
+          "Isti brod, ista posada, po cijeni na sat.",
+        ],
+        practicalTitle: "Detalji ture",
+        ctaTitle: "Pitaj za Custom Tour",
+        ctaBody:
+          "Posalji zeljeni datum, trajanje i broj gostiju, a mi cemo potvrditi dostupnost preko WhatsApp-a.",
         bookingLabel: "Rezervisi ovu turu",
       },
       sunsetTour: {

@@ -34,7 +34,7 @@ describe("WhatsApp booking actions", () => {
 
     expect(container.querySelectorAll("a a")).toHaveLength(0);
 
-    ["Classic Tour", "BBQ Tour", "Sunset Tour"].forEach((name) => {
+    ["Classic Tour", "Sunset Tour"].forEach((name) => {
       const heading = screen.getByRole("heading", { name });
       const card = heading.closest("article");
 
@@ -76,12 +76,12 @@ describe("WhatsApp booking actions", () => {
         <Header />
         <MobileBookingBar />
       </>,
-      "barbecueTour",
+      "sunsetTour",
     );
 
     const texts = whatsappLinks(container).map(decodedWhatsAppText);
 
-    expect(texts.some((text) => text.includes("BBQ Tour"))).toBe(true);
+    expect(texts.some((text) => text.includes("Sunset Tour"))).toBe(true);
     expect(texts.every((text) => !text.includes("Classic Tour"))).toBe(true);
   });
 

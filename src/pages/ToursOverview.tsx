@@ -10,6 +10,7 @@ import { pageContent } from "@/i18n/pageContent";
 import { getLocalizedHref } from "@/i18n/routes";
 import type { Lang } from "@/i18n/locales";
 import { tourDefinitions, type TourDefinition } from "@/data/tourPages";
+import { PartnerTours } from "@/components/sections/PartnerTours";
 import { ArrowUpRight } from "@/components/icons/HandDrawn";
 import { TourFactCards } from "@/components/tours/TourFactCards";
 import { createTourFacts } from "@/components/tours/tourFacts";
@@ -98,10 +99,15 @@ function ToursOverviewContent() {
                   />
                 </div>
                 <div className="tour-overview-card__content">
-                  <span>{isComingSoon ? copy.common.comingSoon : tour.tagline}</span>
+                  <span>
+                    {isComingSoon ? copy.common.comingSoon : tour.tagline}
+                  </span>
                   <h3>{tour.name}</h3>
                   <p>{tour.desc}</p>
-                  <TourFactCards facts={facts} className="tour-facts--overview" />
+                  <TourFactCards
+                    facts={facts}
+                    className="tour-facts--overview"
+                  />
                   <div className="tour-overview-card__actions">
                     <WhatsAppLink
                       locale={lang}
@@ -111,7 +117,10 @@ function ToursOverviewContent() {
                     >
                       {getOverviewBookingLabel(definition, t)}
                     </WhatsAppLink>
-                    <a href={href} className="tour-card__action tour-card__action--secondary">
+                    <a
+                      href={href}
+                      className="tour-card__action tour-card__action--secondary"
+                    >
                       {t.cta.viewDetails}
                       <ArrowUpRight className="size-4" />
                     </a>
@@ -121,8 +130,12 @@ function ToursOverviewContent() {
             );
           })}
         </div>
+        <PartnerTours />
 
-        <section className="experience-teaser-section" aria-labelledby="experience-teasers-title">
+        <section
+          className="experience-teaser-section"
+          aria-labelledby="experience-teasers-title"
+        >
           <h2 id="experience-teasers-title">{copy.experienceTeasers.title}</h2>
           <div className="experience-teasers">
             {copy.experienceTeasers.items.map((item) => (

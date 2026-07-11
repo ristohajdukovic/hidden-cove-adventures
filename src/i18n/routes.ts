@@ -9,7 +9,9 @@ export type HomePageId = "home";
 export type ToursOverviewPageId = "tours";
 export type TourPageId =
   | "classicTour"
-  | "barbecueTour"
+  | "valdanosTour"
+  | "oldTownTour"
+  | "customTour"
   | "sunsetTour"
   | "moonlightTour";
 export type PageId = HomePageId | ToursOverviewPageId | TourPageId;
@@ -18,14 +20,18 @@ export const pageIds = [
   "home",
   "tours",
   "classicTour",
-  "barbecueTour",
+  "valdanosTour",
+  "oldTownTour",
+  "customTour",
   "sunsetTour",
   "moonlightTour",
 ] as const satisfies readonly PageId[];
 
 export const tourPageIds = [
   "classicTour",
-  "barbecueTour",
+  "valdanosTour",
+  "oldTownTour",
+  "customTour",
   "sunsetTour",
   "moonlightTour",
 ] as const satisfies readonly TourPageId[];
@@ -49,11 +55,23 @@ export const localizedRoutePaths = {
     sq: "/sq/ture-me-varke/classic-tour/",
     me: "/me/ture-brodom/classic-tour/",
   },
-  barbecueTour: {
-    en: "/tours/beach-bbq-tour/",
-    de: "/de/bootstouren/strand-bbq-tour/",
-    sq: "/sq/ture-me-varke/tur-bbq-ne-plazh/",
-    me: "/me/ture-brodom/plazni-rostilj-tura/",
+  valdanosTour: {
+    en: "/tours/valdanos-ulcinj-tour/",
+    de: "/de/bootstouren/valdanos-ulcinj-tour/",
+    sq: "/sq/ture-me-varke/tur-valdanos-ulqin/",
+    me: "/me/ture-brodom/tura-valdanos-ulcinj/",
+  },
+  oldTownTour: {
+    en: "/tours/old-town-swim-tour/",
+    de: "/de/bootstouren/altstadt-schwimmtour/",
+    sq: "/sq/ture-me-varke/tur-notimi-ulqini-vjeter/",
+    me: "/me/ture-brodom/tura-kupanja-stari-ulcinj/",
+  },
+  customTour: {
+    en: "/tours/custom-tour/",
+    de: "/de/bootstouren/custom-tour/",
+    sq: "/sq/ture-me-varke/tur-me-porosi/",
+    me: "/me/ture-brodom/tura-po-zelji/",
   },
   sunsetTour: {
     en: "/tours/sunset-tour/",

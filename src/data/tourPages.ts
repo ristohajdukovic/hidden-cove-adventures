@@ -1,5 +1,7 @@
 import hiddenImg from "@/assets/tour-hidden-beach.jpg";
-import sunsetImg from "@/assets/tour-sunset-bbq.jpg";
+import valdanosTourImg from "@/assets/gallery-valdanos.jpg";
+import oldTownTourImg from "@/assets/gallery-swim.jpg";
+import customTourImg from "@/assets/tour-private.jpg";
 import sunsetTourImg from "@/assets/gallery-oldtown.jpg";
 import moonImg from "@/assets/tour-moonlight.jpg";
 import type { TourKey } from "@/i18n/translations";
@@ -25,12 +27,28 @@ export const tourDefinitions = [
     whatsappMessageKey: "classicTour",
   },
   {
-    pageId: "barbecueTour",
-    tourKey: "sunset",
-    image: sunsetImg,
-    cardClassName: "tour-card--bbq",
+    pageId: "valdanosTour",
+    tourKey: "valdanos",
+    image: valdanosTourImg,
+    cardClassName: "tour-card--valdanos",
     status: "available",
-    whatsappMessageKey: "bbqTour",
+    whatsappMessageKey: "valdanosTour",
+  },
+  {
+    pageId: "oldTownTour",
+    tourKey: "oldtown",
+    image: oldTownTourImg,
+    cardClassName: "tour-card--oldtown",
+    status: "available",
+    whatsappMessageKey: "oldTownTour",
+  },
+  {
+    pageId: "customTour",
+    tourKey: "custom",
+    image: customTourImg,
+    cardClassName: "tour-card--custom",
+    status: "available",
+    whatsappMessageKey: "customTour",
   },
   {
     pageId: "sunsetTour",

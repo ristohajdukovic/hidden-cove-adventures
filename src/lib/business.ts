@@ -2,17 +2,17 @@ import type { Lang } from "@/i18n/locales";
 import { translations } from "@/i18n/translations";
 
 // Central business config - easy to edit.
-export const BRAND_NAME = "Hidden Cove Boat Tours";
+export const BRAND_NAME = "Hidden Cove";
 
 export const business = {
   name: BRAND_NAME,
   // Optional public display phone number. WhatsApp is configured via VITE_WHATSAPP_NUMBER.
-  phone: "",
-  email: "hello@hiddencoveulcinj.com",
+  phone: "+382 67 124 754",
+  email: "hiddencoveulcinj@gmail.com",
   city: "Ulcinj, Montenegro",
-  instagram: "",
+  instagram: "https://www.instagram.com/hiddencoveulcinj",
   social: {
-    instagram: "",
+    instagram: "https://www.instagram.com/hiddencoveulcinj/",
     facebook: "",
   },
 };
@@ -33,10 +33,17 @@ export type WhatsAppMessageKey =
   | "generalBooking"
   | "contact"
   | "classicTour"
+  | "valdanosTour"
+  | "oldTownTour"
+  | "customTour"
   | "bbqTour"
   | "sunsetTour"
   | "moonlightTour"
-  | "privateTour";
+  | "privateTour"
+  | "partnerBoat2h"
+  | "partnerAdaBojana"
+  | "partnerRedRock"
+  | "partnerCrystalBeach";
 
 export type WhatsAppUrlOptions = {
   locale: Lang;
@@ -65,9 +72,13 @@ export function createWhatsAppMessage({
   return interpolateMessage(template, variables);
 }
 
-export function createWhatsAppUrl(options: WhatsAppUrlOptions | string): string {
+export function createWhatsAppUrl(
+  options: WhatsAppUrlOptions | string,
+): string {
   const configuredNumber =
-    typeof options === "string" ? whatsappNumber : options.phoneNumber ?? whatsappNumber;
+    typeof options === "string"
+      ? whatsappNumber
+      : (options.phoneNumber ?? whatsappNumber);
 
   if (!configuredNumber) {
     return "#";
