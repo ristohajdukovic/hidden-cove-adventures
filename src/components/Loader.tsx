@@ -47,7 +47,10 @@ export function Loader() {
   useEffect(() => {
     if (!exiting) return;
     exitStartRef.current = performance.now();
-    const recedeTimer = window.setTimeout(() => setReceding(true), EXIT_ANIMATION_MS);
+    const recedeTimer = window.setTimeout(() => {
+      setReceding(true);
+      document.documentElement.classList.add("site-revealed");
+    }, EXIT_ANIMATION_MS);
     return () => window.clearTimeout(recedeTimer);
   }, [exiting]);
 

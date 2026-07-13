@@ -2017,6 +2017,15 @@
 
   .anim-fade-up {
     animation: fadeUp 0.8s var(--transition-smooth) both;
+    animation-play-state: paused;
+  }
+  .anim-word {
+    animation: fadeUp 0.6s var(--transition-smooth) both;
+    animation-play-state: paused;
+  }
+  html.site-revealed .anim-fade-up,
+  html.site-revealed .anim-word {
+    animation-play-state: running;
   }
   .anim-float {
     animation: float 6s ease-in-out infinite;

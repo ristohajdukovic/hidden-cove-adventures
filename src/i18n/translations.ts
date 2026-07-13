@@ -9,7 +9,11 @@ export type TourKey =
   | "moonlight"
   | "private";
 
-export type PartnerTripKey = "boat2h" | "adaBojana" | "redRock" | "crystalBeach";
+export type PartnerTripKey =
+  | "boat2h"
+  | "adaBojana"
+  | "redRock"
+  | "crystalBeach";
 
 export type FaqLinkTarget = "route" | "tours" | "booking" | "private";
 
@@ -111,7 +115,12 @@ export type TranslationKeys = {
       imageAlt: string;
     }
   >;
-  partnerSection: { eyebrow: string; title: string; sub: string; badge: string };
+  partnerSection: {
+    eyebrow: string;
+    title: string;
+    sub: string;
+    badge: string;
+  };
   partnerTours: Record<
     PartnerTripKey,
     {
@@ -354,13 +363,6 @@ const en: TranslationKeys = {
       included: [
         "Boat transfer from Valdanos to Old Ulcinj and the beach",
         "Approximately 1 hour of boat cruising in total",
-        "Two drinks per person",
-        "Traditional Montenegrin sandwiches",
-        "Use of sun loungers",
-        "Kayaks",
-        "Dërrasa SUP",
-        "Snorkelling masks",
-        "Water volleyball",
       ],
       note: "Additional drinks can be purchased during the tour.",
       imageAlt: "Boat crossing from Valdanos to Old Ulcinj",
@@ -376,13 +378,6 @@ const en: TranslationKeys = {
         "Boat transfer from Valdanos to Old Ulcinj and the beach",
         "Approximately 1 hour of boat cruising in total",
         "Time to swim in the sea",
-        "Two drinks per person",
-        "Traditional Montenegrin sandwiches",
-        "Use of sun loungers",
-        "Kayaks",
-        "Dërrasa SUP",
-        "Snorkelling masks",
-        "Water volleyball",
       ],
       note: "Additional drinks can be purchased during the tour.",
       imageAlt: "Swimming in the sea near Old Ulcinj",
@@ -882,13 +877,6 @@ const de: TranslationKeys = {
       included: [
         "Bootstransfer von Valdanos nach Alt-Ulcinj und zum Strand",
         "Insgesamt etwa 1 Stunde Bootsfahrt",
-        "Zwei Getränke pro Person",
-        "Traditionelle montenegrinische Sandwiches",
-        "Nutzung der Sonnenliegen",
-        "Kajaks",
-        "Stand-up-Paddleboards",
-        "Schnorchelmasken",
-        "Wasservolleyball",
       ],
       note: "Zusätzliche Getränke können während der Tour gekauft werden.",
       imageAlt: "Bootsfahrt von Valdanos nach Alt-Ulcinj",
@@ -1411,13 +1399,6 @@ const sq: TranslationKeys = {
       included: [
         "Transfer me varkë nga Valdanosi drejt Ulqinit të Vjetër dhe plazhit",
         "Rreth 1 orë lundrim gjithsej",
-        "Dy pije për person",
-        "Sanduiçe tradicionale malazeze",
-        "Përdorimi i shezlongëve",
-        "Kajakë",
-        "Stand-up paddleboards",
-        "Maska për snorkelling",
-        "Volejboll në ujë",
       ],
       note: "Pije shtesë mund të blihen gjatë turit.",
       imageAlt: "Udhëtim me varkë nga Valdanosi drejt Ulqinit të Vjetër",
@@ -1433,13 +1414,6 @@ const sq: TranslationKeys = {
         "Transfer me varkë nga Valdanosi drejt Ulqinit të Vjetër dhe plazhit",
         "Rreth 1 orë lundrim gjithsej",
         "Kohë për të notuar në det",
-        "Dy pije për person",
-        "Sanduiçe tradicionale malazeze",
-        "Përdorimi i shezlongëve",
-        "Kajakë",
-        "Stand-up paddleboards",
-        "Maska për snorkelling",
-        "Volejboll në ujë",
       ],
       note: "Pije shtesë mund të blihen gjatë turit.",
       imageAlt: "Not në det pranë Ulqinit të Vjetër",
@@ -1940,13 +1914,6 @@ const me: TranslationKeys = {
       included: [
         "Transfer brodom iz Valdanosa do Starog Ulcinja i plaže",
         "Ukupno oko 1 sat vožnje brodom",
-        "Dva pića po osobi",
-        "Tradicionalni crnogorski sendviči",
-        "Korišćenje ležaljki",
-        "Kajaci",
-        "SUP daske",
-        "Maske za ronjenje",
-        "Odbojka u vodi",
       ],
       note: "Dodatna pića mogu se kupiti tokom ture.",
       imageAlt: "Vožnja brodom od Valdanosa do Starog Ulcinja",
@@ -1962,13 +1929,6 @@ const me: TranslationKeys = {
         "Transfer brodom iz Valdanosa do Starog Ulcinja i plaže",
         "Ukupno oko 1 sat vožnje brodom",
         "Vrijeme za kupanje u moru",
-        "Dva pića po osobi",
-        "Tradicionalni crnogorski sendviči",
-        "Korišćenje ležaljki",
-        "Kajaci",
-        "SUP daske",
-        "Maske za ronjenje",
-        "Odbojka u vodi",
       ],
       note: "Dodatna pića mogu se kupiti tokom ture.",
       imageAlt: "Kupanje u moru kod Starog Ulcinja",
