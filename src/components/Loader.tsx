@@ -35,14 +35,29 @@ export function Loader() {
   const [exiting, setExiting] = useState(false);
   const [receding, setReceding] = useState(false);
   const [removed, setRemoved] = useState(false);
+  const [minTimeElapsed, setMinTimeElapsed] = useState(false);
+  const [pageLoaded, setPageLoaded] = useState(
+    () => document.readyState === "complete",
+  );
   const fillRef = useRef<HTMLSpanElement>(null);
   const exitStartRef = useRef<number | null>(null);
   const removedRef = useRef(false);
 
   useEffect(() => {
-    const showTimer = window.setTimeout(() => setExiting(true), MIN_VISIBLE_MS);
+    const showTimer = window.setTimeout(() => setMinTimeElapsed(true), MIN_VISIBLE_MS);
     return () => window.clearTimeout(showTimer);
   }, []);
+
+  useEffect(() => {
+    if (pageLoaded) return;
+    const handleLoad = () => setPageLoaded(true);
+    window.addEventListener("load", handleLoad);
+    return () => window.removeEventListener("load", handleLoad);
+  }, [pageLoaded]);
+
+  useEffect(() => {
+    if (minTimeElapsed && pageLoaded) setExiting(true);
+  }, [minTimeElapsed, pageLoaded]);
 
   useEffect(() => {
     if (!exiting) return;
