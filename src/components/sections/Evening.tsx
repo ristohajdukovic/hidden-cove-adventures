@@ -1,7 +1,7 @@
 import { WhatsAppLink } from "@/components/actions/WhatsAppLink";
 import { useI18n } from "@/i18n/I18nContext";
 import { getLocalizedHref } from "@/i18n/routes";
-import sunsetImg from "@/assets/tour-sunset-bbq.jpg";
+import sunsetImg from "@/assets/sunset_boat.jpg";
 import moonImg from "@/assets/tour-moonlight.jpg";
 import { ArrowUpRight, Sun, Moon } from "@/components/icons/HandDrawn";
 

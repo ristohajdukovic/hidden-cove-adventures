@@ -1,8 +1,10 @@
 import { useI18n } from "@/i18n/I18nContext";
 import { getLocalizedHref } from "@/i18n/routes";
 import { WhatsAppLink } from "@/components/actions/WhatsAppLink";
-import heroImg from "@/assets/hero-cove.jpg";
+import heroImg from "@/assets/boat_beach.jpeg";
+import coveBg from "@/assets/hero-cove.jpg";
 import { ArrowRight } from "@/components/icons/HandDrawn";
+import { HeroCrossing } from "@/components/sections/HeroCrossing";
 import { cn } from "@/lib/utils";
 
 const WORD_STAGGER_S = 0.05;
@@ -25,13 +27,32 @@ export function Hero() {
       id="hero"
       className="relative flex items-center overflow-hidden pt-36 pb-20 md:pt-44 md:pb-28 lg:min-h-[calc(100svh-2rem)]"
     >
-      <div className="container grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div className="hero-bg" aria-hidden="true">
+        <img
+          src={coveBg}
+          alt=""
+          width={1024}
+          height={1280}
+          loading="eager"
+          className="hero-bg__image"
+        />
+        <div className="hero-bg__veil" />
+      </div>
+
+      <div className="absolute inset-x-0 bottom-2 z-[1] hidden lg:block pointer-events-none">
+        <HeroCrossing />
+      </div>
+
+      <div className="container relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         <div className="lg:col-span-7 flex flex-col gap-7">
           <h1 className="font-display text-5xl sm:text-6xl lg:text-[5.25rem] xl:text-[6rem] font-medium leading-[0.95] tracking-tight text-adriatic text-balance">
             {titleWords.map(({ word, italic }, i) => (
               <span key={i}>
                 <span
-                  className={cn("inline-block anim-word", italic && "italic font-light text-olive")}
+                  className={cn(
+                    "inline-block anim-word-surface",
+                    italic && "italic font-light text-olive",
+                  )}
                   style={{ animationDelay: `${i * WORD_STAGGER_S}s` }}
                 >
                   {word}
@@ -43,7 +64,9 @@ export function Hero() {
 
           <div
             className="flex flex-col gap-7 anim-fade-up"
-            style={{ animationDelay: `${titleWords.length * WORD_STAGGER_S + 0.15}s` }}
+            style={{
+              animationDelay: `${titleWords.length * WORD_STAGGER_S + 0.15}s`,
+            }}
           >
             <p className="text-base md:text-lg text-adriatic/70 max-w-[52ch] leading-relaxed">
               {t.hero.sub}
@@ -77,7 +100,7 @@ export function Hero() {
                 alt={t.hero.imageAlt}
                 width={1024}
                 height={1280}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover hero-kenburns"
               />
             </div>
           </div>

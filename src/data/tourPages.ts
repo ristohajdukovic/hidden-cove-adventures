@@ -1,8 +1,8 @@
 import hiddenImg from "@/assets/tour-hidden-beach.jpg";
-import valdanosTourImg from "@/assets/gallery-valdanos.jpg";
-import oldTownTourImg from "@/assets/gallery-swim.jpg";
+import valdanosTourImg from "@/assets/old_town.jpg";
+import oldTownTourImg from "@/assets/swim.jpg";
 import customTourImg from "@/assets/tour-private.jpg";
-import sunsetTourImg from "@/assets/gallery-oldtown.jpg";
+import sunsetTourImg from "@/assets/sunset_boat.jpg";
 import moonImg from "@/assets/tour-moonlight.jpg";
 import type { TourKey } from "@/i18n/translations";
 import type { TourPageId } from "@/i18n/routes";

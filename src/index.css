@@ -2030,6 +2030,101 @@
   .anim-float {
     animation: float 6s ease-in-out infinite;
   }
+
+  /* Hero: headline words surface from the water */
+  .anim-word-surface {
+    animation: wordSurface 0.9s var(--ease-expo) both;
+    animation-play-state: paused;
+  }
+  html.site-revealed .anim-word-surface {
+    animation-play-state: running;
+  }
+
+  /* Hero: slow drift inside the photo frame */
+  .hero-kenburns {
+    animation: heroKenburns 22s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+
+  /* Hero: cove photo backdrop under a warm sand veil */
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .hero-bg__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 62% 38%;
+  }
+  .hero-bg__veil {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(
+        180deg,
+        hsl(var(--sand) / 0.55) 0%,
+        hsl(var(--sand) / 0) 34%,
+        hsl(var(--sand) / 0) 62%,
+        hsl(var(--sand)) 94%
+      ),
+      linear-gradient(
+        92deg,
+        hsl(var(--sand) / 0.97) 0%,
+        hsl(var(--sand) / 0.94) 42%,
+        hsl(var(--sand) / 0.78) 72%,
+        hsl(var(--sand) / 0.55) 100%
+      );
+  }
+
+  /* Hero: ambient boat crossing */
+  .hero-crossing {
+    position: relative;
+    width: 100%;
+    color: hsl(var(--adriatic));
+    opacity: 0;
+  }
+  html.site-revealed .hero-crossing {
+    opacity: 1;
+    transition: opacity 1.4s ease 0.9s;
+  }
+  .hero-crossing__svg {
+    display: block;
+    overflow: visible;
+  }
+  .hero-crossing__wave {
+    stroke: hsl(var(--adriatic) / 0.28);
+  }
+  .hero-crossing__boat {
+    stroke: hsl(var(--adriatic));
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .hero-crossing__hull {
+    fill: hsl(var(--stone));
+  }
+  .hero-crossing__sail {
+    fill: hsl(var(--apricot) / 0.85);
+  }
+  .hero-crossing__jib {
+    fill: hsl(var(--stone));
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .anim-word-surface {
+      animation: none;
+    }
+    .hero-kenburns {
+      animation: none;
+    }
+    html.site-revealed .hero-crossing {
+      transition: none;
+    }
+  }
 }
 
 @keyframes fadeUp {
@@ -2040,6 +2135,29 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+@keyframes wordSurface {
+  from {
+    opacity: 0;
+    transform: translateY(0.55em) rotate(1.2deg);
+    filter: blur(6px);
+  }
+  60% {
+    filter: blur(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+    filter: none;
+  }
+}
+@keyframes heroKenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06) translateY(-1.5%);
   }
 }
 @keyframes float {
