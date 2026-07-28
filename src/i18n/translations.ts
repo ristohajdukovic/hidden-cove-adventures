@@ -338,7 +338,7 @@ const en: TranslationKeys = {
       desc: "Enjoy a relaxing boat trip along the Ulcinj coast, followed by several hours at a private beach area.",
       duration: "approx. 4 hours",
       group: "Up to 6 guests",
-      price: "€50 per person",
+      price: "€60 per person",
       included: [
         "Boat transfer from Valdanos to Old Ulcinj and the beach",
         "Approximately 1 hour of boat cruising in total",
@@ -359,7 +359,7 @@ const en: TranslationKeys = {
       desc: "A one-hour boat trip from Valdanos to Old Ulcinj along the coast, with the same relaxed on-board experience as our Classic Tour.",
       duration: "1 hour",
       group: "Up to 6 guests",
-      price: "€50 total",
+      price: "€75 total",
       included: [
         "Boat transfer from Valdanos to Old Ulcinj and the beach",
         "Approximately 1 hour of boat cruising in total",
@@ -373,7 +373,7 @@ const en: TranslationKeys = {
       desc: "A one-hour boat trip from Valdanos to Old Ulcinj with time to swim in the sea, plus the same relaxed on-board experience as our Classic Tour.",
       duration: "1 hour",
       group: "Up to 6 guests",
-      price: "€40 total",
+      price: "€60 total",
       included: [
         "Boat transfer from Valdanos to Old Ulcinj and the beach",
         "Approximately 1 hour of boat cruising in total",
@@ -388,7 +388,7 @@ const en: TranslationKeys = {
       desc: "A flexible one-hour boat trip built around your plans, with the same relaxed on-board experience as our Classic Tour.",
       duration: "1 hour",
       group: "Up to 6 guests",
-      price: "€60 per hour",
+      price: "€90 per hour",
       included: [
         "Boat transfer from Valdanos to Old Ulcinj and the beach",
         "Approximately 1 hour of boat cruising in total",
@@ -409,7 +409,7 @@ const en: TranslationKeys = {
       desc: "The same coastal boat and beach experience as the Classic Tour, with a freshly prepared barbecue meal instead of sandwiches.",
       duration: "approx. 4 hours",
       group: "Up to 6 guests",
-      price: "€60 per person",
+      price: "€70 per person",
       included: [
         "Boat transfer from Valdanos to Old Ulcinj and the beach",
         "Approximately 1 hour of boat cruising in total",
@@ -430,7 +430,7 @@ const en: TranslationKeys = {
       desc: "Enjoy an evening boat ride along the Ulcinj coast and watch the sunset from the sea.",
       duration: "Evening",
       group: "Up to 6 guests",
-      price: "€25 per person",
+      price: "€35 per person",
       included: [
         "Boat trip from Valdanos towards Old Ulcinj and the nearby beach",
         "Sunset views from the boat",
@@ -675,7 +675,7 @@ const en: TranslationKeys = {
         id: "prices",
         question: "How much does a boat tour in Ulcinj cost?",
         answer:
-          "Current prices from the tour cards are: Classic Tour: €50 per person; BBQ Tour: €60 per person; Sunset Tour: €25 per person; Moonlight Tour: Coming soon. Availability can change by date and sea conditions, so please confirm your preferred tour and number of guests before planning around the price.",
+          "Current prices from the tour cards are: Classic Tour: €60 per person; BBQ Tour: €70 per person; Sunset Tour: €35 per person; Moonlight Tour: Coming soon. Availability can change by date and sea conditions, so please confirm your preferred tour and number of guests before planning around the price.",
         links: [{ label: "book through WhatsApp", target: "booking" }],
       },
       {
@@ -852,7 +852,7 @@ const de: TranslationKeys = {
       desc: "Genieße eine entspannte Bootsfahrt entlang der Küste von Ulcinj und danach mehrere Stunden in einem privaten Strandbereich.",
       duration: "ca. 4 Stunden",
       group: "Bis zu 6 Gaeste",
-      price: "50 € pro Person",
+      price: "60 € pro Person",
       included: [
         "Bootstransfer von Valdanos nach Alt-Ulcinj und zum Strand",
         "Insgesamt etwa 1 Stunde Bootsfahrt",
@@ -873,7 +873,7 @@ const de: TranslationKeys = {
       desc: "Eine einstündige Bootsfahrt von Valdanos nach Alt-Ulcinj entlang der Küste, mit dem gleichen entspannten Erlebnis an Bord wie bei unserer Classic Tour.",
       duration: "1 Stunde",
       group: "Bis zu 6 Gaeste",
-      price: "50 € total",
+      price: "75 € total",
       included: [
         "Bootstransfer von Valdanos nach Alt-Ulcinj und zum Strand",
         "Insgesamt etwa 1 Stunde Bootsfahrt",
@@ -887,7 +887,7 @@ const de: TranslationKeys = {
       desc: "Eine einstündige Bootsfahrt von Valdanos nach Alt-Ulcinj mit Zeit zum Schwimmen im Meer, dazu das gleiche entspannte Erlebnis an Bord wie bei unserer Classic Tour.",
       duration: "1 Stunde",
       group: "Bis zu 6 Gaeste",
-      price: "40 € total",
+      price: "60 € total",
       included: [
         "Bootstransfer von Valdanos nach Alt-Ulcinj und zum Strand",
         "Insgesamt etwa 1 Stunde Bootsfahrt",
@@ -909,7 +909,7 @@ const de: TranslationKeys = {
       desc: "Eine flexible einstündige Bootsfahrt, die sich nach deinen Plänen richtet, mit dem gleichen entspannten Erlebnis an Bord wie bei unserer Classic Tour.",
       duration: "1 Stunde",
       group: "Bis zu 6 Gaeste",
-      price: "60 € pro Stunde",
+      price: "90 € pro Stunde",
       included: [
         "Bootstransfer von Valdanos nach Alt-Ulcinj und zum Strand",
         "Insgesamt etwa 1 Stunde Bootsfahrt",
@@ -930,7 +930,7 @@ const de: TranslationKeys = {
       desc: "Das gleiche Boot- und Stranderlebnis wie bei der Classic Tour, mit frisch zubereitetem Grillessen statt Sandwiches.",
       duration: "ca. 4 Stunden",
       group: "Bis zu 6 Gaeste",
-      price: "60 € pro Person",
+      price: "70 € pro Person",
       included: [
         "Bootstransfer von Valdanos nach Alt-Ulcinj und zum Strand",
         "Insgesamt etwa 1 Stunde Bootsfahrt",
@@ -951,7 +951,7 @@ const de: TranslationKeys = {
       desc: "Genieße eine abendliche Bootsfahrt entlang der Küste von Ulcinj und sieh den Sonnenuntergang vom Meer aus.",
       duration: "Abends",
       group: "Bis zu 6 Gaeste",
-      price: "25 € pro Person",
+      price: "35 € pro Person",
       included: [
         "Bootsfahrt von Valdanos in Richtung Alt-Ulcinj und nahegelegener Strand",
         "Sonnenuntergang vom Boot aus",
@@ -1197,7 +1197,7 @@ const de: TranslationKeys = {
         id: "prices",
         question: "Was kostet eine Bootstour in Ulcinj?",
         answer:
-          "Die aktuellen Preise aus den Tourkarten sind: Classic Tour: 50 € pro Person; BBQ Tour: 60 € pro Person; Sunset Tour: 25 € pro Person; Moonlight Tour: Demnächst. Verfügbarkeit kann sich je nach Datum und Seebedingungen ändern, bitte bestätige deine gewünschte Tour und Gruppengröße vor der Planung.",
+          "Die aktuellen Preise aus den Tourkarten sind: Classic Tour: 60 € pro Person; BBQ Tour: 70 € pro Person; Sunset Tour: 35 € pro Person; Moonlight Tour: Demnächst. Verfügbarkeit kann sich je nach Datum und Seebedingungen ändern, bitte bestätige deine gewünschte Tour und Gruppengröße vor der Planung.",
         links: [{ label: "über WhatsApp buchen", target: "booking" }],
       },
       {
@@ -1374,7 +1374,7 @@ const sq: TranslationKeys = {
       desc: "Shijo një udhëtim të qetë me varkë përgjatë bregut të Ulqinit, pastaj disa orë në një zonë private plazhi.",
       duration: "rreth 4 orë",
       group: "Deri në 6 mysafirë",
-      price: "50 € për person",
+      price: "60 € për person",
       included: [
         "Transfer me varkë nga Valdanosi drejt Ulqinit të Vjetër dhe plazhit",
         "Rreth 1 orë lundrim gjithsej",
@@ -1395,7 +1395,7 @@ const sq: TranslationKeys = {
       desc: "Një udhëtim një-orësh me varkë nga Valdanosi drejt Ulqinit të Vjetër përgjatë bregut, me të njëjtën përvojë të qetë në bord si Classic Tour.",
       duration: "1 orë",
       group: "Deri në 6 mysafirë",
-      price: "50 € total",
+      price: "75 € total",
       included: [
         "Transfer me varkë nga Valdanosi drejt Ulqinit të Vjetër dhe plazhit",
         "Rreth 1 orë lundrim gjithsej",
@@ -1409,7 +1409,7 @@ const sq: TranslationKeys = {
       desc: "Një udhëtim një-orësh me varkë nga Valdanosi drejt Ulqinit të Vjetër me kohë për të notuar në det, plus të njëjtën përvojë të qetë në bord si Classic Tour.",
       duration: "1 orë",
       group: "Deri në 6 mysafirë",
-      price: "40 € total",
+      price: "60 € total",
       included: [
         "Transfer me varkë nga Valdanosi drejt Ulqinit të Vjetër dhe plazhit",
         "Rreth 1 orë lundrim gjithsej",
@@ -1424,7 +1424,7 @@ const sq: TranslationKeys = {
       desc: "Një udhëtim fleksibël një-orësh me varkë, i ndërtuar sipas planeve tuaja, me të njëjtën përvojë të qetë në bord si Classic Tour.",
       duration: "1 orë",
       group: "Deri në 6 mysafirë",
-      price: "60 € në orë",
+      price: "90 € në orë",
       included: [
         "Transfer me varkë nga Valdanosi drejt Ulqinit të Vjetër dhe plazhit",
         "Rreth 1 orë lundrim gjithsej",
@@ -1445,7 +1445,7 @@ const sq: TranslationKeys = {
       desc: "E njëjta përvojë me varkë dhe plazh si Classic Tour, me një vakt BBQ të përgatitur në vend në vend të sanduiçeve.",
       duration: "rreth 4 orë",
       group: "Deri në 6 mysafirë",
-      price: "60 € për person",
+      price: "70 € për person",
       included: [
         "Transfer me varkë nga Valdanosi drejt Ulqinit të Vjetër dhe plazhit",
         "Rreth 1 orë lundrim gjithsej",
@@ -1466,7 +1466,7 @@ const sq: TranslationKeys = {
       desc: "Shijo një udhëtim mbrëmjeje me varkë përgjatë bregut të Ulqinit dhe shiko perëndimin e diellit nga deti.",
       duration: "Mbrëmje",
       group: "Deri në 6 mysafirë",
-      price: "25 € për person",
+      price: "35 € për person",
       included: [
         "Udhëtim me varkë nga Valdanosi drejt Ulqinit të Vjetër dhe plazhit afër",
         "Pamje të perëndimit të diellit nga varka",
@@ -1712,7 +1712,7 @@ const sq: TranslationKeys = {
         id: "prices",
         question: "Sa kushton një tur me varkë në Ulqin?",
         answer:
-          "Çmimet aktuale nga kartat e tureve janë: Classic Tour: 50 € për person; BBQ Tour: 60 € për person; Sunset Tour: 25 € për person; Moonlight Tour: Së shpejti. Disponueshmëria mund të ndryshojë sipas datës dhe kushteve të detit, prandaj konfirmoni turin dhe numrin e mysafirëve para planifikimit.",
+          "Çmimet aktuale nga kartat e tureve janë: Classic Tour: 60 € për person; BBQ Tour: 70 € për person; Sunset Tour: 35 € për person; Moonlight Tour: Së shpejti. Disponueshmëria mund të ndryshojë sipas datës dhe kushteve të detit, prandaj konfirmoni turin dhe numrin e mysafirëve para planifikimit.",
         links: [{ label: "rezervo në WhatsApp", target: "booking" }],
       },
       {
@@ -1889,7 +1889,7 @@ const me: TranslationKeys = {
       desc: "Uživaj u opuštenoj vožnji brodom duž ulcinjske obale, zatim nekoliko sati u privatnom dijelu plaže.",
       duration: "oko 4 sata",
       group: "Do 6 gostiju",
-      price: "50 € po osobi",
+      price: "60 € po osobi",
       included: [
         "Transfer brodom iz Valdanosa do Starog Ulcinja i plaže",
         "Ukupno oko 1 sat vožnje brodom",
@@ -1910,7 +1910,7 @@ const me: TranslationKeys = {
       desc: "Jednosatna vožnja brodom od Valdanosa do Starog Ulcinja duž obale, sa istim opuštenim iskustvom na brodu kao na Classic Tour.",
       duration: "1 sat",
       group: "Do 6 gostiju",
-      price: "50 € total",
+      price: "75 € total",
       included: [
         "Transfer brodom iz Valdanosa do Starog Ulcinja i plaže",
         "Ukupno oko 1 sat vožnje brodom",
@@ -1924,7 +1924,7 @@ const me: TranslationKeys = {
       desc: "Jednosatna vožnja brodom od Valdanosa do Starog Ulcinja sa vremenom za kupanje u moru, uz isto opušteno iskustvo na brodu kao na Classic Tour.",
       duration: "1 sat",
       group: "Do 6 gostiju",
-      price: "40 € total",
+      price: "60 € total",
       included: [
         "Transfer brodom iz Valdanosa do Starog Ulcinja i plaže",
         "Ukupno oko 1 sat vožnje brodom",
@@ -1939,7 +1939,7 @@ const me: TranslationKeys = {
       desc: "Fleksibilna jednosatna vožnja brodom prilagođena vašim planovima, sa istim opuštenim iskustvom na brodu kao na Classic Tour.",
       duration: "1 sat",
       group: "Do 6 gostiju",
-      price: "60 € po satu",
+      price: "90 € po satu",
       included: [
         "Transfer brodom iz Valdanosa do Starog Ulcinja i plaže",
         "Ukupno oko 1 sat vožnje brodom",
@@ -1960,7 +1960,7 @@ const me: TranslationKeys = {
       desc: "Isto iskustvo broda i plaže kao Classic Tour, uz svježe pripremljen roštilj umjesto sendviča.",
       duration: "oko 4 sata",
       group: "Do 6 gostiju",
-      price: "60 € po osobi",
+      price: "70 € po osobi",
       included: [
         "Transfer brodom iz Valdanosa do Starog Ulcinja i plaže",
         "Ukupno oko 1 sat vožnje brodom",
@@ -1981,7 +1981,7 @@ const me: TranslationKeys = {
       desc: "Uživaj u večernjoj vožnji brodom duž ulcinjske obale i gledaj zalazak sunca sa mora.",
       duration: "Veče",
       group: "Do 6 gostiju",
-      price: "25 € po osobi",
+      price: "35 € po osobi",
       included: [
         "Vožnja brodom iz Valdanosa prema Starom Ulcinju i obližnjoj plaži",
         "Pogled na zalazak sunca sa broda",
@@ -2224,7 +2224,7 @@ const me: TranslationKeys = {
         id: "prices",
         question: "Koliko košta tura brodom u Ulcinju?",
         answer:
-          "Trenutne cijene sa kartica tura su: Classic Tour: 50 € po osobi; BBQ Tour: 60 € po osobi; Sunset Tour: 25 € po osobi; Moonlight Tour: Uskoro. Dostupnost se može mijenjati po datumu i uslovima na moru, zato potvrdi željenu turu i broj gostiju prije planiranja.",
+          "Trenutne cijene sa kartica tura su: Classic Tour: 60 € po osobi; BBQ Tour: 70 € po osobi; Sunset Tour: 35 € po osobi; Moonlight Tour: Uskoro. Dostupnost se može mijenjati po datumu i uslovima na moru, zato potvrdi željenu turu i broj gostiju prije planiranja.",
         links: [{ label: "rezerviši preko WhatsApp-a", target: "booking" }],
       },
       {
