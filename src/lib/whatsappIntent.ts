@@ -58,6 +58,10 @@ export function getMobileBookingLabelForPage(
     return t.cta.askAboutThisTour;
   }
 
+  if (pageId === "bbqTour") {
+    return t.cta.bookBbqTour;
+  }
+
   if (
     pageId === "classicTour" ||
     pageId === "valdanosTour" ||

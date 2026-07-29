@@ -23,6 +23,10 @@ function getBookingLabel(definition: TourDefinition, t: TranslationKeys): string
     return t.cta.bookThisTour;
   }
 
+  if (definition.pageId === "bbqTour") {
+    return t.cta.bookBbqTour;
+  }
+
   if (definition.pageId === "sunsetTour") {
     return t.cta.bookSunsetTour;
   }

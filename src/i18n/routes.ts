@@ -12,6 +12,7 @@ export type TourPageId =
   | "valdanosTour"
   | "oldTownTour"
   | "customTour"
+  | "bbqTour"
   | "sunsetTour"
   | "moonlightTour";
 export type PageId = HomePageId | ToursOverviewPageId | TourPageId;
@@ -23,6 +24,7 @@ export const pageIds = [
   "valdanosTour",
   "oldTownTour",
   "customTour",
+  "bbqTour",
   "sunsetTour",
   "moonlightTour",
 ] as const satisfies readonly PageId[];
@@ -32,6 +34,7 @@ export const tourPageIds = [
   "valdanosTour",
   "oldTownTour",
   "customTour",
+  "bbqTour",
   "sunsetTour",
   "moonlightTour",
 ] as const satisfies readonly TourPageId[];
@@ -72,6 +75,12 @@ export const localizedRoutePaths = {
     de: "/de/bootstouren/custom-tour/",
     sq: "/sq/ture-me-varke/tur-me-porosi/",
     me: "/me/ture-brodom/tura-po-zelji/",
+  },
+  bbqTour: {
+    en: "/tours/bbq-tour/",
+    de: "/de/bootstouren/bbq-tour/",
+    sq: "/sq/ture-me-varke/tur-bbq/",
+    me: "/me/ture-brodom/bbq-tura/",
   },
   sunsetTour: {
     en: "/tours/sunset-tour/",

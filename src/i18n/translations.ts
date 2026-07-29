@@ -408,20 +408,20 @@ const en: TranslationKeys = {
       tagline: "Day trip",
       desc: "The same coastal boat and beach experience as the Classic Tour, with a freshly prepared barbecue meal instead of sandwiches.",
       duration: "approx. 4 hours",
-      group: "Up to 6 guests",
-      price: "€70 per person",
+      group: "6 to 16 guests",
+      price: "€80 per person",
       included: [
         "Boat transfer from Valdanos to Old Ulcinj and the beach",
         "Approximately 1 hour of boat cruising in total",
         "Two drinks per person",
-        "Barbecue meal",
+        "Barbecue meal (meat on agreement - chicken, pork, etc.)",
         "Use of sun loungers",
         "Kayaks",
         "Dërrasa SUP",
         "Snorkelling masks",
         "Water volleyball",
       ],
-      note: "Additional drinks can be purchased during the tour.",
+      note: "No sandwiches on this tour. Meat choice is agreed in advance. Additional drinks can be purchased during the tour.",
       imageAlt: "BBQ Tour beach meal by the Adriatic",
     },
     moonlight: {
@@ -587,9 +587,9 @@ const en: TranslationKeys = {
   bbq: {
     eyebrow: "BBQ & cold drinks",
     title: "A simple beach BBQ, the way the coast does it.",
-    body: "We light a small fire on the pebbles, grill what is fresh, slice some watermelon. Cold local beer, water, soft drinks and homemade lemonade are always on board.",
+    body: "We light a small fire on the pebbles and grill meat agreed with you in advance, slice some watermelon. Cold local beer, water, soft drinks and homemade lemonade are always on board.",
     bullets: [
-      "Fresh local catch and vegetables on the grill",
+      "Meat on agreement (chicken, pork, etc.) and vegetables on the grill",
       "Cold beer, water, soft drinks, lemonade",
       "Vegetarian options on request",
       "Bring your own bottle of wine - we bring the ice",
@@ -675,7 +675,7 @@ const en: TranslationKeys = {
         id: "prices",
         question: "How much does a boat tour in Ulcinj cost?",
         answer:
-          "Current prices from the tour cards are: Classic Tour: €60 per person; BBQ Tour: €70 per person; Sunset Tour: €35 per person; Moonlight Tour: Coming soon. Availability can change by date and sea conditions, so please confirm your preferred tour and number of guests before planning around the price.",
+          "Current prices from the tour cards are: Classic Tour: €60 per person; BBQ Tour: €80 per person (6 to 16 guests); Sunset Tour: €35 per person; Moonlight Tour: Coming soon. Availability can change by date and sea conditions, so please confirm your preferred tour and number of guests before planning around the price.",
         links: [{ label: "book through WhatsApp", target: "booking" }],
       },
       {
@@ -695,7 +695,7 @@ const en: TranslationKeys = {
         id: "bbq-food",
         question: "What is served on the BBQ Tour?",
         answer:
-          "We light a small fire on the pebbles, grill the fresh local catch and seasonal vegetables, slice some watermelon, and keep cold local beer, water, and homemade lemonade on board. A vegetarian option is available on request.",
+          "We light a small fire on the pebbles and grill meat agreed with you in advance (chicken, pork, etc.) along with seasonal vegetables, slice some watermelon, and keep cold local beer, water, and homemade lemonade on board. No sandwiches on this tour. A vegetarian option is available on request.",
       },
       {
         id: "hidden-beach-road",
@@ -929,20 +929,20 @@ const de: TranslationKeys = {
       tagline: "Tagestour",
       desc: "Das gleiche Boot- und Stranderlebnis wie bei der Classic Tour, mit frisch zubereitetem Grillessen statt Sandwiches.",
       duration: "ca. 4 Stunden",
-      group: "Bis zu 6 Gaeste",
-      price: "70 € pro Person",
+      group: "6 bis 16 Gaeste",
+      price: "80 € pro Person",
       included: [
         "Bootstransfer von Valdanos nach Alt-Ulcinj und zum Strand",
         "Insgesamt etwa 1 Stunde Bootsfahrt",
         "Zwei Getränke pro Person",
-        "Grillessen",
+        "Grillessen (Fleischwahl nach Absprache - Huhn, Schwein, etc.)",
         "Nutzung der Sonnenliegen",
         "Kajaks",
         "Stand-up-Paddleboards",
         "Schnorchelmasken",
         "Wasservolleyball",
       ],
-      note: "Zusätzliche Getränke können während der Tour gekauft werden.",
+      note: "Keine Sandwiches bei dieser Tour. Die Fleischwahl wird vorab abgesprochen. Zusätzliche Getränke können während der Tour gekauft werden.",
       imageAlt: "Grillessen der BBQ Tour am Adriastrand",
     },
     moonlight: {
@@ -1109,9 +1109,9 @@ const de: TranslationKeys = {
   bbq: {
     eyebrow: "BBQ & kalte Getränke",
     title: "Ein einfaches Strand-BBQ, wie es die Küste macht.",
-    body: "Wir machen ein kleines Feuer auf den Kieseln, grillen, was frisch ist, und schneiden Wassermelone. Kaltes lokales Bier, Wasser, Softdrinks und hausgemachte Limonade sind immer an Bord.",
+    body: "Wir machen ein kleines Feuer auf den Kieseln und grillen Fleisch nach vorheriger Absprache, dazu Wassermelone. Kaltes lokales Bier, Wasser, Softdrinks und hausgemachte Limonade sind immer an Bord.",
     bullets: [
-      "Frischer lokaler Fang und Gemüse vom Grill",
+      "Fleisch nach Absprache (Huhn, Schwein, etc.) und Gemüse vom Grill",
       "Kaltes Bier, Wasser, Softdrinks, Limonade",
       "Vegetarische Optionen auf Anfrage",
       "Bring deine eigene Flasche Wein mit - wir bringen das Eis",
@@ -1197,7 +1197,7 @@ const de: TranslationKeys = {
         id: "prices",
         question: "Was kostet eine Bootstour in Ulcinj?",
         answer:
-          "Die aktuellen Preise aus den Tourkarten sind: Classic Tour: 60 € pro Person; BBQ Tour: 70 € pro Person; Sunset Tour: 35 € pro Person; Moonlight Tour: Demnächst. Verfügbarkeit kann sich je nach Datum und Seebedingungen ändern, bitte bestätige deine gewünschte Tour und Gruppengröße vor der Planung.",
+          "Die aktuellen Preise aus den Tourkarten sind: Classic Tour: 60 € pro Person; BBQ Tour: 80 € pro Person (6 bis 16 Gaeste); Sunset Tour: 35 € pro Person; Moonlight Tour: Demnächst. Verfügbarkeit kann sich je nach Datum und Seebedingungen ändern, bitte bestätige deine gewünschte Tour und Gruppengröße vor der Planung.",
         links: [{ label: "über WhatsApp buchen", target: "booking" }],
       },
       {
@@ -1217,7 +1217,7 @@ const de: TranslationKeys = {
         id: "bbq-food",
         question: "Was gibt es auf der BBQ Tour zu essen?",
         answer:
-          "Wir machen ein kleines Feuer auf den Kieseln, grillen frischen lokalen Fang und saisonales Gemüse, schneiden Wassermelone und haben kaltes lokales Bier, Wasser und hausgemachte Limonade an Bord. Eine vegetarische Option ist auf Anfrage möglich.",
+          "Wir machen ein kleines Feuer auf den Kieseln und grillen Fleisch nach vorheriger Absprache (Huhn, Schwein, etc.) sowie saisonales Gemüse, schneiden Wassermelone und haben kaltes lokales Bier, Wasser und hausgemachte Limonade an Bord. Keine Sandwiches bei dieser Tour. Eine vegetarische Option ist auf Anfrage möglich.",
       },
       {
         id: "hidden-beach-road",
@@ -1444,20 +1444,20 @@ const sq: TranslationKeys = {
       tagline: "Tur ditor",
       desc: "E njëjta përvojë me varkë dhe plazh si Classic Tour, me një vakt BBQ të përgatitur në vend në vend të sanduiçeve.",
       duration: "rreth 4 orë",
-      group: "Deri në 6 mysafirë",
-      price: "70 € për person",
+      group: "Nga 6 deri në 16 mysafirë",
+      price: "80 € për person",
       included: [
         "Transfer me varkë nga Valdanosi drejt Ulqinit të Vjetër dhe plazhit",
         "Rreth 1 orë lundrim gjithsej",
         "Dy pije për person",
-        "Vakt BBQ",
+        "Vakt BBQ (mishi sipas marrëveshjes - pulë, derr, etj.)",
         "Përdorimi i shezlongëve",
         "Kajakë",
         "Stand-up paddleboards",
         "Maska për snorkelling",
         "Volejboll në ujë",
       ],
-      note: "Pije shtesë mund të blihen gjatë turit.",
+      note: "Pa sanduiçe në këtë tur. Lloji i mishit përcaktohet paraprakisht me marrëveshje. Pije shtesë mund të blihen gjatë turit.",
       imageAlt: "Vakt BBQ në plazh pranë Adriatikut",
     },
     moonlight: {
@@ -1624,9 +1624,9 @@ const sq: TranslationKeys = {
   bbq: {
     eyebrow: "BBQ & pije të ftohta",
     title: "Një BBQ i thjeshtë në plazh, siç e bën bregu.",
-    body: "Ndezim një zjarr të vogël mbi guralecë, pjekim atë që është e freskët dhe presim shalqi. Birrë lokale e ftohtë, ujë, pije freskuese dhe limonadë shtëpie janë gjithmonë në bord.",
+    body: "Ndezim një zjarr të vogël mbi guralecë dhe pjekim mishin e rënë dakord paraprakisht, presim edhe shalqi. Birrë lokale e ftohtë, ujë, pije freskuese dhe limonadë shtëpie janë gjithmonë në bord.",
     bullets: [
-      "Peshk lokal i freskët dhe perime në skarë",
+      "Mishi sipas marrëveshjes (pulë, derr, etj.) dhe perime në skarë",
       "Birrë e ftohtë, ujë, pije freskuese, limonadë",
       "Opsione vegjetariane me kërkesë",
       "Sillni shishen tuaj të verës - ne sjellim akullin",
@@ -1712,7 +1712,7 @@ const sq: TranslationKeys = {
         id: "prices",
         question: "Sa kushton një tur me varkë në Ulqin?",
         answer:
-          "Çmimet aktuale nga kartat e tureve janë: Classic Tour: 60 € për person; BBQ Tour: 70 € për person; Sunset Tour: 35 € për person; Moonlight Tour: Së shpejti. Disponueshmëria mund të ndryshojë sipas datës dhe kushteve të detit, prandaj konfirmoni turin dhe numrin e mysafirëve para planifikimit.",
+          "Çmimet aktuale nga kartat e tureve janë: Classic Tour: 60 € për person; BBQ Tour: 80 € për person (6 deri në 16 mysafirë); Sunset Tour: 35 € për person; Moonlight Tour: Së shpejti. Disponueshmëria mund të ndryshojë sipas datës dhe kushteve të detit, prandaj konfirmoni turin dhe numrin e mysafirëve para planifikimit.",
         links: [{ label: "rezervo në WhatsApp", target: "booking" }],
       },
       {
@@ -1732,7 +1732,7 @@ const sq: TranslationKeys = {
         id: "bbq-food",
         question: "Çfarë shërbehet në BBQ Tour?",
         answer:
-          "Ndezim një zjarr të vogël mbi guralecë, pjekim peshk lokal të freskët dhe perime sezonale, presim shalqi dhe mbajmë në bord birrë lokale të ftohtë, ujë dhe limonadë shtëpie. Opsioni vegjetarian është i mundur me kërkesë.",
+          "Ndezim një zjarr të vogël mbi guralecë dhe pjekim mishin e rënë dakord paraprakisht (pulë, derr, etj.) me perime sezonale, presim shalqi dhe mbajmë në bord birrë lokale të ftohtë, ujë dhe limonadë shtëpie. Pa sanduiçe në këtë tur. Opsioni vegjetarian është i mundur me kërkesë.",
       },
       {
         id: "hidden-beach-road",
@@ -1959,20 +1959,20 @@ const me: TranslationKeys = {
       tagline: "Dnevna tura",
       desc: "Isto iskustvo broda i plaže kao Classic Tour, uz svježe pripremljen roštilj umjesto sendviča.",
       duration: "oko 4 sata",
-      group: "Do 6 gostiju",
-      price: "70 € po osobi",
+      group: "Od 6 do 16 gostiju",
+      price: "80 € po osobi",
       included: [
         "Transfer brodom iz Valdanosa do Starog Ulcinja i plaže",
         "Ukupno oko 1 sat vožnje brodom",
         "Dva pića po osobi",
-        "Obrok sa roštilja",
+        "Obrok sa roštilja (vrsta mesa po dogovoru - piletina, svinjetina, itd.)",
         "Korišćenje ležaljki",
         "Kajaci",
         "SUP daske",
         "Maske za ronjenje",
         "Odbojka u vodi",
       ],
-      note: "Dodatna pića mogu se kupiti tokom ture.",
+      note: "Bez sendviča na ovoj turi. Vrsta mesa se dogovara unaprijed. Dodatna pića mogu se kupiti tokom ture.",
       imageAlt: "BBQ obrok na plaži pored Jadrana",
     },
     moonlight: {
@@ -2136,9 +2136,9 @@ const me: TranslationKeys = {
   bbq: {
     eyebrow: "Roštilj & hladna pića",
     title: "Jednostavan roštilj na plaži, kako to obala radi.",
-    body: "Palimo malu vatru na oblucima, pečemo ono što je svježe i siječemo lubenicu. Hladno lokalno pivo, voda, sokovi i domaća limunada uvijek su na brodu.",
+    body: "Palimo malu vatru na oblucima i pečemo meso dogovoreno unaprijed, siječemo i lubenicu. Hladno lokalno pivo, voda, sokovi i domaća limunada uvijek su na brodu.",
     bullets: [
-      "Svjež lokalni ulov i povrće sa roštilja",
+      "Meso po dogovoru (piletina, svinjetina, itd.) i povrće sa roštilja",
       "Hladno pivo, voda, sokovi, limunada",
       "Vegetarijanske opcije na zahtjev",
       "Donesi svoju bocu vina - mi donosimo led",
@@ -2224,7 +2224,7 @@ const me: TranslationKeys = {
         id: "prices",
         question: "Koliko košta tura brodom u Ulcinju?",
         answer:
-          "Trenutne cijene sa kartica tura su: Classic Tour: 60 € po osobi; BBQ Tour: 70 € po osobi; Sunset Tour: 35 € po osobi; Moonlight Tour: Uskoro. Dostupnost se može mijenjati po datumu i uslovima na moru, zato potvrdi željenu turu i broj gostiju prije planiranja.",
+          "Trenutne cijene sa kartica tura su: Classic Tour: 60 € po osobi; BBQ Tour: 80 € po osobi (od 6 do 16 gostiju); Sunset Tour: 35 € po osobi; Moonlight Tour: Uskoro. Dostupnost se može mijenjati po datumu i uslovima na moru, zato potvrdi željenu turu i broj gostiju prije planiranja.",
         links: [{ label: "rezerviši preko WhatsApp-a", target: "booking" }],
       },
       {
@@ -2244,7 +2244,7 @@ const me: TranslationKeys = {
         id: "bbq-food",
         question: "Šta se služi na BBQ Tour?",
         answer:
-          "Palimo malu vatru na oblucima, pečemo svjež lokalni ulov i sezonsko povrće, siječemo lubenicu i držimo hladno lokalno pivo, vodu i domaću limunadu na brodu. Vegetarijanska opcija je dostupna na zahtjev.",
+          "Palimo malu vatru na oblucima i pečemo meso dogovoreno unaprijed (piletina, svinjetina, itd.) sa sezonskim povrćem, siječemo lubenicu i držimo hladno lokalno pivo, vodu i domaću limunadu na brodu. Bez sendviča na ovoj turi. Vegetarijanska opcija je dostupna na zahtjev.",
       },
       {
         id: "hidden-beach-road",

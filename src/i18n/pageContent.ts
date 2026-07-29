@@ -125,6 +125,14 @@ export const pageContent: Record<Lang, PageContent> = {
         ogDescription:
           "Build your own boat trip along the Ulcinj coast, priced per hour.",
       },
+      bbqTour: {
+        title: "BBQ Beach Tour | Hidden Cove Boat Tours",
+        description:
+          "A four-hour boat and beach tour from Valdanos with a freshly grilled barbecue meal, drinks, sun loungers and water toys for groups of 6 to 16.",
+        ogTitle: "BBQ Beach Tour | Hidden Cove Boat Tours",
+        ogDescription:
+          "Swim, relax on a secluded beach and enjoy a beachside barbecue grilled to order.",
+      },
       sunsetTour: {
         title: "Sunset Boat Tour | Hidden Cove Boat Tours",
         description:
@@ -230,6 +238,22 @@ export const pageContent: Record<Lang, PageContent> = {
           "Send your preferred date, duration and guest count and we will confirm current availability by WhatsApp.",
         bookingLabel: "Book this tour",
       },
+      bbqTour: {
+        eyebrow: "Beach barbecue",
+        intro:
+          "The BBQ Tour follows the same coastal boat and beach route as our Classic Tour, with a freshly grilled barbecue meal in place of sandwiches. Meat is agreed with you in advance - chicken, pork, or your preference.",
+        highlightsTitle: "Why choose it",
+        highlights: [
+          "Best for groups of 6 to 16 who want a full beach barbecue.",
+          "Includes drinks, a grilled meal and use of sun loungers, kayaks, SUP and snorkelling gear.",
+          "Meat choice (chicken, pork, etc.) agreed in advance - no sandwiches on this tour.",
+        ],
+        practicalTitle: "Tour details",
+        ctaTitle: "Ask about the BBQ Tour",
+        ctaBody:
+          "Send your preferred date, group size and meat choice and we will confirm current availability by WhatsApp.",
+        bookingLabel: "Book the BBQ Tour",
+      },
       sunsetTour: {
         eyebrow: "Evening light",
         intro:
@@ -331,6 +355,14 @@ export const pageContent: Record<Lang, PageContent> = {
         ogTitle: "Custom Tour | Hidden Cove Boat Tours",
         ogDescription:
           "Gestalte deine eigene Bootstour entlang der Kueste von Ulcinj, abgerechnet pro Stunde.",
+      },
+      bbqTour: {
+        title: "BBQ Strandtour | Hidden Cove Boat Tours",
+        description:
+          "Eine vierstuendige Boots- und Strandtour ab Valdanos mit frisch gegrilltem Grillessen, Getraenken, Sonnenliegen und Wasserspielzeug fuer Gruppen von 6 bis 16 Personen.",
+        ogTitle: "BBQ Strandtour | Hidden Cove Boat Tours",
+        ogDescription:
+          "Schwimmen, entspannen an einem abgeschiedenen Strand und ein Strand-BBQ nach Absprache geniessen.",
       },
       sunsetTour: {
         title: "Sunset Bootstour | Hidden Cove Boat Tours",
@@ -437,6 +469,22 @@ export const pageContent: Record<Lang, PageContent> = {
           "Sende dein Wunschdatum, die gewuenschte Dauer und die Anzahl der Gaeste, dann bestaetigen wir die aktuelle Verfuegbarkeit per WhatsApp.",
         bookingLabel: "Diese Tour buchen",
       },
+      bbqTour: {
+        eyebrow: "Strand-Grillfest",
+        intro:
+          "Die BBQ Tour folgt derselben Boots- und Strandroute wie unsere Classic Tour, mit einem frisch gegrillten Grillessen statt Sandwiches. Die Fleischwahl wird vorab mit dir abgesprochen - Huhn, Schwein oder nach Wunsch.",
+        highlightsTitle: "Warum diese Tour",
+        highlights: [
+          "Am besten fuer Gruppen von 6 bis 16 Personen, die ein komplettes Strand-BBQ moechten.",
+          "Getraenke, Grillessen und die Nutzung von Sonnenliegen, Kajaks, SUP und Schnorchelausruestung sind inklusive.",
+          "Fleischwahl (Huhn, Schwein, etc.) wird vorab abgesprochen - keine Sandwiches bei dieser Tour.",
+        ],
+        practicalTitle: "Tourdetails",
+        ctaTitle: "Zur BBQ Tour anfragen",
+        ctaBody:
+          "Sende dein Wunschdatum, die Gruppengroesse und die Fleischwahl, dann bestaetigen wir die aktuelle Verfuegbarkeit per WhatsApp.",
+        bookingLabel: "BBQ Tour buchen",
+      },
       sunsetTour: {
         eyebrow: "Abendlicht",
         intro:
@@ -538,6 +586,14 @@ export const pageContent: Record<Lang, PageContent> = {
         ogTitle: "Custom Tour me varke | Hidden Cove Boat Tours",
         ogDescription:
           "Ndertoni turin tuaj me varke pergjate bregdetit te Ulqinit, me cmim per ore.",
+      },
+      bbqTour: {
+        title: "Tur BBQ ne Plazh | Hidden Cove Boat Tours",
+        description:
+          "Nje tur kater-oresh me varke dhe plazh nga Valdanosi me nje vakt BBQ te freskuar, pije, shezllone dhe pajisje uji per grupe nga 6 deri ne 16 veta.",
+        ogTitle: "Tur BBQ ne Plazh | Hidden Cove Boat Tours",
+        ogDescription:
+          "Noto, relaksohu ne nje plazh te fshehur dhe shijo nje BBQ plazhi sipas marreveshjes.",
       },
       sunsetTour: {
         title: "Sunset Tour me varke | Hidden Cove Boat Tours",
@@ -644,6 +700,22 @@ export const pageContent: Record<Lang, PageContent> = {
           "Dergo daten e deshiruar, kohezgjatjen dhe numrin e mysafireve, dhe ne do te konfirmojme disponueshmerine ne WhatsApp.",
         bookingLabel: "Rezervo kete tur",
       },
+      bbqTour: {
+        eyebrow: "BBQ ne plazh",
+        intro:
+          "BBQ Tour ndjek te njejtin itinerar me varke dhe plazh si Classic Tour, me nje vakt BBQ te freskuar ne vend te sanduiceve. Lloji i mishit bihet dakord paraprakisht me ju - pule, derr, ose sipas preferences.",
+        highlightsTitle: "Pse ta zgjedhesh",
+        highlights: [
+          "Ideale per grupe nga 6 deri ne 16 veta qe duan nje BBQ te plote ne plazh.",
+          "Perfshin pije, vakt ne skare dhe perdorimin e shezlloneve, kajakeve, SUP dhe pajisjeve per snorkelling.",
+          "Lloji i mishit (pule, derr, etj.) bihet dakord paraprakisht - pa sanduice ne kete tur.",
+        ],
+        practicalTitle: "Detajet e turit",
+        ctaTitle: "Pyet per BBQ Tour",
+        ctaBody:
+          "Dergo daten e deshiruar, numrin e mysafireve dhe llojin e mishit, dhe ne do te konfirmojme disponueshmerine ne WhatsApp.",
+        bookingLabel: "Rezervo BBQ Tour",
+      },
       sunsetTour: {
         eyebrow: "Drita e mbremjes",
         intro:
@@ -745,6 +817,14 @@ export const pageContent: Record<Lang, PageContent> = {
         ogTitle: "Custom Tour brodom | Hidden Cove Boat Tours",
         ogDescription:
           "Kreirajte svoju turu brodom duž ulcinjske obale, po cijeni na sat.",
+      },
+      bbqTour: {
+        title: "BBQ Tura na Plazi | Hidden Cove Boat Tours",
+        description:
+          "Cetvorosatna tura brodom i plazom iz Valdanosa sa svjeze pripremljenim rostiljem, picem, lezaljkama i vodenom opremom za grupe od 6 do 16 osoba.",
+        ogTitle: "BBQ Tura na Plazi | Hidden Cove Boat Tours",
+        ogDescription:
+          "Plivaj, opusti se na skrivenoj plazi i uzivaj u rostilju po dogovoru.",
       },
       sunsetTour: {
         title: "Sunset Tour brodom | Hidden Cove Boat Tours",
@@ -850,6 +930,22 @@ export const pageContent: Record<Lang, PageContent> = {
         ctaBody:
           "Posalji zeljeni datum, trajanje i broj gostiju, a mi cemo potvrditi dostupnost preko WhatsApp-a.",
         bookingLabel: "Rezervisi ovu turu",
+      },
+      bbqTour: {
+        eyebrow: "Rostilj na plazi",
+        intro:
+          "BBQ Tour prati istu rutu brodom i plazom kao Classic Tour, uz svjeze pripremljen rostilj umjesto sendvica. Vrsta mesa se dogovara unaprijed sa vama - piletina, svinjetina ili po zelji.",
+        highlightsTitle: "Zasto izabrati",
+        highlights: [
+          "Najbolje za grupe od 6 do 16 osoba koje zele kompletan rostilj na plazi.",
+          "Ukljucuje pice, obrok sa rostilja i koriscenje lezaljki, kajaka, SUP daski i opreme za ronjenje.",
+          "Vrsta mesa (piletina, svinjetina, itd.) dogovara se unaprijed - bez sendvica na ovoj turi.",
+        ],
+        practicalTitle: "Detalji ture",
+        ctaTitle: "Pitaj za BBQ Tour",
+        ctaBody:
+          "Posalji zeljeni datum, broj gostiju i vrstu mesa, a mi cemo potvrditi dostupnost preko WhatsApp-a.",
+        bookingLabel: "Rezervisi BBQ Tour",
       },
       sunsetTour: {
         eyebrow: "Vecernje svjetlo",

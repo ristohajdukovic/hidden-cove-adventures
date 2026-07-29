@@ -2,6 +2,7 @@ import hiddenImg from "@/assets/tour-hidden-beach.jpg";
 import valdanosTourImg from "@/assets/old_town.jpg";
 import oldTownTourImg from "@/assets/swim.jpg";
 import customTourImg from "@/assets/tour-private.jpg";
+import bbqTourImg from "@/assets/tour-sunset-bbq.jpg";
 import sunsetTourImg from "@/assets/sunset_boat.jpg";
 import moonImg from "@/assets/tour-moonlight.jpg";
 import type { TourKey } from "@/i18n/translations";
@@ -49,6 +50,14 @@ export const tourDefinitions = [
     cardClassName: "tour-card--custom",
     status: "available",
     whatsappMessageKey: "customTour",
+  },
+  {
+    pageId: "bbqTour",
+    tourKey: "sunset",
+    image: bbqTourImg,
+    cardClassName: "tour-card--bbq",
+    status: "available",
+    whatsappMessageKey: "bbqTour",
   },
   {
     pageId: "sunsetTour",
