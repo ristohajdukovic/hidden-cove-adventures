@@ -1,7 +1,7 @@
-import boat2hImg from "@/assets/swim.jpg";
-import adaBojanaImg from "@/assets/bojana.jpg";
-import redRockImg from "@/assets/sunset_boat.jpg";
-import crystalBeachImg from "@/assets/gallery-valdanos.jpg";
+import boat2hImg from "@/assets/swim.webp";
+import adaBojanaImg from "@/assets/bojana.webp";
+import redRockImg from "@/assets/sunset_boat.webp";
+import crystalBeachImg from "@/assets/gallery-valdanos.webp";
 import type { PartnerTripKey } from "@/i18n/translations";
 import type { WhatsAppMessageKey } from "@/lib/business";
 

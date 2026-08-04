@@ -1,6 +1,6 @@
 import { useI18n } from "@/i18n/I18nContext";
 import { WhatsAppLink } from "@/components/actions/WhatsAppLink";
-import privateImg from "@/assets/tour-private.jpg";
+import privateImg from "@/assets/tour-private.webp";
 import { ArrowRight } from "@/components/icons/HandDrawn";
 
 export function PrivateSection() {

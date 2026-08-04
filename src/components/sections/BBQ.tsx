@@ -1,6 +1,6 @@
 import { WhatsAppLink } from "@/components/actions/WhatsAppLink";
 import { useI18n } from "@/i18n/I18nContext";
-import drinksImg from "@/assets/beer_beach.jpg";
+import drinksImg from "@/assets/beer_beach.webp";
 import { ArrowRight, Check } from "@/components/icons/HandDrawn";
 
 export function BBQ() {

@@ -1,8 +1,8 @@
 import { useI18n } from "@/i18n/I18nContext";
 import { getLocalizedHref } from "@/i18n/routes";
 import { WhatsAppLink } from "@/components/actions/WhatsAppLink";
-import heroImg from "@/assets/boat_beach.jpeg";
-import coveBg from "@/assets/hero-cove.jpg";
+import heroImg from "@/assets/boat_beach.webp";
+import coveBg from "@/assets/hero-cove.webp";
 import { ArrowRight } from "@/components/icons/HandDrawn";
 import { HeroCrossing } from "@/components/sections/HeroCrossing";
 import { cn } from "@/lib/utils";

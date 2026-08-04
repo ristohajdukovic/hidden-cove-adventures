@@ -1,10 +1,10 @@
-import hiddenImg from "@/assets/tour-hidden-beach.jpg";
-import valdanosTourImg from "@/assets/old_town.jpg";
-import oldTownTourImg from "@/assets/swim.jpg";
-import customTourImg from "@/assets/tour-private.jpg";
-import bbqTourImg from "@/assets/tour-sunset-bbq.jpg";
-import sunsetTourImg from "@/assets/sunset_boat.jpg";
-import moonImg from "@/assets/tour-moonlight.jpg";
+import hiddenImg from "@/assets/tour-hidden-beach.webp";
+import valdanosTourImg from "@/assets/old_town.webp";
+import oldTownTourImg from "@/assets/swim.webp";
+import customTourImg from "@/assets/tour-private.webp";
+import bbqTourImg from "@/assets/tour-sunset-bbq.webp";
+import sunsetTourImg from "@/assets/sunset_boat.webp";
+import moonImg from "@/assets/tour-moonlight.webp";
 import type { TourKey } from "@/i18n/translations";
 import type { TourPageId } from "@/i18n/routes";
 import type { WhatsAppMessageKey } from "@/lib/business";

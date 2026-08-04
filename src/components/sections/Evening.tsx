@@ -1,8 +1,8 @@
 import { WhatsAppLink } from "@/components/actions/WhatsAppLink";
 import { useI18n } from "@/i18n/I18nContext";
 import { getLocalizedHref } from "@/i18n/routes";
-import sunsetImg from "@/assets/sunset_boat.jpg";
-import moonImg from "@/assets/tour-moonlight.jpg";
+import sunsetImg from "@/assets/sunset_boat.webp";
+import moonImg from "@/assets/tour-moonlight.webp";
 import { ArrowUpRight, Sun, Moon } from "@/components/icons/HandDrawn";
 
 export function Evening() {

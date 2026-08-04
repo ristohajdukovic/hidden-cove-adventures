@@ -1,10 +1,10 @@
 import { useI18n } from "@/i18n/I18nContext";
 import oldtown from "@/assets/ulcinj_old_town_sunset.webp";
-import valdanos from "@/assets/old_town.jpg";
-import swim from "@/assets/swim.jpg";
-import drinks from "@/assets/beer_beach.jpg";
-import hidden from "@/assets/tour-hidden-beach.jpg";
-import sunset from "@/assets/sunset_boat.jpg";
+import valdanos from "@/assets/old_town.webp";
+import swim from "@/assets/swim.webp";
+import drinks from "@/assets/beer_beach.webp";
+import hidden from "@/assets/tour-hidden-beach.webp";
+import sunset from "@/assets/sunset_boat.webp";
 
 export function Gallery() {
   const { t } = useI18n();
