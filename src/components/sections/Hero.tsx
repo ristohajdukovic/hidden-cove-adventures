@@ -2,6 +2,7 @@ import { useI18n } from "@/i18n/I18nContext";
 import { getLocalizedHref } from "@/i18n/routes";
 import { WhatsAppLink } from "@/components/actions/WhatsAppLink";
 import heroImg from "@/assets/boat_beach.webp";
+import heroVideo from "@/assets/hero_video.mp4";
 import coveBg from "@/assets/hero-cove.webp";
 import { ArrowRight } from "@/components/icons/HandDrawn";
 import { HeroCrossing } from "@/components/sections/HeroCrossing";
@@ -95,12 +96,15 @@ export function Hero() {
         <div className="lg:col-span-5 relative">
           <div className="photo-frame rotate-[1.5deg] hover:rotate-0 transition-transform duration-700">
             <div className="photo-frame-inner aspect-[4/5] w-full">
-              <img
-                src={heroImg}
-                alt={t.hero.imageAlt}
-                width={1024}
-                height={1280}
-                className="w-full h-full object-cover hero-kenburns"
+              <video
+                src={heroVideo}
+                poster={heroImg}
+                autoPlay
+                loop
+                muted
+                playsInline
+                aria-label={t.hero.imageAlt}
+                className="w-full h-full object-cover"
               />
             </div>
           </div>
