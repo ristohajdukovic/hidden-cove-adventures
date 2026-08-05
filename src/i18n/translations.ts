@@ -357,7 +357,7 @@ const en: TranslationKeys = {
       name: "Valdanos to Ulcinj Tour",
       tagline: "Day trip",
       desc: "A one-hour boat trip from Valdanos to Old Ulcinj along the coast, with the same relaxed on-board experience as our Classic Tour.",
-      duration: "1 hour",
+      duration: "1 hour 30 minutes",
       group: "Up to 6 guests",
       price: "€85 total",
       included: [
@@ -371,7 +371,7 @@ const en: TranslationKeys = {
       name: "Old Town Swim Tour",
       tagline: "Day trip",
       desc: "A one-hour boat trip from Valdanos to Old Ulcinj with time to swim in the sea, plus the same relaxed on-board experience as our Classic Tour.",
-      duration: "1 hour",
+      duration: "1 hour 30 minutes",
       group: "Up to 6 guests",
       price: "€70 total",
       included: [
@@ -386,7 +386,7 @@ const en: TranslationKeys = {
       name: "Custom Tour",
       tagline: "Tailored to you",
       desc: "A flexible one-hour boat trip built around your plans, with the same relaxed on-board experience as our Classic Tour.",
-      duration: "1 hour",
+      duration: "1 hour 30 minutes",
       group: "Up to 6 guests",
       price: "€100 per hour",
       included: [
@@ -871,7 +871,7 @@ const de: TranslationKeys = {
       name: "Valdanos-Ulcinj Tour",
       tagline: "Tagestour",
       desc: "Eine einstündige Bootsfahrt von Valdanos nach Alt-Ulcinj entlang der Küste, mit dem gleichen entspannten Erlebnis an Bord wie bei unserer Classic Tour.",
-      duration: "1 Stunde",
+      duration: "1 Stunde 30 Minuten",
       group: "Bis zu 6 Gaeste",
       price: "85 € total",
       included: [
@@ -885,7 +885,7 @@ const de: TranslationKeys = {
       name: "Old Town Swim Tour",
       tagline: "Tagestour",
       desc: "Eine einstündige Bootsfahrt von Valdanos nach Alt-Ulcinj mit Zeit zum Schwimmen im Meer, dazu das gleiche entspannte Erlebnis an Bord wie bei unserer Classic Tour.",
-      duration: "1 Stunde",
+      duration: "1 Stunde 30 Minuten",
       group: "Bis zu 6 Gaeste",
       price: "70 € total",
       included: [
@@ -907,7 +907,7 @@ const de: TranslationKeys = {
       name: "Custom Tour",
       tagline: "Individuell",
       desc: "Eine flexible einstündige Bootsfahrt, die sich nach deinen Plänen richtet, mit dem gleichen entspannten Erlebnis an Bord wie bei unserer Classic Tour.",
-      duration: "1 Stunde",
+      duration: "1 Stunde 30 Minuten",
       group: "Bis zu 6 Gaeste",
       price: "100 € pro Stunde",
       included: [
@@ -1393,7 +1393,7 @@ const sq: TranslationKeys = {
       name: "Tur Valdanos-Ulqin",
       tagline: "Tur ditor",
       desc: "Një udhëtim një-orësh me varkë nga Valdanosi drejt Ulqinit të Vjetër përgjatë bregut, me të njëjtën përvojë të qetë në bord si Classic Tour.",
-      duration: "1 orë",
+      duration: "1 orë e 30 minuta",
       group: "Deri në 6 mysafirë",
       price: "85 € total",
       included: [
@@ -1407,7 +1407,7 @@ const sq: TranslationKeys = {
       name: "Old Town Swim Tour",
       tagline: "Tur ditor",
       desc: "Një udhëtim një-orësh me varkë nga Valdanosi drejt Ulqinit të Vjetër me kohë për të notuar në det, plus të njëjtën përvojë të qetë në bord si Classic Tour.",
-      duration: "1 orë",
+      duration: "1 orë e 30 minuta",
       group: "Deri në 6 mysafirë",
       price: "70 € total",
       included: [
@@ -1422,7 +1422,7 @@ const sq: TranslationKeys = {
       name: "Custom Tour",
       tagline: "E personalizuar",
       desc: "Një udhëtim fleksibël një-orësh me varkë, i ndërtuar sipas planeve tuaja, me të njëjtën përvojë të qetë në bord si Classic Tour.",
-      duration: "1 orë",
+      duration: "1 orë e 30 minuta",
       group: "Deri në 6 mysafirë",
       price: "100 € në orë",
       included: [
@@ -1908,7 +1908,7 @@ const me: TranslationKeys = {
       name: "Tura Valdanos-Ulcinj",
       tagline: "Dnevna tura",
       desc: "Jednosatna vožnja brodom od Valdanosa do Starog Ulcinja duž obale, sa istim opuštenim iskustvom na brodu kao na Classic Tour.",
-      duration: "1 sat",
+      duration: "1 sat i 30 minuta",
       group: "Do 6 gostiju",
       price: "85 € total",
       included: [
@@ -1922,7 +1922,7 @@ const me: TranslationKeys = {
       name: "Old Town Swim Tour",
       tagline: "Dnevna tura",
       desc: "Jednosatna vožnja brodom od Valdanosa do Starog Ulcinja sa vremenom za kupanje u moru, uz isto opušteno iskustvo na brodu kao na Classic Tour.",
-      duration: "1 sat",
+      duration: "1 sat i 30 minuta",
       group: "Do 6 gostiju",
       price: "70 € total",
       included: [
@@ -1937,7 +1937,7 @@ const me: TranslationKeys = {
       name: "Custom Tour",
       tagline: "Prilagođeno vama",
       desc: "Fleksibilna jednosatna vožnja brodom prilagođena vašim planovima, sa istim opuštenim iskustvom na brodu kao na Classic Tour.",
-      duration: "1 sat",
+      duration: "1 sat i 30 minuta",
       group: "Do 6 gostiju",
       price: "100 € po satu",
       included: [
